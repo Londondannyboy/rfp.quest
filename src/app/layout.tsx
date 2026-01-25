@@ -24,20 +24,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "RFP Quest",
-              url: "https://rfp.quest",
-              description: "Simplify your Request for Proposal process. Create, manage, and respond to RFPs efficiently with our streamlined platform.",
-            }),
-          }}
-        />
-      </head>
       <body>{children}</body>
     </html>
   );
