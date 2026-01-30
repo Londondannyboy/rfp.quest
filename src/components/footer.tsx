@@ -5,10 +5,10 @@ const softwareLinks = [
   { href: '/tender-software', label: 'Tender Software' },
   { href: '/bid-management-software', label: 'Bid Management Software' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
-  { href: '/rfp-automation-software', label: 'RFP Automation Software' },
-  { href: '/government-tender-software', label: 'Government Tender Software' },
-  { href: '/rfp-tools', label: 'RFP Tools' },
-  { href: '/free-rfp-software', label: 'Free RFP Software Trial' },
+  { href: '/government-tender-software', label: 'Government Tenders' },
+  { href: '/pqq-software', label: 'PQQ Software' },
+  { href: '/tender-library-software', label: 'Tender Library' },
+  { href: '/free-rfp-software', label: 'Free Trial' },
 ];
 
 const guideLinks = [

@@ -2,9 +2,29 @@ import { sql } from '@/lib/db';
 import { Metadata } from 'next';
 import Markdown from 'react-markdown';
 import Link from 'next/link';
+import { FeatureGrid, StatsBar, TrustBadges, CTABanner } from '@/components/seo';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Stat {
+  value: string;
+  label: string;
+  suffix?: string;
+}
+
+interface TrustBadge {
+  name: string;
+  logo?: string;
+  url?: string;
+  description?: string;
+}
 
 async function getHomepage() {
   const pages = await sql`
@@ -63,6 +83,11 @@ export default async function Home() {
   const mainSchema = jsonLd?.schemas?.[0] || null;
   const faqSchema = jsonLd?.schemas?.[1] || null;
 
+  // Parse enhanced data
+  const features = page.features as Feature[] | null;
+  const stats = page.stats as Stat[] | null;
+  const trustBadges = page.trust_badges as TrustBadge[] | null;
+
   return (
     <>
       {mainSchema && (
@@ -79,57 +104,88 @@ export default async function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="px-4 py-16 md:py-24 bg-gradient-to-b from-teal-50 to-white dark:from-slate-800 dark:to-slate-900">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white">
-            {page.h1}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            {page.meta_description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/"
-              className="px-8 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg transition-colors text-lg"
-            >
-              Start Free Trial
-            </Link>
-            <Link
-              href="/tender-software"
-              className="px-8 py-3 border-2 border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20 font-semibold rounded-lg transition-colors text-lg"
-            >
-              See Features
-            </Link>
+      <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute bottom-0 left-0 w-72 h-72 bg-teal-100/30 dark:bg-teal-900/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+              {page.h1}
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+              {page.meta_description}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/signup"
+                className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
+              >
+                Start Free Trial
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <Link
+                href="/tender-software"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-xl transition-all duration-200 text-lg"
+              >
+                Explore Features
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Stats Bar */}
+      {stats && stats.length > 0 && (
+        <StatsBar stats={stats} variant="gradient" />
+      )}
+
+      {/* Features Section */}
+      {features && features.length > 0 && (
+        <section className="py-20 md:py-28">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                Everything You Need to Win More Bids
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                AI-powered features designed for UK procurement teams
+              </p>
+            </div>
+            <FeatureGrid features={features} columns={3} />
+          </div>
+        </section>
+      )}
+
       {/* Main Content */}
-      <section className="px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <article className="prose prose-lg max-w-none">
+      <section className="py-16 md:py-24 bg-gray-50 dark:bg-slate-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <article className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-p:leading-relaxed prose-p:mb-6 prose-li:my-2 prose-a:text-teal-600 prose-a:no-underline hover:prose-a:underline">
             <Markdown>{page.body_content}</Markdown>
           </article>
         </div>
       </section>
 
+      {/* Trust Badges */}
+      {trustBadges && trustBadges.length > 0 && (
+        <TrustBadges
+          badges={trustBadges}
+          title="Built for UK Procurement"
+          subtitle="Aligned with UK government standards and professional bodies"
+        />
+      )}
+
       {/* CTA Section */}
-      <section className="px-4 py-16 bg-teal-600 dark:bg-teal-700">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to win more tenders?
-          </h2>
-          <p className="text-teal-100 text-lg mb-8">
-            Join UK procurement teams using AI to write better bids, faster.
-          </p>
-          <Link
-            href="/"
-            className="inline-block px-8 py-3 bg-white text-teal-600 font-semibold rounded-lg hover:bg-teal-50 transition-colors text-lg"
-          >
-            Start Your Free Trial
-          </Link>
-        </div>
-      </section>
+      <CTABanner
+        title="Ready to Win More Bids?"
+        subtitle="Experience AI-powered proposal management. Start your free trial today — no credit card required."
+        primaryCta={{ text: 'Start Free Trial', href: '/signup' }}
+        secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
+        variant="gradient"
+      />
     </>
   );
 }

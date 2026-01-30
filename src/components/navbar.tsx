@@ -8,8 +8,8 @@ const softwareLinks = [
   { href: '/tender-software', label: 'Tender Software' },
   { href: '/bid-management-software', label: 'Bid Management' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
-  { href: '/rfp-automation-software', label: 'RFP Automation' },
   { href: '/government-tender-software', label: 'Government Tenders' },
+  { href: '/pqq-software', label: 'PQQ Software' },
 ];
 
 const guideLinks = [
