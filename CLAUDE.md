@@ -106,18 +106,19 @@ search_volume     → Monthly search volume
 
 **Content Seeding Scripts** (`scripts/`):
 ```bash
-npx tsx scripts/seed-new-pages.ts        # Create initial pages
-npx tsx scripts/enhance-pages.ts         # Update hero images + content
-npx tsx scripts/add-enhanced-data.ts     # Add features, stats, badges
-npx tsx scripts/phase2-enhancements.ts   # Enhance + create bid writing pages
-npx tsx scripts/audit-links.ts           # Audit internal link structure
-npx tsx scripts/fix-internal-links.ts    # Fix orphaned pages, update homepage
+npx tsx scripts/seed-new-pages.ts           # Create initial pages
+npx tsx scripts/enhance-pages.ts            # Update hero images + content
+npx tsx scripts/add-enhanced-data.ts        # Add features, stats, badges
+npx tsx scripts/phase2-enhancements.ts      # Enhance + create bid writing pages
+npx tsx scripts/audit-links.ts              # Audit internal link structure
+npx tsx scripts/fix-internal-links.ts       # Fix orphaned pages, update homepage
+npx tsx scripts/seo-optimization-jan2026.ts # Add rfp-platform, bid-versioning, gdpr pages
 ```
 
-**Current SEO Pages** (41 pages, ~7,535 monthly searches):
+**Current SEO Pages** (44 pages, ~8,565 monthly searches):
 
-*Software Cluster (25 pages):*
-- /proposal-software, /bid-management-software, /tender-software
+*Software Cluster (28 pages):*
+- /rfp-platform, /proposal-software, /bid-management-software, /tender-software
 - /tender-management-software, /proposal-management-software
 - /rfp-management-software, /rfp-response-software, /ai-rfp-software
 - /bid-writing-software, /government-tender-software, /procurement-software-uk
@@ -126,6 +127,7 @@ npx tsx scripts/fix-internal-links.ts    # Fix orphaned pages, update homepage
 - /rfp-automation-software, /rfp-tools, /proposal-writing-software
 - /free-rfp-software, /rfp-software-small-business
 - /proposal-software-accountants, /bid-writing-services, /ai-bid-writing
+- /bid-versioning, /gdpr-bid-management
 
 *How-To Cluster (11 pages):*
 - /bid-writing (1,900/mo), /tender-process (1,000/mo)
