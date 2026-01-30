@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 const softwareLinks = [
+  { href: '/proposal-software', label: 'Proposal Software' },
   { href: '/tender-software', label: 'Tender Software' },
   { href: '/bid-management-software', label: 'Bid Management' },
-  { href: '/tender-management-software', label: 'Tender Management' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
-  { href: '/proposal-management-software', label: 'Proposal Management' },
+  { href: '/rfp-automation-software', label: 'RFP Automation' },
+  { href: '/government-tender-software', label: 'Government Tenders' },
 ];
 
 const guideLinks = [

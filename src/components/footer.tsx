@@ -1,12 +1,14 @@
 import Link from 'next/link';
 
 const softwareLinks = [
+  { href: '/proposal-software', label: 'Proposal Software' },
   { href: '/tender-software', label: 'Tender Software' },
   { href: '/bid-management-software', label: 'Bid Management Software' },
-  { href: '/tender-management-software', label: 'Tender Management Software' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
-  { href: '/proposal-management-software', label: 'Proposal Management Software' },
-  { href: '/procurement-software-uk', label: 'Procurement Software UK' },
+  { href: '/rfp-automation-software', label: 'RFP Automation Software' },
+  { href: '/government-tender-software', label: 'Government Tender Software' },
+  { href: '/rfp-tools', label: 'RFP Tools' },
+  { href: '/free-rfp-software', label: 'Free RFP Software Trial' },
 ];
 
 const guideLinks = [
