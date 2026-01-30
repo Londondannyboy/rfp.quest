@@ -21,9 +21,12 @@ The frontend communicates with the agent via CopilotKit's AG-UI protocol. The Ne
 
 ```
 src/app/              → Next.js pages and API routes
+src/app/[slug]/       → Dynamic SEO pages (database-driven)
 src/components/       → React components (ui/, copilot/, tenders/, layout/)
+src/components/seo/   → SEO page components (FeatureGrid, StatsBar, TrustBadges, CTABanner)
 src/lib/              → Shared utilities (db, auth, upload, gov-api)
 src/hooks/            → Custom React hooks
+scripts/              → Database seeding scripts for content management
 drizzle/              → Database schema and migrations
 agent/                → Python FastAPI + LangGraph (deployed separately)
 agent/nodes/          → LangGraph pipeline nodes
@@ -67,6 +70,58 @@ docker compose up agent                          # Run via Docker
 - Schema defined in `drizzle/schema.ts`
 - Key tables: users, teams, team_memberships, sessions, tenders, tender_analyses
 - Analysis results stored as JSONB columns for flexibility
+
+### SEO Pages System
+All marketing/SEO pages are database-driven via the `pages` table:
+
+**Route**: `src/app/[slug]/page.tsx` - Dynamic catch-all for SEO pages
+
+**Pages Table Schema**:
+```
+slug              → URL path (e.g., '/proposal-software')
+title_tag         → <title> tag content
+h1                → Page heading
+meta_description  → Meta description
+primary_keyword   → Main target keyword
+secondary_keywords→ Array of related keywords
+body_content      → Markdown content (rendered with react-markdown)
+hero_image        → Unsplash hero image URL
+hero_image_alt    → Alt text for hero image
+og_image          → OpenGraph image URL
+features          → JSONB array of feature cards
+stats             → JSONB array of statistics
+trust_badges      → JSONB array of authority badges
+json_ld           → Structured data (SoftwareApplication, FAQPage schemas)
+cluster           → Content cluster category
+intent            → 'commercial' | 'informational'
+status            → 'draft' | 'published'
+search_volume     → Monthly search volume
+```
+
+**SEO Components** (`src/components/seo/`):
+- `FeatureGrid` - Responsive feature cards (2/3/4 columns)
+- `StatsBar` - Statistics display with gradient variant
+- `TrustBadges` - Authority trust indicators with links
+- `CTABanner` - Call-to-action sections
+
+**Content Seeding Scripts** (`scripts/`):
+```bash
+npx tsx scripts/seed-new-pages.ts      # Create new pages
+npx tsx scripts/enhance-pages.ts       # Update hero images + content
+npx tsx scripts/add-enhanced-data.ts   # Add features, stats, badges
+```
+
+**Current SEO Pages** (targeting ~650 monthly searches):
+- /proposal-software (320/mo)
+- /proposal-software-accountants (110/mo)
+- /rfp-automation-software (80/mo)
+- /rfp-tools (50/mo)
+- /proposal-writing-software (40/mo)
+- /government-tender-software (20/mo)
+- /free-rfp-software (20/mo)
+- /rfp-software-small-business (10/mo)
+
+**Sitemap**: Auto-generated from database (`src/app/sitemap.ts`)
 
 ## Conventions
 
