@@ -106,21 +106,40 @@ search_volume     → Monthly search volume
 
 **Content Seeding Scripts** (`scripts/`):
 ```bash
-npx tsx scripts/seed-new-pages.ts      # Create new pages
-npx tsx scripts/enhance-pages.ts       # Update hero images + content
-npx tsx scripts/add-enhanced-data.ts   # Add features, stats, badges
+npx tsx scripts/seed-new-pages.ts        # Create initial pages
+npx tsx scripts/enhance-pages.ts         # Update hero images + content
+npx tsx scripts/add-enhanced-data.ts     # Add features, stats, badges
+npx tsx scripts/phase2-enhancements.ts   # Enhance + create bid writing pages
+npx tsx scripts/audit-links.ts           # Audit internal link structure
+npx tsx scripts/fix-internal-links.ts    # Fix orphaned pages, update homepage
 ```
 
-**Current SEO Pages** (targeting ~650 monthly searches):
-- /proposal-software (320/mo)
-- /proposal-software-accountants (110/mo)
-- /rfp-automation-software (80/mo)
-- /rfp-tools (50/mo)
-- /proposal-writing-software (40/mo)
-- /government-tender-software (20/mo)
-- /free-rfp-software (20/mo)
-- /rfp-software-small-business (10/mo)
+**Current SEO Pages** (41 pages, ~7,535 monthly searches):
 
+*Software Cluster (25 pages):*
+- /proposal-software, /bid-management-software, /tender-software
+- /tender-management-software, /proposal-management-software
+- /rfp-management-software, /rfp-response-software, /ai-rfp-software
+- /bid-writing-software, /government-tender-software, /procurement-software-uk
+- /construction-bid-management-software, /pqq-software, /itt-response-software
+- /tender-library-software, /tender-management-software-uk, /best-rfp-software
+- /rfp-automation-software, /rfp-tools, /proposal-writing-software
+- /free-rfp-software, /rfp-software-small-business
+- /proposal-software-accountants, /bid-writing-services, /ai-bid-writing
+
+*How-To Cluster (11 pages):*
+- /bid-writing (1,900/mo), /tender-process (1,000/mo)
+- /what-is-bid-writing (880/mo), /writing-a-tender-bid (590/mo)
+- /bid-writing-courses (480/mo), /how-to-write-a-tender (140/mo)
+- /how-to-win-a-tender (110/mo), /rfp-tender (70/mo)
+- /how-to-write-a-tender-proposal, /how-to-write-a-tender-response
+- /rfp-software-development
+
+*Templates Cluster (4 pages):*
+- /sample-rfp-software, /bid-writing-examples
+- /rfp-software-template, /rfp-for-software-development-template
+
+**Internal Linking**: All pages linked from homepage, no orphans
 **Sitemap**: Auto-generated from database (`src/app/sitemap.ts`)
 
 ## Conventions
