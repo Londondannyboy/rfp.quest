@@ -34,11 +34,15 @@ export function Navbar() {
     <nav className="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-gray-200 dark:border-gray-800">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 dark:text-white">
-            <span className="text-teal-600">rfp</span>
-            <span>.quest</span>
-          </Link>
+          {/* Logo + Beta Badge */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 dark:text-white">
+              <span className="text-teal-600">rfp</span>
+              <span>.quest</span>
+            </Link>
+            <span className="px-2 py-0.5 text-xs font-bold bg-amber-500 text-white rounded uppercase">Beta</span>
+            <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">Launching Q1 2026</span>
+          </div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
@@ -116,10 +120,12 @@ export function Navbar() {
 
             {/* CTA */}
             <Link
-              href="/"
+              href="https://calendly.com/my-first-quest"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-4 px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors"
             >
-              Start Free Trial
+              Register Early
             </Link>
           </div>
 
@@ -185,13 +191,15 @@ export function Navbar() {
               ))}
 
               <div className="pt-4 px-2">
-                <Link
-                  href="/"
+                <a
+                  href="https://calendly.com/my-first-quest"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="block w-full text-center px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Start Free Trial
-                </Link>
+                  Register Early
+                </a>
               </div>
             </div>
           </div>

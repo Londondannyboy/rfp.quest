@@ -69,12 +69,23 @@ export function CTABanner({
           </p>
         )}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href={primaryCta.href}
-            className={`inline-block px-8 py-4 font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl ${buttonClasses[variant].primary}`}
-          >
-            {primaryCta.text}
-          </Link>
+          {primaryCta.href.startsWith('http') ? (
+            <a
+              href={primaryCta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-block px-8 py-4 font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl ${buttonClasses[variant].primary}`}
+            >
+              {primaryCta.text}
+            </a>
+          ) : (
+            <Link
+              href={primaryCta.href}
+              className={`inline-block px-8 py-4 font-semibold rounded-lg transition-colors shadow-lg hover:shadow-xl ${buttonClasses[variant].primary}`}
+            >
+              {primaryCta.text}
+            </Link>
+          )}
           {secondaryCta && (
             <Link
               href={secondaryCta.href}

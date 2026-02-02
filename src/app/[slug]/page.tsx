@@ -172,20 +172,22 @@ export default async function Page({ params }: PageProps) {
               {/* CTA Buttons for commercial pages */}
               {isCommercial && (
                 <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-start">
-                  <Link
-                    href="/signup"
+                  <a
+                    href="https://calendly.com/my-first-quest"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
                   >
-                    Start Free Trial
+                    Register Early
                     <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                  </Link>
+                  </a>
                   <Link
-                    href="/demo"
+                    href="/tender-software"
                     className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-xl transition-all duration-200"
                   >
-                    Watch Demo
+                    Explore Features
                   </Link>
                 </div>
               )}
@@ -244,9 +246,9 @@ export default async function Page({ params }: PageProps) {
       {isCommercial && (
         <CTABanner
           title="Ready to Win More Bids?"
-          subtitle="Join hundreds of UK businesses using RFP Platform Quest to create winning proposals faster. Start your free trial today — no credit card required."
-          primaryCta={{ text: 'Start Free Trial', href: '/signup' }}
-          secondaryCta={{ text: 'Book a Demo', href: '/demo' }}
+          subtitle="Join UK businesses preparing to use RFP Platform Quest. Register early for exclusive access when we launch in Q1 2026."
+          primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
+          secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
           variant="gradient"
         />
       )}
