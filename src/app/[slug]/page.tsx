@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: page.h1,
       description: page.meta_description,
       url: `${baseUrl}/${slug}`,
-      siteName: 'rfp.quest',
+      siteName: 'RFP Platform Quest',
       locale: 'en_GB',
       type: page.intent === 'informational' ? 'article' : 'website',
       images: page.og_image ? [{ url: page.og_image, width: 1200, height: 630, alt: page.hero_image_alt || page.h1 }] : undefined,
@@ -244,7 +244,7 @@ export default async function Page({ params }: PageProps) {
       {isCommercial && (
         <CTABanner
           title="Ready to Win More Bids?"
-          subtitle="Join hundreds of UK businesses using rfp.quest to create winning proposals faster. Start your free trial today — no credit card required."
+          subtitle="Join hundreds of UK businesses using RFP Platform Quest to create winning proposals faster. Start your free trial today — no credit card required."
           primaryCta={{ text: 'Start Free Trial', href: '/signup' }}
           secondaryCta={{ text: 'Book a Demo', href: '/demo' }}
           variant="gradient"

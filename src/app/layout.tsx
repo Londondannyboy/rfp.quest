@@ -5,23 +5,23 @@ import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "rfp.quest - AI-Powered RFP & Tender Software",
-    template: "%s | rfp.quest",
+    default: "RFP Platform UK | AI-Powered Bid Management Software",
+    template: "%s | RFP Platform Quest",
   },
-  description: "AI-powered RFP and tender management software. Write winning bids faster with automated proposal tools. Built for UK procurement teams.",
-  keywords: ["RFP software", "tender software", "bid management", "proposal software", "UK procurement"],
+  description: "RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.",
+  keywords: ["RFP platform", "RFP software", "tender software", "bid management", "proposal software", "UK procurement"],
   openGraph: {
-    title: "rfp.quest - AI-Powered RFP & Tender Software",
-    description: "AI-powered RFP and tender management software. Write winning bids faster with automated proposal tools. Built for UK procurement teams.",
+    title: "RFP Platform UK | AI-Powered Bid Management Software",
+    description: "RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.",
     url: "https://rfp.quest",
-    siteName: "rfp.quest",
+    siteName: "RFP Platform Quest",
     locale: "en_GB",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "rfp.quest - AI-Powered RFP & Tender Software",
-    description: "AI-powered RFP and tender management software. Write winning bids faster.",
+    title: "RFP Platform UK | AI-Powered Bid Management",
+    description: "RFP platform for UK businesses. AI-powered bid writing and proposal management.",
   },
   alternates: { canonical: "https://rfp.quest" },
   robots: {

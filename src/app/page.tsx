@@ -2,6 +2,7 @@ import { sql } from '@/lib/db';
 import { Metadata } from 'next';
 import Markdown from 'react-markdown';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FeatureGrid, StatsBar, TrustBadges, CTABanner } from '@/components/seo';
 
 export const dynamic = 'force-dynamic';
@@ -134,6 +135,20 @@ export default async function Home() {
                 Explore Features
               </Link>
             </div>
+
+            {/* Hero Image */}
+            {page.hero_image && (
+              <div className="mt-12 relative rounded-2xl overflow-hidden shadow-2xl shadow-teal-600/10">
+                <Image
+                  src={page.hero_image}
+                  alt={page.hero_image_alt || 'RFP platform for bid management'}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
