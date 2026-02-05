@@ -123,7 +123,7 @@ export default async function Home() {
                 href="https://calendly.com/my-first-quest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
+                className="inline-flex items-center justify-center px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
               >
                 Register Early
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -144,6 +144,7 @@ export default async function Home() {
                 <Image
                   src={page.hero_image}
                   alt={page.hero_image_alt || 'RFP platform for bid management'}
+                  title={page.hero_image_alt || 'RFP platform for bid management'}
                   width={1200}
                   height={800}
                   className="w-full h-auto"

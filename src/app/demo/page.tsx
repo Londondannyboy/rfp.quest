@@ -154,7 +154,7 @@ export default function DemoPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
+                  className="w-full px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
                 >
                   Request Demo
                 </button>

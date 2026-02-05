@@ -43,7 +43,7 @@ export function Navbar() {
               <span className="text-teal-600">rfp</span>
               <span>.quest</span>
             </Link>
-            <span className="px-2 py-0.5 text-xs font-bold bg-amber-500 text-white rounded uppercase">Beta</span>
+            <span className="px-2 py-0.5 text-xs font-bold bg-amber-600 text-black rounded uppercase">Beta</span>
             <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">Launching Q1 2026</span>
           </div>
 
@@ -126,7 +126,7 @@ export function Navbar() {
               href="https://calendly.com/my-first-quest"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 px-5 py-2 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors"
+              className="ml-4 px-5 py-2 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors"
             >
               Register Early
             </Link>
@@ -136,6 +136,8 @@ export function Navbar() {
           <button
             className="md:hidden p-2 text-gray-700 dark:text-gray-300"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileOpen ? (
@@ -198,7 +200,7 @@ export function Navbar() {
                   href="https://calendly.com/my-first-quest"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg"
+                  className="block w-full text-center px-5 py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
                   Register Early

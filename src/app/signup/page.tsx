@@ -53,7 +53,7 @@ export default function SignupPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
+                  className="w-full px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
                 >
                   Join the Waitlist
                 </button>
@@ -151,7 +151,7 @@ export default function SignupPage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-teal-600 dark:bg-teal-700">
+      <section className="py-16 md:py-24 bg-teal-700 dark:bg-teal-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Be First in Line

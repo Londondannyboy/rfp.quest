@@ -22,7 +22,7 @@ export function CTABanner({
   variant = 'gradient',
 }: CTABannerProps) {
   const variantClasses = {
-    gradient: 'bg-gradient-to-r from-teal-600 to-teal-700',
+    gradient: 'bg-gradient-to-r from-teal-700 to-teal-800',
     dark: 'bg-gray-900 dark:bg-slate-950',
     light: 'bg-gray-50 dark:bg-slate-800',
   };
@@ -48,11 +48,11 @@ export function CTABanner({
       secondary: 'border-2 border-white text-white hover:bg-white/10',
     },
     dark: {
-      primary: 'bg-teal-600 text-white hover:bg-teal-700',
+      primary: 'bg-teal-700 text-white hover:bg-teal-800',
       secondary: 'border-2 border-teal-600 text-teal-400 hover:bg-teal-900/30',
     },
     light: {
-      primary: 'bg-teal-600 text-white hover:bg-teal-700',
+      primary: 'bg-teal-700 text-white hover:bg-teal-800',
       secondary: 'border-2 border-teal-600 text-teal-600 hover:bg-teal-50 dark:hover:bg-teal-900/20',
     },
   };

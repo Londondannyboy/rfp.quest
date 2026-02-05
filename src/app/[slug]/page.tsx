@@ -176,7 +176,7 @@ export default async function Page({ params }: PageProps) {
                     href="https://calendly.com/my-first-quest"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5"
                   >
                     Register Early
                     <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,6 +200,7 @@ export default async function Page({ params }: PageProps) {
                   <Image
                     src={page.hero_image}
                     alt={page.hero_image_alt || page.h1}
+                    title={page.hero_image_alt || page.h1}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"
