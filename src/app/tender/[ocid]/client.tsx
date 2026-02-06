@@ -402,8 +402,11 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 <Link href="/" className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors">
                   Try RFP.quest Free
                 </Link>
-                <Link href="/dashboard" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
-                  Browse All Tenders
+                <Link href="/dashboard?stage=tender" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
+                  View Open Tenders
+                </Link>
+                <Link href={`/dashboard?buyer=${encodeURIComponent(tender.buyerName)}`} className="px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 font-medium rounded-lg transition-colors border border-slate-700">
+                  More from {tender.buyerName.length > 25 ? tender.buyerName.substring(0, 25) + '...' : tender.buyerName}
                 </Link>
               </div>
             </div>

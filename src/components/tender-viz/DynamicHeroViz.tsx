@@ -35,10 +35,41 @@ const sectorThemes: Record<string, { icon: string; gradient: string[]; pattern: 
 
 const defaultTheme = { icon: '📋', gradient: ['#14b8a6', '#0d9488'], pattern: 'default' };
 
-function getSectorFromCPV(cpvCodes?: string[] | null): typeof defaultTheme {
-  if (!cpvCodes || cpvCodes.length === 0) return defaultTheme;
-  const division = cpvCodes[0].substring(0, 2);
-  return sectorThemes[division] || defaultTheme;
+// Keyword patterns to detect sector from title
+const keywordSectorMap: { keywords: RegExp; division: string }[] = [
+  { keywords: /\b(digital twin|data|analytics|software|IT|tech|cloud|cyber|AI|machine learning)\b/i, division: '72' },
+  { keywords: /\b(water|sewage|waste|treatment|utilities|energy|electricity)\b/i, division: '90' },
+  { keywords: /\b(construction|building|infrastructure|highways|roads|civil)\b/i, division: '45' },
+  { keywords: /\b(health|NHS|hospital|medical|clinical|care)\b/i, division: '85' },
+  { keywords: /\b(education|school|university|training|learning)\b/i, division: '80' },
+  { keywords: /\b(transport|rail|bus|logistics|fleet)\b/i, division: '60' },
+  { keywords: /\b(security|police|defence|military)\b/i, division: '75' },
+  { keywords: /\b(finance|banking|insurance|audit)\b/i, division: '66' },
+  { keywords: /\b(legal|law|solicitor|barrister)\b/i, division: '79' },
+  { keywords: /\b(consulting|advisory|strategy|management)\b/i, division: '79' },
+  { keywords: /\b(research|R&D|innovation|laboratory)\b/i, division: '73' },
+  { keywords: /\b(architecture|design|engineering|survey)\b/i, division: '71' },
+  { keywords: /\b(telecom|network|communications|broadband)\b/i, division: '64' },
+  { keywords: /\b(environment|climate|sustainability|recycling)\b/i, division: '90' },
+];
+
+function getSectorFromCPV(cpvCodes?: string[] | null, title?: string): typeof defaultTheme {
+  // First try CPV codes
+  if (cpvCodes && cpvCodes.length > 0) {
+    const division = cpvCodes[0].substring(0, 2);
+    if (sectorThemes[division]) return sectorThemes[division];
+  }
+
+  // Fall back to keyword detection from title
+  if (title) {
+    for (const { keywords, division } of keywordSectorMap) {
+      if (keywords.test(title)) {
+        return sectorThemes[division] || defaultTheme;
+      }
+    }
+  }
+
+  return defaultTheme;
 }
 
 // Generate abstract pattern based on sector
@@ -182,7 +213,7 @@ function StageIndicator({ stage }: { stage: string }) {
 }
 
 export function DynamicHeroViz({ cpvCodes, stage, value, title }: DynamicHeroVizProps) {
-  const sector = useMemo(() => getSectorFromCPV(cpvCodes), [cpvCodes]);
+  const sector = useMemo(() => getSectorFromCPV(cpvCodes, title), [cpvCodes, title]);
   const gradientId = useMemo(() => `hero-grad-${Math.random().toString(36).slice(2, 11)}`, []);
 
   // Extract key words for display
