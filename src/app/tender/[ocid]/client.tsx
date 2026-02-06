@@ -13,6 +13,8 @@ import { CPVExplorer } from '@/components/tender-viz/CPVExplorer';
 import { DynamicHeroViz } from '@/components/tender-viz/DynamicHeroViz';
 import { ScopeOfWork } from '@/components/tender-viz/ScopeOfWork';
 import { RelatedTenders } from '@/components/tender-viz/RelatedTenders';
+import { SectorBubbleChart } from '@/components/tender-viz/SectorBubbleChart';
+import { BuyerNetworkGraph } from '@/components/tender-viz/BuyerNetworkGraph';
 import {
   ArrowLeftIcon,
   ArrowTopRightOnSquareIcon,
@@ -232,7 +234,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             />
           </div>
           {/* Dynamic sector visualization */}
-          <div className="hidden lg:block">
+          <div className="lg:block">
             <DynamicHeroViz
               cpvCodes={tender.cpvCodes}
               stage={tender.stage}
@@ -327,6 +329,15 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             <RelatedTenders
               currentOcid={tender.ocid}
               buyerName={tender.buyerName}
+              region={tender.region}
+            />
+
+            {/* Sector Overview Visualization */}
+            <SectorBubbleChart region={tender.region} />
+
+            {/* Buyer Network Graph */}
+            <BuyerNetworkGraph
+              currentBuyer={tender.buyerName}
               region={tender.region}
             />
 
