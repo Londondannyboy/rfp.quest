@@ -24,6 +24,15 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
+// Helper to create buyer slug
+function slugifyBuyer(name: string): string {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+    .substring(0, 100);
+}
+
 export interface Tender {
   ocid: string;
   slug: string;
@@ -368,6 +377,16 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
           {/* Sidebar */}
           <div className="space-y-6">
             <BuyerProfile name={tender.buyerName} region={tender.region || undefined} />
+
+            {/* Link to buyer page */}
+            <Link
+              href={`/buyer/${slugifyBuyer(tender.buyerName)}`}
+              className="block bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border border-teal-500/20 hover:border-teal-500/40 transition-colors"
+            >
+              <div className="text-sm text-teal-400 mb-1">View All Contracts</div>
+              <div className="text-white font-medium">{tender.buyerName}</div>
+              <div className="text-xs text-slate-400 mt-1">Spending trends, sector breakdown &amp; more →</div>
+            </Link>
 
             <TenderStats
               stats={[
