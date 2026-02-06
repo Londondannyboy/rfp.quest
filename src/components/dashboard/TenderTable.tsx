@@ -22,7 +22,7 @@ import {
   AdjustmentsHorizontalIcon,
   ArrowPathIcon,
 } from '@heroicons/react/24/outline';
-import type { Tender } from '@/lib/api/types';
+import type { Tender } from '@/lib/hooks/use-tenders';
 import { columns, defaultVisibleColumns } from './columns';
 
 interface TenderTableProps {

@@ -12,12 +12,38 @@ import {
   ClockIcon,
   DocumentTextIcon,
 } from '@heroicons/react/24/outline';
-import type { Tender } from '@/lib/api/types';
-import { formatValueRange, formatDeadline } from '@/lib/api/find-a-tender';
+import type { Tender } from '@/lib/hooks/use-tenders';
 
 interface TenderDetailProps {
   tender: Tender | null;
   onClose: () => void;
+}
+
+function formatValue(min: number | null, max: number | null, currency: string = 'GBP'): string {
+  const formatter = new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+  });
+
+  if (min && max && min !== max) {
+    return `${formatter.format(min)} - ${formatter.format(max)}`;
+  } else if (max) {
+    return formatter.format(max);
+  } else if (min) {
+    return `From ${formatter.format(min)}`;
+  }
+  return 'Not specified';
+}
+
+function formatDate(dateString: string | null): string {
+  if (!dateString) return 'Not specified';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 }
 
 function DetailSection({
@@ -40,26 +66,27 @@ function DetailSection({
   );
 }
 
-function StatusBadge({ status }: { status: string }) {
+function StageBadge({ stage }: { stage: string }) {
   const colors: Record<string, string> = {
-    active: 'bg-green-100 text-green-800 border-green-200',
+    tender: 'bg-green-100 text-green-800 border-green-200',
     planning: 'bg-blue-100 text-blue-800 border-blue-200',
-    awarded: 'bg-purple-100 text-purple-800 border-purple-200',
-    contracted: 'bg-gray-100 text-gray-800 border-gray-200',
-    unknown: 'bg-gray-100 text-gray-600 border-gray-200',
+    award: 'bg-purple-100 text-purple-800 border-purple-200',
+    contract: 'bg-gray-100 text-gray-800 border-gray-200',
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${colors[status] || colors.unknown}`}
+      className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${colors[stage] || 'bg-gray-100 text-gray-600 border-gray-200'}`}
     >
-      {status.charAt(0).toUpperCase() + status.slice(1)}
+      {stage.charAt(0).toUpperCase() + stage.slice(1)}
     </span>
   );
 }
 
 export function TenderDetail({ tender, onClose }: TenderDetailProps) {
   if (!tender) return null;
+
+  const findATenderUrl = `https://www.find-tender.service.gov.uk/Notice/${tender.ocid.split('-').pop()}`;
 
   return (
     <Fragment>
@@ -78,7 +105,7 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
               {tender.title}
             </h2>
             <div className="mt-2 flex items-center gap-3">
-              <StatusBadge status={tender.status} />
+              <StageBadge stage={tender.stage} />
               <span className="text-sm text-gray-500">
                 OCID: {tender.ocid}
               </span>
@@ -112,16 +139,16 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
           {/* Value */}
           <DetailSection title="Contract Value" icon={CurrencyPoundIcon}>
             <p className="text-lg font-semibold">
-              {formatValueRange(tender.valueMin, tender.valueMax, tender.currency)}
+              {formatValue(tender.valueMin, tender.valueMax, tender.valueCurrency)}
             </p>
           </DetailSection>
 
           {/* Deadline */}
           <DetailSection title="Submission Deadline" icon={CalendarIcon}>
-            <p className="font-medium">{formatDeadline(tender.deadline)}</p>
-            {tender.deadline && (
+            <p className="font-medium">{formatDate(tender.tenderEndDate)}</p>
+            {tender.tenderEndDate && (
               <p className="text-gray-500 mt-1">
-                {new Date(tender.deadline).toLocaleTimeString('en-GB', {
+                {new Date(tender.tenderEndDate).toLocaleTimeString('en-GB', {
                   hour: '2-digit',
                   minute: '2-digit',
                 })}
@@ -131,13 +158,7 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
 
           {/* Published */}
           <DetailSection title="Published" icon={ClockIcon}>
-            <p>
-              {new Date(tender.publishedDate).toLocaleDateString('en-GB', {
-                day: 'numeric',
-                month: 'long',
-                year: 'numeric',
-              })}
-            </p>
+            <p>{formatDate(tender.publishedDate)}</p>
           </DetailSection>
 
           {/* Region */}
@@ -147,17 +168,8 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
             </DetailSection>
           )}
 
-          {/* Category */}
-          {tender.mainCategory && (
-            <DetailSection title="Category" icon={TagIcon}>
-              <p className="capitalize">
-                {tender.mainCategory.replace(/-/g, ' ')}
-              </p>
-            </DetailSection>
-          )}
-
           {/* CPV Codes */}
-          {tender.cpvCodes.length > 0 && (
+          {tender.cpvCodes && tender.cpvCodes.length > 0 && (
             <DetailSection title="CPV Codes" icon={TagIcon}>
               <div className="flex flex-wrap gap-2">
                 {tender.cpvCodes.map((code) => (
@@ -171,25 +183,16 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
               </div>
             </DetailSection>
           )}
-
-          {/* Procurement Method */}
-          {tender.procurementMethod && (
-            <DetailSection title="Procurement Method" icon={DocumentTextIcon}>
-              <p className="capitalize">
-                {tender.procurementMethod.replace(/([A-Z])/g, ' $1').trim()}
-              </p>
-            </DetailSection>
-          )}
         </div>
 
         {/* Footer */}
         <div className="p-6 border-t border-gray-200 bg-gray-50">
           <div className="flex gap-3">
             <a
-              href={tender.externalUrl}
+              href={findATenderUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700"
             >
               View on Find a Tender
               <ArrowTopRightOnSquareIcon className="h-4 w-4" />

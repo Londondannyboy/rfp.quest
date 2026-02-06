@@ -1,22 +1,56 @@
 'use client';
 
-import { useQuery, useInfiniteQuery } from '@tanstack/react-query';
-import type { Tender, TenderSearchParams, TenderSearchResponse } from '@/lib/api/types';
+import { useQuery } from '@tanstack/react-query';
+
+export interface Tender {
+  id: string;
+  ocid: string;
+  title: string;
+  description: string | null;
+  status: string | null;
+  stage: string;
+  buyerName: string;
+  buyerId: string | null;
+  valueAmount: number | null;
+  valueCurrency: string;
+  valueMin: number | null;
+  valueMax: number | null;
+  publishedDate: string;
+  tenderStartDate: string | null;
+  tenderEndDate: string | null;
+  cpvCodes: string[];
+  region: string | null;
+  syncedAt: string;
+}
+
+export interface TenderSearchParams {
+  limit?: number;
+  offset?: number;
+  keyword?: string;
+  buyerName?: string;
+  stage?: string;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+}
+
+export interface TenderSearchResponse {
+  tenders: Tender[];
+  totalCount: number;
+  limit: number;
+  offset: number;
+  hasMore: boolean;
+}
 
 async function fetchTenders(params: TenderSearchParams): Promise<TenderSearchResponse> {
   const searchParams = new URLSearchParams();
 
   if (params.limit) searchParams.set('limit', String(params.limit));
-  if (params.cursor) searchParams.set('cursor', params.cursor);
-  if (params.stages?.length) searchParams.set('stages', params.stages.join(','));
-  if (params.updatedFrom) searchParams.set('updatedFrom', params.updatedFrom);
-  if (params.updatedTo) searchParams.set('updatedTo', params.updatedTo);
+  if (params.offset) searchParams.set('offset', String(params.offset));
   if (params.keyword) searchParams.set('keyword', params.keyword);
   if (params.buyerName) searchParams.set('buyerName', params.buyerName);
-  if (params.cpvCode) searchParams.set('cpvCode', params.cpvCode);
-  if (params.region) searchParams.set('region', params.region);
-  if (params.minValue !== undefined) searchParams.set('minValue', String(params.minValue));
-  if (params.maxValue !== undefined) searchParams.set('maxValue', String(params.maxValue));
+  if (params.stage) searchParams.set('stage', params.stage);
+  if (params.sortBy) searchParams.set('sortBy', params.sortBy);
+  if (params.sortOrder) searchParams.set('sortOrder', params.sortOrder);
 
   const response = await fetch(`/api/tenders/search?${searchParams.toString()}`);
 
@@ -39,17 +73,10 @@ async function fetchTenderByOcid(ocid: string): Promise<Tender> {
   return response.json();
 }
 
-export function useTenders(params: Omit<TenderSearchParams, 'cursor'> = {}) {
-  return useInfiniteQuery({
+export function useTenders(params: TenderSearchParams = {}) {
+  return useQuery({
     queryKey: ['tenders', params],
-    queryFn: ({ pageParam }) => fetchTenders({ ...params, cursor: pageParam }),
-    initialPageParam: undefined as string | undefined,
-    getNextPageParam: (lastPage) => lastPage.nextCursor,
-    select: (data) => ({
-      pages: data.pages,
-      pageParams: data.pageParams,
-      tenders: data.pages.flatMap((page) => page.tenders),
-    }),
+    queryFn: () => fetchTenders(params),
   });
 }
 
@@ -58,12 +85,5 @@ export function useTender(ocid: string | null) {
     queryKey: ['tender', ocid],
     queryFn: () => fetchTenderByOcid(ocid!),
     enabled: !!ocid,
-  });
-}
-
-export function useTendersSimple(params: TenderSearchParams = {}) {
-  return useQuery({
-    queryKey: ['tenders-simple', params],
-    queryFn: () => fetchTenders(params),
   });
 }

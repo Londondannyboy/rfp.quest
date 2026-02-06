@@ -130,6 +130,14 @@ export function Navbar() {
               )}
             </div>
 
+            {/* Dashboard - prominent link */}
+            <Link
+              href="/dashboard"
+              className="px-4 py-2 text-teal-700 dark:text-teal-400 hover:text-teal-800 dark:hover:text-teal-300 font-semibold"
+            >
+              Dashboard
+            </Link>
+
             {/* Auth Section */}
             {isPending ? (
               <div className="ml-4 w-8 h-8 rounded-full bg-gray-200 animate-pulse" />

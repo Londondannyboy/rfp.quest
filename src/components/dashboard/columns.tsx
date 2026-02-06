@@ -1,30 +1,55 @@
 'use client';
 
 import { createColumnHelper } from '@tanstack/react-table';
-import type { Tender } from '@/lib/api/types';
-import { formatValueRange, formatDeadline } from '@/lib/api/find-a-tender';
+import type { Tender } from '@/lib/hooks/use-tenders';
 
 const columnHelper = createColumnHelper<Tender>();
 
-function StatusBadge({ status }: { status: string }) {
+function formatValue(min: number | null, max: number | null, currency: string = 'GBP'): string {
+  const formatter = new Intl.NumberFormat('en-GB', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: 0,
+  });
+
+  if (min && max && min !== max) {
+    return `${formatter.format(min)} - ${formatter.format(max)}`;
+  } else if (max) {
+    return formatter.format(max);
+  } else if (min) {
+    return `From ${formatter.format(min)}`;
+  }
+  return 'Not specified';
+}
+
+function formatDate(dateString: string | null): string {
+  if (!dateString) return '-';
+  const date = new Date(dateString);
+  return date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+}
+
+function StageBadge({ stage }: { stage: string }) {
   const colors: Record<string, string> = {
-    active: 'bg-green-100 text-green-800',
+    tender: 'bg-green-100 text-green-800',
     planning: 'bg-blue-100 text-blue-800',
-    awarded: 'bg-purple-100 text-purple-800',
-    contracted: 'bg-gray-100 text-gray-800',
-    unknown: 'bg-gray-100 text-gray-600',
+    award: 'bg-purple-100 text-purple-800',
+    contract: 'bg-gray-100 text-gray-800',
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[status] || colors.unknown}`}
+      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[stage] || 'bg-gray-100 text-gray-600'}`}
     >
-      {status.charAt(0).toUpperCase() + status.slice(1)}
+      {stage.charAt(0).toUpperCase() + stage.slice(1)}
     </span>
   );
 }
 
-function DeadlineBadge({ deadline }: { deadline: string | undefined }) {
+function DeadlineBadge({ deadline }: { deadline: string | null }) {
   if (!deadline) {
     return <span className="text-gray-400">Not specified</span>;
   }
@@ -42,11 +67,11 @@ function DeadlineBadge({ deadline }: { deadline: string | undefined }) {
     colorClass = 'text-orange-600';
   }
 
-  return <span className={colorClass}>{formatDeadline(deadline)}</span>;
+  return <span className={colorClass}>{formatDate(deadline)}</span>;
 }
 
 function CPVBadges({ codes }: { codes: string[] }) {
-  if (!codes.length) {
+  if (!codes || !codes.length) {
     return <span className="text-gray-400">-</span>;
   }
 
@@ -101,7 +126,7 @@ export const columns = [
     size: 200,
   }),
 
-  columnHelper.accessor((row) => formatValueRange(row.valueMin, row.valueMax, row.currency), {
+  columnHelper.accessor((row) => formatValue(row.valueMin, row.valueMax, row.valueCurrency), {
     id: 'value',
     header: 'Value',
     cell: (info) => (
@@ -112,15 +137,16 @@ export const columns = [
     size: 150,
   }),
 
-  columnHelper.accessor('deadline', {
+  columnHelper.accessor('tenderEndDate', {
+    id: 'deadline',
     header: 'Deadline',
     cell: (info) => <DeadlineBadge deadline={info.getValue()} />,
     size: 140,
   }),
 
-  columnHelper.accessor('status', {
-    header: 'Status',
-    cell: (info) => <StatusBadge status={info.getValue()} />,
+  columnHelper.accessor('stage', {
+    header: 'Stage',
+    cell: (info) => <StageBadge stage={info.getValue()} />,
     size: 100,
   }),
 
@@ -140,30 +166,13 @@ export const columns = [
     size: 120,
   }),
 
-  columnHelper.accessor('mainCategory', {
-    header: 'Category',
-    cell: (info) => (
-      <span className="text-sm text-gray-600 capitalize">
-        {info.getValue()?.replace(/-/g, ' ') || '-'}
-      </span>
-    ),
-    size: 120,
-  }),
-
   columnHelper.accessor('publishedDate', {
     header: 'Published',
-    cell: (info) => {
-      const date = new Date(info.getValue());
-      return (
-        <span className="text-sm text-gray-500">
-          {date.toLocaleDateString('en-GB', {
-            day: 'numeric',
-            month: 'short',
-            year: 'numeric',
-          })}
-        </span>
-      );
-    },
+    cell: (info) => (
+      <span className="text-sm text-gray-500">
+        {formatDate(info.getValue())}
+      </span>
+    ),
     size: 110,
   }),
 ];
@@ -173,9 +182,8 @@ export const defaultVisibleColumns = {
   buyerName: true,
   value: true,
   deadline: true,
-  status: true,
-  cpvCodes: true,
+  stage: true,
+  cpvCodes: false,
   region: false,
-  mainCategory: false,
-  publishedDate: false,
+  publishedDate: true,
 };
