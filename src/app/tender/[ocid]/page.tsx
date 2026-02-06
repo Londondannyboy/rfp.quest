@@ -19,6 +19,7 @@ interface Tender {
   title: string;
   description: string | null;
   stage: 'planning' | 'tender' | 'award' | 'contract';
+  status: string | null;
   buyerName: string;
   buyerId: string | null;
   valueMin: number | null;
@@ -31,7 +32,6 @@ interface Tender {
   publishedDate: string;
   cpvCodes: string[] | null;
   region: string | null;
-  procedureType: string | null;
 }
 
 function TenderAnalysisContent({ tender }: { tender: Tender }) {
@@ -51,7 +51,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       published: tender.publishedDate,
       region: tender.region,
       cpvCodes: tender.cpvCodes,
-      procedureType: tender.procedureType,
+      status: tender.status,
     },
   });
 
@@ -161,7 +161,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
               valueMax={tender.valueMax}
               currency={tender.valueCurrency}
               duration={duration}
-              priceModel={tender.procedureType === 'Framework Agreement' ? 'framework' : 'fixed'}
+              priceModel="fixed"
             />
 
             {/* Key Dates */}
