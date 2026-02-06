@@ -413,6 +413,75 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             </div>
           </div>
         </div>
+
+        {/* Internal Links / CTA Section */}
+        <div className="mt-12 border-t border-slate-800 pt-8">
+          <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border border-teal-500/20">
+            <div className="max-w-3xl">
+              <h2 className="text-2xl font-bold text-white mb-3">
+                Win More Government Contracts
+              </h2>
+              <p className="text-slate-300 mb-6">
+                RFP.quest helps UK businesses find and win public sector tenders.
+                Our AI-powered platform analyzes requirements, identifies gaps, and
+                helps you craft winning proposals.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="/"
+                  className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors"
+                >
+                  Try RFP.quest Free
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors"
+                >
+                  Browse All Tenders
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          {/* SEO Internal Links */}
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <Link href="/rfp-software" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
+              <h3 className="text-sm font-medium text-white group-hover:text-teal-400 transition-colors">RFP Software</h3>
+              <p className="text-xs text-slate-500 mt-1">AI-powered bid management</p>
+            </Link>
+            <Link href="/tender-software" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
+              <h3 className="text-sm font-medium text-white group-hover:text-teal-400 transition-colors">Tender Software</h3>
+              <p className="text-xs text-slate-500 mt-1">UK procurement tools</p>
+            </Link>
+            <Link href="/bid-writing" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
+              <h3 className="text-sm font-medium text-white group-hover:text-teal-400 transition-colors">Bid Writing</h3>
+              <p className="text-xs text-slate-500 mt-1">Expert guidance</p>
+            </Link>
+            <Link href="/how-to-write-a-tender" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
+              <h3 className="text-sm font-medium text-white group-hover:text-teal-400 transition-colors">How to Write a Tender</h3>
+              <p className="text-xs text-slate-500 mt-1">Step-by-step guide</p>
+            </Link>
+          </div>
+
+          {/* Footer attribution */}
+          <div className="mt-8 text-center text-sm text-slate-500">
+            <p>
+              Tender data sourced from{' '}
+              <a href="https://www.find-tender.service.gov.uk" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">
+                Find a Tender
+              </a>
+              {' '}under the{' '}
+              <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">
+                Open Government Licence
+              </a>
+              . Powered by{' '}
+              <Link href="/" className="text-teal-400 hover:underline">
+                RFP.quest
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
