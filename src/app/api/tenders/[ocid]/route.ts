@@ -11,38 +11,69 @@ export async function GET(_request: Request, { params }: RouteParams) {
 
     if (!ocid) {
       return NextResponse.json(
-        { error: 'OCID is required' },
+        { error: 'Identifier is required' },
         { status: 400 }
       );
     }
 
     const sql = neon(process.env.DATABASE_URL!);
 
-    const result = await sql`
-      SELECT
-        ocid,
-        title,
-        description,
-        stage,
-        status,
-        buyer_name,
-        buyer_id,
-        value_min,
-        value_max,
-        value_currency,
-        tender_start_date,
-        tender_end_date,
-        contract_start_date,
-        contract_end_date,
-        published_date,
-        cpv_codes,
-        region,
-        created_at,
-        updated_at
-      FROM tenders
-      WHERE ocid = ${ocid}
-      LIMIT 1
-    `;
+    // Support lookup by slug or OCID
+    const isOcid = ocid.startsWith('ocds-');
+
+    const result = isOcid
+      ? await sql`
+          SELECT
+            ocid,
+            slug,
+            title,
+            description,
+            stage,
+            status,
+            buyer_name,
+            buyer_id,
+            value_min,
+            value_max,
+            value_currency,
+            tender_start_date,
+            tender_end_date,
+            contract_start_date,
+            contract_end_date,
+            published_date,
+            cpv_codes,
+            region,
+            created_at,
+            updated_at
+          FROM tenders
+          WHERE ocid = ${ocid}
+          LIMIT 1
+        `
+      : await sql`
+          SELECT
+            ocid,
+            slug,
+            title,
+            description,
+            stage,
+            status,
+            buyer_name,
+            buyer_id,
+            value_min,
+            value_max,
+            value_currency,
+            tender_start_date,
+            tender_end_date,
+            contract_start_date,
+            contract_end_date,
+            published_date,
+            cpv_codes,
+            region,
+            created_at,
+            updated_at
+          FROM tenders
+          WHERE slug = ${ocid}
+          LIMIT 1
+        `;
 
     if (result.length === 0) {
       return NextResponse.json(
@@ -56,6 +87,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
     // Transform to camelCase for frontend
     const tender = {
       ocid: row.ocid,
+      slug: row.slug,
       title: row.title,
       description: row.description,
       stage: row.stage,

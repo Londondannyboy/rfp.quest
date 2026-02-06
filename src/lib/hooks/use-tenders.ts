@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 export interface Tender {
   id: string;
   ocid: string;
+  slug: string;
   title: string;
   description: string | null;
   status: string | null;

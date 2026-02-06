@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -54,7 +54,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -73,7 +73,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -92,7 +92,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -110,7 +110,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -126,7 +126,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -141,7 +141,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -155,7 +155,7 @@ export async function GET(request: NextRequest) {
       totalCount = parseInt(countResult[0].total as string);
 
       tenders = await sql`
-        SELECT id, ocid, title, description, status, stage, buyer_name, buyer_id,
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
                value_amount, value_currency, value_min, value_max,
                published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
         FROM tenders
@@ -168,6 +168,7 @@ export async function GET(request: NextRequest) {
     const transformedTenders = tenders.map((t) => ({
       id: t.id as string,
       ocid: t.ocid as string,
+      slug: t.slug as string,
       title: t.title as string,
       description: t.description as string | null,
       status: t.status as string | null,

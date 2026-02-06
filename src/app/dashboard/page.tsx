@@ -79,7 +79,7 @@ export default function DashboardPage() {
         <TenderTable
           data={tenders}
           isLoading={isLoading}
-          onRowClick={(tender: Tender) => router.push(`/tender/${tender.ocid}`)}
+          onRowClick={(tender: Tender) => router.push(`/tender/${tender.slug}`)}
           onRefresh={() => refetch()}
           hasNextPage={data?.hasMore}
           onLoadMore={() => {

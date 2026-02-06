@@ -11,11 +11,19 @@ import { BuyerProfile } from '@/components/tender-viz/BuyerProfile';
 import { TenderStats } from '@/components/tender-viz/TenderStats';
 import { KeyDates } from '@/components/tender-viz/KeyDates';
 import { CPVExplorer } from '@/components/tender-viz/CPVExplorer';
-import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import {
+  ArrowLeftIcon,
+  ArrowTopRightOnSquareIcon,
+  DocumentTextIcon,
+  ShareIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
 
 interface Tender {
   ocid: string;
+  slug: string;
   title: string;
   description: string | null;
   stage: 'planning' | 'tender' | 'award' | 'contract';
@@ -34,7 +42,55 @@ interface Tender {
   region: string | null;
 }
 
+// CPV code descriptions (common ones)
+const cpvDescriptions: Record<string, string> = {
+  '72000000': 'IT services: consulting, software development, Internet and support',
+  '72200000': 'Software programming and consultancy services',
+  '72300000': 'Data services',
+  '72400000': 'Internet services',
+  '72500000': 'Computer-related services',
+  '72600000': 'Computer support and consultancy services',
+  '79000000': 'Business services: law, marketing, consulting, recruitment, printing and security',
+  '79400000': 'Business and management consultancy services',
+  '79500000': 'Office-support services',
+  '79600000': 'Recruitment services',
+  '79800000': 'Printing and related services',
+  '79900000': 'Miscellaneous business and business-related services',
+  '45000000': 'Construction work',
+  '48000000': 'Software package and information systems',
+  '50000000': 'Repair and maintenance services',
+  '55000000': 'Hotel, restaurant and retail trade services',
+  '60000000': 'Transport services (excl. Waste transport)',
+  '64000000': 'Postal and telecommunications services',
+  '65000000': 'Public utilities',
+  '66000000': 'Financial and insurance services',
+  '70000000': 'Real estate services',
+  '71000000': 'Architectural, construction, engineering and inspection services',
+  '73000000': 'Research and development services and related consultancy services',
+  '75000000': 'Administration, defence and social security services',
+  '76000000': 'Services related to the oil and gas industry',
+  '77000000': 'Agricultural, forestry, horticultural, aquacultural and apicultural services',
+  '80000000': 'Education and training services',
+  '85000000': 'Health and social work services',
+  '90000000': 'Sewage, refuse, cleaning and environmental services',
+  '92000000': 'Recreational, cultural and sporting services',
+  '98000000': 'Other community, social and personal services',
+};
+
+function getCpvDescription(code: string): string {
+  // Try exact match first
+  if (cpvDescriptions[code]) return cpvDescriptions[code];
+
+  // Try matching first 2 digits (division)
+  const division = code.substring(0, 2) + '000000';
+  if (cpvDescriptions[division]) return cpvDescriptions[division];
+
+  return `CPV Classification ${code}`;
+}
+
 function TenderAnalysisContent({ tender }: { tender: Tender }) {
+  const [showRawData, setShowRawData] = useState(false);
+
   // Provide tender context to CopilotKit
   useCopilotReadable({
     description: 'The current tender being analyzed',
@@ -62,7 +118,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       id: 'published',
       label: 'Notice Published',
       date: tender.publishedDate,
-      description: 'Tender opportunity made public',
+      description: 'Tender opportunity made public on Find a Tender',
       isPast: new Date(tender.publishedDate) < new Date(),
     });
   }
@@ -71,7 +127,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       id: 'tender-start',
       label: 'Tender Period Opens',
       date: tender.tenderStartDate,
-      description: 'Bidders can start submitting proposals',
+      description: 'Suppliers can start submitting proposals',
       isPast: new Date(tender.tenderStartDate) < new Date(),
     });
   }
@@ -84,7 +140,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       label: 'Submission Deadline',
       date: tender.tenderEndDate,
       time: tender.tenderEndDate,
-      description: 'Final deadline for bid submission',
+      description: 'Final deadline for bid submission - no late submissions accepted',
       isPast: new Date(tender.tenderEndDate) < new Date(),
       isUrgent: daysUntil <= 7 && daysUntil >= 0,
     });
@@ -94,7 +150,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       id: 'contract-start',
       label: 'Contract Start',
       date: tender.contractStartDate,
-      description: 'Expected contract commencement',
+      description: 'Expected contract commencement date',
       isPast: new Date(tender.contractStartDate) < new Date(),
     });
   }
@@ -103,15 +159,15 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       id: 'contract-end',
       label: 'Contract End',
       date: tender.contractEndDate,
-      description: 'Expected contract completion',
+      description: 'Expected contract completion date',
       isPast: new Date(tender.contractEndDate) < new Date(),
     });
   }
 
-  // Build CPV codes for explorer
+  // Build CPV codes with descriptions
   const cpvCodes = (tender.cpvCodes || []).map((code) => ({
     code,
-    description: `CPV Code ${code}`,
+    description: getCpvDescription(code),
     level: code.endsWith('000000') ? 1 : code.endsWith('0000') ? 2 : code.endsWith('00') ? 3 : 4,
   }));
 
@@ -123,17 +179,41 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
     duration = Math.round((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24 * 30));
   }
 
+  // Find a Tender URL
+  const findATenderUrl = `https://www.find-tender.service.gov.uk/Notice/${tender.ocid.split('-').pop()}`;
+
   return (
     <div className="min-h-screen bg-slate-950">
       {/* Back navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <Link
-          href="/dashboard"
-          className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
-        >
-          <ArrowLeftIcon className="w-4 h-4" />
-          Back to Dashboard
-        </Link>
+        <div className="flex items-center justify-between">
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+          >
+            <ArrowLeftIcon className="w-4 h-4" />
+            Back to Dashboard
+          </Link>
+
+          <div className="flex items-center gap-3">
+            <a
+              href={findATenderUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+            >
+              <ArrowTopRightOnSquareIcon className="w-4 h-4" />
+              View on Find a Tender
+            </a>
+            <button
+              onClick={() => navigator.share?.({ title: tender.title, url: window.location.href })}
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm"
+            >
+              <ShareIcon className="w-4 h-4" />
+              Share
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Main content */}
@@ -155,6 +235,21 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
           {/* Main column */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Full Description */}
+            {tender.description && (
+              <div className="bg-slate-900 rounded-xl p-6">
+                <div className="flex items-center gap-2 mb-4">
+                  <DocumentTextIcon className="w-5 h-5 text-teal-400" />
+                  <h2 className="text-lg font-semibold text-white">Scope of Work</h2>
+                </div>
+                <div className="prose prose-invert prose-slate max-w-none">
+                  <p className="text-slate-300 whitespace-pre-wrap leading-relaxed">
+                    {tender.description}
+                  </p>
+                </div>
+              </div>
+            )}
+
             {/* Value Analysis */}
             <ValueAnalysis
               valueMin={tender.valueMin}
@@ -174,6 +269,70 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 primaryCode={cpvCodes[0]?.code}
               />
             )}
+
+            {/* What This Means For You - Citizen/Business context */}
+            <div className="bg-slate-900 rounded-xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-4">What This Means</h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* For Citizens */}
+                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                  <h3 className="text-sm font-medium text-teal-400 mb-2">For Citizens</h3>
+                  <p className="text-sm text-slate-300">
+                    This is a public procurement by <strong>{tender.buyerName}</strong>
+                    {tender.region && ` in ${tender.region}`}.
+                    {tender.valueMax && ` Up to £${(tender.valueMax / 1000000).toFixed(1)}M of public funds may be spent.`}
+                    {' '}You can monitor how this contract is awarded and delivered.
+                  </p>
+                </div>
+
+                {/* For Businesses */}
+                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                  <h3 className="text-sm font-medium text-cyan-400 mb-2">For Businesses</h3>
+                  <p className="text-sm text-slate-300">
+                    {tender.stage === 'tender' ? (
+                      <>This opportunity is <strong>open for bids</strong>.
+                      {tender.tenderEndDate && ` Deadline: ${new Date(tender.tenderEndDate).toLocaleDateString('en-GB')}.`}
+                      {' '}Review the requirements and submit via Find a Tender.</>
+                    ) : tender.stage === 'planning' ? (
+                      <>This is in <strong>planning stage</strong>. Register interest to be notified when it opens for bids.</>
+                    ) : tender.stage === 'award' ? (
+                      <>This contract has been <strong>awarded</strong>. Review the outcome for market intelligence.</>
+                    ) : (
+                      <>This contract is <strong>active</strong>. Look for subcontracting opportunities.</>
+                    )}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Raw Data Section */}
+            <div className="bg-slate-900 rounded-xl overflow-hidden">
+              <button
+                onClick={() => setShowRawData(!showRawData)}
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-800/50 transition-colors"
+              >
+                <span className="text-lg font-semibold text-white">Raw Data</span>
+                {showRawData ? (
+                  <ChevronUpIcon className="w-5 h-5 text-slate-400" />
+                ) : (
+                  <ChevronDownIcon className="w-5 h-5 text-slate-400" />
+                )}
+              </button>
+
+              {showRawData && (
+                <div className="p-4 border-t border-slate-800">
+                  <p className="text-sm text-slate-400 mb-4">
+                    This data is sourced from the UK Government&apos;s Find a Tender service using the
+                    Open Contracting Data Standard (OCDS). All public procurement data is available
+                    under the Open Government Licence.
+                  </p>
+                  <pre className="bg-slate-950 rounded-lg p-4 overflow-x-auto text-xs text-slate-300 font-mono">
+                    {JSON.stringify(tender, null, 2)}
+                  </pre>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Sidebar column */}
@@ -192,6 +351,9 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                   value: tender.stage.charAt(0).toUpperCase() + tender.stage.slice(1),
                   icon: 'document',
                 },
+                ...(tender.status
+                  ? [{ label: 'Status', value: tender.status, icon: 'chart' as const }]
+                  : []),
                 {
                   label: 'CPV Codes',
                   value: tender.cpvCodes?.length || 0,
@@ -200,10 +362,55 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 ...(tender.region
                   ? [{ label: 'Region', value: tender.region, icon: 'building' as const }]
                   : []),
+                ...(duration
+                  ? [{ label: 'Duration', value: `${duration} months`, icon: 'clock' as const }]
+                  : []),
               ]}
               layout="row"
               title="Quick Facts"
             />
+
+            {/* Official Links */}
+            <div className="bg-slate-900 rounded-xl p-6">
+              <h3 className="text-lg font-semibold text-white mb-4">Official Links</h3>
+              <div className="space-y-3">
+                <a
+                  href={findATenderUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800 transition-colors"
+                >
+                  <ArrowTopRightOnSquareIcon className="w-5 h-5 text-teal-400" />
+                  <div>
+                    <div className="text-sm font-medium text-white">Find a Tender</div>
+                    <div className="text-xs text-slate-400">Official UK Government portal</div>
+                  </div>
+                </a>
+                <a
+                  href={`https://www.contractsfinder.service.gov.uk/Search/Results`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800 transition-colors"
+                >
+                  <ArrowTopRightOnSquareIcon className="w-5 h-5 text-cyan-400" />
+                  <div>
+                    <div className="text-sm font-medium text-white">Contracts Finder</div>
+                    <div className="text-xs text-slate-400">Search related contracts</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {/* OCID Reference */}
+            <div className="bg-slate-900 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-slate-400 mb-2">Reference</h3>
+              <code className="text-xs text-teal-400 bg-slate-800 px-2 py-1 rounded break-all">
+                {tender.ocid}
+              </code>
+              <p className="text-xs text-slate-500 mt-2">
+                Open Contracting ID - unique identifier for this procurement
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -213,7 +420,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
 export default function TenderPage() {
   const params = useParams();
-  const ocid = params.ocid as string;
+  const slug = params.ocid as string; // Route param is still called ocid for backwards compat
   const [tender, setTender] = useState<Tender | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -221,7 +428,7 @@ export default function TenderPage() {
   useEffect(() => {
     async function fetchTender() {
       try {
-        const response = await fetch(`/api/tenders/${ocid}`);
+        const response = await fetch(`/api/tenders/${slug}`);
         if (!response.ok) {
           throw new Error('Tender not found');
         }
@@ -235,7 +442,7 @@ export default function TenderPage() {
     }
 
     fetchTender();
-  }, [ocid]);
+  }, [slug]);
 
   if (loading) {
     return (
@@ -273,6 +480,7 @@ export default function TenderPage() {
 • Identify potential risks and gaps
 • Analyze the buyer and market context
 • Find related opportunities
+• Explain what this means for citizens or businesses
 
 Ask me anything about "${tender.title}"!`,
         }}
