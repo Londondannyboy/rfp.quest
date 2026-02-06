@@ -1,15 +1,15 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useTenders, type Tender, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { TenderTable } from '@/components/dashboard/TenderTable';
-import { TenderDetail } from '@/components/dashboard/TenderDetail';
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [filters, setFilters] = useState<TenderSearchParams>({
     limit: 50,
   });
-  const [selectedTender, setSelectedTender] = useState<Tender | null>(null);
   const [keyword, setKeyword] = useState('');
 
   const {
@@ -79,7 +79,7 @@ export default function DashboardPage() {
         <TenderTable
           data={tenders}
           isLoading={isLoading}
-          onRowClick={setSelectedTender}
+          onRowClick={(tender: Tender) => router.push(`/tender/${tender.ocid}`)}
           onRefresh={() => refetch()}
           hasNextPage={data?.hasMore}
           onLoadMore={() => {
@@ -90,12 +90,6 @@ export default function DashboardPage() {
           }}
         />
       </div>
-
-      {/* Detail panel */}
-      <TenderDetail
-        tender={selectedTender}
-        onClose={() => setSelectedTender(null)}
-      />
     </div>
   );
 }
