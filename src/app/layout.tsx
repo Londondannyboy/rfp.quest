@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { QueryProvider } from "@/lib/providers/query-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -34,9 +35,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <QueryProvider>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </QueryProvider>
       </body>
     </html>
   );

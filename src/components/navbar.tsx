@@ -121,14 +121,20 @@ export function Navbar() {
               )}
             </div>
 
+            {/* Sign In */}
+            <Link
+              href="/auth/sign-in"
+              className="ml-4 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium"
+            >
+              Sign In
+            </Link>
+
             {/* CTA */}
             <Link
-              href="https://calendly.com/my-first-quest"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 px-5 py-2 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors"
+              href="/auth/sign-up"
+              className="px-5 py-2 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg transition-colors"
             >
-              Register Early
+              Get Started
             </Link>
           </div>
 
@@ -195,16 +201,21 @@ export function Navbar() {
                 </Link>
               ))}
 
-              <div className="pt-4 px-2">
-                <a
-                  href="https://calendly.com/my-first-quest"
-                  target="_blank"
-                  rel="noopener noreferrer"
+              <div className="pt-4 px-2 space-y-2">
+                <Link
+                  href="/auth/sign-in"
+                  className="block w-full text-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/auth/sign-up"
                   className="block w-full text-center px-5 py-2.5 bg-teal-700 hover:bg-teal-800 text-white font-medium rounded-lg"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Register Early
-                </a>
+                  Get Started
+                </Link>
               </div>
             </div>
           </div>
