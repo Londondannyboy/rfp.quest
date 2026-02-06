@@ -10,7 +10,7 @@ import { BuyerProfile } from '@/components/tender-viz/BuyerProfile';
 import { TenderStats } from '@/components/tender-viz/TenderStats';
 import { KeyDates } from '@/components/tender-viz/KeyDates';
 import { CPVExplorer } from '@/components/tender-viz/CPVExplorer';
-import { DynamicHeroViz } from '@/components/tender-viz/DynamicHeroViz';
+import { InteractiveHeroGraph } from '@/components/tender-viz/InteractiveHeroGraph';
 import { ScopeOfWork } from '@/components/tender-viz/ScopeOfWork';
 import { RelatedTenders } from '@/components/tender-viz/RelatedTenders';
 import { SectorBubbleChart } from '@/components/tender-viz/SectorBubbleChart';
@@ -233,13 +233,14 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
               description={tender.description}
             />
           </div>
-          {/* Dynamic sector visualization */}
+          {/* Interactive graph visualization */}
           <div className="lg:block">
-            <DynamicHeroViz
-              cpvCodes={tender.cpvCodes}
-              stage={tender.stage}
-              value={tender.valueMax}
+            <InteractiveHeroGraph
               title={tender.title}
+              buyerName={tender.buyerName}
+              stage={tender.stage}
+              valueMax={tender.valueMax}
+              description={tender.description}
             />
           </div>
         </div>
