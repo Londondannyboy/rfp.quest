@@ -1,0 +1,11 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm run sync"
+restartPolicyType = "never"
+
+# Run every hour on the hour
+# Format: minute hour day-of-month month day-of-week
+[cron]
+schedule = "0 * * * *"
