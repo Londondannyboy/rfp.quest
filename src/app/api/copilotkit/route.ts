@@ -1,12 +1,12 @@
 import {
   CopilotRuntime,
-  OpenAIAdapter,
+  GoogleGenerativeAIAdapter,
   copilotRuntimeNextJSAppRouterEndpoint,
 } from '@copilotkit/runtime';
 import { NextRequest } from 'next/server';
 
-const serviceAdapter = new OpenAIAdapter({
-  model: 'gpt-4o',
+const serviceAdapter = new GoogleGenerativeAIAdapter({
+  model: 'gemini-2.0-flash',
 });
 
 const runtime = new CopilotRuntime({
