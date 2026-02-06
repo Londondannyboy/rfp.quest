@@ -210,9 +210,11 @@ export interface TenderSearchParams {
   keyword?: string;
   buyerName?: string;
   cpvCode?: string;
+  cpvDivisions?: string[]; // 2-digit CPV division codes
   region?: string;
   minValue?: number;
   maxValue?: number;
+  sustainability?: boolean; // Filter for sustainability/environmental tenders
 }
 
 // Search response

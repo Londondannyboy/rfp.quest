@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTenders, type Tender, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { TenderTable } from '@/components/dashboard/TenderTable';
+import { FilterBar } from '@/components/dashboard/FilterBar';
+import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -22,7 +24,35 @@ export default function DashboardPage() {
   const totalCount = data?.totalCount ?? 0;
 
   const handleSearch = () => {
-    setFilters({ ...filters, keyword: keyword || undefined });
+    setFilters({ ...filters, keyword: keyword || undefined, offset: 0 });
+  };
+
+  const handleFiltersChange = (newFilters: FilterParams) => {
+    // Convert from FilterParams to TenderSearchParams
+    setFilters({
+      limit: filters.limit,
+      keyword: filters.keyword,
+      stage: newFilters.stages?.[0], // Take first stage for now
+      region: newFilters.region,
+      minValue: newFilters.minValue,
+      maxValue: newFilters.maxValue,
+      cpvDivisions: newFilters.cpvDivisions,
+      sustainability: newFilters.sustainability,
+      buyerName: newFilters.buyerName,
+      offset: 0, // Reset to first page when filters change
+    });
+  };
+
+  // Convert TenderSearchParams to FilterParams for FilterBar
+  const filterBarFilters: FilterParams = {
+    stages: filters.stage ? [filters.stage as 'planning' | 'tender' | 'award'] : undefined,
+    region: filters.region,
+    minValue: filters.minValue,
+    maxValue: filters.maxValue,
+    cpvDivisions: filters.cpvDivisions,
+    sustainability: filters.sustainability,
+    buyerName: filters.buyerName,
+    limit: filters.limit,
   };
 
   return (
@@ -40,7 +70,7 @@ export default function DashboardPage() {
           </div>
         </div>
 
-        {/* Quick filters */}
+        {/* Quick search */}
         <div className="mt-4 flex items-center gap-4">
           <div className="flex-1 max-w-md flex gap-2">
             <input
@@ -58,21 +88,14 @@ export default function DashboardPage() {
               Search
             </button>
           </div>
-
-          <div className="flex items-center gap-2">
-            <select
-              value={filters.stage || ''}
-              onChange={(e) => setFilters({ ...filters, stage: e.target.value || undefined })}
-              className="rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
-            >
-              <option value="">All stages</option>
-              <option value="tender">Active tenders</option>
-              <option value="planning">Planning</option>
-              <option value="award">Awarded</option>
-            </select>
-          </div>
         </div>
       </div>
+
+      {/* Filter Bar */}
+      <FilterBar
+        filters={filterBarFilters}
+        onFiltersChange={handleFiltersChange}
+      />
 
       {/* Table */}
       <div className="flex-1 min-h-0">

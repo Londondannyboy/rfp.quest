@@ -23,6 +23,7 @@ import {
   ChevronUpIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { MatchAnalysisCard } from '@/components/tenders/MatchAnalysisCard';
 
 // Helper to create buyer slug
 function slugifyBuyer(name: string): string {
@@ -376,6 +377,9 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Match Analysis */}
+            <MatchAnalysisCard ocid={tender.ocid} />
+
             <BuyerProfile name={tender.buyerName} region={tender.region || undefined} />
 
             {/* Link to buyer page */}

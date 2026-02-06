@@ -22,6 +22,7 @@ export interface Tender {
   cpvCodes: string[];
   region: string | null;
   syncedAt: string;
+  isSustainability?: boolean;
 }
 
 export interface TenderSearchParams {
@@ -30,6 +31,11 @@ export interface TenderSearchParams {
   keyword?: string;
   buyerName?: string;
   stage?: string;
+  region?: string;
+  minValue?: number;
+  maxValue?: number;
+  cpvDivisions?: string[];
+  sustainability?: boolean;
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
 }
@@ -50,6 +56,11 @@ async function fetchTenders(params: TenderSearchParams): Promise<TenderSearchRes
   if (params.keyword) searchParams.set('keyword', params.keyword);
   if (params.buyerName) searchParams.set('buyerName', params.buyerName);
   if (params.stage) searchParams.set('stage', params.stage);
+  if (params.region) searchParams.set('region', params.region);
+  if (params.minValue) searchParams.set('minValue', String(params.minValue));
+  if (params.maxValue) searchParams.set('maxValue', String(params.maxValue));
+  if (params.cpvDivisions?.length) searchParams.set('cpvDivisions', params.cpvDivisions.join(','));
+  if (params.sustainability) searchParams.set('sustainability', 'true');
   if (params.sortBy) searchParams.set('sortBy', params.sortBy);
   if (params.sortOrder) searchParams.set('sortOrder', params.sortOrder);
 

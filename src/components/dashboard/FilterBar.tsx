@@ -8,6 +8,7 @@ import {
   CurrencyPoundIcon,
   BuildingOfficeIcon,
   MapPinIcon,
+  TagIcon,
 } from '@heroicons/react/24/outline';
 import type { TenderSearchParams } from '@/lib/api/types';
 
@@ -22,6 +23,21 @@ const stages = [
   { value: 'planning', label: 'Planning' },
   { value: 'award', label: 'Awarded' },
 ] as const;
+
+// CPV divisions for sector filtering
+const cpvDivisions = [
+  { code: '45', label: 'Construction' },
+  { code: '48', label: 'Software' },
+  { code: '50', label: 'Maintenance' },
+  { code: '65', label: 'Utilities' },
+  { code: '71', label: 'Engineering' },
+  { code: '72', label: 'IT Services' },
+  { code: '77', label: 'Agriculture' },
+  { code: '79', label: 'Business' },
+  { code: '80', label: 'Education' },
+  { code: '85', label: 'Healthcare' },
+  { code: '90', label: 'Environment' },
+];
 
 const regions = [
   'England',
@@ -48,7 +64,28 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
     filters.region,
     filters.minValue !== undefined || filters.maxValue !== undefined,
     filters.updatedFrom || filters.updatedTo,
+    filters.sustainability,
+    filters.cpvDivisions?.length,
   ].filter(Boolean).length;
+
+  const handleSustainabilityToggle = () => {
+    onFiltersChange({
+      ...filters,
+      sustainability: filters.sustainability ? undefined : true,
+    });
+  };
+
+  const handleCpvDivisionToggle = (code: string) => {
+    const current = filters.cpvDivisions || [];
+    const newDivisions = current.includes(code)
+      ? current.filter((c) => c !== code)
+      : [...current, code];
+
+    onFiltersChange({
+      ...filters,
+      cpvDivisions: newDivisions.length > 0 ? newDivisions : undefined,
+    });
+  };
 
   const handleStageToggle = (stage: string) => {
     const currentStages = filters.stages || [];
@@ -83,22 +120,45 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
     });
   };
 
+  // Sustainability badge component
+  const SustainabilityBadge = () => (
+    <button
+      onClick={handleSustainabilityToggle}
+      className={`
+        inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all
+        ${
+          filters.sustainability
+            ? 'bg-green-100 text-green-800 ring-2 ring-green-500'
+            : 'bg-gray-100 text-gray-600 hover:bg-green-50 hover:text-green-700'
+        }
+      `}
+    >
+      <span className="text-base">🌿</span>
+      Sustainability
+    </button>
+  );
+
   return (
     <div className="bg-white border-b border-gray-200">
-      {/* Filter toggle */}
+      {/* Filter toggle with sustainability badge */}
       <div className="flex items-center justify-between px-4 py-3">
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
-        >
-          <FunnelIcon className="h-5 w-5" />
-          Filters
-          {activeFilterCount > 0 && (
-            <span className="ml-1 inline-flex items-center justify-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+          >
+            <FunnelIcon className="h-5 w-5" />
+            Filters
+            {activeFilterCount > 0 && (
+              <span className="ml-1 inline-flex items-center justify-center rounded-full bg-indigo-100 px-2 py-0.5 text-xs font-medium text-indigo-700">
+                {activeFilterCount}
+              </span>
+            )}
+          </button>
+
+          {/* Sustainability toggle - always visible */}
+          <SustainabilityBadge />
+        </div>
 
         {activeFilterCount > 0 && (
           <button
@@ -199,6 +259,32 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
             </div>
           </div>
 
+          {/* Sector / CPV Divisions */}
+          <div>
+            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+              <TagIcon className="h-4 w-4" />
+              Sector
+            </label>
+            <div className="flex flex-wrap gap-2">
+              {cpvDivisions.map((div) => (
+                <button
+                  key={div.code}
+                  onClick={() => handleCpvDivisionToggle(div.code)}
+                  className={`
+                    inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium transition-colors
+                    ${
+                      filters.cpvDivisions?.includes(div.code)
+                        ? 'bg-indigo-100 text-indigo-700'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }
+                  `}
+                >
+                  {div.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Buyer search */}
           <div>
             <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
@@ -274,6 +360,31 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                     </button>
                   </span>
                 )}
+                {filters.sustainability && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-sm text-green-700">
+                    🌿 Sustainability
+                    <button
+                      onClick={handleSustainabilityToggle}
+                      className="hover:text-green-900"
+                    >
+                      <XMarkIcon className="h-4 w-4" />
+                    </button>
+                  </span>
+                )}
+                {filters.cpvDivisions?.map((code) => (
+                  <span
+                    key={code}
+                    className="inline-flex items-center gap-1 rounded-full bg-indigo-50 px-3 py-1 text-sm text-indigo-700"
+                  >
+                    {cpvDivisions.find((d) => d.code === code)?.label}
+                    <button
+                      onClick={() => handleCpvDivisionToggle(code)}
+                      className="hover:text-indigo-900"
+                    >
+                      <XMarkIcon className="h-4 w-4" />
+                    </button>
+                  </span>
+                ))}
               </div>
             </div>
           )}

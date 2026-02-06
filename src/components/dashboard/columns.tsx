@@ -98,13 +98,27 @@ function CPVBadges({ codes }: { codes: string[] }) {
   );
 }
 
+function SustainabilityBadge() {
+  return (
+    <span
+      className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
+      title="Sustainability-related tender"
+    >
+      🌿 Sustainability
+    </span>
+  );
+}
+
 export const columns = [
   columnHelper.accessor('title', {
     header: 'Title',
     cell: (info) => (
       <div className="max-w-md">
-        <div className="font-medium text-gray-900 truncate" title={info.getValue()}>
-          {info.getValue()}
+        <div className="flex items-center gap-2">
+          <span className="font-medium text-gray-900 truncate" title={info.getValue()}>
+            {info.getValue()}
+          </span>
+          {info.row.original.isSustainability && <SustainabilityBadge />}
         </div>
         {info.row.original.description && (
           <div className="text-sm text-gray-500 truncate" title={info.row.original.description}>
