@@ -1,6 +1,8 @@
 'use client';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { NeonAuthUIProvider } from '@neondatabase/auth/react/ui';
+import { authClient } from '@/lib/auth/client';
 import { useState } from 'react';
 
 export function QueryProvider({ children }: { children: React.ReactNode }) {
@@ -18,7 +20,14 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {children}
+      <NeonAuthUIProvider
+        // @ts-expect-error - type mismatch due to nested better-auth/better-fetch version conflicts
+        authClient={authClient}
+        redirectTo="/dashboard"
+        social={{ providers: ['google'] }}
+      >
+        {children}
+      </NeonAuthUIProvider>
     </QueryClientProvider>
   );
 }
