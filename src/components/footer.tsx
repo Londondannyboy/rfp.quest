@@ -3,13 +3,13 @@ import Link from 'next/link';
 const softwareLinks = [
   { href: '/rfp-platform', label: 'RFP Platform' },
   { href: '/rfp-software', label: 'RFP Software' },
-  { href: '/proposal-software', label: 'Proposal Software' },
+  { href: '/rfp-uk', label: 'RFP UK' },
+  { href: '/ai-tender-writing-platform', label: 'AI Tender Writing' },
   { href: '/tender-software', label: 'Tender Software' },
   { href: '/bid-management-software', label: 'Bid Management Software' },
-  { href: '/rfp-bid-management-software', label: 'RFP Bid Management' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
+  { href: '/ai-tender-software-smes', label: 'AI for SMEs' },
   { href: '/government-tender-software', label: 'Government Tenders' },
-  { href: '/rfp-pipeline-tools', label: 'Pipeline Tools' },
   { href: '/gdpr-bid-management', label: 'GDPR Compliant' },
   { href: '/bid-versioning', label: 'Version Control' },
   { href: '/free-rfp-software', label: 'Free Trial' },
@@ -17,9 +17,9 @@ const softwareLinks = [
 
 const guideLinks = [
   { href: '/tender-process', label: 'Tender Process Guide' },
+  { href: '/bid-writing', label: 'Bid Writing Guide' },
   { href: '/how-to-write-a-tender', label: 'How to Write a Tender' },
   { href: '/how-to-win-a-tender', label: 'How to Win a Tender' },
-  { href: '/how-to-write-a-tender-proposal', label: 'Write a Tender Proposal' },
   { href: '/rfp-tender', label: 'RFP vs Tender' },
 ];
 
