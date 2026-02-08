@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useTenders, type Tender, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { TenderTable } from '@/components/dashboard/TenderTable';
 import { FilterBar } from '@/components/dashboard/FilterBar';
+import { DashboardHero } from '@/components/dashboard/DashboardHero';
 import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
 
 export default function DashboardPage() {
@@ -57,21 +58,12 @@ export default function DashboardPage() {
 
   return (
     <div className="flex flex-col h-full">
-      {/* Header */}
-      <div className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">
-              UK Government Tenders
-            </h1>
-            <p className="mt-1 text-sm text-gray-500">
-              Browse and search {totalCount.toLocaleString()} opportunities from Find a Tender
-            </p>
-          </div>
-        </div>
+      {/* Hero Section with KPIs */}
+      <div className="bg-gradient-to-b from-gray-50 to-white px-6 py-6 border-b border-gray-200">
+        <DashboardHero />
 
         {/* Quick search */}
-        <div className="mt-4 flex items-center gap-4">
+        <div className="flex items-center gap-4 mt-2">
           <div className="flex-1 max-w-md flex gap-2">
             <input
               type="text"
@@ -88,6 +80,9 @@ export default function DashboardPage() {
               Search
             </button>
           </div>
+          <p className="text-sm text-gray-500">
+            {totalCount.toLocaleString()} opportunities
+          </p>
         </div>
       </div>
 
