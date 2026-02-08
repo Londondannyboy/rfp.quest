@@ -11,7 +11,9 @@ import {
   Legend,
   Tooltip,
 } from 'recharts';
-import type { PieSectorDataItem } from 'recharts/types/polar/Pie';
+
+// Recharts types are incomplete - activeIndex/activeShape are valid props
+// but not included in TypeScript definitions
 
 interface SectorData {
   sector: string;
@@ -38,7 +40,7 @@ const COLORS = [
   '#f97316', // orange-500
 ];
 
-interface ActiveShapeProps extends PieSectorDataItem {
+interface ActiveShapeProps {
   cx: number;
   cy: number;
   innerRadius: number;
@@ -133,8 +135,10 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
-              activeIndex={activeIndex}
-              activeShape={(props: unknown) => renderActiveShape(props as ActiveShapeProps)}
+              {...{
+                activeIndex,
+                activeShape: (props: unknown) => renderActiveShape(props as ActiveShapeProps),
+              } as Record<string, unknown>}
               data={data}
               cx="50%"
               cy="50%"
@@ -143,9 +147,9 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
               dataKey="count"
               onMouseEnter={onPieEnter}
             >
-              {data.map((_, index) => (
+              {data.map((entry, index) => (
                 <Cell
-                  key={`cell-${index}`}
+                  key={`cell-${entry.sector}-${index}`}
                   fill={COLORS[index % COLORS.length]}
                 />
               ))}
