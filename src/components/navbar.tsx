@@ -38,8 +38,15 @@ export function Navbar() {
   const user = session?.user;
 
   const handleSignOut = async () => {
-    await authClient.signOut();
-    window.location.href = '/';
+    try {
+      const result = await authClient.signOut();
+      console.log('Sign out result:', result);
+    } catch (error) {
+      console.error('Sign out error:', error);
+    } finally {
+      // Force redirect and clear any cached state
+      window.location.href = '/';
+    }
   };
 
   return (
