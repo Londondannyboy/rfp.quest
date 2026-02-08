@@ -37,16 +37,9 @@ export function Navbar() {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
 
-  const handleSignOut = async () => {
-    try {
-      const result = await authClient.signOut();
-      console.log('Sign out result:', result);
-    } catch (error) {
-      console.error('Sign out error:', error);
-    } finally {
-      // Force redirect and clear any cached state
-      window.location.href = '/';
-    }
+  const handleSignOut = () => {
+    // Use the AuthView sign-out page for proper session cleanup
+    window.location.href = '/auth/sign-out';
   };
 
   return (
