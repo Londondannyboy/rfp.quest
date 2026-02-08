@@ -24,7 +24,6 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
         // @ts-expect-error - type mismatch due to nested better-auth/better-fetch version conflicts
         authClient={authClient}
         redirectTo="/dashboard"
-        credentials={true}
         social={{ providers: ['google'] }}
       >
         {children}
