@@ -36,9 +36,8 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-1 font-bold text-xl text-gray-900 dark:text-white mb-4">
-              <span className="text-teal-600">rfp</span>
-              <span>.quest</span>
+            <Link href="/" className="font-bold text-xl text-gray-900 dark:text-white mb-4 block">
+              <span className="text-teal-600">RFP</span> Platform <span className="text-teal-600">Quest</span>
             </Link>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
               AI-powered RFP and tender management software for UK procurement teams.
@@ -99,7 +98,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            &copy; {new Date().getFullYear()} rfp.quest. All rights reserved.
+            &copy; {new Date().getFullYear()} RFP Platform Quest. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500 dark:text-gray-400">
             <Link href="/privacy" className="hover:text-teal-600 dark:hover:text-teal-400">Privacy Policy</Link>

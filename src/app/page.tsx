@@ -38,8 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getHomepage();
   if (!page) {
     return {
-      title: 'rfp.quest - AI-Powered RFP & Tender Software',
-      description: 'Streamline your RFP process with AI-powered bid management software.',
+      title: 'RFP Platform UK | AI-Powered RFP Software & Bid Management',
+      description: 'RFP Platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.',
     };
   }
 
@@ -54,7 +54,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: page.h1,
       description: page.meta_description,
       url: 'https://rfp.quest',
-      siteName: 'rfp.quest',
+      siteName: 'RFP Platform Quest',
       locale: 'en_GB',
       type: 'website',
     },
@@ -73,7 +73,7 @@ export default async function Home() {
     return (
       <div className="px-4 py-20">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-4">rfp.quest</h1>
+          <h1 className="text-4xl font-bold mb-4">RFP Platform Quest</h1>
           <p className="text-lg text-gray-600">AI-powered RFP and tender management software. Coming soon.</p>
         </div>
       </div>
@@ -84,6 +84,25 @@ export default async function Home() {
   const mainSchema = jsonLd?.schemas?.[0] || null;
   const faqSchema = jsonLd?.schemas?.[1] || null;
 
+  // WebSite schema for Google site name in search results
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "RFP Platform Quest",
+    "alternateName": ["RFP Platform", "RFP Software", "rfp.quest"],
+    "url": "https://rfp.quest",
+    "description": "RFP Platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management.",
+    "inLanguage": "en-GB",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://rfp.quest/dashboard?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   // Parse enhanced data
   const features = page.features as Feature[] | null;
   const stats = page.stats as Stat[] | null;
@@ -91,6 +110,11 @@ export default async function Home() {
 
   return (
     <>
+      {/* WebSite schema for Google site name */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       {mainSchema && (
         <script
           type="application/ld+json"
@@ -204,6 +228,15 @@ export default async function Home() {
         secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
         variant="gradient"
       />
+
+      {/* SEO keyword anchor - visible at bottom of page */}
+      <section className="py-8 bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            <strong className="text-gray-700 dark:text-gray-300">RFP Platform Quest</strong> — The UK&apos;s leading <strong className="text-gray-700 dark:text-gray-300">RFP software</strong> for bid management and tender response. Your trusted <strong className="text-gray-700 dark:text-gray-300">RFP Platform</strong>.
+          </p>
+        </div>
+      </section>
     </>
   );
 }

@@ -49,9 +49,8 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo + Beta Badge */}
           <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-900 dark:text-white">
-              <span className="text-teal-600">rfp</span>
-              <span>.quest</span>
+            <Link href="/" className="font-bold text-xl text-gray-900 dark:text-white">
+              <span className="text-teal-600">RFP</span> Platform <span className="text-teal-600">Quest</span>
             </Link>
             <span className="px-2 py-0.5 text-xs font-bold bg-amber-600 text-black rounded uppercase">Beta</span>
             <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">Launching Q1 2026</span>

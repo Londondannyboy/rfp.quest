@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'RFP Quest privacy policy. Learn how we collect, use, and protect your data.',
+  description: 'RFP Platform Quest privacy policy. Learn how we collect, use, and protect your data.',
 };
 
 export default function PrivacyPolicyPage() {
@@ -17,10 +17,10 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Introduction</h2>
             <p className="text-slate-300 leading-relaxed">
-              RFP Quest (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform at rfp.quest.
+              RFP Platform Quest (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform at rfp.quest.
             </p>
             <p className="text-slate-300 leading-relaxed mt-4">
-              By using RFP Quest, you agree to the collection and use of information in accordance with this policy.
+              By using RFP Platform Quest, you agree to the collection and use of information in accordance with this policy.
             </p>
           </section>
 
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li><strong>Essential cookies:</strong> Required for authentication and core functionality</li>
               <li><strong>Preference cookies:</strong> Remember your settings and choices</li>
-              <li><strong>Analytics cookies:</strong> Help us understand how you use RFP Quest</li>
+              <li><strong>Analytics cookies:</strong> Help us understand how you use RFP Platform Quest</li>
             </ul>
             <p className="text-slate-300 leading-relaxed mt-4">
               You can control cookies through your browser settings. Disabling certain cookies may affect your experience.
@@ -146,7 +146,7 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">9. Children&apos;s Privacy</h2>
             <p className="text-slate-300 leading-relaxed">
-              RFP Quest is not intended for users under 18. We do not knowingly collect personal information from children. If you believe we have collected data from a child, please contact us immediately.
+              RFP Platform Quest is not intended for users under 18. We do not knowingly collect personal information from children. If you believe we have collected data from a child, please contact us immediately.
             </p>
           </section>
 
@@ -184,7 +184,7 @@ export default function PrivacyPolicyPage() {
             href="/"
             className="text-teal-400 hover:text-teal-300 transition-colors"
           >
-            &larr; Back to RFP Quest
+            &larr; Back to RFP Platform Quest
           </Link>
         </div>
       </div>
