@@ -73,17 +73,21 @@ export interface DashboardStats {
 
 export async function GET() {
   try {
-    const { data: session } = await authServer.getSession();
-
-    // Get user's target CPV divisions if logged in
+    // Try to get session, but don't fail if not authenticated
     let targetCpvDivisions: string[] = [];
-    if (session?.user) {
-      const profileResult = await sql`
-        SELECT target_cpv_divisions FROM company_profiles WHERE user_id = ${session.user.id}
-      `;
-      if (profileResult.length > 0 && profileResult[0].target_cpv_divisions) {
-        targetCpvDivisions = profileResult[0].target_cpv_divisions as string[];
+    try {
+      const { data: session } = await authServer.getSession();
+      if (session?.user) {
+        const profileResult = await sql`
+          SELECT target_cpv_divisions FROM company_profiles WHERE user_id = ${session.user.id}
+        `;
+        if (profileResult.length > 0 && profileResult[0].target_cpv_divisions) {
+          targetCpvDivisions = profileResult[0].target_cpv_divisions as string[];
+        }
       }
+    } catch (sessionError) {
+      console.log('[dashboard-stats] Session error (non-fatal):', sessionError);
+      // Continue without personalization
     }
 
     // Total live opportunities (stage = 'tender')
