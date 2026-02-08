@@ -1,7 +1,10 @@
 import { redirect } from 'next/navigation';
-import { getSession } from '@/lib/auth/session';
+import { authServer } from '@/lib/auth/server';
 import { sql } from '@/lib/db';
 import { DashboardShell } from '@/components/dashboard/DashboardShell';
+
+// Force dynamic rendering since we need session cookies
+export const dynamic = 'force-dynamic';
 
 // Check if profile is complete enough to access dashboard
 async function isProfileComplete(userId: string): Promise<boolean> {
@@ -26,15 +29,16 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getSession();
+  // Use Neon Auth session instead of custom iron-session
+  const { data: session } = await authServer.getSession();
 
-  // Not logged in → redirect to login
-  if (!session.isLoggedIn || !session.userId) {
-    redirect('/login');
+  // Not logged in → redirect to sign-in
+  if (!session?.user) {
+    redirect('/auth/sign-in');
   }
 
-  // Check profile completeness
-  const complete = await isProfileComplete(session.userId);
+  // Check profile completeness using Neon Auth user ID
+  const complete = await isProfileComplete(session.user.id);
   if (!complete) {
     redirect('/onboarding');
   }

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { getSession } from '@/lib/auth/session';
+import { authServer } from '@/lib/auth/server';
 import { sql } from '@/lib/db';
 
 // CPV Division labels for readable output
@@ -43,9 +43,9 @@ interface MatchResult {
 
 export async function GET(request: NextRequest) {
   try {
-    const session = await getSession();
+    const { data: session } = await authServer.getSession();
 
-    if (!session.isLoggedIn || !session.userId) {
+    if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized. Please log in to analyze tender matches.' },
         { status: 401 }
@@ -65,7 +65,7 @@ export async function GET(request: NextRequest) {
 
     // Fetch company profile
     const profileResults = await sql`
-      SELECT * FROM company_profiles WHERE user_id = ${session.userId}
+      SELECT * FROM company_profiles WHERE user_id = ${session.user.id}
     `;
 
     if (profileResults.length === 0) {

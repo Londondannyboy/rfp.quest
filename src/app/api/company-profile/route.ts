@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSession } from '@/lib/auth/session';
+import { authServer } from '@/lib/auth/server';
 import { sql } from '@/lib/db';
 
 export interface CompanyProfile {
@@ -24,9 +24,9 @@ export interface CompanyProfile {
 // GET /api/company-profile - Get current user's company profile
 export async function GET() {
   try {
-    const session = await getSession();
+    const { data: session } = await authServer.getSession();
 
-    if (!session.isLoggedIn || !session.userId) {
+    if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -52,7 +52,7 @@ export async function GET() {
         created_at,
         updated_at
       FROM company_profiles
-      WHERE user_id = ${session.userId}
+      WHERE user_id = ${session.user.id}
     `;
 
     if (results.length === 0) {
@@ -92,9 +92,9 @@ export async function GET() {
 // PUT /api/company-profile - Create or update company profile
 export async function PUT(request: Request) {
   try {
-    const session = await getSession();
+    const { data: session } = await authServer.getSession();
 
-    if (!session.isLoggedIn || !session.userId) {
+    if (!session?.user) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -144,7 +144,7 @@ export async function PUT(request: Request) {
         sustainability_focus,
         sustainability_keywords
       ) VALUES (
-        ${session.userId},
+        ${session.user.id},
         ${values.companyName},
         ${values.description},
         ${values.website},

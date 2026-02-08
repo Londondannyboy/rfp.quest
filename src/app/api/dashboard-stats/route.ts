@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sql } from '@/lib/db';
-import { getSession } from '@/lib/auth/session';
+import { authServer } from '@/lib/auth/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -73,13 +73,13 @@ export interface DashboardStats {
 
 export async function GET() {
   try {
-    const session = await getSession();
+    const { data: session } = await authServer.getSession();
 
     // Get user's target CPV divisions if logged in
     let targetCpvDivisions: string[] = [];
-    if (session.isLoggedIn && session.userId) {
+    if (session?.user) {
       const profileResult = await sql`
-        SELECT target_cpv_divisions FROM company_profiles WHERE user_id = ${session.userId}
+        SELECT target_cpv_divisions FROM company_profiles WHERE user_id = ${session.user.id}
       `;
       if (profileResult.length > 0 && profileResult[0].target_cpv_divisions) {
         targetCpvDivisions = profileResult[0].target_cpv_divisions as string[];
