@@ -6,6 +6,10 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
+// Jina Reader API for web scraping
+const JINA_API_KEY = process.env.JINA_API_KEY || 'jina_d483443a23d64bd286284a338539f9e86b5PF0Pi4ayLaHp7Bp2ydoogA9Rd';
+const JINA_READER_URL = 'https://r.jina.ai';
+
 export interface ScrapedCompanyData {
   companyName: string | null;
   description: string | null;
@@ -24,51 +28,31 @@ export interface ScrapedCompanyData {
   };
 }
 
-// Extract text content from HTML
-function extractTextContent(html: string): string {
-  // Remove script and style tags
-  let text = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-  text = text.replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, '');
-  // Remove HTML tags
-  text = text.replace(/<[^>]+>/g, ' ');
-  // Clean up whitespace
-  text = text.replace(/\s+/g, ' ').trim();
-  return text.substring(0, 8000); // Limit for API
-}
-
-// Extract meta information from HTML
-function extractMeta(html: string): ScrapedCompanyData['meta'] {
-  const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
-  const metaDescMatch = html.match(/<meta[^>]*name=["']description["'][^>]*content=["']([^"']+)["']/i);
-  const h1Match = html.match(/<h1[^>]*>([^<]+)<\/h1>/i);
-
-  return {
-    title: titleMatch?.[1]?.trim() || null,
-    metaDescription: metaDescMatch?.[1]?.trim() || null,
-    h1: h1Match?.[1]?.trim() || null,
-  };
-}
-
-// Extract social links from HTML
-function extractSocialLinks(html: string): ScrapedCompanyData['socialLinks'] {
+// Extract social links from markdown content
+function extractSocialLinks(content: string): ScrapedCompanyData['socialLinks'] {
   const links: ScrapedCompanyData['socialLinks'] = {};
 
-  const linkedinMatch = html.match(/href=["'](https?:\/\/(?:www\.)?linkedin\.com\/company\/[^"']+)["']/i);
-  if (linkedinMatch) links.linkedin = linkedinMatch[1];
+  const linkedinMatch = content.match(/https?:\/\/(?:www\.)?linkedin\.com\/company\/[^\s\)"\]]+/i);
+  if (linkedinMatch) links.linkedin = linkedinMatch[0];
 
-  const twitterMatch = html.match(/href=["'](https?:\/\/(?:www\.)?(?:twitter|x)\.com\/[^"']+)["']/i);
-  if (twitterMatch) links.twitter = twitterMatch[1];
+  const twitterMatch = content.match(/https?:\/\/(?:www\.)?(?:twitter|x)\.com\/[^\s\)"\]]+/i);
+  if (twitterMatch) links.twitter = twitterMatch[0];
 
-  const facebookMatch = html.match(/href=["'](https?:\/\/(?:www\.)?facebook\.com\/[^"']+)["']/i);
-  if (facebookMatch) links.facebook = facebookMatch[1];
+  const facebookMatch = content.match(/https?:\/\/(?:www\.)?facebook\.com\/[^\s\)"\]]+/i);
+  if (facebookMatch) links.facebook = facebookMatch[0];
 
   return links;
 }
 
-// Use AI to extract structured data from content
+// Extract title from Jina markdown (first # heading)
+function extractTitle(content: string): string | null {
+  const titleMatch = content.match(/^#\s+(.+)$/m);
+  return titleMatch?.[1]?.trim() || null;
+}
+
+// Use AI to extract structured data from markdown content
 async function extractWithAI(
   content: string,
-  meta: ScrapedCompanyData['meta'],
   url: string
 ): Promise<{
   companyName: string | null;
@@ -89,20 +73,17 @@ async function extractWithAI(
           content: `Extract company information from this website content.
 
 URL: ${url}
-Page Title: ${meta.title || 'N/A'}
-Meta Description: ${meta.metaDescription || 'N/A'}
-H1: ${meta.h1 || 'N/A'}
 
-Page Content:
-${content.substring(0, 4000)}
+Website Content (Markdown):
+${content.substring(0, 6000)}
 
 Return JSON with these fields:
 - companyName: The company's official name (string or null)
 - description: A 2-3 sentence description of what the company does (string or null)
 - services: Array of products/services they offer (max 8 items, short phrases)
-- certifications: Array of certifications mentioned (ISO 9001, ISO 27001, Cyber Essentials, etc.)
+- certifications: Array of certifications mentioned (ISO 9001, ISO 14001, ISO 27001, Cyber Essentials, etc.)
 
-Return ONLY valid JSON, no markdown.`,
+Return ONLY valid JSON, no markdown code blocks.`,
         },
       ],
       temperature: 0.3,
@@ -115,10 +96,9 @@ Return ONLY valid JSON, no markdown.`,
     return JSON.parse(cleanJson);
   } catch (error) {
     console.error('AI extraction error:', error);
-    // Fallback: use meta data
     return {
-      companyName: meta.title?.split(/[-|–]/)[0]?.trim() || null,
-      description: meta.metaDescription,
+      companyName: null,
+      description: null,
       services: [],
       certifications: [],
     };
@@ -151,29 +131,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Fetch the website
+    // Fetch website content using Jina Reader
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s timeout for Jina
 
-    let html: string;
+    let content: string;
     try {
-      const response = await fetch(parsedUrl.toString(), {
+      const jinaUrl = `${JINA_READER_URL}/${parsedUrl.toString()}`;
+      console.log(`[Jina Reader] Fetching: ${jinaUrl}`);
+
+      const response = await fetch(jinaUrl, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (compatible; RFPQuestBot/1.0; +https://rfp.quest)',
-          'Accept': 'text/html,application/xhtml+xml',
-          'Accept-Language': 'en-GB,en;q=0.9',
+          'Authorization': `Bearer ${JINA_API_KEY}`,
+          'Accept': 'text/plain',
         },
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
 
       if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
+        const errorText = await response.text();
+        console.error(`[Jina Reader] Error ${response.status}:`, errorText);
+        throw new Error(`Jina Reader returned ${response.status}`);
       }
 
-      html = await response.text();
+      content = await response.text();
+      console.log(`[Jina Reader] Received ${content.length} characters`);
     } catch (fetchError) {
       const errorMessage = fetchError instanceof Error ? fetchError.message : 'Unknown error';
+      console.error('[Jina Reader] Fetch error:', errorMessage);
       return NextResponse.json(
         { error: `Could not fetch website: ${errorMessage}. Please enter your company details manually.` },
         { status: 422 }
@@ -181,12 +167,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Extract data
-    const meta = extractMeta(html);
-    const socialLinks = extractSocialLinks(html);
-    const textContent = extractTextContent(html);
+    const title = extractTitle(content);
+    const socialLinks = extractSocialLinks(content);
 
-    // Use AI to extract structured data
-    const aiData = await extractWithAI(textContent, meta, parsedUrl.toString());
+    // Use AI to extract structured data from markdown
+    const aiData = await extractWithAI(content, parsedUrl.toString());
 
     const result: ScrapedCompanyData = {
       companyName: aiData.companyName,
@@ -195,7 +180,11 @@ export async function POST(request: NextRequest) {
       socialLinks,
       certifications: aiData.certifications || [],
       website: parsedUrl.origin,
-      meta,
+      meta: {
+        title,
+        metaDescription: aiData.description, // Use AI description as meta
+        h1: title,
+      },
     };
 
     return NextResponse.json(result);

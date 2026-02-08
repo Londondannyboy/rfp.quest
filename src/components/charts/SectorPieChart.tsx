@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import {
   PieChart,
@@ -11,6 +11,7 @@ import {
   Legend,
   Tooltip,
 } from 'recharts';
+import type { PieSectorDataItem } from 'recharts/types/polar/Pie';
 
 interface SectorData {
   sector: string;
@@ -37,18 +38,19 @@ const COLORS = [
   '#f97316', // orange-500
 ];
 
-const renderActiveShape = (props: unknown) => {
-  const p = props as {
-    cx: number;
-    cy: number;
-    innerRadius: number;
-    outerRadius: number;
-    startAngle: number;
-    endAngle: number;
-    fill: string;
-    payload: SectorData;
-    percent: number;
-  };
+interface ActiveShapeProps extends PieSectorDataItem {
+  cx: number;
+  cy: number;
+  innerRadius: number;
+  outerRadius: number;
+  startAngle: number;
+  endAngle: number;
+  fill: string;
+  payload: SectorData;
+  percent: number;
+}
+
+const renderActiveShape = (props: ActiveShapeProps) => {
   const {
     cx,
     cy,
@@ -59,7 +61,7 @@ const renderActiveShape = (props: unknown) => {
     fill,
     payload,
     percent,
-  } = p;
+  } = props;
 
   return (
     <g>
@@ -94,6 +96,13 @@ const renderActiveShape = (props: unknown) => {
 export function SectorPieChart({ data, loading }: SectorPieChartProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  const onPieEnter = useCallback(
+    (_: unknown, index: number) => {
+      setActiveIndex(index);
+    },
+    []
+  );
+
   if (loading) {
     return (
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
@@ -125,14 +134,14 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
           <PieChart>
             <Pie
               activeIndex={activeIndex}
-              activeShape={renderActiveShape}
+              activeShape={(props: unknown) => renderActiveShape(props as ActiveShapeProps)}
               data={data}
               cx="50%"
               cy="50%"
               innerRadius={60}
               outerRadius={90}
               dataKey="count"
-              onMouseEnter={(_, index) => setActiveIndex(index)}
+              onMouseEnter={onPieEnter}
             >
               {data.map((_, index) => (
                 <Cell
