@@ -102,8 +102,8 @@ export function Footer() {
             &copy; {new Date().getFullYear()} rfp.quest. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-gray-500 dark:text-gray-400">
-            <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400">Privacy</Link>
-            <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400">Terms</Link>
+            <Link href="/privacy" className="hover:text-teal-600 dark:hover:text-teal-400">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-teal-600 dark:hover:text-teal-400">Terms of Service</Link>
           </div>
         </div>
       </div>

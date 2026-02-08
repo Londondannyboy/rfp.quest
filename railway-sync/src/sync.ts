@@ -4,6 +4,7 @@
  */
 
 import { neon, NeonQueryFunction } from '@neondatabase/serverless';
+import { categorizeTender } from './categorizer';
 
 const FIND_A_TENDER_API = 'https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages';
 
@@ -146,6 +147,15 @@ async function upsertTender(
   release: OCDSRelease
 ): Promise<'inserted' | 'updated' | 'error'> {
   const tender = release.tender;
+  const cpvCodes = extractCPVCodes(tender);
+
+  // Categorize the tender
+  const category = categorizeTender(
+    tender?.title || 'Untitled',
+    tender?.description || null,
+    cpvCodes,
+    release.buyer?.name || ''
+  );
 
   const values = {
     ocid: release.ocid,
@@ -166,9 +176,14 @@ async function upsertTender(
     tender_end_date: tender?.tenderPeriod?.endDate || null,
     contract_start_date: tender?.contractPeriod?.startDate || null,
     contract_end_date: tender?.contractPeriod?.endDate || null,
-    cpv_codes: JSON.stringify(extractCPVCodes(tender)),
+    cpv_codes: JSON.stringify(cpvCodes),
     region: extractRegion(tender),
     raw_ocds: JSON.stringify(release),
+    // Category fields
+    main_category: category.mainCategory,
+    lead_category: category.leadCategory,
+    category_tags: JSON.stringify(category.tags),
+    category_confidence: category.confidence,
   };
 
   try {
@@ -178,14 +193,16 @@ async function upsertTender(
         buyer_name, buyer_id, value_amount, value_currency, value_min, value_max,
         published_date, tender_start_date, tender_end_date,
         contract_start_date, contract_end_date,
-        cpv_codes, region, raw_ocds, synced_at
+        cpv_codes, region, raw_ocds, synced_at,
+        main_category, lead_category, category_tags, category_confidence, categorized_at
       ) VALUES (
         ${values.ocid}, ${values.release_id}, ${values.title}, ${values.slug}, ${values.description},
         ${values.status}, ${values.stage}, ${values.buyer_name}, ${values.buyer_id},
         ${values.value_amount}, ${values.value_currency}, ${values.value_min}, ${values.value_max},
         ${values.published_date}, ${values.tender_start_date}, ${values.tender_end_date},
         ${values.contract_start_date}, ${values.contract_end_date},
-        ${values.cpv_codes}::jsonb, ${values.region}, ${values.raw_ocds}::jsonb, NOW()
+        ${values.cpv_codes}::jsonb, ${values.region}, ${values.raw_ocds}::jsonb, NOW(),
+        ${values.main_category}, ${values.lead_category}, ${values.category_tags}::jsonb, ${values.category_confidence}, NOW()
       )
       ON CONFLICT (ocid) DO UPDATE SET
         release_id = EXCLUDED.release_id,
@@ -209,7 +226,12 @@ async function upsertTender(
         region = EXCLUDED.region,
         raw_ocds = EXCLUDED.raw_ocds,
         synced_at = NOW(),
-        updated_at = NOW()
+        updated_at = NOW(),
+        main_category = EXCLUDED.main_category,
+        lead_category = EXCLUDED.lead_category,
+        category_tags = EXCLUDED.category_tags,
+        category_confidence = EXCLUDED.category_confidence,
+        categorized_at = EXCLUDED.categorized_at
     `;
     return 'inserted';
   } catch (error) {

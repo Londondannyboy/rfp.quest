@@ -13,6 +13,7 @@ const softwareLinks = [
   { href: '/bid-management-software', label: 'Bid Management' },
   { href: '/rfp-bid-management-software', label: 'RFP Bid Management' },
   { href: '/ai-rfp-software', label: 'AI RFP Software' },
+  { href: '/ai-tender-software-smes', label: 'AI for SMEs' },
   { href: '/government-tender-software', label: 'Government Tenders' },
   { href: '/rfp-pipeline-tools', label: 'Pipeline Tools' },
   { href: '/gdpr-bid-management', label: 'GDPR Compliant' },

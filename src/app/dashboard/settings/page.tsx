@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   BuildingOfficeIcon,
   GlobeAltIcon,
@@ -10,6 +11,8 @@ import {
   SparklesIcon,
   CheckIcon,
   ExclamationCircleIcon,
+  ExclamationTriangleIcon,
+  TrashIcon,
 } from '@heroicons/react/24/outline';
 import type { CompanyProfile } from '@/app/api/company-profile/route';
 
@@ -53,10 +56,14 @@ const CERTIFICATIONS = [
 ];
 
 export default function SettingsPage() {
+  const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState('');
 
   // Form state
   const [companyName, setCompanyName] = useState('');
@@ -200,6 +207,32 @@ export default function SettingsPage() {
       setExpertiseAreas(expertiseAreas.filter((a) => a !== area));
     } else {
       setExpertiseAreas([...expertiseAreas, area]);
+    }
+  };
+
+  const handleDeleteAccount = async () => {
+    if (deleteConfirmation !== 'DELETE') {
+      return;
+    }
+
+    setDeleting(true);
+    try {
+      const res = await fetch('/api/auth/delete-account', {
+        method: 'DELETE',
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || 'Failed to delete account');
+      }
+
+      // Redirect to home page after deletion
+      router.push('/');
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to delete account');
+      setShowDeleteModal(false);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -567,7 +600,79 @@ export default function SettingsPage() {
             {saving ? 'Saving...' : 'Save Profile'}
           </button>
         </div>
+
+        {/* Danger Zone */}
+        <section className="bg-red-50 rounded-lg border border-red-200 p-6 mt-12">
+          <div className="flex items-center gap-2 mb-4">
+            <ExclamationTriangleIcon className="h-5 w-5 text-red-500" />
+            <h2 className="text-lg font-semibold text-red-700">Danger Zone</h2>
+          </div>
+          <p className="text-sm text-red-600 mb-4">
+            Permanently delete your account and all associated data. This action cannot be undone.
+          </p>
+          <button
+            onClick={() => setShowDeleteModal(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md text-sm font-medium hover:bg-red-700"
+          >
+            <TrashIcon className="h-4 w-4" />
+            Delete Account
+          </button>
+        </section>
       </div>
+
+      {/* Delete Account Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg max-w-md w-full p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="p-2 bg-red-100 rounded-full">
+                <ExclamationTriangleIcon className="h-6 w-6 text-red-600" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900">Delete Account</h3>
+            </div>
+
+            <p className="text-sm text-gray-600 mb-4">
+              Are you sure you want to delete your account? This will permanently remove:
+            </p>
+            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside">
+              <li>Your user account</li>
+              <li>Your company profile</li>
+              <li>All saved preferences</li>
+            </ul>
+
+            <p className="text-sm text-gray-700 font-medium mb-2">
+              Type <span className="font-mono bg-gray-100 px-1">DELETE</span> to confirm:
+            </p>
+            <input
+              type="text"
+              value={deleteConfirmation}
+              onChange={(e) => setDeleteConfirmation(e.target.value)}
+              placeholder="Type DELETE"
+              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm mb-4 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+            />
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => {
+                  setShowDeleteModal(false);
+                  setDeleteConfirmation('');
+                }}
+                disabled={deleting}
+                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteAccount}
+                disabled={deleting || deleteConfirmation !== 'DELETE'}
+                className="flex-1 px-4 py-2 bg-red-600 text-white rounded-md text-sm font-medium hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {deleting ? 'Deleting...' : 'Delete Account'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
