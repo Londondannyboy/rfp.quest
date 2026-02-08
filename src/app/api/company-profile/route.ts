@@ -92,16 +92,24 @@ export async function GET() {
 // PUT /api/company-profile - Create or update company profile
 export async function PUT(request: Request) {
   try {
-    const { data: session } = await authServer.getSession();
+    const { data: session, error: sessionError } = await authServer.getSession();
+
+    console.log('[company-profile] Session data:', JSON.stringify(session, null, 2));
+    console.log('[company-profile] Session error:', sessionError);
 
     if (!session?.user) {
+      console.log('[company-profile] No user in session');
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       );
     }
 
+    console.log('[company-profile] User ID:', session.user.id);
+    console.log('[company-profile] User ID type:', typeof session.user.id);
+
     const body = await request.json();
+    console.log('[company-profile] Request body:', JSON.stringify(body, null, 2));
 
     // Validate required fields
     if (!body.companyName || typeof body.companyName !== 'string') {
@@ -213,9 +221,12 @@ export async function PUT(request: Request) {
 
     return NextResponse.json({ profile });
   } catch (error) {
-    console.error('Error saving company profile:', error);
+    console.error('[company-profile] Error saving company profile:', error);
+    console.error('[company-profile] Error type:', typeof error);
+    console.error('[company-profile] Error message:', error instanceof Error ? error.message : String(error));
+    console.error('[company-profile] Error stack:', error instanceof Error ? error.stack : 'No stack');
     return NextResponse.json(
-      { error: 'Failed to save company profile' },
+      { error: 'Failed to save company profile', details: error instanceof Error ? error.message : String(error) },
       { status: 500 }
     );
   }
