@@ -41,7 +41,7 @@ export function CookieConsentBanner() {
         <div className="flex items-center gap-3">
           <button
             onClick={acceptCookies}
-            className="px-5 py-2 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-500 transition-colors whitespace-nowrap"
+            className="px-5 py-2 bg-teal-700 text-white rounded-lg font-medium hover:bg-teal-600 transition-colors whitespace-nowrap"
           >
             Accept
           </button>
