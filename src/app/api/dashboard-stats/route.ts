@@ -104,8 +104,8 @@ export async function GET() {
         FROM tenders
         WHERE stage = 'tender'
           AND cpv_codes IS NOT NULL
-          AND array_length(cpv_codes, 1) > 0
-          AND LEFT(cpv_codes[1], 2) = ANY(${targetCpvDivisions})
+          AND jsonb_array_length(cpv_codes) > 0
+          AND LEFT((cpv_codes->>0)::text, 2) = ANY(${targetCpvDivisions})
       `;
       matchedCount = Number(matchedResult[0]?.count) || 0;
     }
@@ -125,13 +125,13 @@ export async function GET() {
     // Sector breakdown
     const sectorResult = await sql`
       SELECT
-        LEFT(cpv_codes[1], 2) as division,
+        LEFT((cpv_codes->>0)::text, 2) as division,
         COUNT(*) as count
       FROM tenders
       WHERE stage = 'tender'
         AND cpv_codes IS NOT NULL
-        AND array_length(cpv_codes, 1) > 0
-      GROUP BY LEFT(cpv_codes[1], 2)
+        AND jsonb_array_length(cpv_codes) > 0
+      GROUP BY LEFT((cpv_codes->>0)::text, 2)
       ORDER BY count DESC
       LIMIT 10
     `;
