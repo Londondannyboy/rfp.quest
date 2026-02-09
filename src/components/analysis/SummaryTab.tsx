@@ -74,9 +74,9 @@ export function SummaryTab({ summary, tender }: Props) {
             Buyer
           </div>
           <div className="font-medium text-white">
-            {(overview?.buyer as Record<string, unknown>)?.name as string || tender.buyerName}
+            {String((overview?.buyer as Record<string, unknown>)?.name || '') || tender.buyerName}
           </div>
-          {(overview?.buyer as Record<string, unknown>)?.department && (
+          {Boolean((overview?.buyer as Record<string, unknown>)?.department) && (
             <div className="text-sm text-slate-400 mt-1">
               {(overview?.buyer as Record<string, unknown>)?.department as string}
             </div>
@@ -90,7 +90,7 @@ export function SummaryTab({ summary, tender }: Props) {
             Contract Value
           </div>
           <div className="font-medium text-white">
-            {contract?.valueMin || contract?.valueMax ? (
+            {Boolean(contract?.valueMin) || Boolean(contract?.valueMax) ? (
               <>
                 {formatValue(contract?.valueMin as number)} - {formatValue(contract?.valueMax as number)}
               </>
@@ -99,7 +99,7 @@ export function SummaryTab({ summary, tender }: Props) {
             )}
           </div>
           <div className="text-sm text-slate-400 mt-1">
-            {(contract?.duration as Record<string, unknown>)?.months
+            {Boolean((contract?.duration as Record<string, unknown>)?.months)
               ? `${(contract?.duration as Record<string, unknown>)?.months} months`
               : 'Duration TBC'}
           </div>
@@ -146,22 +146,22 @@ export function SummaryTab({ summary, tender }: Props) {
       </div>
 
       {/* Framework Info (if detected) */}
-      {framework?.name && (
+      {Boolean(framework?.name) && (
         <div className="p-4 bg-teal-900/30 rounded-lg border border-teal-700">
           <div className="flex items-center gap-2 mb-2">
             <span className="px-2 py-1 bg-teal-800 text-teal-200 text-xs rounded">
               FRAMEWORK
             </span>
-            <span className="font-medium text-white">{framework.name as string}</span>
+            <span className="font-medium text-white">{framework?.name as string}</span>
           </div>
-          {framework.lot && (
+          {Boolean(framework?.lot) && (
             <div className="text-sm text-teal-300">
-              Lot: {framework.lot as string}
+              Lot: {framework?.lot as string}
             </div>
           )}
-          {framework.callOffType && (
+          {Boolean(framework?.callOffType) && (
             <div className="text-sm text-teal-300 mt-1">
-              Call-off type: {(framework.callOffType as string).replace(/_/g, ' ')}
+              Call-off type: {(framework?.callOffType as string)?.replace(/_/g, ' ')}
             </div>
           )}
         </div>
@@ -197,7 +197,7 @@ export function SummaryTab({ summary, tender }: Props) {
                     {formatDate(dateItem.date as string)}
                   </div>
                 </div>
-                {dateItem.isPast && (
+                {Boolean(dateItem.isPast) && (
                   <span className="text-xs text-slate-500">Past</span>
                 )}
               </div>
@@ -207,7 +207,7 @@ export function SummaryTab({ summary, tender }: Props) {
       )}
 
       {/* CPV Classification */}
-      {((classification?.cpvCodes as string[]) || tender.cpvCodes) && (
+      {Boolean((classification?.cpvCodes as string[])?.length || tender.cpvCodes?.length) && (
         <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <TagIcon className="h-5 w-5 text-teal-400" />
@@ -240,13 +240,13 @@ export function SummaryTab({ summary, tender }: Props) {
             <BuildingOfficeIcon className="h-5 w-5 text-teal-400" />
             Buyer Insights
           </h3>
-          {buyerInsights.organizationType && (
+          {Boolean(buyerInsights.organizationType) && (
             <div className="mb-3">
               <span className="text-slate-400">Organization Type:</span>{' '}
               <span className="text-white">{buyerInsights.organizationType as string}</span>
             </div>
           )}
-          {buyerInsights.recentActivity && (
+          {Boolean(buyerInsights.recentActivity) && (
             <div className="mb-3">
               <span className="text-slate-400">Recent Activity:</span>{' '}
               <span className="text-white">{buyerInsights.recentActivity as string}</span>

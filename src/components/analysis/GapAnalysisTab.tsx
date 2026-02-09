@@ -276,10 +276,10 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
                   <div className="font-medium text-white">{action.action as string}</div>
                   <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-xs text-slate-400">
                     <span>Category: {action.category as string}</span>
-                    {action.deadline && <span>Deadline: {action.deadline as string}</span>}
-                    {action.owner && <span>Owner: {action.owner as string}</span>}
+                    {Boolean(action.deadline) && <span>Deadline: {action.deadline as string}</span>}
+                    {Boolean(action.owner) && <span>Owner: {action.owner as string}</span>}
                   </div>
-                  {action.impact && (
+                  {Boolean(action.impact) && (
                     <div className="text-sm text-teal-300 mt-2">
                       Impact: {action.impact as string}
                     </div>
@@ -334,7 +334,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
                       </span>
                       <span className="text-white">{risk.risk as string}</span>
                     </div>
-                    {risk.mitigation && (
+                    {Boolean(risk.mitigation) && (
                       <div className="text-sm text-slate-400 mt-1">
                         Mitigation: {risk.mitigation as string}
                       </div>

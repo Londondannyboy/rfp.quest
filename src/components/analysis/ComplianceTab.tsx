@@ -127,7 +127,7 @@ export function ComplianceTab({ compliance }: Props) {
                   <div className="font-medium text-white">
                     {req.requirement as string}
                   </div>
-                  {req.showstopper && (
+                  {Boolean(req.showstopper) && (
                     <span className="inline-block mt-1 px-2 py-0.5 bg-red-800 text-red-200 text-xs rounded">
                       Showstopper
                     </span>
@@ -172,12 +172,12 @@ export function ComplianceTab({ compliance }: Props) {
                         <div className="text-white text-sm">
                           {item.requirement as string}
                         </div>
-                        {item.evidence && (
+                        {Boolean(item.evidence) && (
                           <div className="text-green-400 text-xs mt-1">
                             ✓ {item.evidence as string}
                           </div>
                         )}
-                        {item.action && (
+                        {Boolean(item.action) && (
                           <div className="text-orange-400 text-xs mt-1">
                             → {item.action as string}
                           </div>
@@ -230,7 +230,7 @@ export function ComplianceTab({ compliance }: Props) {
                   <div className="text-white text-sm">{item.action as string}</div>
                   <div className="flex gap-4 mt-1 text-xs text-slate-400">
                     <span>Category: {item.category as string}</span>
-                    {item.deadline && <span>Deadline: {item.deadline as string}</span>}
+                    {Boolean(item.deadline) && <span>Deadline: {item.deadline as string}</span>}
                   </div>
                 </div>
               </div>
@@ -266,7 +266,7 @@ export function ComplianceTab({ compliance }: Props) {
                   </span>
                   <span className="text-white font-medium">{risk.risk as string}</span>
                 </div>
-                {risk.mitigation && (
+                {Boolean(risk.mitigation) && (
                   <div className="text-sm text-slate-400 mt-1">
                     Mitigation: {risk.mitigation as string}
                   </div>
