@@ -68,8 +68,8 @@ export function RegionalBarChart({ data, loading }: RegionalBarChartProps) {
       <h3 className="text-lg font-semibold text-gray-900 mb-4">
         Regional Distribution
       </h3>
-      <div className="h-72">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="h-72" style={{ minWidth: 300, minHeight: 288 }}>
+        <ResponsiveContainer width="100%" height="100%" minWidth={300} minHeight={280}>
           <BarChart
             data={data}
             layout="vertical"

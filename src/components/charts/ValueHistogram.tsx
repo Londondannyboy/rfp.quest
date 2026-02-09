@@ -61,8 +61,8 @@ export function ValueHistogram({ data, loading }: ValueHistogramProps) {
       <h3 className="text-lg font-semibold text-gray-900 mb-4">
         Contract Value Distribution
       </h3>
-      <div className="h-72">
-        <ResponsiveContainer width="100%" height="100%">
+      <div className="h-72" style={{ minWidth: 300, minHeight: 288 }}>
+        <ResponsiveContainer width="100%" height="100%" minWidth={300} minHeight={280}>
           <BarChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
             <XAxis

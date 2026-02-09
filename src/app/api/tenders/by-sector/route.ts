@@ -34,16 +34,15 @@ export async function GET(request: Request) {
 
     const sql = neon(process.env.DATABASE_URL!);
 
-    // Get sector breakdown from CPV codes
+    // Get sector breakdown from CPV codes (simplified query for compatibility)
     const query = region
       ? sql`
         SELECT
           LEFT(cpv_codes[1], 2) as division,
           COUNT(*) as count,
-          SUM(COALESCE(value_max, 0)) as total_value,
-          AVG(COALESCE(value_max, 0))::numeric as avg_value,
-          COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders,
-          array_agg(DISTINCT buyer_name ORDER BY buyer_name) FILTER (WHERE buyer_name IS NOT NULL) as top_buyers
+          COALESCE(SUM(value_max), 0) as total_value,
+          COALESCE(AVG(value_max), 0) as avg_value,
+          COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders
         FROM tenders
         WHERE cpv_codes IS NOT NULL
           AND array_length(cpv_codes, 1) > 0
@@ -56,10 +55,9 @@ export async function GET(request: Request) {
         SELECT
           LEFT(cpv_codes[1], 2) as division,
           COUNT(*) as count,
-          SUM(COALESCE(value_max, 0)) as total_value,
-          AVG(COALESCE(value_max, 0))::numeric as avg_value,
-          COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders,
-          array_agg(DISTINCT buyer_name ORDER BY buyer_name) FILTER (WHERE buyer_name IS NOT NULL) as top_buyers
+          COALESCE(SUM(value_max), 0) as total_value,
+          COALESCE(AVG(value_max), 0) as avg_value,
+          COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders
         FROM tenders
         WHERE cpv_codes IS NOT NULL
           AND array_length(cpv_codes, 1) > 0
@@ -77,7 +75,6 @@ export async function GET(request: Request) {
       totalValue: Number(row.total_value) || 0,
       avgValue: Number(row.avg_value) || 0,
       activeTenders: Number(row.active_tenders) || 0,
-      topBuyers: ((row.top_buyers as string[]) || []).slice(0, 5),
     }));
 
     return NextResponse.json({ sectors });
