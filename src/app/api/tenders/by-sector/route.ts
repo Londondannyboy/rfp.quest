@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { neon } from '@neondatabase/serverless';
+import { sql } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
@@ -32,11 +32,9 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const region = searchParams.get('region');
 
-    const sql = neon(process.env.DATABASE_URL!);
-
-    // Get sector breakdown from CPV codes (simplified query for compatibility)
-    const query = region
-      ? sql`
+    // Get sector breakdown from CPV codes
+    const result = region
+      ? await sql`
         SELECT
           LEFT(cpv_codes[1], 2) as division,
           COUNT(*) as count,
@@ -51,7 +49,7 @@ export async function GET(request: Request) {
         ORDER BY count DESC
         LIMIT 20
       `
-      : sql`
+      : await sql`
         SELECT
           LEFT(cpv_codes[1], 2) as division,
           COUNT(*) as count,
@@ -66,11 +64,9 @@ export async function GET(request: Request) {
         LIMIT 20
       `;
 
-    const result = await query;
-
     const sectors = result.map((row) => ({
-      sector: cpvDivisions[row.division as string] || `CPV ${row.division}`,
-      division: row.division as string,
+      sector: cpvDivisions[row.division] || `CPV ${row.division}`,
+      division: String(row.division),
       count: Number(row.count),
       totalValue: Number(row.total_value) || 0,
       avgValue: Number(row.avg_value) || 0,

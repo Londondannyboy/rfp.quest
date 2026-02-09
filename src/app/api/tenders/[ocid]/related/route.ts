@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { neon } from '@neondatabase/serverless';
+import { sql } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
@@ -20,7 +20,6 @@ export async function GET(
 ) {
   try {
     const { ocid: identifier } = await params;
-    const sql = neon(process.env.DATABASE_URL!);
 
     // First, get the current tender to know its buyer, region, and CPV codes
     const isOcid = identifier.startsWith('ocds-');

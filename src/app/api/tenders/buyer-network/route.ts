@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { neon } from '@neondatabase/serverless';
+import { sql } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
@@ -9,11 +9,9 @@ export async function GET(request: Request) {
     const region = searchParams.get('region');
     const focus = searchParams.get('focus'); // Optional: buyer to focus on
 
-    const sql = neon(process.env.DATABASE_URL!);
-
-    // Get top buyers with their tender stats (simplified query)
-    const query = region
-      ? sql`
+    // Get top buyers with their tender stats
+    const result = region
+      ? await sql`
         SELECT
           buyer_name as id,
           buyer_name as name,
@@ -28,7 +26,7 @@ export async function GET(request: Request) {
         ORDER BY COUNT(*) DESC
         LIMIT 25
       `
-      : sql`
+      : await sql`
         SELECT
           buyer_name as id,
           buyer_name as name,
@@ -42,8 +40,6 @@ export async function GET(request: Request) {
         ORDER BY COUNT(*) DESC
         LIMIT 25
       `;
-
-    const result = await query;
 
     const buyers = result.map((row) => ({
       id: row.id as string,
