@@ -10,6 +10,7 @@ langchain-openai>=0.2
 # FastAPI
 fastapi>=0.115
 uvicorn[standard]>=0.32
+python-multipart>=0.0.9
 
 # Web Search
 tavily-python>=0.5
