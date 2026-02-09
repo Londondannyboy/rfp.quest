@@ -93,20 +93,17 @@ export async function GET(
     }
 
     // Get tenders with similar CPV codes (limit 3)
-    if (current.cpv_codes && current.cpv_codes.length > 0) {
-      const primaryCpv = current.cpv_codes[0];
+    if (current.cpv_codes && Array.isArray(current.cpv_codes) && current.cpv_codes.length > 0) {
+      const primaryCpv = String(current.cpv_codes[0]);
       // Match on CPV division (first 2 digits)
-      const cpvDivision = primaryCpv.substring(0, 2);
+      const cpvDivision = primaryCpv.substring(0, 2) + '%';
 
       const sameCpv = await sql`
         SELECT ocid, slug, title, buyer_name, stage, value_max, region
         FROM tenders
         WHERE ocid != ${current.ocid}
           AND cpv_codes IS NOT NULL
-          AND EXISTS (
-            SELECT 1 FROM unnest(cpv_codes) AS cpv
-            WHERE cpv LIKE ${cpvDivision + '%'}
-          )
+          AND cpv_codes[1] LIKE ${cpvDivision}
         ORDER BY published_date DESC
         LIMIT 5
       `;
