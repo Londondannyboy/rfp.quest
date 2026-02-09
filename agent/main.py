@@ -4,6 +4,7 @@ FastAPI + CopilotKit + LangGraph for tender analysis
 """
 
 import os
+import json
 from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
@@ -177,7 +178,7 @@ def setup_copilotkit():
         # Create the agent graph
         tender_agent = create_tender_analyzer_agent()
 
-        # CopilotKit Actions
+        # CopilotKit Actions - return JSON strings for proper message formatting
         async def analyze_tender_action(ocid: str = None, rfp_text: str = None, user_id: str = None):
             """Analyze a tender using the LangGraph pipeline."""
             try:
@@ -190,63 +191,63 @@ def setup_copilotkit():
                     "messages": [],
                 })
 
-                return {
+                return json.dumps({
                     "status": result.get("status", "unknown"),
                     "summary": result.get("summary"),
                     "compliance": result.get("compliance"),
                     "gap_analysis": result.get("gap_analysis"),
                     "error": result.get("error"),
-                }
+                })
             except Exception as e:
-                return {
+                return json.dumps({
                     "status": "error",
                     "error": str(e),
-                }
+                })
 
         async def search_buyer_action(buyer_name: str):
             """Search for buyer information."""
             try:
                 from tools.tavily_search import tavily_search
                 result = tavily_search.invoke(f'"{buyer_name}" UK government contracts')
-                return {"buyer": buyer_name, "research": result}
+                return json.dumps({"buyer": buyer_name, "research": result})
             except Exception as e:
-                return {"buyer": buyer_name, "error": str(e)}
+                return json.dumps({"buyer": buyer_name, "error": str(e)})
 
         async def detect_framework_action(tender_text: str):
             """Detect the framework type from tender text."""
             try:
                 from tools.framework_detector import detect_framework_type
                 framework = detect_framework_type({"description": tender_text})
-                return {"framework": framework}
+                return json.dumps({"framework": framework})
             except Exception as e:
-                return {"error": str(e)}
+                return json.dumps({"error": str(e)})
 
         async def get_summary_action(tender_data: dict, framework_type: str = None):
             """Get tender summary analysis."""
             try:
                 from agents.summary_agent import analyze_summary
                 summary = analyze_summary(tender_data, framework_type)
-                return {"summary": summary}
+                return json.dumps({"summary": summary})
             except Exception as e:
-                return {"error": str(e)}
+                return json.dumps({"error": str(e)})
 
         async def get_compliance_action(tender_data: dict, framework_type: str = None, company_profile: dict = None):
             """Get compliance analysis."""
             try:
                 from agents.compliance_agent import analyze_compliance
                 compliance = analyze_compliance(tender_data, framework_type, company_profile)
-                return {"compliance": compliance}
+                return json.dumps({"compliance": compliance})
             except Exception as e:
-                return {"error": str(e)}
+                return json.dumps({"error": str(e)})
 
         async def get_gap_analysis_action(tender_data: dict, company_profile: dict = None, compliance: dict = None):
             """Get gap analysis."""
             try:
                 from agents.gap_analysis_agent import analyze_gaps
                 gaps = analyze_gaps(tender_data, company_profile, compliance)
-                return {"gap_analysis": gaps}
+                return json.dumps({"gap_analysis": gaps})
             except Exception as e:
-                return {"error": str(e)}
+                return json.dumps({"error": str(e)})
 
         # Define CopilotKit actions
         actions = [
