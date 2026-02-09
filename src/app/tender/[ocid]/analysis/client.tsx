@@ -264,7 +264,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
             <AnalysisTabs
               tabs={tabs}
               activeTab={activeTab}
-              onTabChange={setActiveTab}
+              onTabChange={(tabId) => setActiveTab(tabId as TabId)}
             />
 
             {/* Tab Content */}
