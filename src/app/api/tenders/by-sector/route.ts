@@ -77,10 +77,7 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error('By-sector API error:', error);
     return NextResponse.json(
-      {
-        error: 'Failed to fetch sector data',
-        details: error instanceof Error ? error.message : String(error)
-      },
+      { error: 'Failed to fetch sector data' },
       { status: 500 }
     );
   }
