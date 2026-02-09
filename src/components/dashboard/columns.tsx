@@ -5,14 +5,17 @@ import type { Tender } from '@/lib/hooks/use-tenders';
 
 const columnHelper = createColumnHelper<Tender>();
 
-function formatValue(min: number | null, max: number | null, currency: string = 'GBP'): string {
+function formatValue(amount: number | null, min: number | null, max: number | null, currency: string = 'GBP'): string {
   const formatter = new Intl.NumberFormat('en-GB', {
     style: 'currency',
     currency,
     maximumFractionDigits: 0,
   });
 
-  if (min && max && min !== max) {
+  // Use valueAmount first (most common), then fall back to min/max
+  if (amount) {
+    return formatter.format(amount);
+  } else if (min && max && min !== max) {
     return `${formatter.format(min)} - ${formatter.format(max)}`;
   } else if (max) {
     return formatter.format(max);
@@ -140,7 +143,7 @@ export const columns = [
     size: 200,
   }),
 
-  columnHelper.accessor((row) => formatValue(row.valueMin, row.valueMax, row.valueCurrency), {
+  columnHelper.accessor((row) => formatValue(row.valueAmount, row.valueMin, row.valueMax, row.valueCurrency), {
     id: 'value',
     header: 'Value',
     cell: (info) => (
