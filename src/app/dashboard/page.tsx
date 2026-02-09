@@ -18,6 +18,7 @@ function DashboardContent() {
   const router = useRouter();
   const [filters, setFilters] = useState<TenderSearchParams>({
     limit: 50,
+    stage: 'tender', // Default to active tenders only
   });
   const [keyword, setKeyword] = useState('');
   const [stats, setStats] = useState<DashboardStats | null>(null);
