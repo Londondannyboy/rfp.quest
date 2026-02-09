@@ -7,8 +7,9 @@ import os
 from contextlib import asynccontextmanager
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 load_dotenv()
 
@@ -56,8 +57,112 @@ async def root():
     return {
         "service": "RFP.quest Agent",
         "version": "0.1.0",
-        "endpoints": ["/health", "/copilotkit"],
+        "endpoints": ["/health", "/copilotkit", "/parse-pdf", "/analyze-pdf"],
     }
+
+
+class PDFAnalysisRequest(BaseModel):
+    """Request for PDF analysis with optional parameters."""
+    user_id: str | None = None
+    analyze: bool = True  # Whether to run full analysis after parsing
+
+
+@app.post("/parse-pdf")
+async def parse_pdf_endpoint(file: UploadFile = File(...)):
+    """
+    Parse a PDF document and extract text content.
+
+    Returns extracted text, metadata, and identified sections.
+    """
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="File must be a PDF")
+
+    try:
+        from tools.pdf_parser import parse_pdf, extract_tender_sections
+
+        # Read file content
+        content = await file.read()
+
+        # Parse PDF
+        result = parse_pdf(content)
+
+        # Extract sections
+        if result.get("text"):
+            result["sections"] = extract_tender_sections(result["text"])
+
+        return {
+            "success": True,
+            "filename": file.filename,
+            "page_count": result.get("page_count", 0),
+            "char_count": len(result.get("text", "")),
+            "extraction_method": result.get("extraction_method"),
+            "metadata": result.get("metadata"),
+            "sections": result.get("sections", {}),
+            "tables_found": len(result.get("tables", [])),
+            "text": result.get("text", "")[:10000],  # First 10k chars for preview
+            "full_text_available": len(result.get("text", "")) > 10000,
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"PDF parsing failed: {str(e)}")
+
+
+@app.post("/analyze-pdf")
+async def analyze_pdf_endpoint(
+    file: UploadFile = File(...),
+    user_id: str | None = None,
+):
+    """
+    Parse a PDF and run full tender analysis pipeline.
+
+    Combines PDF parsing with LangGraph analysis for complete results.
+    """
+    if not file.filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="File must be a PDF")
+
+    try:
+        from tools.pdf_parser import parse_pdf, summarize_pdf_for_analysis
+        from agents.tender_analyzer import create_tender_analyzer_agent
+
+        # Read and parse PDF
+        content = await file.read()
+        pdf_result = parse_pdf(content)
+
+        if not pdf_result.get("text"):
+            raise HTTPException(status_code=400, detail="Could not extract text from PDF")
+
+        # Create summary for analysis
+        rfp_text = summarize_pdf_for_analysis(pdf_result)
+
+        # Run analysis pipeline
+        agent = create_tender_analyzer_agent()
+        result = agent.invoke({
+            "tender_ocid": None,
+            "rfp_text": rfp_text,
+            "user_id": user_id,
+            "status": "pending",
+            "messages": [],
+        })
+
+        return {
+            "success": True,
+            "filename": file.filename,
+            "pdf_info": {
+                "page_count": pdf_result.get("page_count", 0),
+                "char_count": len(pdf_result.get("text", "")),
+                "extraction_method": pdf_result.get("extraction_method"),
+            },
+            "analysis": {
+                "status": result.get("status"),
+                "summary": result.get("summary"),
+                "compliance": result.get("compliance"),
+                "gap_analysis": result.get("gap_analysis"),
+                "error": result.get("error"),
+            },
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
 
 
 def setup_copilotkit():
