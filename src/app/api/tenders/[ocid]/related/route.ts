@@ -91,7 +91,7 @@ export async function GET(
       }
     }
 
-    // Get tenders with similar CPV codes (limit 3)
+    // Get tenders with similar CPV codes (JSONB column)
     if (current.cpv_codes && Array.isArray(current.cpv_codes) && current.cpv_codes.length > 0) {
       const primaryCpv = String(current.cpv_codes[0]);
       // Match on CPV division (first 2 digits)
@@ -102,7 +102,8 @@ export async function GET(
         FROM tenders
         WHERE ocid != ${current.ocid}
           AND cpv_codes IS NOT NULL
-          AND cpv_codes[1] LIKE ${cpvDivision}
+          AND jsonb_array_length(cpv_codes) > 0
+          AND (cpv_codes->>0) LIKE ${cpvDivision}
         ORDER BY published_date DESC
         LIMIT 5
       `;

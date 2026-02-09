@@ -32,34 +32,34 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const region = searchParams.get('region');
 
-    // Get sector breakdown from CPV codes
+    // Get sector breakdown from CPV codes (JSONB column)
     const result = region
       ? await sql`
         SELECT
-          LEFT(cpv_codes[1], 2) as division,
+          LEFT((cpv_codes->>0)::text, 2) as division,
           COUNT(*) as count,
           COALESCE(SUM(value_max), 0) as total_value,
           COALESCE(AVG(value_max), 0) as avg_value,
           COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders
         FROM tenders
         WHERE cpv_codes IS NOT NULL
-          AND array_length(cpv_codes, 1) > 0
+          AND jsonb_array_length(cpv_codes) > 0
           AND region = ${region}
-        GROUP BY LEFT(cpv_codes[1], 2)
+        GROUP BY LEFT((cpv_codes->>0)::text, 2)
         ORDER BY count DESC
         LIMIT 20
       `
       : await sql`
         SELECT
-          LEFT(cpv_codes[1], 2) as division,
+          LEFT((cpv_codes->>0)::text, 2) as division,
           COUNT(*) as count,
           COALESCE(SUM(value_max), 0) as total_value,
           COALESCE(AVG(value_max), 0) as avg_value,
           COUNT(CASE WHEN stage = 'tender' THEN 1 END) as active_tenders
         FROM tenders
         WHERE cpv_codes IS NOT NULL
-          AND array_length(cpv_codes, 1) > 0
-        GROUP BY LEFT(cpv_codes[1], 2)
+          AND jsonb_array_length(cpv_codes) > 0
+        GROUP BY LEFT((cpv_codes->>0)::text, 2)
         ORDER BY count DESC
         LIMIT 20
       `;
