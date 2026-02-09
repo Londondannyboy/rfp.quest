@@ -9,6 +9,12 @@ import { categorizeTender } from './categorizer';
 const FIND_A_TENDER_API = 'https://www.find-tender.service.gov.uk/api/1.0/ocdsReleasePackages';
 
 // Types
+interface CPVClassification {
+  scheme?: string;
+  id?: string;
+  description?: string;
+}
+
 interface OCDSRelease {
   ocid: string;
   id: string;
@@ -20,6 +26,7 @@ interface OCDSRelease {
     title: string;
     description?: string;
     status?: string;
+    classification?: CPVClassification;
     tenderPeriod?: {
       startDate?: string;
       endDate?: string;
@@ -35,11 +42,14 @@ interface OCDSRelease {
     minValue?: { amount?: number };
     maxValue?: { amount?: number };
     items?: Array<{
-      classification?: {
-        scheme?: string;
-        id?: string;
-        description?: string;
-      };
+      id?: string;
+      relatedLot?: string;
+      classification?: CPVClassification;
+      additionalClassifications?: CPVClassification[];
+      deliveryAddresses?: Array<{
+        region?: string;
+        country?: string;
+      }>;
     }>;
     deliveryAddresses?: Array<{
       region?: string;
@@ -66,12 +76,35 @@ export interface SyncResult {
 }
 
 // Helpers
-function extractCPVCodes(tender?: OCDSRelease['tender']): string[] {
-  if (!tender?.items) return [];
-  return tender.items
-    .filter(item => item.classification?.scheme === 'CPV')
-    .map(item => item.classification?.id || '')
-    .filter(Boolean);
+function extractCPVCodes(release: OCDSRelease): string[] {
+  const cpvCodes: string[] = [];
+  const tender = release.tender;
+
+  // 1. Top-level tender classification
+  if (tender?.classification?.scheme === 'CPV' && tender.classification.id) {
+    cpvCodes.push(tender.classification.id);
+  }
+
+  // 2. Item classifications
+  if (tender?.items) {
+    for (const item of tender.items) {
+      // Primary classification
+      if (item.classification?.scheme === 'CPV' && item.classification.id) {
+        cpvCodes.push(item.classification.id);
+      }
+      // Additional classifications
+      if (item.additionalClassifications) {
+        for (const ac of item.additionalClassifications) {
+          if (ac.scheme === 'CPV' && ac.id) {
+            cpvCodes.push(ac.id);
+          }
+        }
+      }
+    }
+  }
+
+  // Deduplicate and return
+  return [...new Set(cpvCodes)];
 }
 
 function extractRegion(tender?: OCDSRelease['tender']): string | null {
@@ -147,7 +180,7 @@ async function upsertTender(
   release: OCDSRelease
 ): Promise<'inserted' | 'updated' | 'error'> {
   const tender = release.tender;
-  const cpvCodes = extractCPVCodes(tender);
+  const cpvCodes = extractCPVCodes(release);
 
   // Categorize the tender
   const category = categorizeTender(
