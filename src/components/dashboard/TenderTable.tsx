@@ -22,6 +22,8 @@ import {
   AdjustmentsHorizontalIcon,
   ArrowPathIcon,
 } from '@heroicons/react/24/outline';
+import { BookmarkIcon } from '@heroicons/react/24/outline';
+import { BookmarkIcon as BookmarkSolidIcon } from '@heroicons/react/24/solid';
 import type { Tender } from '@/lib/hooks/use-tenders';
 import { columns, defaultVisibleColumns } from './columns';
 
@@ -32,6 +34,8 @@ interface TenderTableProps {
   onRefresh?: () => void;
   hasNextPage?: boolean;
   onLoadMore?: () => void;
+  savedTenders?: Set<string>;
+  onToggleSave?: (tender: Tender) => void;
 }
 
 export function TenderTable({
@@ -41,6 +45,8 @@ export function TenderTable({
   onRefresh,
   hasNextPage,
   onLoadMore,
+  savedTenders,
+  onToggleSave,
 }: TenderTableProps) {
   const [sorting, setSorting] = useState<SortingState>([
     { id: 'deadline', desc: false },
@@ -196,6 +202,12 @@ export function TenderTable({
                     className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
                 </th>
+                {/* Save column header */}
+                {onToggleSave && (
+                  <th className="w-12 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                    Save
+                  </th>
+                )}
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
@@ -272,6 +284,26 @@ export function TenderTable({
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
                   </td>
+                  {/* Save button */}
+                  {onToggleSave && (
+                    <td className="px-2 py-4" onClick={(e) => e.stopPropagation()}>
+                      <button
+                        onClick={() => onToggleSave(row.original)}
+                        className={`p-1.5 rounded-full transition-colors ${
+                          savedTenders?.has(row.original.ocid)
+                            ? 'text-amber-500 hover:text-amber-600 bg-amber-50'
+                            : 'text-gray-400 hover:text-amber-500 hover:bg-amber-50'
+                        }`}
+                        title={savedTenders?.has(row.original.ocid) ? 'Remove from saved' : 'Save tender'}
+                      >
+                        {savedTenders?.has(row.original.ocid) ? (
+                          <BookmarkSolidIcon className="w-5 h-5" />
+                        ) : (
+                          <BookmarkIcon className="w-5 h-5" />
+                        )}
+                      </button>
+                    </td>
+                  )}
                   {row.getVisibleCells().map((cell) => (
                     <td
                       key={cell.id}

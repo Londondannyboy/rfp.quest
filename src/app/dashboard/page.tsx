@@ -6,8 +6,10 @@ import { CopilotKit, useCopilotReadable } from '@copilotkit/react-core';
 import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
 import { useTenders, type Tender, type TenderSearchParams } from '@/lib/hooks/use-tenders';
+import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
 import { TenderTable } from '@/components/dashboard/TenderTable';
 import { FilterBar } from '@/components/dashboard/FilterBar';
+import { ActionToolbar } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
 import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
 import type { DashboardStats } from '@/app/api/dashboard-stats/route';
@@ -19,6 +21,11 @@ function DashboardContent() {
   });
   const [keyword, setKeyword] = useState('');
   const [stats, setStats] = useState<DashboardStats | null>(null);
+  const [showFilters, setShowFilters] = useState(false);
+  const [sortBy, setSortBy] = useState('deadline-asc');
+  const [showSavedOnly, setShowSavedOnly] = useState(false);
+
+  const { savedTenders, savedCount, isSaved, toggleSaved } = useSavedTenders();
 
   const {
     data,
@@ -28,6 +35,11 @@ function DashboardContent() {
 
   const tenders = data?.tenders ?? [];
   const totalCount = data?.totalCount ?? 0;
+
+  // Filter to show only saved if enabled
+  const displayTenders = showSavedOnly
+    ? tenders.filter((t) => isSaved(t.ocid))
+    : tenders;
 
   // Fetch stats for CopilotKit context
   useEffect(() => {
@@ -79,6 +91,7 @@ function DashboardContent() {
 
   const handleSearch = () => {
     setFilters({ ...filters, keyword: keyword || undefined, offset: 0 });
+    setShowSavedOnly(false);
   };
 
   const handleFiltersChange = (newFilters: FilterParams) => {
@@ -94,6 +107,27 @@ function DashboardContent() {
       buyerName: newFilters.buyerName,
       offset: 0,
     });
+    setShowSavedOnly(false);
+  };
+
+  const handleSortChange = (sort: string) => {
+    setSortBy(sort);
+    // TODO: Apply sort to API query
+  };
+
+  const handleViewSaved = () => {
+    setShowSavedOnly(!showSavedOnly);
+  };
+
+  const handleSaveTender = (tender: Tender) => {
+    toggleSaved({
+      ocid: tender.ocid,
+      slug: tender.slug,
+      title: tender.title,
+      buyerName: tender.buyerName,
+      valueMax: tender.valueMax,
+      deadline: tender.tenderEndDate,
+    });
   };
 
   const filterBarFilters: FilterParams = {
@@ -107,56 +141,76 @@ function DashboardContent() {
     limit: filters.limit,
   };
 
+  const activeFilterCount = [
+    filterBarFilters.stages?.length,
+    filterBarFilters.buyerName,
+    filterBarFilters.region,
+    filterBarFilters.minValue !== undefined || filterBarFilters.maxValue !== undefined,
+    filterBarFilters.sustainability,
+    filterBarFilters.cpvDivisions?.length,
+  ].filter(Boolean).length;
+
   return (
     <div className="flex flex-col h-full">
       {/* Hero Section with KPIs and Charts */}
       <div className="bg-gradient-to-b from-gray-50 to-white px-6 py-6 border-b border-gray-200 overflow-auto">
         <DashboardHero />
-
-        {/* Quick search */}
-        <div id="opportunities" className="flex items-center gap-4 mt-6 pt-6 border-t border-gray-200">
-          <div className="flex-1 max-w-md flex gap-2">
-            <input
-              type="text"
-              placeholder="Search tenders..."
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
-            />
-            <button
-              onClick={handleSearch}
-              className="px-4 py-2 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-700"
-            >
-              Search
-            </button>
-          </div>
-          <p className="text-sm text-gray-500">
-            {totalCount.toLocaleString()} opportunities
-          </p>
-        </div>
       </div>
 
-      {/* Filter Bar */}
-      <FilterBar
-        filters={filterBarFilters}
-        onFiltersChange={handleFiltersChange}
+      {/* Action Toolbar - Search, Filter, Sort, Save */}
+      <ActionToolbar
+        keyword={keyword}
+        onKeywordChange={setKeyword}
+        onSearch={handleSearch}
+        totalCount={showSavedOnly ? savedCount : totalCount}
+        sortBy={sortBy}
+        onSortChange={handleSortChange}
+        showFilters={showFilters}
+        onToggleFilters={() => setShowFilters(!showFilters)}
+        activeFilterCount={activeFilterCount}
+        savedCount={savedCount}
+        onViewSaved={handleViewSaved}
       />
 
+      {/* Saved Only Banner */}
+      {showSavedOnly && (
+        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 flex items-center justify-between">
+          <p className="text-sm text-amber-800">
+            Showing <span className="font-medium">{savedCount}</span> saved tenders
+          </p>
+          <button
+            onClick={() => setShowSavedOnly(false)}
+            className="text-sm text-amber-700 hover:text-amber-900 font-medium"
+          >
+            Show all
+          </button>
+        </div>
+      )}
+
+      {/* Filter Bar */}
+      {showFilters && (
+        <FilterBar
+          filters={filterBarFilters}
+          onFiltersChange={handleFiltersChange}
+        />
+      )}
+
       {/* Table */}
-      <div className="flex-1 min-h-0">
+      <div id="opportunities" className="flex-1 min-h-0">
         <TenderTable
-          data={tenders}
+          data={displayTenders}
           isLoading={isLoading}
           onRowClick={(tender: Tender) => router.push(`/tender/${tender.slug}`)}
           onRefresh={() => refetch()}
-          hasNextPage={data?.hasMore}
+          hasNextPage={data?.hasMore && !showSavedOnly}
           onLoadMore={() => {
             setFilters({
               ...filters,
               offset: (filters.offset || 0) + (filters.limit || 50),
             });
           }}
+          savedTenders={new Set(savedTenders.map(t => t.ocid))}
+          onToggleSave={handleSaveTender}
         />
       </div>
     </div>
