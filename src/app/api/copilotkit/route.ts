@@ -323,6 +323,82 @@ const runtime = new CopilotRuntime({
         };
       },
     },
+    {
+      name: 'getMarketInsights',
+      description: 'Get current UK government tender market statistics and insights',
+      parameters: [],
+      handler: async () => {
+        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const response = await fetch(`${baseUrl}/api/dashboard-stats`);
+
+        if (!response.ok) {
+          return { error: 'Failed to fetch market insights' };
+        }
+
+        const stats = await response.json();
+
+        return {
+          summary: {
+            totalOpportunities: stats.totalOpportunities,
+            averageValue: `£${(stats.averageValue / 1000000).toFixed(1)}M`,
+            estimatedMarketSize: `£${((stats.totalOpportunities * stats.averageValue) / 1000000000).toFixed(1)}B`,
+          },
+          topSectors: stats.sectorBreakdown.slice(0, 5).map((s: { sector: string; count: number; percentage: number }) => ({
+            name: s.sector,
+            count: s.count,
+            marketShare: `${s.percentage}%`,
+          })),
+          valueBreakdown: stats.valueDistribution.map((v: { bucket: string; count: number }) => ({
+            range: v.bucket,
+            count: v.count,
+          })),
+          urgentDeadlines: stats.upcomingDeadlines.filter((d: { daysRemaining: number }) => d.daysRemaining <= 7).length,
+          lastUpdated: stats.lastUpdated,
+        };
+      },
+    },
+    {
+      name: 'getSectorAnalysis',
+      description: 'Analyze a specific sector in the UK government tender market',
+      parameters: [
+        {
+          name: 'sector',
+          type: 'string',
+          description: 'The sector to analyze (e.g., Construction, Healthcare, IT Services)',
+          required: true,
+        },
+      ],
+      handler: async ({ sector }: { sector: string }) => {
+        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const params = new URLSearchParams({ keyword: sector, limit: '20' });
+        const response = await fetch(`${baseUrl}/api/tenders/search?${params}`);
+
+        if (!response.ok) {
+          return { error: 'Failed to fetch sector data' };
+        }
+
+        const data = await response.json();
+        const tenders = data.tenders || [];
+
+        // Calculate sector insights
+        const values = tenders
+          .map((t: { valueMax?: number }) => t.valueMax)
+          .filter((v: number | undefined): v is number => typeof v === 'number' && v > 0);
+        const avgValue = values.length > 0 ? values.reduce((a: number, b: number) => a + b, 0) / values.length : 0;
+
+        return {
+          sector,
+          totalOpportunities: data.totalCount,
+          sampleSize: tenders.length,
+          averageContractValue: avgValue > 0 ? `£${(avgValue / 1000).toFixed(0)}k` : 'Not specified',
+          recentTenders: tenders.slice(0, 5).map((t: { title: string; buyerName?: string; valueMax?: number }) => ({
+            title: t.title,
+            buyer: t.buyerName,
+            value: t.valueMax ? `£${(t.valueMax / 1000).toFixed(0)}k` : 'TBC',
+          })),
+        };
+      },
+    },
   ],
 });
 
