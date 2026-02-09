@@ -63,7 +63,10 @@ const runtime = new CopilotRuntime({
         if (stage) params.set('stage', stage);
         params.set('limit', String(limit));
 
-        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        // Use relative URL for server-side fetch in Next.js API routes
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
         const response = await fetch(`${baseUrl}/api/tenders/search?${params}`);
 
         if (!response.ok) {
@@ -97,7 +100,9 @@ const runtime = new CopilotRuntime({
         },
       ],
       handler: async ({ ocid }: { ocid: string }) => {
-        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
         const response = await fetch(`${baseUrl}/api/tenders/${ocid}`);
 
         if (!response.ok) {
@@ -126,7 +131,9 @@ const runtime = new CopilotRuntime({
       description: 'Get current UK government tender market statistics and insights',
       parameters: [],
       handler: async () => {
-        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
         const response = await fetch(`${baseUrl}/api/dashboard-stats`);
 
         if (!response.ok) {
@@ -167,7 +174,9 @@ const runtime = new CopilotRuntime({
         },
       ],
       handler: async ({ sector }: { sector: string }) => {
-        const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+        const baseUrl = process.env.VERCEL_URL
+          ? `https://${process.env.VERCEL_URL}`
+          : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
         const params = new URLSearchParams({ keyword: sector, limit: '20' });
         const response = await fetch(`${baseUrl}/api/tenders/search?${params}`);
 
