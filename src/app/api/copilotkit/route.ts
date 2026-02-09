@@ -17,7 +17,7 @@ const runtime = new CopilotRuntime({
   // Remote actions from Railway agent
   remoteEndpoints: [
     {
-      url: `${AGENT_URL}/copilotkit`,
+      url: `${AGENT_URL}/copilotkit/`,
     },
   ],
   // Local actions for frontend-specific functionality
