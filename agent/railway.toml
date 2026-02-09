@@ -1,0 +1,13 @@
+[build]
+builder = "RAILPACK"
+watchPatterns = ["agent/**"]
+
+[build.env]
+MISE_PYTHON_VERSION = "3.12"
+
+[deploy]
+startCommand = "uvicorn main:app --host 0.0.0.0 --port $PORT"
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
