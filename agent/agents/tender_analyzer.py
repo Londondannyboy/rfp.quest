@@ -10,50 +10,48 @@ This agent coordinates the analysis pipeline:
 import os
 from typing import Annotated, Any, TypedDict
 
-from copilotkit import CopilotKitMiddleware, CopilotKitState
-from deepagents import create_deep_agent
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.graph import END, StateGraph
 from langgraph.graph.message import add_messages
 
-from agents.summary_agent import analyze_summary
-from agents.compliance_agent import analyze_compliance
-from agents.gap_analysis_agent import analyze_gaps
+from .summary_agent import analyze_summary
+from .compliance_agent import analyze_compliance
+from .gap_analysis_agent import analyze_gaps
 from tools.tavily_search import tavily_search
 from tools.tender_context import get_tender_details
 from tools.company_profile import get_company_profile
 from tools.framework_detector import detect_framework_type
 
 
-class TenderAnalysisState(CopilotKitState):
+class TenderAnalysisState(TypedDict, total=False):
     """State for tender analysis workflow."""
 
     # Input
-    tender_ocid: str | None = None
-    rfp_text: str | None = None
-    user_id: str | None = None
+    tender_ocid: str | None
+    rfp_text: str | None
+    user_id: str | None
 
     # Tender data (fetched or parsed)
-    tender_data: dict[str, Any] | None = None
+    tender_data: dict[str, Any] | None
 
     # Company profile for gap analysis
-    company_profile: dict[str, Any] | None = None
+    company_profile: dict[str, Any] | None
 
     # Detected framework type
-    framework_type: str | None = None
+    framework_type: str | None
 
     # Analysis results (structured JSON for each tab)
-    summary: dict[str, Any] | None = None
-    compliance: dict[str, Any] | None = None
-    gap_analysis: dict[str, Any] | None = None
+    summary: dict[str, Any] | None
+    compliance: dict[str, Any] | None
+    gap_analysis: dict[str, Any] | None
 
     # Processing state
-    status: str = "pending"
-    error: str | None = None
+    status: str
+    error: str | None
 
-    # Messages for CopilotKit
-    messages: Annotated[list, add_messages] = []
+    # Messages for tracking progress
+    messages: Annotated[list, add_messages]
 
 
 SYSTEM_PROMPT = """You are an expert UK government tender analyst with deep knowledge of:
@@ -78,8 +76,8 @@ When analyzing UK public sector tenders, look for:
 
 def fetch_tender_node(state: TenderAnalysisState) -> dict:
     """Fetch tender details from database or parse RFP text."""
-    tender_ocid = state.tender_ocid
-    rfp_text = state.rfp_text
+    tender_ocid = state.get("tender_ocid")
+    rfp_text = state.get("rfp_text")
 
     if tender_ocid:
         # Fetch from Find a Tender database
@@ -113,7 +111,7 @@ def fetch_tender_node(state: TenderAnalysisState) -> dict:
 
 def fetch_company_profile_node(state: TenderAnalysisState) -> dict:
     """Fetch company profile for gap analysis."""
-    user_id = state.user_id
+    user_id = state.get("user_id")
 
     if user_id:
         profile = get_company_profile(user_id)
@@ -126,7 +124,7 @@ def fetch_company_profile_node(state: TenderAnalysisState) -> dict:
 
 def detect_framework_node(state: TenderAnalysisState) -> dict:
     """Detect the framework type from tender data."""
-    tender_data = state.tender_data
+    tender_data = state.get("tender_data")
 
     if not tender_data:
         return {"framework_type": "unknown"}
@@ -140,8 +138,8 @@ def detect_framework_node(state: TenderAnalysisState) -> dict:
 
 def summary_analysis_node(state: TenderAnalysisState) -> dict:
     """Run the summary analysis agent."""
-    tender_data = state.tender_data
-    framework_type = state.framework_type
+    tender_data = state.get("tender_data")
+    framework_type = state.get("framework_type")
 
     if not tender_data:
         return {"error": "No tender data for summary analysis"}
@@ -155,9 +153,9 @@ def summary_analysis_node(state: TenderAnalysisState) -> dict:
 
 def compliance_analysis_node(state: TenderAnalysisState) -> dict:
     """Run the compliance analysis agent."""
-    tender_data = state.tender_data
-    framework_type = state.framework_type
-    company_profile = state.company_profile
+    tender_data = state.get("tender_data")
+    framework_type = state.get("framework_type")
+    company_profile = state.get("company_profile")
 
     if not tender_data:
         return {"error": "No tender data for compliance analysis"}
@@ -171,9 +169,9 @@ def compliance_analysis_node(state: TenderAnalysisState) -> dict:
 
 def gap_analysis_node(state: TenderAnalysisState) -> dict:
     """Run the gap analysis agent."""
-    tender_data = state.tender_data
-    company_profile = state.company_profile
-    compliance = state.compliance
+    tender_data = state.get("tender_data")
+    company_profile = state.get("company_profile")
+    compliance = state.get("compliance")
 
     if not tender_data:
         return {"error": "No tender data for gap analysis"}
@@ -188,7 +186,7 @@ def gap_analysis_node(state: TenderAnalysisState) -> dict:
 
 def should_continue(state: TenderAnalysisState) -> str:
     """Determine if we should continue or end due to error."""
-    if state.status == "error" or state.error:
+    if state.get("status") == "error" or state.get("error"):
         return "error"
     return "continue"
 
@@ -220,7 +218,7 @@ def create_tender_analyzer_agent():
         },
     )
 
-    # Parallel: fetch company profile and detect framework
+    # Sequential flow: fetch profile -> detect framework -> analysis stages
     workflow.add_edge("fetch_company_profile", "detect_framework")
     workflow.add_edge("detect_framework", "summary_analysis")
 
@@ -229,24 +227,7 @@ def create_tender_analyzer_agent():
     workflow.add_edge("compliance_analysis", "gap_analysis")
     workflow.add_edge("gap_analysis", END)
 
-    # Compile with CopilotKit middleware
+    # Compile the graph
     graph = workflow.compile()
 
     return graph
-
-
-# Alternative: Create using Deep Agents for more advanced features
-def create_deep_tender_analyzer():
-    """Create tender analyzer using Deep Agents framework."""
-    agent = create_deep_agent(
-        model="google_genai:gemini-2.0-flash",
-        tools=[
-            tavily_search,
-            get_tender_details,
-            get_company_profile,
-            detect_framework_type,
-        ],
-        middleware=[CopilotKitMiddleware()],
-        system_prompt=SYSTEM_PROMPT,
-    )
-    return agent
