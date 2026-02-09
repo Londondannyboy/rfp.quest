@@ -145,6 +145,7 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
               innerRadius={60}
               outerRadius={90}
               dataKey="count"
+              nameKey="sector"
               onMouseEnter={onPieEnter}
             >
               {data.map((entry, index) => (

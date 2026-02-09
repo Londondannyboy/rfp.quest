@@ -68,6 +68,19 @@ export interface DashboardStats {
     daysRemaining: number;
     buyerName: string | null;
   }>;
+  hotOpportunities: Array<{
+    title: string;
+    slug: string;
+    buyerName: string | null;
+    valueMax: number | null;
+    daysRemaining: number;
+  }>;
+  quickWins: Array<{
+    title: string;
+    slug: string;
+    buyerName: string | null;
+    valueMax: number | null;
+  }>;
   lastUpdated: string;
 }
 
@@ -218,6 +231,63 @@ export async function GET() {
       };
     });
 
+    // Hot Opportunities - high value tenders closing within 14 days
+    const hotResult = await sql`
+      SELECT
+        title,
+        slug,
+        buyer_name,
+        COALESCE(value_max, value_amount) as value_max,
+        tender_end_date
+      FROM tenders
+      WHERE stage = 'tender'
+        AND tender_end_date IS NOT NULL
+        AND tender_end_date > NOW()
+        AND tender_end_date <= NOW() + INTERVAL '14 days'
+        AND COALESCE(value_max, value_amount, 0) > 50000
+      ORDER BY COALESCE(value_max, value_amount, 0) DESC
+      LIMIT 6
+    `;
+
+    const hotOpportunities = hotResult.map((row) => {
+      const deadline = new Date(row.tender_end_date as string);
+      const now = new Date();
+      const diffTime = deadline.getTime() - now.getTime();
+      const daysRemaining = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+      return {
+        title: row.title as string,
+        slug: row.slug as string,
+        buyerName: row.buyer_name as string | null,
+        valueMax: row.value_max ? Number(row.value_max) : null,
+        daysRemaining,
+      };
+    });
+
+    // Quick Wins - smaller contracts under £100k (easier to win)
+    const quickWinsResult = await sql`
+      SELECT
+        title,
+        slug,
+        buyer_name,
+        COALESCE(value_max, value_amount) as value_max
+      FROM tenders
+      WHERE stage = 'tender'
+        AND tender_end_date IS NOT NULL
+        AND tender_end_date > NOW()
+        AND COALESCE(value_max, value_amount, 0) > 0
+        AND COALESCE(value_max, value_amount, 0) <= 100000
+      ORDER BY tender_end_date ASC
+      LIMIT 6
+    `;
+
+    const quickWins = quickWinsResult.map((row) => ({
+      title: row.title as string,
+      slug: row.slug as string,
+      buyerName: row.buyer_name as string | null,
+      valueMax: row.value_max ? Number(row.value_max) : null,
+    }));
+
     const stats: DashboardStats = {
       totalOpportunities,
       matchedCount,
@@ -228,6 +298,8 @@ export async function GET() {
       valueDistribution,
       regionalDistribution,
       upcomingDeadlines,
+      hotOpportunities,
+      quickWins,
       lastUpdated: new Date().toISOString(),
     };
 

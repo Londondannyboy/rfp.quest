@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
@@ -11,27 +10,15 @@ import {
   SparklesIcon,
   ArrowTrendingUpIcon,
   CalendarDaysIcon,
-  GlobeAltIcon,
+  MagnifyingGlassIcon,
 } from '@heroicons/react/24/outline';
 import { KPICard } from './KPICard';
 import { SectorPieChart } from '@/components/charts/SectorPieChart';
 import { ValueHistogram } from '@/components/charts/ValueHistogram';
-import { RegionalBarChart } from '@/components/charts/RegionalBarChart';
 import { DeadlineTimeline } from '@/components/charts/DeadlineTimeline';
+import { HotOpportunities } from '@/components/charts/HotOpportunities';
+import { QuickWins } from '@/components/charts/QuickWins';
 import type { DashboardStats } from '@/app/api/dashboard-stats/route';
-
-// Dynamically import 3D globe to avoid SSR issues
-const GlobeScene = dynamic(
-  () => import('@/components/three/GlobeScene').then((mod) => mod.GlobeScene),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-64 bg-gradient-to-b from-slate-900 to-slate-800 rounded-xl flex items-center justify-center">
-        <div className="w-32 h-32 rounded-full border-4 border-teal-500/30 border-t-teal-500 animate-spin" />
-      </div>
-    ),
-  }
-);
 
 // Animated gradient background component
 function AnimatedBackground() {
@@ -41,7 +28,7 @@ function AnimatedBackground() {
       <motion.div
         className="absolute inset-0 opacity-30"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.3), transparent 50%)',
+          background: 'radial-gradient(circle at 30% 50%, rgba(20, 184, 166, 0.4), transparent 50%)',
         }}
         animate={{
           scale: [1, 1.2, 1],
@@ -54,7 +41,7 @@ function AnimatedBackground() {
         }}
       />
       {/* Floating particles effect */}
-      {[...Array(20)].map((_, i) => (
+      {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-teal-400 rounded-full"
@@ -63,8 +50,8 @@ function AnimatedBackground() {
             top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -30, 0],
-            opacity: [0.2, 0.8, 0.2],
+            y: [0, -20, 0],
+            opacity: [0.2, 0.6, 0.2],
           }}
           transition={{
             duration: 3 + Math.random() * 2,
@@ -82,9 +69,9 @@ function LoadingSkeleton() {
   return (
     <div className="space-y-8">
       {/* Hero banner skeleton */}
-      <div className="relative rounded-2xl overflow-hidden h-80 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+      <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-32 h-32 rounded-full border-4 border-teal-500/30 border-t-teal-500 animate-spin" />
+          <div className="w-24 h-24 rounded-full border-4 border-teal-500/30 border-t-teal-500 animate-spin" />
         </div>
       </div>
 
@@ -168,7 +155,7 @@ export function DashboardHero() {
       animate={{ opacity: 1 }}
       className="space-y-8"
     >
-      {/* Hero Banner - The "Shock and Awe" Section */}
+      {/* Hero Banner */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -177,109 +164,103 @@ export function DashboardHero() {
       >
         <AnimatedBackground />
 
-        <div className="relative z-10 p-8 md:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Hero Text & Stats */}
-            <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <SparklesIcon className="w-5 h-5 text-teal-400" />
-                  <span className="text-teal-400 text-sm font-medium uppercase tracking-wide">
-                    Live Market Pulse
-                  </span>
-                </div>
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                  UK Government Tenders
-                </h1>
-                <p className="text-slate-300 text-lg">
-                  Real-time procurement opportunities worth{' '}
-                  <span className="text-teal-400 font-semibold">
-                    {formatValue(estimatedMarketValue)}
-                  </span>
-                </p>
-              </motion.div>
-
-              {/* Quick Stats Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="grid grid-cols-3 gap-4"
-              >
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-1">
-                    <BriefcaseIcon className="w-4 h-4 text-teal-400" />
-                    <span className="text-xs text-slate-400 uppercase">Live</span>
-                  </div>
-                  <p className="text-2xl font-bold text-white">
-                    {stats.totalOpportunities.toLocaleString()}
-                  </p>
-                  <p className="text-xs text-slate-400">Open Tenders</p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-1">
-                    <CalendarDaysIcon className="w-4 h-4 text-amber-400" />
-                    <span className="text-xs text-slate-400 uppercase">Urgent</span>
-                  </div>
-                  <p className="text-2xl font-bold text-white">
-                    {stats.upcomingDeadlines.filter(d => d.daysRemaining <= 7).length}
-                  </p>
-                  <p className="text-xs text-slate-400">Closing Soon</p>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-1">
-                    <ArrowTrendingUpIcon className="w-4 h-4 text-green-400" />
-                    <span className="text-xs text-slate-400 uppercase">Avg</span>
-                  </div>
-                  <p className="text-2xl font-bold text-white">
-                    {formatValue(stats.averageValue)}
-                  </p>
-                  <p className="text-xs text-slate-400">Contract Value</p>
-                </div>
-              </motion.div>
-
-              {/* CTA for non-authenticated users */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-3"
-              >
-                <Link
-                  href="/auth/sign-up"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
-                >
-                  <SparklesIcon className="w-4 h-4" />
-                  Get Personalized Matches
-                </Link>
-                <Link
-                  href="#opportunities"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors border border-white/20"
-                >
-                  <GlobeAltIcon className="w-4 h-4" />
-                  Explore All Tenders
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* Right: 3D Globe */}
+        <div className="relative z-10 p-8 md:p-10">
+          <div className="max-w-3xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="hidden lg:block"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
             >
-              <GlobeScene />
+              <div className="flex items-center gap-2 mb-3">
+                <SparklesIcon className="w-5 h-5 text-teal-400" />
+                <span className="text-teal-400 text-sm font-medium uppercase tracking-wide">
+                  Live Market Pulse
+                </span>
+              </div>
+              <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                {stats.totalOpportunities.toLocaleString()} Open Tenders
+              </h1>
+              <p className="text-slate-300 text-lg mb-6">
+                Worth an estimated{' '}
+                <span className="text-teal-400 font-semibold">
+                  {formatValue(estimatedMarketValue)}
+                </span>
+                {' '}in government contracts
+              </p>
+            </motion.div>
+
+            {/* Quick Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="grid grid-cols-3 gap-4 mb-6"
+            >
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div className="flex items-center gap-2 mb-1">
+                  <CalendarDaysIcon className="w-4 h-4 text-amber-400" />
+                  <span className="text-xs text-slate-400 uppercase">Urgent</span>
+                </div>
+                <p className="text-2xl font-bold text-white">
+                  {stats.upcomingDeadlines.filter(d => d.daysRemaining <= 7).length}
+                </p>
+                <p className="text-xs text-slate-400">Closing This Week</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div className="flex items-center gap-2 mb-1">
+                  <ArrowTrendingUpIcon className="w-4 h-4 text-green-400" />
+                  <span className="text-xs text-slate-400 uppercase">Avg Value</span>
+                </div>
+                <p className="text-2xl font-bold text-white">
+                  {formatValue(stats.averageValue)}
+                </p>
+                <p className="text-xs text-slate-400">Per Contract</p>
+              </div>
+
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+                <div className="flex items-center gap-2 mb-1">
+                  <TagIcon className="w-4 h-4 text-purple-400" />
+                  <span className="text-xs text-slate-400 uppercase">Top Sector</span>
+                </div>
+                <p className="text-xl font-bold text-white truncate">
+                  {stats.topSector?.name || 'Various'}
+                </p>
+                <p className="text-xs text-slate-400">{stats.topSector?.count || 0} tenders</p>
+              </div>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-wrap gap-3"
+            >
+              <Link
+                href="/auth/sign-up"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
+              >
+                <SparklesIcon className="w-4 h-4" />
+                Get Personalized Matches
+              </Link>
+              <Link
+                href="#opportunities"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors border border-white/20"
+              >
+                <MagnifyingGlassIcon className="w-4 h-4" />
+                Browse All Tenders
+              </Link>
             </motion.div>
           </div>
         </div>
       </motion.div>
+
+      {/* Action Cards - Hot Opportunities & Quick Wins */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <HotOpportunities opportunities={stats.hotOpportunities} />
+        <QuickWins opportunities={stats.quickWins} />
+      </div>
 
       {/* KPI Cards - Animated Stats */}
       <motion.div
@@ -331,7 +312,7 @@ export function DashboardHero() {
         <div>
           <h2 className="text-xl font-bold text-gray-900">Market Insights</h2>
           <p className="text-gray-500 text-sm">
-            Real-time analysis of UK government procurement
+            Where the opportunities are
           </p>
         </div>
         <p className="text-xs text-gray-400">
@@ -343,7 +324,6 @@ export function DashboardHero() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <SectorPieChart data={stats.sectorBreakdown} />
         <ValueHistogram data={stats.valueDistribution} />
-        <RegionalBarChart data={stats.regionalDistribution} />
         <DeadlineTimeline data={stats.upcomingDeadlines} />
       </div>
     </motion.div>
