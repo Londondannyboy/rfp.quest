@@ -13,7 +13,24 @@ interface MiniPieChartProps {
 }
 
 export function MiniPieChart({ segments, size = 80, showLabels = false }: MiniPieChartProps) {
+  // Guard against empty or invalid segments
+  if (!segments || segments.length === 0) {
+    return (
+      <div className="flex items-center justify-center" style={{ width: size, height: size }}>
+        <div className="text-xs text-gray-400">No data</div>
+      </div>
+    );
+  }
+
   const total = segments.reduce((sum, s) => sum + s.value, 0);
+
+  if (total === 0) {
+    return (
+      <div className="flex items-center justify-center" style={{ width: size, height: size }}>
+        <div className="text-xs text-gray-400">No data</div>
+      </div>
+    );
+  }
   const center = size / 2;
   const radius = size / 2 - 4;
 
@@ -120,6 +137,15 @@ interface TimelineProps {
 }
 
 export function MiniTimeline({ events, orientation = 'horizontal' }: TimelineProps) {
+  // Guard against empty events
+  if (!events || events.length === 0) {
+    return (
+      <div className="text-xs text-gray-400 text-center py-2">
+        No timeline data available
+      </div>
+    );
+  }
+
   if (orientation === 'vertical') {
     return (
       <div className="relative pl-4">
@@ -346,6 +372,15 @@ interface ActivityRingProps {
 }
 
 export function ActivityRing({ rings, size = 80 }: ActivityRingProps) {
+  // Guard against empty rings
+  if (!rings || rings.length === 0) {
+    return (
+      <div className="flex items-center justify-center" style={{ width: size, height: size }}>
+        <div className="text-xs text-gray-400">No data</div>
+      </div>
+    );
+  }
+
   const center = size / 2;
   const gap = 6;
   const baseThickness = 6;
