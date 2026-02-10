@@ -23,6 +23,7 @@ import {
 import { BookmarkIcon as BookmarkSolid, StarIcon } from '@heroicons/react/24/solid';
 import { SectorIndicator } from './SectorIndicator';
 import { TenderAIButton } from './TenderAIActions';
+import { TeamMatchSection, TeamMatchBadge } from './TeamMatchBadge';
 import { useTenderImage } from '@/lib/hooks/use-tender-image';
 import {
   RadialGauge,
@@ -314,27 +315,33 @@ export function TenderRow({
                 </div>
               </div>
 
-              {/* Save & Actions */}
-              <div className="flex items-center gap-1">
-                <motion.button
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={onSave}
-                  className={`p-2 rounded-lg transition-colors ${
-                    isSaved ? 'text-teal-600 bg-teal-50' : 'text-gray-400 hover:text-teal-600 hover:bg-teal-50'
-                  }`}
-                >
-                  {isSaved ? <BookmarkSolid className="w-5 h-5" /> : <BookmarkOutline className="w-5 h-5" />}
-                </motion.button>
-                <Link href={`/tender/${tender.slug}`}>
-                  <motion.span
+              {/* Team Match Badge + Save & Actions */}
+              <div className="flex items-center gap-2">
+                {/* Team match indicator */}
+                <TeamMatchBadge tender={tender} compact />
+
+                {/* Save & View buttons */}
+                <div className="flex items-center gap-1">
+                  <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-2 rounded-lg text-gray-400 hover:text-teal-600 hover:bg-teal-50 transition-colors inline-flex"
+                    onClick={onSave}
+                    className={`p-2 rounded-lg transition-colors ${
+                      isSaved ? 'text-teal-600 bg-teal-50' : 'text-gray-400 hover:text-teal-600 hover:bg-teal-50'
+                    }`}
                   >
-                    <EyeIcon className="w-5 h-5" />
-                  </motion.span>
-                </Link>
+                    {isSaved ? <BookmarkSolid className="w-5 h-5" /> : <BookmarkOutline className="w-5 h-5" />}
+                  </motion.button>
+                  <Link href={`/tender/${tender.slug}`}>
+                    <motion.span
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="p-2 rounded-lg text-gray-400 hover:text-teal-600 hover:bg-teal-50 transition-colors inline-flex"
+                    >
+                      <EyeIcon className="w-5 h-5" />
+                    </motion.span>
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -486,6 +493,11 @@ export function TenderRow({
                     </div>
                   </div>
                 )}
+
+                {/* Team Recommendations */}
+                <div className="mb-4">
+                  <TeamMatchSection tender={tender} />
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Timeline */}

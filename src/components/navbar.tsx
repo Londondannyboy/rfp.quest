@@ -180,6 +180,19 @@ export function Navbar() {
                     >
                       Dashboard
                     </Link>
+                    <Link
+                      href="/profile"
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:text-teal-600 dark:hover:text-teal-400"
+                    >
+                      Company Profile
+                    </Link>
+                    <Link
+                      href="/profile/team"
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:text-teal-600 dark:hover:text-teal-400"
+                    >
+                      Team Members
+                    </Link>
+                    <div className="border-t border-gray-100 dark:border-gray-700 my-1" />
                     <button
                       onClick={handleSignOut}
                       className="block w-full text-left px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-red-50 dark:hover:bg-red-900/30 hover:text-red-600 dark:hover:text-red-400"
@@ -299,6 +312,20 @@ export function Navbar() {
                       onClick={() => setMobileOpen(false)}
                     >
                       Dashboard
+                    </Link>
+                    <Link
+                      href="/profile"
+                      className="block w-full text-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Company Profile
+                    </Link>
+                    <Link
+                      href="/profile/team"
+                      className="block w-full text-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Team Members
                     </Link>
                     <button
                       onClick={() => {
