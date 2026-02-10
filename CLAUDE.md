@@ -68,8 +68,38 @@ docker compose up agent                          # Run via Docker
 
 ### Database
 - Schema defined in `drizzle/schema.ts`
-- Key tables: users, teams, team_memberships, sessions, tenders, tender_analyses
+- Key tables: users, teams, team_memberships, sessions, tenders, tender_analyses, company_profiles, competitor_enrichments, saved_views
 - Analysis results stored as JSONB columns for flexibility
+
+### Dashboard System (Card-Based)
+The dashboard uses a visual card-based layout instead of tables:
+
+**Components** (`src/components/dashboard/`):
+- `TenderCard.tsx` - Rich card showing match %, sector, buyer, value, deadline, competitors
+- `TenderCardGrid.tsx` - Responsive grid with infinite scroll
+- `MatchScoreGauge.tsx` - Circular gauge showing profile match percentage
+- `CompetitorPreview.tsx` - Shows competitors and incumbent with badges
+- `SectorIndicator.tsx` - Clickable CPV sector badges with icons
+- `QuickActionButtons.tsx` - View, Save, Analyze, Dismiss buttons
+- `ProfileGate.tsx` - Blocks dashboard until profile is complete
+- `SavedViewsPanel.tsx` - Sidebar list of saved filter views
+- `SaveViewModal.tsx` - Modal for saving/editing filter views
+- `SectorFilterTree.tsx` - Hierarchical CPV sector filter with checkboxes
+
+**Hooks** (`src/lib/hooks/`):
+- `use-profile-completeness.ts` - Checks if profile has companyName, CPV divisions, regions
+- `use-competitors.ts` - Fetches competitor data with lazy loading on hover
+- `use-saved-views.ts` - CRUD operations for saved filter views
+
+**API Routes**:
+- `GET /api/competitors?ocid=X&buyerName=Y&sector=Z` - Competitor enrichment with 24h cache
+- `GET/POST /api/saved-views` - List/create saved views
+- `PUT/DELETE /api/saved-views/[id]` - Update/delete individual views
+
+**CPV Hierarchy** (`src/lib/cpv-hierarchy.ts`):
+- Full CPV code structure with divisions, groups, classes
+- Icons and colors for each sector
+- Helper functions: `getDivisionInfo()`, `getCpvLabel()`, `searchCpvCodes()`
 
 ### SEO Pages System
 All marketing/SEO pages are database-driven via the `pages` table:

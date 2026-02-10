@@ -164,6 +164,75 @@ RFP Quest helps UK businesses win government tenders by using AI to analyse proc
 
 ---
 
+#### F7b: Card-Based Dashboard
+**Description**: Visual dashboard with rich tender cards replacing table view. Shows match scores, competitors, and allows quick filtering by sector.
+
+**User Stories**:
+- As a user, I see tenders as visual cards with key info at a glance
+- As a user, I can see my match score for each tender based on my company profile
+- As a user, I can hover on a card to see competitor intelligence
+- As a user, I can click a sector badge to filter to that sector
+- As a user, I can save filter combinations as named views
+
+**Acceptance Criteria**:
+- Tender cards show: title, buyer, value range, deadline, sector badge, match score gauge
+- Match score (0-100%) calculated from profile vs tender CPV/region/value match
+- Competitor preview shows top 3 competitors + incumbent (loaded on hover)
+- Sector badges are clickable to filter
+- SavedViewsPanel in sidebar for managing saved filter views
+- Infinite scroll loads more cards as user scrolls
+- Responsive grid: 1 column mobile, 2 tablet, 3 desktop
+
+---
+
+#### F7c: Profile Gate
+**Description**: Users must complete their company profile before accessing personalized dashboard features.
+
+**User Stories**:
+- As a new user, I'm prompted to complete my profile before seeing personalized matches
+- As a user with incomplete profile, I see a clear CTA to finish setup
+
+**Acceptance Criteria**:
+- Profile gate blocks dashboard if missing: companyName, targetCpvDivisions, targetRegions
+- Shows completion percentage and checklist of missing fields
+- "Complete Profile" button navigates to /onboarding
+- Non-authenticated users can still browse (public dashboard)
+
+---
+
+#### F7d: Saved Views
+**Description**: Users can save filter combinations for quick access.
+
+**User Stories**:
+- As a user, I can save my current filters as a named view
+- As a user, I can pin favorite views to the top
+- As a user, I can click a saved view to restore those filters
+
+**Acceptance Criteria**:
+- Save modal allows naming, icon selection, color choice
+- Views stored in database (saved_views table)
+- Pinned views appear at top of sidebar
+- One-click to apply saved view filters
+- Edit and delete existing views
+
+---
+
+#### F7e: Competitor Enrichment
+**Description**: AI-powered competitor research for each tender, showing likely bidders and incumbents.
+
+**User Stories**:
+- As a user, I can see who else might be bidding on a tender
+- As a user, I can see who currently holds the contract (incumbent)
+
+**Acceptance Criteria**:
+- Competitor data fetched on card hover (lazy loading)
+- Results cached for 24 hours (competitor_enrichments table)
+- Shows company names with confidence scores
+- Incumbent shown with contract period if available
+- Falls back to empty state if research unavailable
+
+---
+
 ### Phase 2
 
 #### F8: Real-Time Streaming Analysis
