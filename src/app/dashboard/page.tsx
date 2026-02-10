@@ -147,7 +147,7 @@ function DashboardContent() {
       {/* Hero Section with KPIs and Charts */}
       <div className="bg-gradient-to-b from-gray-50 to-white px-6 py-6 border-b border-gray-200 overflow-auto">
         <DashboardHero
-          onSectorClick={(division, sectorName) => {
+          onSectorClick={(division) => {
             // Filter by sector when clicking pie chart
             const currentDivisions = filters.cpvDivisions || [];
             if (!currentDivisions.includes(division)) {
@@ -168,6 +168,33 @@ function DashboardContent() {
               offset: 0,
             });
             setShowSavedOnly(false);
+          }}
+          onUrgentClick={() => {
+            // Filter to show only urgent tenders (closing within 7 days)
+            // We'll use sortBy to show deadline-asc
+            handleSortChange('deadline-asc');
+            setShowSavedOnly(false);
+            // Scroll to opportunities section
+            document.getElementById('opportunities')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          onTopSectorClick={(division) => {
+            // Filter by top sector
+            const currentDivisions = filters.cpvDivisions || [];
+            if (!currentDivisions.includes(division)) {
+              setFilters({
+                ...filters,
+                cpvDivisions: [division],
+                offset: 0,
+              });
+              setShowSavedOnly(false);
+            }
+            document.getElementById('opportunities')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          onLiveOpportunitiesClick={() => {
+            // Clear all filters and show all opportunities
+            setFilters({ limit: 50, offset: 0 });
+            setShowSavedOnly(false);
+            document.getElementById('opportunities')?.scrollIntoView({ behavior: 'smooth' });
           }}
         />
       </div>

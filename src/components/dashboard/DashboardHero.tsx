@@ -108,9 +108,12 @@ function LoadingSkeleton() {
 interface DashboardHeroProps {
   onSectorClick?: (division: string, sectorName: string) => void;
   onValueClick?: (minValue: number, maxValue: number, label: string) => void;
+  onUrgentClick?: () => void;
+  onTopSectorClick?: (division: string, sectorName: string) => void;
+  onLiveOpportunitiesClick?: () => void;
 }
 
-export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProps) {
+export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTopSectorClick, onLiveOpportunitiesClick }: DashboardHeroProps) {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -194,14 +197,20 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
               </p>
             </motion.div>
 
-            {/* Quick Stats Row */}
+            {/* Quick Stats Row - Clickable */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               className="grid grid-cols-3 gap-4 mb-6"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={onUrgentClick}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 hover:border-white/20 transition-colors text-left cursor-pointer"
+                title="Click to filter tenders closing this week"
+              >
                 <div className="flex items-center gap-2 mb-1">
                   <CalendarDaysIcon className="w-4 h-4 text-amber-400" />
                   <span className="text-xs text-slate-400 uppercase">Urgent</span>
@@ -210,7 +219,7 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
                   {stats.upcomingDeadlines.filter(d => d.daysRemaining <= 7).length}
                 </p>
                 <p className="text-xs text-slate-400">Closing This Week</p>
-              </div>
+              </motion.button>
 
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
                 <div className="flex items-center gap-2 mb-1">
@@ -223,7 +232,13 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
                 <p className="text-xs text-slate-400">Per Contract</p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => stats.topSector && onTopSectorClick?.(stats.topSector.division, stats.topSector.name)}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 hover:border-white/20 transition-colors text-left cursor-pointer"
+                title={`Click to filter ${stats.topSector?.name || 'top sector'} tenders`}
+              >
                 <div className="flex items-center gap-2 mb-1">
                   <TagIcon className="w-4 h-4 text-purple-400" />
                   <span className="text-xs text-slate-400 uppercase">Top Sector</span>
@@ -232,7 +247,7 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
                   {stats.topSector?.name || 'Various'}
                 </p>
                 <p className="text-xs text-slate-400">{stats.topSector?.count || 0} tenders</p>
-              </div>
+              </motion.button>
             </motion.div>
 
             {/* CTA Buttons */}
@@ -280,6 +295,8 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
           icon={BriefcaseIcon}
           color="teal"
           delay={0}
+          onClick={onLiveOpportunitiesClick}
+          clickHint="Click to view all opportunities"
         />
         <KPICard
           title="Closing This Week"
@@ -287,6 +304,8 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
           icon={CalendarDaysIcon}
           color="amber"
           delay={0.1}
+          onClick={onUrgentClick}
+          clickHint="Click to filter urgent tenders"
         />
         <KPICard
           title="Average Value"
@@ -304,6 +323,8 @@ export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProp
           icon={TagIcon}
           color="blue"
           delay={0.3}
+          onClick={() => stats.topSector && onTopSectorClick?.(stats.topSector.division, stats.topSector.name)}
+          clickHint={`Click to filter ${stats.topSector?.name || 'top sector'} tenders`}
         />
       </motion.div>
 

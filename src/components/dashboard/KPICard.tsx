@@ -13,6 +13,8 @@ interface KPICardProps {
   color?: 'teal' | 'blue' | 'purple' | 'amber' | 'green';
   delay?: number;
   formatLarge?: boolean;
+  onClick?: () => void;
+  clickHint?: string;
 }
 
 const colorClasses = {
@@ -52,16 +54,24 @@ export function KPICard({
   color = 'teal',
   delay = 0,
   formatLarge = false,
+  onClick,
+  clickHint,
 }: KPICardProps) {
   const colors = colorClasses[color];
+  const isClickable = !!onClick;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, duration: 0.4 }}
-      whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 cursor-default"
+      whileHover={{ scale: isClickable ? 1.03 : 1.02, transition: { duration: 0.2 } }}
+      whileTap={isClickable ? { scale: 0.98 } : undefined}
+      onClick={onClick}
+      className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 ${
+        isClickable ? 'cursor-pointer hover:shadow-md hover:border-gray-200' : 'cursor-default'
+      }`}
+      title={clickHint}
     >
       <div className="flex items-start justify-between">
         <div
