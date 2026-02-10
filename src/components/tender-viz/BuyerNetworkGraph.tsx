@@ -117,25 +117,13 @@ export function BuyerNetworkGraph({ currentBuyer, region }: BuyerNetworkGraphPro
 
   const maxCount = useMemo(() => Math.max(...buyers.map(b => b.tenderCount), 1), [buyers]);
 
-  if (loading) {
-    return (
-      <div className="bg-slate-900 rounded-xl p-6">
-        <h2 className="text-lg font-semibold text-white mb-4">Buyer Network</h2>
-        <div className="h-96 bg-slate-800/50 rounded-lg animate-pulse" />
-      </div>
-    );
-  }
+  // Sort buyers by tender count (must be before early returns to maintain hook order)
+  const sortedBuyers = useMemo(() => [...buyers].sort((a, b) => b.tenderCount - a.tenderCount), [buyers]);
+  const displayBuyers = useMemo(() => sortedBuyers.slice(0, 20), [sortedBuyers]);
 
-  if (buyers.length === 0) {
-    return null;
-  }
-
-  // Sort buyers by tender count
-  const sortedBuyers = [...buyers].sort((a, b) => b.tenderCount - a.tenderCount);
-  const displayBuyers = sortedBuyers.slice(0, 20);
-
-  // Calculate positions for network graph
+  // Calculate positions for network graph (must be before early returns)
   const positions = useMemo(() => {
+    if (displayBuyers.length === 0) return {};
     const pos: Record<string, { x: number; y: number }> = {};
     const centerX = 250;
     const centerY = 200;
@@ -159,12 +147,25 @@ export function BuyerNetworkGraph({ currentBuyer, region }: BuyerNetworkGraphPro
     return pos;
   }, [displayBuyers, currentBuyer, selectedBuyer]);
 
-  // Get connections for selected/hovered buyer
+  // Get connections for selected/hovered buyer (must be before early returns)
   const activeConnections = useMemo(() => {
     const activeId = hoveredBuyer || selectedBuyer;
     if (!activeId) return [];
     return connections.filter(c => c.from === activeId || c.to === activeId);
   }, [connections, hoveredBuyer, selectedBuyer]);
+
+  if (loading) {
+    return (
+      <div className="bg-slate-900 rounded-xl p-6">
+        <h2 className="text-lg font-semibold text-white mb-4">Buyer Network</h2>
+        <div className="h-96 bg-slate-800/50 rounded-lg animate-pulse" />
+      </div>
+    );
+  }
+
+  if (buyers.length === 0) {
+    return null;
+  }
 
   return (
     <div className="bg-slate-900 rounded-xl p-6">
