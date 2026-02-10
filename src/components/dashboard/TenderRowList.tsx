@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { TenderRow, TenderRowSkeleton, TenderRowHeader } from './TenderRow';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
 import { useCompetitors } from '@/lib/hooks/use-competitors';
+import { useProfileCompleteness } from '@/lib/hooks/use-profile-completeness';
 import type { Tender } from '@/lib/hooks/use-tenders';
 
 interface TenderRowListProps {
@@ -36,6 +37,7 @@ export function TenderRowList({
 }: TenderRowListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { isSaved, toggleSaved } = useSavedTenders();
+  const { profile: companyProfile } = useProfileCompleteness();
 
   // Infinite scroll handler
   const handleScroll = useCallback(() => {
@@ -116,6 +118,7 @@ export function TenderRowList({
               onSectorClick={onSectorClick}
               isAnalyzing={analyzingIds.has(tender.ocid)}
               index={index}
+              companyProfile={companyProfile}
             />
           ))}
         </AnimatePresence>
@@ -154,6 +157,7 @@ function TenderRowWithCompetitors({
   onSectorClick,
   isAnalyzing,
   index,
+  companyProfile,
 }: {
   tender: Tender;
   matchScore?: number | null;
@@ -165,6 +169,7 @@ function TenderRowWithCompetitors({
   onSectorClick?: (division: string) => void;
   isAnalyzing: boolean;
   index: number;
+  companyProfile?: ReturnType<typeof useProfileCompleteness>['profile'];
 }) {
   const [shouldLoadCompetitors, setShouldLoadCompetitors] = useState(false);
   const rowRef = useRef<HTMLDivElement>(null);
@@ -200,7 +205,8 @@ function TenderRowWithCompetitors({
         onSectorClick={onSectorClick}
         isAnalyzing={isAnalyzing}
         index={index}
-        defaultExpanded={index < 3} // First 3 rows expanded by default
+        defaultExpanded={index < 3}
+        companyProfile={companyProfile}
       />
     </div>
   );

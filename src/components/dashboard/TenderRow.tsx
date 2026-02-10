@@ -432,6 +432,61 @@ export function TenderRow({
               className="overflow-hidden"
             >
               <div className="pt-3 mt-3 border-t border-gray-100">
+                {/* Why It's a Fit Section */}
+                {companyProfile && (
+                  <div className={`mb-4 p-4 rounded-lg border ${
+                    profileMatch.overall >= 70
+                      ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200'
+                      : profileMatch.overall >= 40
+                      ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-amber-200'
+                      : 'bg-gradient-to-r from-gray-50 to-slate-50 border-gray-200'
+                  }`}>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-2">
+                        <span className={`text-lg font-bold ${
+                          profileMatch.overall >= 70 ? 'text-green-600' :
+                          profileMatch.overall >= 40 ? 'text-amber-600' : 'text-gray-600'
+                        }`}>
+                          {profileMatch.overall}%
+                        </span>
+                        <span className="text-sm font-medium text-gray-700">
+                          {profileMatch.overall >= 70 ? 'Strong Fit' :
+                           profileMatch.overall >= 40 ? 'Potential Fit' : 'Low Fit'}
+                        </span>
+                      </div>
+                      <span className="text-xs text-gray-500">Based on your profile</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {profileMatch.insights.map((insight, i) => (
+                        <span
+                          key={i}
+                          className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${
+                            insight.type === 'positive' ? 'bg-green-100 text-green-700' :
+                            insight.type === 'warning' ? 'bg-amber-100 text-amber-700' :
+                            insight.type === 'opportunity' ? 'bg-purple-100 text-purple-700' :
+                            'bg-blue-100 text-blue-700'
+                          }`}
+                        >
+                          {insight.type === 'positive' && <StarIcon className="w-3 h-3" />}
+                          {insight.text}
+                        </span>
+                      ))}
+                    </div>
+                    {/* Fit breakdown bar */}
+                    <div className="mt-3">
+                      <MiniBarChart
+                        bars={[
+                          { label: 'Sector', value: profileMatch.sectorMatch, color: '#14b8a6' },
+                          { label: 'Region', value: profileMatch.regionMatch, color: '#3b82f6' },
+                          { label: 'Value', value: profileMatch.valueMatch, color: '#8b5cf6' },
+                          { label: 'Green', value: profileMatch.sustainabilityMatch, color: '#22c55e' },
+                        ]}
+                        height={40}
+                      />
+                    </div>
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Timeline */}
                   <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg">
@@ -442,23 +497,30 @@ export function TenderRow({
                     <MiniTimeline events={timelineEvents} orientation="horizontal" />
                   </div>
 
-                  {/* Match Breakdown */}
-                  {matchScore !== null && matchScore !== undefined && (
-                    <div className="bg-gradient-to-r from-teal-50 to-white p-3 rounded-lg">
-                      <div className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
-                        <SparklesIcon className="w-4 h-4 text-teal-500" />
-                        Match Breakdown
-                      </div>
-                      <MiniBarChart
-                        bars={[
-                          { label: 'Sector', value: Math.min(100, matchScore + Math.floor(Math.random() * 10)), color: '#14b8a6' },
-                          { label: 'Size', value: Math.min(100, matchScore + Math.floor(Math.random() * 10)), color: '#3b82f6' },
-                          { label: 'Region', value: Math.min(100, matchScore + Math.floor(Math.random() * 10)), color: '#8b5cf6' },
-                        ]}
-                        height={50}
-                      />
+                  {/* Match Breakdown - use profile match if available */}
+                  <div className="bg-gradient-to-r from-teal-50 to-white p-3 rounded-lg">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
+                      <SparklesIcon className="w-4 h-4 text-teal-500" />
+                      {companyProfile ? 'Profile Match' : 'Match Analysis'}
                     </div>
-                  )}
+                    {companyProfile ? (
+                      <div className="flex items-center gap-3">
+                        <RadialGauge value={profileMatch.overall} maxValue={100} size={50} thickness={5} label="" />
+                        <div className="text-xs text-gray-600">
+                          {profileMatch.matchingCpvs.length > 0 && (
+                            <div>Sector: ✓ Match</div>
+                          )}
+                          {profileMatch.matchingRegions.length > 0 && (
+                            <div>Region: ✓ Match</div>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="text-xs text-gray-500">
+                        Complete your profile for personalized matching
+                      </div>
+                    )}
+                  </div>
 
                   {/* Competitors */}
                   <div className="bg-gradient-to-r from-red-50 to-white p-3 rounded-lg">
