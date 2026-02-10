@@ -28,6 +28,12 @@ const templateLinks = [
   { href: '/rfp-for-software-development-template', label: 'Software Development RFP' },
 ];
 
+const partnerLinks = [
+  { href: 'https://miam.quest', label: 'MIAM Certificate', external: true },
+  { href: 'https://membership.quest', label: 'Membership Marketing Agency', external: true },
+  { href: 'https://relocation.quest', label: 'Relocation Advice', external: true },
+];
+
 export function Footer() {
   return (
     <footer className="bg-gray-50 dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
@@ -89,6 +95,22 @@ export function Footer() {
                   >
                     {link.label}
                   </Link>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="font-semibold text-gray-900 dark:text-white mt-6 mb-4">Partner Resources</h3>
+            <ul className="space-y-2">
+              {partnerLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-teal-600 dark:hover:text-teal-400"
+                  >
+                    {link.label}
+                  </a>
                 </li>
               ))}
             </ul>

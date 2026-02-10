@@ -33,8 +33,10 @@ import {
   ActivityRing,
   CompetitionMeter,
 } from '@/components/charts/TenderCharts';
+import { formatValueDisplay, calculateProfileMatch } from '@/lib/tender-utils';
 import type { Tender } from '@/lib/hooks/use-tenders';
 import type { Competitor, Incumbent } from './CompetitorPreview';
+import type { CompanyProfile } from '@/app/api/company-profile/route';
 
 interface TenderRowProps {
   tender: Tender;
@@ -42,16 +44,15 @@ interface TenderRowProps {
   matchLoading?: boolean;
   competitors?: Competitor[];
   incumbent?: Incumbent | null;
-  competitorLoading?: boolean;
   isSaved?: boolean;
   onSave?: () => void;
   onDismiss?: () => void;
   onAnalyze?: () => void;
   onSectorClick?: (division: string) => void;
   isAnalyzing?: boolean;
-  avgValue?: number;
   index?: number;
-  defaultExpanded?: boolean; // First few rows expanded by default
+  defaultExpanded?: boolean;
+  companyProfile?: CompanyProfile | null; // For personalized insights
 }
 
 // Generate insights based on tender data
@@ -102,6 +103,7 @@ export function TenderRow({
   isAnalyzing = false,
   index = 0,
   defaultExpanded = false,
+  companyProfile,
 }: TenderRowProps) {
   const [expanded, setExpanded] = useState(defaultExpanded);
 
@@ -115,15 +117,32 @@ export function TenderRow({
   const isUrgent = daysUntilDeadline !== null && daysUntilDeadline <= 7 && daysUntilDeadline > 0;
   const isExpired = daysUntilDeadline !== null && daysUntilDeadline < 0;
 
-  // Format value display
-  const formatValue = (value: number | null) => {
-    if (!value) return 'TBC';
-    if (value >= 1_000_000) return `£${(value / 1_000_000).toFixed(1)}M`;
-    if (value >= 1_000) return `£${(value / 1_000).toFixed(0)}k`;
-    return `£${value.toLocaleString()}`;
-  };
+  // Format value display with estimates
+  const valueInfo = formatValueDisplay(tender.valueMax, tender.valueMin, tender.cpvCodes, true);
 
-  const valueDisplay = tender.valueMax ? formatValue(tender.valueMax) : formatValue(tender.valueMin);
+  // Calculate personalized profile match
+  const profileMatch = useMemo(() => {
+    return calculateProfileMatch(
+      {
+        cpvCodes: tender.cpvCodes,
+        region: tender.region,
+        valueMax: tender.valueMax,
+        valueMin: tender.valueMin,
+        isSustainability: tender.isSustainability,
+        title: tender.title,
+        description: tender.description,
+      },
+      companyProfile ? {
+        targetCpvDivisions: companyProfile.targetCpvDivisions,
+        targetRegions: companyProfile.targetRegions,
+        minContractValue: companyProfile.minContractValue,
+        maxContractValue: companyProfile.maxContractValue,
+        sustainabilityFocus: companyProfile.sustainabilityFocus,
+        expertiseAreas: companyProfile.expertiseAreas,
+        certifications: companyProfile.certifications,
+      } : null
+    );
+  }, [tender, companyProfile]);
 
   // Fetch contextual image
   const { url: imageUrl, isLoading: imageLoading } = useTenderImage(
@@ -345,10 +364,19 @@ export function TenderRow({
 
             {/* Visual Charts Row */}
             <div className="flex items-center gap-4 flex-wrap">
-              {/* Value Display */}
-              <div className="flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-teal-50 to-white rounded-lg border border-teal-100">
-                <CurrencyPoundIcon className="w-4 h-4 text-teal-500" />
-                <span className="text-sm font-bold text-gray-800">{valueDisplay}</span>
+              {/* Value Display with Estimate Indicator */}
+              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
+                valueInfo.isEstimate
+                  ? 'bg-gradient-to-r from-amber-50 to-white border-amber-200'
+                  : 'bg-gradient-to-r from-teal-50 to-white border-teal-100'
+              }`}>
+                <CurrencyPoundIcon className={`w-4 h-4 ${valueInfo.isEstimate ? 'text-amber-500' : 'text-teal-500'}`} />
+                <span className="text-sm font-bold text-gray-800">{valueInfo.display}</span>
+                {valueInfo.isEstimate && (
+                  <span className="text-[9px] text-amber-600 font-medium px-1 py-0.5 bg-amber-100 rounded">
+                    EST
+                  </span>
+                )}
               </div>
 
               {/* Deadline Display */}
