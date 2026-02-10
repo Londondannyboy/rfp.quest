@@ -20,6 +20,7 @@ import { CompetitorPreview, type Competitor, type Incumbent } from './Competitor
 import { SectorIndicator } from './SectorIndicator';
 import { QuickActionButtons } from './QuickActionButtons';
 import { useTenderImage } from '@/lib/hooks/use-tender-image';
+import { TenderAIButton } from './TenderAIActions';
 import type { Tender } from '@/lib/hooks/use-tenders';
 
 // AI Insight chip component
@@ -343,9 +344,14 @@ export function TenderCard({
           isAnalyzing={isAnalyzing}
           showLabels
         />
-        <div className="text-xs text-gray-400">
-          Published {new Date(tender.publishedDate).toLocaleDateString('en-GB')}
-        </div>
+        <TenderAIButton tender={tender} matchScore={matchScore} />
+      </div>
+
+      {/* Published date */}
+      <div className="px-4 py-2 bg-gray-50/50 border-t border-gray-100">
+        <p className="text-[10px] text-gray-400 text-center">
+          Published {new Date(tender.publishedDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+        </p>
       </div>
     </motion.article>
   );
