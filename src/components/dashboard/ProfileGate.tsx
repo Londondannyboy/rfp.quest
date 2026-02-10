@@ -126,7 +126,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
           </div>
 
           {/* CTA Button */}
-          <Link href="/onboarding">
+          <Link href="/profile">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}

@@ -1,35 +1,56 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { CopilotKit, useCopilotReadable } from '@copilotkit/react-core';
 import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
 import { useTenders, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
+import { useProfileCompleteness } from '@/lib/hooks/use-profile-completeness';
 import { TenderCardGrid } from '@/components/dashboard/TenderCardGrid';
 import { TenderRowList, TenderListStats } from '@/components/dashboard/TenderRowList';
 import { FilterBar } from '@/components/dashboard/FilterBar';
 import { ActionToolbar, type ViewMode } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
 import { SavedViewsPanel } from '@/components/dashboard/SavedViewsPanel';
+import { calculateProfileMatch } from '@/lib/tender-utils';
 import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
 import type { DashboardStats } from '@/app/api/dashboard-stats/route';
 
 function DashboardContent() {
   const router = useRouter();
+  const { profile } = useProfileCompleteness();
+
+  // Initialize filters from profile - personalized by default
   const [filters, setFilters] = useState<TenderSearchParams>({
     limit: 50,
-    stage: 'tender', // Default to active tenders only
+    stage: 'tender', // Active tenders only
   });
+  const [filtersInitialized, setFiltersInitialized] = useState(false);
   const [keyword, setKeyword] = useState('');
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [showFilters, setShowFilters] = useState(false);
-  const [sortBy, setSortBy] = useState('deadline-asc');
+  const [sortBy, setSortBy] = useState('match-desc'); // Sort by match score by default
   const [showSavedOnly, setShowSavedOnly] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
   const { savedCount, isSaved } = useSavedTenders();
+
+  // Apply profile-based filters on load (personalization default ON)
+  useEffect(() => {
+    if (profile && !filtersInitialized) {
+      setFilters((prev) => ({
+        ...prev,
+        cpvDivisions: profile.targetCpvDivisions?.length > 0 ? profile.targetCpvDivisions : undefined,
+        region: profile.targetRegions?.[0] || undefined, // Use first region
+        minValue: profile.minContractValue || undefined,
+        maxValue: profile.maxContractValue || undefined,
+        sustainability: profile.sustainabilityFocus || undefined,
+      }));
+      setFiltersInitialized(true);
+    }
+  }, [profile, filtersInitialized]);
 
   const {
     data,
@@ -40,10 +61,65 @@ function DashboardContent() {
   const tenders = data?.tenders ?? [];
   const totalCount = data?.totalCount ?? 0;
 
-  // Filter to show only saved if enabled
-  const displayTenders = showSavedOnly
-    ? tenders.filter((t) => isSaved(t.ocid))
-    : tenders;
+  // Calculate match scores for all tenders based on profile
+  const matchScores = useMemo(() => {
+    if (!profile) return {};
+
+    const scores: Record<string, number> = {};
+    tenders.forEach((tender) => {
+      const match = calculateProfileMatch(
+        {
+          cpvCodes: tender.cpvCodes,
+          region: tender.region,
+          valueMax: tender.valueMax,
+          valueMin: tender.valueMin,
+          isSustainability: tender.isSustainability,
+          title: tender.title,
+          description: tender.description,
+        },
+        {
+          targetCpvDivisions: profile.targetCpvDivisions,
+          targetRegions: profile.targetRegions,
+          minContractValue: profile.minContractValue,
+          maxContractValue: profile.maxContractValue,
+          sustainabilityFocus: profile.sustainabilityFocus,
+          expertiseAreas: profile.expertiseAreas,
+          certifications: profile.certifications,
+        }
+      );
+      scores[tender.ocid] = match.overall;
+    });
+    return scores;
+  }, [tenders, profile]);
+
+  // Filter and sort tenders
+  const displayTenders = useMemo(() => {
+    let filtered = showSavedOnly
+      ? tenders.filter((t) => isSaved(t.ocid))
+      : tenders;
+
+    // Sort based on sortBy
+    if (sortBy === 'match-desc') {
+      filtered = [...filtered].sort((a, b) => (matchScores[b.ocid] || 0) - (matchScores[a.ocid] || 0));
+    } else if (sortBy === 'deadline-asc') {
+      filtered = [...filtered].sort((a, b) => {
+        if (!a.tenderEndDate) return 1;
+        if (!b.tenderEndDate) return -1;
+        return new Date(a.tenderEndDate).getTime() - new Date(b.tenderEndDate).getTime();
+      });
+    } else if (sortBy === 'value-desc') {
+      filtered = [...filtered].sort((a, b) => (b.valueMax || 0) - (a.valueMax || 0));
+    }
+
+    return filtered;
+  }, [tenders, showSavedOnly, isSaved, sortBy, matchScores]);
+
+  // Calculate average match score for stats
+  const avgMatchScore = useMemo(() => {
+    const scores = Object.values(matchScores);
+    if (scores.length === 0) return undefined;
+    return Math.round(scores.reduce((sum, s) => sum + s, 0) / scores.length);
+  }, [matchScores]);
 
   // Fetch stats for CopilotKit context
   useEffect(() => {
@@ -200,6 +276,37 @@ function DashboardContent() {
         />
       </div>
 
+      {/* Personalization Banner */}
+      {profile && filtersInitialized && (
+        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-b border-teal-200 px-4 py-2.5 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center">
+              <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-sm text-teal-800">
+                <span className="font-semibold">Personalized for {profile.companyName}</span>
+                <span className="text-teal-600 ml-2">
+                  {profile.targetCpvDivisions?.length || 0} sectors, {profile.targetRegions?.length || 0} regions
+                  {profile.sustainabilityFocus && ', sustainability focus'}
+                </span>
+              </p>
+            </div>
+          </div>
+          <button
+            onClick={() => {
+              setFilters({ limit: 50, stage: 'tender' });
+              setFiltersInitialized(true);
+            }}
+            className="text-sm text-teal-700 hover:text-teal-900 font-medium px-3 py-1 hover:bg-teal-100 rounded-lg transition-colors"
+          >
+            Show all tenders
+          </button>
+        </div>
+      )}
+
       {/* Action Toolbar - Search, Filter, Sort, Save, View Toggle */}
       <ActionToolbar
         keyword={keyword}
@@ -277,6 +384,7 @@ function DashboardContent() {
           {displayTenders.length > 0 && (
             <TenderListStats
               total={showSavedOnly ? savedCount : totalCount}
+              avgMatchScore={avgMatchScore}
               urgentCount={displayTenders.filter(t => {
                 if (!t.tenderEndDate) return false;
                 const days = Math.ceil((new Date(t.tenderEndDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
@@ -290,6 +398,7 @@ function DashboardContent() {
           {viewMode === 'list' ? (
             <TenderRowList
               tenders={displayTenders}
+              matchScores={matchScores}
               loading={isLoading}
               hasMore={data?.hasMore && !showSavedOnly}
               onLoadMore={() => {
@@ -315,6 +424,7 @@ function DashboardContent() {
           ) : (
             <TenderCardGrid
               tenders={displayTenders}
+              matchScores={matchScores}
               isLoading={isLoading}
               hasMore={data?.hasMore && !showSavedOnly}
               onLoadMore={() => {
