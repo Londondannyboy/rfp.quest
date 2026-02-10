@@ -8,9 +8,9 @@ import '@copilotkit/react-ui/styles.css';
 import { useTenders, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
 import { TenderCardGrid } from '@/components/dashboard/TenderCardGrid';
-import { TenderListStats } from '@/components/dashboard/TenderRowList';
+import { TenderRowList, TenderListStats } from '@/components/dashboard/TenderRowList';
 import { FilterBar } from '@/components/dashboard/FilterBar';
-import { ActionToolbar } from '@/components/dashboard/ActionToolbar';
+import { ActionToolbar, type ViewMode } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
 import { SavedViewsPanel } from '@/components/dashboard/SavedViewsPanel';
 import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
@@ -27,6 +27,7 @@ function DashboardContent() {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState('deadline-asc');
   const [showSavedOnly, setShowSavedOnly] = useState(false);
+  const [viewMode, setViewMode] = useState<ViewMode>('list');
 
   const { savedCount, isSaved } = useSavedTenders();
 
@@ -199,7 +200,7 @@ function DashboardContent() {
         />
       </div>
 
-      {/* Action Toolbar - Search, Filter, Sort, Save */}
+      {/* Action Toolbar - Search, Filter, Sort, Save, View Toggle */}
       <ActionToolbar
         keyword={keyword}
         onKeywordChange={setKeyword}
@@ -212,6 +213,8 @@ function DashboardContent() {
         activeFilterCount={activeFilterCount}
         savedCount={savedCount}
         onViewSaved={handleViewSaved}
+        viewMode={viewMode}
+        onViewModeChange={setViewMode}
       />
 
       {/* Saved Only Banner */}
@@ -283,36 +286,63 @@ function DashboardContent() {
             />
           )}
 
-          {/* Tender Cards Grid */}
-          <TenderCardGrid
-            tenders={displayTenders}
-            isLoading={isLoading}
-            hasMore={data?.hasMore && !showSavedOnly}
-            onLoadMore={() => {
-              setFilters({
-                ...filters,
-                offset: (filters.offset || 0) + (filters.limit || 50),
-              });
-            }}
-            onSectorClick={(division) => {
-              const currentDivisions = filters.cpvDivisions || [];
-              if (!currentDivisions.includes(division)) {
+          {/* Tender List or Grid based on viewMode */}
+          {viewMode === 'list' ? (
+            <TenderRowList
+              tenders={displayTenders}
+              loading={isLoading}
+              hasMore={data?.hasMore && !showSavedOnly}
+              onLoadMore={() => {
                 setFilters({
                   ...filters,
-                  cpvDivisions: [...currentDivisions, division],
-                  offset: 0,
+                  offset: (filters.offset || 0) + (filters.limit || 50),
                 });
+              }}
+              onSectorClick={(division) => {
+                const currentDivisions = filters.cpvDivisions || [];
+                if (!currentDivisions.includes(division)) {
+                  setFilters({
+                    ...filters,
+                    cpvDivisions: [...currentDivisions, division],
+                    offset: 0,
+                  });
+                }
+              }}
+              onAnalyze={(tender) => {
+                router.push(`/tender/${tender.slug}?tab=analysis`);
+              }}
+            />
+          ) : (
+            <TenderCardGrid
+              tenders={displayTenders}
+              isLoading={isLoading}
+              hasMore={data?.hasMore && !showSavedOnly}
+              onLoadMore={() => {
+                setFilters({
+                  ...filters,
+                  offset: (filters.offset || 0) + (filters.limit || 50),
+                });
+              }}
+              onSectorClick={(division) => {
+                const currentDivisions = filters.cpvDivisions || [];
+                if (!currentDivisions.includes(division)) {
+                  setFilters({
+                    ...filters,
+                    cpvDivisions: [...currentDivisions, division],
+                    offset: 0,
+                  });
+                }
+              }}
+              onAnalyze={(tender) => {
+                router.push(`/tender/${tender.slug}?tab=analysis`);
+              }}
+              emptyMessage={
+                showSavedOnly
+                  ? 'No saved tenders yet. Click the bookmark icon on any tender to save it.'
+                  : 'No tenders match your current filters. Try adjusting your search criteria.'
               }
-            }}
-            onAnalyze={(tender) => {
-              router.push(`/tender/${tender.slug}?tab=analysis`);
-            }}
-            emptyMessage={
-              showSavedOnly
-                ? 'No saved tenders yet. Click the bookmark icon on any tender to save it.'
-                : 'No tenders match your current filters. Try adjusting your search criteria.'
-            }
-          />
+            />
+          )}
         </div>
       </div>
     </div>

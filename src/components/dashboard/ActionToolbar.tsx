@@ -8,8 +8,12 @@ import {
   BookmarkIcon,
   XMarkIcon,
   ChevronDownIcon,
+  ListBulletIcon,
+  Squares2X2Icon,
 } from '@heroicons/react/24/outline';
 import { BookmarkIcon as BookmarkSolidIcon } from '@heroicons/react/24/solid';
+
+export type ViewMode = 'list' | 'grid';
 
 interface ActionToolbarProps {
   keyword: string;
@@ -23,6 +27,8 @@ interface ActionToolbarProps {
   activeFilterCount: number;
   savedCount: number;
   onViewSaved: () => void;
+  viewMode?: ViewMode;
+  onViewModeChange?: (mode: ViewMode) => void;
 }
 
 const sortOptions = [
@@ -46,6 +52,8 @@ export function ActionToolbar({
   activeFilterCount,
   savedCount,
   onViewSaved,
+  viewMode = 'list',
+  onViewModeChange,
 }: ActionToolbarProps) {
   const [showSortMenu, setShowSortMenu] = useState(false);
 
@@ -164,6 +172,34 @@ export function ActionToolbar({
               </span>
             )}
           </button>
+
+          {/* View Mode Toggle */}
+          {onViewModeChange && (
+            <div className="flex items-center bg-gray-100 rounded-lg p-0.5">
+              <button
+                onClick={() => onViewModeChange('list')}
+                className={`p-2 rounded-md transition-colors ${
+                  viewMode === 'list'
+                    ? 'bg-white shadow-sm text-teal-600'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                title="List view"
+              >
+                <ListBulletIcon className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => onViewModeChange('grid')}
+                className={`p-2 rounded-md transition-colors ${
+                  viewMode === 'grid'
+                    ? 'bg-white shadow-sm text-teal-600'
+                    : 'text-gray-500 hover:text-gray-700'
+                }`}
+                title="Grid view"
+              >
+                <Squares2X2Icon className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Results count */}
