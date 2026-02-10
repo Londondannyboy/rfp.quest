@@ -27,7 +27,7 @@ function DashboardContent() {
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState('deadline-asc');
   const [showSavedOnly, setShowSavedOnly] = useState(false);
-  const [viewMode, setViewMode] = useState<ViewMode>('list');
+  const [viewMode, setViewMode] = useState<ViewMode>('grid');
 
   const { savedCount, isSaved } = useSavedTenders();
 
