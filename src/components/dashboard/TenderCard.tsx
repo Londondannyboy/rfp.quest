@@ -14,10 +14,12 @@ import {
   ChartBarIcon,
   UserGroupIcon,
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 import { MatchScoreGauge } from './MatchScoreGauge';
 import { CompetitorPreview, type Competitor, type Incumbent } from './CompetitorPreview';
 import { SectorIndicator } from './SectorIndicator';
 import { QuickActionButtons } from './QuickActionButtons';
+import { useTenderImage } from '@/lib/hooks/use-tender-image';
 import type { Tender } from '@/lib/hooks/use-tenders';
 
 // AI Insight chip component
@@ -168,6 +170,14 @@ export function TenderCard({
       ? `${formatValue(tender.valueMin)} - ${formatValue(tender.valueMax)}`
       : formatValue(tender.valueMax) || formatValue(tender.valueMin) || 'TBC';
 
+  // Fetch contextual image for this tender
+  const { url: imageUrl, attribution, isLoading: imageLoading } = useTenderImage(
+    tender.ocid,
+    tender.title,
+    tender.cpvCodes,
+    tender.description
+  );
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 10 }}
@@ -176,18 +186,47 @@ export function TenderCard({
       whileHover={{ y: -2 }}
       className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all overflow-hidden"
     >
-      {/* Header Row - Sector + Match Score */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-100">
-        <SectorIndicator
-          cpvCodes={tender.cpvCodes}
-          onClick={onSectorClick}
-          size="sm"
-        />
-        <MatchScoreGauge score={matchScore ?? null} size="sm" loading={matchLoading} />
+      {/* Hero Image */}
+      <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+        {imageLoading ? (
+          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100" />
+        ) : (
+          <Image
+            src={imageUrl}
+            alt={`${tender.title} - sector image`}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            unoptimized // Use Unsplash's own optimization
+          />
+        )}
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+        {/* Match score badge overlay */}
+        <div className="absolute top-2 right-2">
+          <MatchScoreGauge score={matchScore ?? null} size="sm" loading={matchLoading} />
+        </div>
+
+        {/* Sector badge overlay */}
+        <div className="absolute bottom-2 left-2">
+          <SectorIndicator
+            cpvCodes={tender.cpvCodes}
+            onClick={onSectorClick}
+            size="sm"
+          />
+        </div>
+
+        {/* Unsplash attribution */}
+        {attribution && (
+          <div className="absolute bottom-1 right-2 text-[8px] text-white/60">
+            {attribution}
+          </div>
+        )}
       </div>
 
       {/* Main Content */}
-      <div className="p-4 space-y-3">
+      <div className="p-4 space-y-3 group">
         {/* Title */}
         <Link href={`/tender/${tender.slug}`} className="block group">
           <h3 className="text-lg font-semibold text-gray-900 group-hover:text-teal-600 transition-colors line-clamp-2">
@@ -318,10 +357,10 @@ export function TenderCard({
 export function TenderCardSkeleton() {
   return (
     <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden animate-pulse">
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-50 border-b border-gray-100">
-        <div className="w-24 h-6 bg-gray-200 rounded-full" />
-        <div className="w-12 h-12 bg-gray-200 rounded-full" />
+      {/* Image skeleton */}
+      <div className="relative h-32 bg-gradient-to-br from-gray-200 to-gray-300">
+        <div className="absolute top-2 right-2 w-10 h-10 bg-gray-300 rounded-full" />
+        <div className="absolute bottom-2 left-2 w-20 h-6 bg-gray-300 rounded-full" />
       </div>
 
       {/* Content */}
