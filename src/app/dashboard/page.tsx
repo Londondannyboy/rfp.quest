@@ -7,7 +7,7 @@ import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
 import { useTenders, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
-import { TenderCardGrid } from '@/components/dashboard/TenderCardGrid';
+import { TenderRowList, TenderListStats } from '@/components/dashboard/TenderRowList';
 import { FilterBar } from '@/components/dashboard/FilterBar';
 import { ActionToolbar } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
@@ -219,11 +219,24 @@ function DashboardContent() {
           />
         </div>
 
-        {/* Tender Cards Grid */}
+        {/* Tender Rows */}
         <div className="flex-1 overflow-y-auto p-4">
-          <TenderCardGrid
+          {/* Stats bar above the list */}
+          {displayTenders.length > 0 && (
+            <TenderListStats
+              total={showSavedOnly ? savedCount : totalCount}
+              urgentCount={displayTenders.filter(t => {
+                if (!t.tenderEndDate) return false;
+                const days = Math.ceil((new Date(t.tenderEndDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+                return days >= 0 && days <= 7;
+              }).length}
+              sustainableCount={displayTenders.filter(t => t.isSustainability).length}
+            />
+          )}
+
+          <TenderRowList
             tenders={displayTenders}
-            isLoading={isLoading}
+            loading={isLoading}
             hasMore={data?.hasMore && !showSavedOnly}
             onLoadMore={() => {
               setFilters({
@@ -246,11 +259,6 @@ function DashboardContent() {
               // Navigate to tender detail with analysis tab
               router.push(`/tender/${tender.slug}?tab=analysis`);
             }}
-            emptyMessage={
-              showSavedOnly
-                ? 'No saved tenders yet. Click the bookmark icon on any tender to save it.'
-                : 'No tenders match your current filters. Try adjusting your search criteria.'
-            }
           />
         </div>
       </div>

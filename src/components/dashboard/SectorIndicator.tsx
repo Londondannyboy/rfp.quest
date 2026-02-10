@@ -47,7 +47,8 @@ interface SectorIndicatorProps {
   onClick?: (division: string) => void;
   interactive?: boolean;
   showIcon?: boolean;
-  size?: 'sm' | 'md';
+  iconOnly?: boolean;
+  size?: 'xs' | 'sm' | 'md';
 }
 
 /**
@@ -59,6 +60,7 @@ export function SectorIndicator({
   onClick,
   interactive = true,
   showIcon = true,
+  iconOnly = false,
   size = 'md',
 }: SectorIndicatorProps) {
   // Get the first CPV code's division (first 2 digits)
@@ -74,14 +76,21 @@ export function SectorIndicator({
   const isClickable = interactive && onClick;
 
   const sizeClasses = {
-    sm: 'px-2 py-0.5 text-xs gap-1',
-    md: 'px-2.5 py-1 text-sm gap-1.5',
+    xs: iconOnly ? 'p-1' : 'px-1.5 py-0.5 text-[10px] gap-0.5',
+    sm: iconOnly ? 'p-1.5' : 'px-2 py-0.5 text-xs gap-1',
+    md: iconOnly ? 'p-2' : 'px-2.5 py-1 text-sm gap-1.5',
+  };
+
+  const iconSizes = {
+    xs: 'w-3 h-3',
+    sm: 'w-3.5 h-3.5',
+    md: 'w-4 h-4',
   };
 
   return (
     <motion.button
-      whileHover={isClickable ? { scale: 1.02 } : undefined}
-      whileTap={isClickable ? { scale: 0.98 } : undefined}
+      whileHover={isClickable ? { scale: 1.05 } : undefined}
+      whileTap={isClickable ? { scale: 0.95 } : undefined}
       onClick={() => isClickable && onClick(division)}
       disabled={!isClickable}
       className={`
@@ -91,10 +100,10 @@ export function SectorIndicator({
         ${sizeClasses[size]}
         ${isClickable ? 'cursor-pointer hover:shadow-sm' : 'cursor-default'}
       `}
-      title={isClickable ? `Filter by ${sectorInfo.label}` : undefined}
+      title={sectorInfo.label}
     >
-      {showIcon && <Icon className={size === 'sm' ? 'w-3 h-3' : 'w-4 h-4'} />}
-      <span>{sectorInfo.label}</span>
+      {showIcon && <Icon className={iconSizes[size]} />}
+      {!iconOnly && <span>{sectorInfo.label}</span>}
     </motion.button>
   );
 }
