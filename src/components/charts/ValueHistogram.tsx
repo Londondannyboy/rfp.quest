@@ -22,11 +22,17 @@ interface ValueData {
 interface ValueHistogramProps {
   data: ValueData[];
   loading?: boolean;
+  onValueClick?: (minValue: number, maxValue: number, label: string) => void;
 }
 
 const COLORS = ['#14b8a6', '#0d9488', '#0f766e', '#115e59', '#134e4a'];
 
-export function ValueHistogram({ data, loading }: ValueHistogramProps) {
+export function ValueHistogram({ data, loading, onValueClick }: ValueHistogramProps) {
+  const handleBarClick = (entry: ValueData) => {
+    if (onValueClick) {
+      onValueClick(entry.min, entry.max, entry.bucket);
+    }
+  };
   if (loading) {
     return (
       <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
@@ -97,11 +103,17 @@ export function ValueHistogram({ data, loading }: ValueHistogramProps) {
                 return null;
               }}
             />
-            <Bar dataKey="count" radius={[4, 4, 0, 0]}>
+            <Bar
+              dataKey="count"
+              radius={[4, 4, 0, 0]}
+              onClick={(data) => handleBarClick(data as unknown as ValueData)}
+              style={{ cursor: onValueClick ? 'pointer' : 'default' }}
+            >
               {data.map((_, index) => (
                 <Cell
                   key={`cell-${index}`}
                   fill={COLORS[index % COLORS.length]}
+                  style={{ cursor: onValueClick ? 'pointer' : 'default' }}
                 />
               ))}
             </Bar>

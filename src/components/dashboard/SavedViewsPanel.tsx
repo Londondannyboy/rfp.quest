@@ -21,6 +21,7 @@ interface SavedViewsPanelProps {
   onSaveCurrentView?: () => void;
   collapsed?: boolean;
   onToggleCollapse?: () => void;
+  layout?: 'vertical' | 'horizontal';
 }
 
 /**
@@ -32,6 +33,7 @@ export function SavedViewsPanel({
   onApplyView,
   collapsed = false,
   onToggleCollapse,
+  layout = 'vertical',
 }: SavedViewsPanelProps) {
   const {
     views,
@@ -73,6 +75,94 @@ export function SavedViewsPanel({
     );
   }
 
+  // Horizontal layout - compact pills
+  if (layout === 'horizontal') {
+    if (views.length === 0 && !hasActiveFilters) {
+      return null; // Don't show anything if no views and no active filters
+    }
+
+    return (
+      <>
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+            Quick Views:
+          </span>
+
+          {isLoading ? (
+            <div className="flex gap-2">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-7 w-20 bg-gray-100 rounded-full animate-pulse" />
+              ))}
+            </div>
+          ) : (
+            <>
+              {/* Pinned views first */}
+              {pinnedViews.map((view) => (
+                <motion.button
+                  key={view.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => onApplyView(view.filters)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 rounded-full text-sm font-medium hover:bg-teal-100 transition-colors"
+                >
+                  {view.icon && <span>{view.icon}</span>}
+                  <StarSolidIcon className="w-3 h-3 text-amber-500" />
+                  {view.name}
+                </motion.button>
+              ))}
+
+              {/* Other views */}
+              {otherViews.slice(0, 5).map((view) => (
+                <motion.button
+                  key={view.id}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => onApplyView(view.filters)}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                >
+                  {view.icon && <span>{view.icon}</span>}
+                  {view.name}
+                </motion.button>
+              ))}
+
+              {/* Show more count if many views */}
+              {otherViews.length > 5 && (
+                <span className="text-xs text-gray-400">
+                  +{otherViews.length - 5} more
+                </span>
+              )}
+            </>
+          )}
+
+          {/* Save current filters button */}
+          {hasActiveFilters && (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setShowSaveModal(true)}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-white border border-dashed border-gray-300 text-gray-500 rounded-full text-sm hover:border-teal-400 hover:text-teal-600 transition-colors"
+            >
+              <PlusIcon className="w-3.5 h-3.5" />
+              Save View
+            </motion.button>
+          )}
+        </div>
+
+        {/* Save Modal */}
+        <SaveViewModal
+          isOpen={showSaveModal || editingView !== null}
+          onClose={() => {
+            setShowSaveModal(false);
+            setEditingView(null);
+          }}
+          currentFilters={editingView?.filters || currentFilters}
+          editingView={editingView}
+        />
+      </>
+    );
+  }
+
+  // Vertical layout (default - sidebar)
   return (
     <>
       <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">

@@ -7,7 +7,8 @@ import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
 import { useTenders, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
-import { TenderRowList, TenderListStats } from '@/components/dashboard/TenderRowList';
+import { TenderCardGrid } from '@/components/dashboard/TenderCardGrid';
+import { TenderListStats } from '@/components/dashboard/TenderRowList';
 import { FilterBar } from '@/components/dashboard/FilterBar';
 import { ActionToolbar } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
@@ -145,7 +146,30 @@ function DashboardContent() {
     <div className="flex flex-col h-full">
       {/* Hero Section with KPIs and Charts */}
       <div className="bg-gradient-to-b from-gray-50 to-white px-6 py-6 border-b border-gray-200 overflow-auto">
-        <DashboardHero />
+        <DashboardHero
+          onSectorClick={(division, sectorName) => {
+            // Filter by sector when clicking pie chart
+            const currentDivisions = filters.cpvDivisions || [];
+            if (!currentDivisions.includes(division)) {
+              setFilters({
+                ...filters,
+                cpvDivisions: [...currentDivisions, division],
+                offset: 0,
+              });
+              setShowSavedOnly(false);
+            }
+          }}
+          onValueClick={(minValue, maxValue) => {
+            // Filter by value range when clicking histogram
+            setFilters({
+              ...filters,
+              minValue,
+              maxValue: maxValue === Infinity ? undefined : maxValue,
+              offset: 0,
+            });
+            setShowSavedOnly(false);
+          }}
+        />
       </div>
 
       {/* Action Toolbar - Search, Filter, Sort, Save */}
@@ -186,10 +210,10 @@ function DashboardContent() {
         />
       )}
 
-      {/* Main Content - Cards Grid with Optional Saved Views Sidebar */}
-      <div id="opportunities" className="flex-1 min-h-0 flex">
-        {/* Saved Views Sidebar (visible on larger screens) */}
-        <div className="hidden lg:block w-64 flex-shrink-0 p-4 border-r border-gray-200 overflow-y-auto">
+      {/* Main Content */}
+      <div id="opportunities" className="flex-1 min-h-0 overflow-y-auto">
+        <div className="p-4 space-y-4">
+          {/* Saved Views - Horizontal Pills */}
           <SavedViewsPanel
             currentFilters={{
               keyword: filters.keyword,
@@ -216,12 +240,10 @@ function DashboardContent() {
               });
               setShowSavedOnly(false);
             }}
+            layout="horizontal"
           />
-        </div>
 
-        {/* Tender Rows */}
-        <div className="flex-1 overflow-y-auto p-4">
-          {/* Stats bar above the list */}
+          {/* Stats bar */}
           {displayTenders.length > 0 && (
             <TenderListStats
               total={showSavedOnly ? savedCount : totalCount}
@@ -234,9 +256,10 @@ function DashboardContent() {
             />
           )}
 
-          <TenderRowList
+          {/* Tender Cards Grid */}
+          <TenderCardGrid
             tenders={displayTenders}
-            loading={isLoading}
+            isLoading={isLoading}
             hasMore={data?.hasMore && !showSavedOnly}
             onLoadMore={() => {
               setFilters({
@@ -245,7 +268,6 @@ function DashboardContent() {
               });
             }}
             onSectorClick={(division) => {
-              // Add sector to filters when clicking a sector badge
               const currentDivisions = filters.cpvDivisions || [];
               if (!currentDivisions.includes(division)) {
                 setFilters({
@@ -256,9 +278,13 @@ function DashboardContent() {
               }
             }}
             onAnalyze={(tender) => {
-              // Navigate to tender detail with analysis tab
               router.push(`/tender/${tender.slug}?tab=analysis`);
             }}
+            emptyMessage={
+              showSavedOnly
+                ? 'No saved tenders yet. Click the bookmark icon on any tender to save it.'
+                : 'No tenders match your current filters. Try adjusting your search criteria.'
+            }
           />
         </div>
       </div>

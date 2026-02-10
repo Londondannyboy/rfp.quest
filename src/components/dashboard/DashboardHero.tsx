@@ -105,7 +105,12 @@ function LoadingSkeleton() {
   );
 }
 
-export function DashboardHero() {
+interface DashboardHeroProps {
+  onSectorClick?: (division: string, sectorName: string) => void;
+  onValueClick?: (minValue: number, maxValue: number, label: string) => void;
+}
+
+export function DashboardHero({ onSectorClick, onValueClick }: DashboardHeroProps) {
   const [stats, setStats] = useState<DashboardStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -322,8 +327,14 @@ export function DashboardHero() {
 
       {/* Charts Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <SectorPieChart data={stats.sectorBreakdown} />
-        <ValueHistogram data={stats.valueDistribution} />
+        <SectorPieChart
+          data={stats.sectorBreakdown}
+          onSectorClick={onSectorClick}
+        />
+        <ValueHistogram
+          data={stats.valueDistribution}
+          onValueClick={onValueClick}
+        />
         <DeadlineTimeline data={stats.upcomingDeadlines} />
       </div>
     </motion.div>

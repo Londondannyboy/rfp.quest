@@ -9,12 +9,104 @@ import {
   ExclamationTriangleIcon,
   MapPinIcon,
   SparklesIcon,
+  CheckCircleIcon,
+  LightBulbIcon,
+  ChartBarIcon,
+  UserGroupIcon,
 } from '@heroicons/react/24/outline';
 import { MatchScoreGauge } from './MatchScoreGauge';
 import { CompetitorPreview, type Competitor, type Incumbent } from './CompetitorPreview';
 import { SectorIndicator } from './SectorIndicator';
 import { QuickActionButtons } from './QuickActionButtons';
 import type { Tender } from '@/lib/hooks/use-tenders';
+
+// AI Insight chip component
+function InsightChip({ type, label }: { type: 'positive' | 'warning' | 'info' | 'opportunity'; label: string }) {
+  const styles = {
+    positive: 'bg-green-50 text-green-700 border-green-200',
+    warning: 'bg-amber-50 text-amber-700 border-amber-200',
+    info: 'bg-blue-50 text-blue-700 border-blue-200',
+    opportunity: 'bg-purple-50 text-purple-700 border-purple-200',
+  };
+  const icons = {
+    positive: <CheckCircleIcon className="w-3 h-3" />,
+    warning: <ExclamationTriangleIcon className="w-3 h-3" />,
+    info: <LightBulbIcon className="w-3 h-3" />,
+    opportunity: <SparklesIcon className="w-3 h-3" />,
+  };
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full border text-xs font-medium ${styles[type]}`}>
+      {icons[type]}
+      {label}
+    </span>
+  );
+}
+
+// Match breakdown bar component
+function MatchBreakdown({ score }: { score: number | null }) {
+  if (score === null) return null;
+
+  // Simulate breakdown (in real app, this would come from API)
+  const breakdown = [
+    { label: 'Sector', value: Math.min(100, score + Math.floor(Math.random() * 20) - 10), color: 'bg-teal-500' },
+    { label: 'Size', value: Math.min(100, score + Math.floor(Math.random() * 20) - 10), color: 'bg-blue-500' },
+    { label: 'Location', value: Math.min(100, score + Math.floor(Math.random() * 20) - 10), color: 'bg-purple-500' },
+  ];
+
+  return (
+    <div className="space-y-1.5">
+      <div className="flex items-center justify-between text-xs text-gray-500">
+        <span className="font-medium">Match Breakdown</span>
+        <ChartBarIcon className="w-3.5 h-3.5" />
+      </div>
+      <div className="space-y-1">
+        {breakdown.map((item) => (
+          <div key={item.label} className="flex items-center gap-2">
+            <span className="text-[10px] text-gray-500 w-12">{item.label}</span>
+            <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+              <motion.div
+                className={`h-full ${item.color} rounded-full`}
+                initial={{ width: 0 }}
+                animate={{ width: `${item.value}%` }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              />
+            </div>
+            <span className="text-[10px] font-medium text-gray-600 w-6">{item.value}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Generate smart insights based on tender data
+function generateInsights(tender: Tender, matchScore: number | null, competitors: Competitor[], daysLeft: number | null) {
+  const insights: Array<{ type: 'positive' | 'warning' | 'info' | 'opportunity'; label: string }> = [];
+
+  // Match score insights
+  if (matchScore !== null) {
+    if (matchScore >= 80) insights.push({ type: 'positive', label: 'Strong match' });
+    else if (matchScore < 40) insights.push({ type: 'warning', label: 'Low match' });
+  }
+
+  // Deadline insights
+  if (daysLeft !== null) {
+    if (daysLeft <= 3 && daysLeft >= 0) insights.push({ type: 'warning', label: 'Urgent' });
+    else if (daysLeft <= 7 && daysLeft > 3) insights.push({ type: 'info', label: 'Closing soon' });
+  }
+
+  // Competition insights
+  if (competitors.length === 0) insights.push({ type: 'opportunity', label: 'Low competition' });
+  else if (competitors.length >= 5) insights.push({ type: 'warning', label: 'High competition' });
+
+  // Value insights
+  if (tender.valueMax && tender.valueMax >= 1000000) insights.push({ type: 'info', label: 'High value' });
+
+  // Sustainability
+  if (tender.isSustainability) insights.push({ type: 'positive', label: 'Green tender' });
+
+  return insights.slice(0, 3);
+}
 
 interface TenderCardProps {
   tender: Tender;
@@ -165,17 +257,35 @@ export function TenderCard({
           </div>
         )}
 
-        {/* Sustainability Badge */}
-        {tender.isSustainability && (
-          <div className="flex items-center gap-1.5 text-green-600 text-sm">
-            <SparklesIcon className="w-4 h-4" />
-            <span className="font-medium">Sustainability focused</span>
-          </div>
-        )}
+        {/* AI Insights Row */}
+        {(() => {
+          const insights = generateInsights(tender, matchScore ?? null, competitors, daysUntilDeadline);
+          if (insights.length === 0) return null;
+          return (
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {insights.map((insight, i) => (
+                <InsightChip key={i} type={insight.type} label={insight.label} />
+              ))}
+            </div>
+          );
+        })()}
       </div>
+
+      {/* Match Breakdown Section */}
+      {matchScore !== null && matchScore !== undefined && (
+        <div className="px-4 py-3 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+          <MatchBreakdown score={matchScore} />
+        </div>
+      )}
 
       {/* Competitor Section */}
       <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/50">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-xs font-medium text-gray-500 flex items-center gap-1">
+            <UserGroupIcon className="w-3.5 h-3.5" />
+            Competitor Intelligence
+          </span>
+        </div>
         <CompetitorPreview
           competitors={competitors}
           incumbent={incumbent}
@@ -223,10 +333,35 @@ export function TenderCardSkeleton() {
           <div className="h-4 bg-gray-200 rounded w-32" />
           <div className="h-4 bg-gray-200 rounded w-20" />
         </div>
+        {/* AI Insights skeleton */}
+        <div className="flex gap-2 pt-1">
+          <div className="h-5 bg-gray-200 rounded-full w-20" />
+          <div className="h-5 bg-gray-200 rounded-full w-24" />
+        </div>
+      </div>
+
+      {/* Match Breakdown skeleton */}
+      <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/30">
+        <div className="space-y-2">
+          <div className="h-3 bg-gray-200 rounded w-24" />
+          <div className="flex items-center gap-2">
+            <div className="h-2 bg-gray-200 rounded w-10" />
+            <div className="flex-1 h-1.5 bg-gray-200 rounded-full" />
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-2 bg-gray-200 rounded w-10" />
+            <div className="flex-1 h-1.5 bg-gray-200 rounded-full" />
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="h-2 bg-gray-200 rounded w-10" />
+            <div className="flex-1 h-1.5 bg-gray-200 rounded-full" />
+          </div>
+        </div>
       </div>
 
       {/* Competitor */}
       <div className="px-4 py-3 border-t border-gray-100 bg-gray-50/50">
+        <div className="h-3 bg-gray-200 rounded w-28 mb-2" />
         <div className="flex gap-2">
           <div className="h-5 bg-gray-200 rounded-full w-20" />
           <div className="h-5 bg-gray-200 rounded-full w-20" />

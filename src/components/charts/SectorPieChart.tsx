@@ -25,6 +25,7 @@ interface SectorData {
 interface SectorPieChartProps {
   data: SectorData[];
   loading?: boolean;
+  onSectorClick?: (division: string, sectorName: string) => void;
 }
 
 const COLORS = [
@@ -95,7 +96,7 @@ const renderActiveShape = (props: ActiveShapeProps) => {
   );
 };
 
-export function SectorPieChart({ data, loading }: SectorPieChartProps) {
+export function SectorPieChart({ data, loading, onSectorClick }: SectorPieChartProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const onPieEnter = useCallback(
@@ -103,6 +104,15 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
       setActiveIndex(index);
     },
     []
+  );
+
+  const onPieClick = useCallback(
+    (_: unknown, index: number) => {
+      if (onSectorClick && data[index]) {
+        onSectorClick(data[index].division, data[index].sector);
+      }
+    },
+    [onSectorClick, data]
   );
 
   if (loading) {
@@ -147,11 +157,14 @@ export function SectorPieChart({ data, loading }: SectorPieChartProps) {
               dataKey="count"
               nameKey="sector"
               onMouseEnter={onPieEnter}
+              onClick={onPieClick}
+              style={{ cursor: onSectorClick ? 'pointer' : 'default' }}
             >
               {data.map((entry, index) => (
                 <Cell
                   key={`cell-${entry.sector}-${index}`}
                   fill={COLORS[index % COLORS.length]}
+                  style={{ cursor: onSectorClick ? 'pointer' : 'default' }}
                 />
               ))}
             </Pie>
