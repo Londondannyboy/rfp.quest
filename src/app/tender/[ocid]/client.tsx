@@ -16,6 +16,11 @@ import { RelatedTenders } from '@/components/tender-viz/RelatedTenders';
 import { SectorBubbleChart } from '@/components/tender-viz/SectorBubbleChart';
 import { BuyerNetworkGraph } from '@/components/tender-viz/BuyerNetworkGraph';
 import {
+  TenderDetailDashboard,
+  TenderMatchGauge,
+  MarketActivityChart,
+} from '@/components/tender-viz/TenderDetailCharts';
+import {
   ArrowLeftIcon,
   ArrowTopRightOnSquareIcon,
   ShareIcon,
@@ -345,6 +350,32 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
               </div>
             </div>
 
+            {/* Visual Analytics Dashboard */}
+            <div className="bg-slate-900 rounded-xl p-6">
+              <h2 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+                <svg className="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+                Contract Analytics
+              </h2>
+              <TenderDetailDashboard
+                tender={{
+                  valueMin: tender.valueMin,
+                  valueMax: tender.valueMax,
+                  cpvCodes: tender.cpvCodes,
+                  stage: tender.stage,
+                  publishedDate: tender.publishedDate,
+                  tenderEndDate: tender.tenderEndDate,
+                  contractStartDate: tender.contractStartDate,
+                  contractEndDate: tender.contractEndDate,
+                  buyerName: tender.buyerName,
+                  region: tender.region,
+                }}
+                matchScore={null}
+                competitorCount={0}
+              />
+            </div>
+
             {/* Related Tenders - Cross-linking for SEO */}
             <RelatedTenders
               currentOcid={tender.ocid}
@@ -386,8 +417,17 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
           {/* Sidebar */}
           <div className="space-y-6">
+            {/* Match Score Gauge */}
+            <div className="bg-slate-900 rounded-xl p-6">
+              <h3 className="text-sm font-medium text-slate-400 mb-4">Your Match Score</h3>
+              <TenderMatchGauge score={null} size={130} />
+            </div>
+
             {/* Match Analysis */}
             <MatchAnalysisCard ocid={tender.ocid} />
+
+            {/* Market Activity */}
+            <MarketActivityChart region={tender.region} />
 
             <BuyerProfile name={tender.buyerName} region={tender.region || undefined} />
 
