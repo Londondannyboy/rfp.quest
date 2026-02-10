@@ -5,12 +5,13 @@ import { useRouter } from 'next/navigation';
 import { CopilotKit, useCopilotReadable } from '@copilotkit/react-core';
 import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
-import { useTenders, type Tender, type TenderSearchParams } from '@/lib/hooks/use-tenders';
+import { useTenders, type TenderSearchParams } from '@/lib/hooks/use-tenders';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
-import { TenderTable } from '@/components/dashboard/TenderTable';
+import { TenderCardGrid } from '@/components/dashboard/TenderCardGrid';
 import { FilterBar } from '@/components/dashboard/FilterBar';
 import { ActionToolbar } from '@/components/dashboard/ActionToolbar';
 import { DashboardHero } from '@/components/dashboard/DashboardHero';
+import { SavedViewsPanel } from '@/components/dashboard/SavedViewsPanel';
 import type { TenderSearchParams as FilterParams } from '@/lib/api/types';
 import type { DashboardStats } from '@/app/api/dashboard-stats/route';
 
@@ -26,7 +27,7 @@ function DashboardContent() {
   const [sortBy, setSortBy] = useState('deadline-asc');
   const [showSavedOnly, setShowSavedOnly] = useState(false);
 
-  const { savedTenders, savedCount, isSaved, toggleSaved } = useSavedTenders();
+  const { savedCount, isSaved } = useSavedTenders();
 
   const {
     data,
@@ -120,17 +121,6 @@ function DashboardContent() {
     setShowSavedOnly(!showSavedOnly);
   };
 
-  const handleSaveTender = (tender: Tender) => {
-    toggleSaved({
-      ocid: tender.ocid,
-      slug: tender.slug,
-      title: tender.title,
-      buyerName: tender.buyerName,
-      valueMax: tender.valueMax,
-      deadline: tender.tenderEndDate,
-    });
-  };
-
   const filterBarFilters: FilterParams = {
     stages: filters.stage ? [filters.stage as 'planning' | 'tender' | 'award'] : undefined,
     region: filters.region,
@@ -196,23 +186,73 @@ function DashboardContent() {
         />
       )}
 
-      {/* Table */}
-      <div id="opportunities" className="flex-1 min-h-0">
-        <TenderTable
-          data={displayTenders}
-          isLoading={isLoading}
-          onRowClick={(tender: Tender) => router.push(`/tender/${tender.slug}`)}
-          onRefresh={() => refetch()}
-          hasNextPage={data?.hasMore && !showSavedOnly}
-          onLoadMore={() => {
-            setFilters({
-              ...filters,
-              offset: (filters.offset || 0) + (filters.limit || 50),
-            });
-          }}
-          savedTenders={new Set(savedTenders.map(t => t.ocid))}
-          onToggleSave={handleSaveTender}
-        />
+      {/* Main Content - Cards Grid with Optional Saved Views Sidebar */}
+      <div id="opportunities" className="flex-1 min-h-0 flex">
+        {/* Saved Views Sidebar (visible on larger screens) */}
+        <div className="hidden lg:block w-64 flex-shrink-0 p-4 border-r border-gray-200 overflow-y-auto">
+          <SavedViewsPanel
+            currentFilters={{
+              keyword: filters.keyword,
+              stage: filters.stage,
+              region: filters.region,
+              cpvDivisions: filters.cpvDivisions,
+              minValue: filters.minValue,
+              maxValue: filters.maxValue,
+              sustainability: filters.sustainability,
+              buyerName: filters.buyerName,
+            }}
+            onApplyView={(viewFilters) => {
+              setFilters({
+                limit: filters.limit,
+                keyword: viewFilters.keyword,
+                stage: viewFilters.stage,
+                region: viewFilters.region,
+                cpvDivisions: viewFilters.cpvDivisions,
+                minValue: viewFilters.minValue,
+                maxValue: viewFilters.maxValue,
+                sustainability: viewFilters.sustainability,
+                buyerName: viewFilters.buyerName,
+                offset: 0,
+              });
+              setShowSavedOnly(false);
+            }}
+          />
+        </div>
+
+        {/* Tender Cards Grid */}
+        <div className="flex-1 overflow-y-auto p-4">
+          <TenderCardGrid
+            tenders={displayTenders}
+            isLoading={isLoading}
+            hasMore={data?.hasMore && !showSavedOnly}
+            onLoadMore={() => {
+              setFilters({
+                ...filters,
+                offset: (filters.offset || 0) + (filters.limit || 50),
+              });
+            }}
+            onSectorClick={(division) => {
+              // Add sector to filters when clicking a sector badge
+              const currentDivisions = filters.cpvDivisions || [];
+              if (!currentDivisions.includes(division)) {
+                setFilters({
+                  ...filters,
+                  cpvDivisions: [...currentDivisions, division],
+                  offset: 0,
+                });
+              }
+            }}
+            onAnalyze={(tender) => {
+              // Navigate to tender detail with analysis tab
+              router.push(`/tender/${tender.slug}?tab=analysis`);
+            }}
+            emptyMessage={
+              showSavedOnly
+                ? 'No saved tenders yet. Click the bookmark icon on any tender to save it.'
+                : 'No tenders match your current filters. Try adjusting your search criteria.'
+            }
+          />
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import {
   Cog6ToothIcon,
   ArrowLeftEndOnRectangleIcon,
 } from '@heroicons/react/24/outline';
+import { ProfileGate } from './ProfileGate';
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: TableCellsIcon },
@@ -93,7 +94,9 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Page content */}
-        <main className="flex-1 overflow-auto">{children}</main>
+        <main className="flex-1 overflow-auto">
+          <ProfileGate>{children}</ProfileGate>
+        </main>
       </div>
     </div>
   );
