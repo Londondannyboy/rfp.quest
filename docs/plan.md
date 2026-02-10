@@ -122,6 +122,18 @@ rfp.quest/
 │   │   │   ├── tender-analysis-renderer.tsx  # useCoAgentStateRender
 │   │   │   ├── analysis-progress.tsx         # Stage progress indicator
 │   │   │   └── agent-chat.tsx                # CopilotChat wrapper
+│   │   ├── dashboard/
+│   │   │   ├── TenderCard.tsx               # Rich tender card with match %, competitors
+│   │   │   ├── TenderCardGrid.tsx           # Responsive grid with infinite scroll
+│   │   │   ├── MatchScoreGauge.tsx          # Circular match percentage gauge
+│   │   │   ├── CompetitorPreview.tsx        # Competitor + incumbent badges
+│   │   │   ├── SectorIndicator.tsx          # Clickable CPV sector badges
+│   │   │   ├── QuickActionButtons.tsx       # View, Save, Analyze, Dismiss
+│   │   │   ├── ProfileGate.tsx              # Blocks until profile complete
+│   │   │   ├── SavedViewsPanel.tsx          # Sidebar for saved filter views
+│   │   │   ├── SaveViewModal.tsx            # Modal for saving views
+│   │   │   ├── SectorFilterTree.tsx         # Hierarchical CPV filter tree
+│   │   │   └── DashboardShell.tsx           # Dashboard layout wrapper
 │   │   ├── tenders/
 │   │   │   ├── tender-upload-form.tsx
 │   │   │   ├── tender-card.tsx
@@ -300,6 +312,57 @@ CREATE TABLE tender_analyses (
 );
 
 CREATE INDEX idx_analyses_tender_id ON tender_analyses(tender_id);
+
+-- Company Profiles (for match scoring)
+CREATE TABLE company_profiles (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id TEXT UNIQUE NOT NULL,
+    company_name TEXT NOT NULL,
+    description TEXT,
+    website TEXT,
+    products_services TEXT[],
+    expertise_areas TEXT[],
+    certifications TEXT[],
+    target_regions TEXT[],
+    target_cpv_divisions TEXT[],
+    min_contract_value DECIMAL(15,2),
+    max_contract_value DECIMAL(15,2),
+    sustainability_focus BOOLEAN DEFAULT FALSE,
+    sustainability_keywords TEXT[],
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Competitor Enrichments (cached research)
+CREATE TABLE competitor_enrichments (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    ocid TEXT UNIQUE NOT NULL,
+    buyer_name TEXT NOT NULL,
+    sector TEXT NOT NULL,
+    competitors JSONB DEFAULT '[]',
+    incumbent JSONB,
+    enriched_at TIMESTAMPTZ DEFAULT NOW(),
+    expires_at TIMESTAMPTZ DEFAULT NOW() + INTERVAL '24 hours'
+);
+
+CREATE INDEX idx_competitor_enrichments_ocid ON competitor_enrichments(ocid);
+CREATE INDEX idx_competitor_enrichments_expires ON competitor_enrichments(expires_at);
+
+-- Saved Views (filter presets)
+CREATE TABLE saved_views (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    user_id TEXT NOT NULL,
+    name TEXT NOT NULL,
+    filters JSONB NOT NULL,
+    is_default BOOLEAN DEFAULT FALSE,
+    is_pinned BOOLEAN DEFAULT FALSE,
+    icon TEXT,
+    color TEXT,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    UNIQUE(user_id, name)
+);
+
+CREATE INDEX idx_saved_views_user_id ON saved_views(user_id);
 ```
 
 ---
