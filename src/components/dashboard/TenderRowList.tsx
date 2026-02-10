@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { TenderRow, TenderRowSkeleton, TenderRowHeader } from './TenderRow';
 import { useSavedTenders } from '@/lib/hooks/use-saved-tenders';
@@ -36,15 +36,6 @@ export function TenderRowList({
 }: TenderRowListProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { isSaved, toggleSaved } = useSavedTenders();
-
-  // Calculate average value for comparison indicators
-  const avgValue = useMemo(() => {
-    const values = tenders
-      .map((t) => t.valueMax || t.valueMin)
-      .filter((v): v is number => v !== null);
-    if (values.length === 0) return undefined;
-    return values.reduce((a, b) => a + b, 0) / values.length;
-  }, [tenders]);
 
   // Infinite scroll handler
   const handleScroll = useCallback(() => {
@@ -111,7 +102,6 @@ export function TenderRowList({
               tender={tender}
               matchScore={matchScores[tender.ocid]}
               matchLoading={matchLoading}
-              avgValue={avgValue}
               isSaved={isSaved(tender.ocid)}
               onSave={() => toggleSaved({
                 ocid: tender.ocid,
@@ -157,7 +147,6 @@ function TenderRowWithCompetitors({
   tender,
   matchScore,
   matchLoading,
-  avgValue,
   isSaved,
   onSave,
   onDismiss,
@@ -169,7 +158,6 @@ function TenderRowWithCompetitors({
   tender: Tender;
   matchScore?: number | null;
   matchLoading?: boolean;
-  avgValue?: number;
   isSaved: boolean;
   onSave: () => void;
   onDismiss: () => void;
@@ -191,7 +179,6 @@ function TenderRowWithCompetitors({
 
   const competitors = competitorQuery.data?.competitors ?? [];
   const incumbent = competitorQuery.data?.incumbent ?? null;
-  const competitorLoading = competitorQuery.isLoading;
 
   // Trigger competitor load on hover
   const handleMouseEnter = useCallback(() => {
@@ -206,15 +193,14 @@ function TenderRowWithCompetitors({
         matchLoading={matchLoading}
         competitors={competitors}
         incumbent={incumbent}
-        competitorLoading={competitorLoading}
         isSaved={isSaved}
         onSave={onSave}
         onDismiss={onDismiss}
         onAnalyze={onAnalyze}
         onSectorClick={onSectorClick}
         isAnalyzing={isAnalyzing}
-        avgValue={avgValue}
         index={index}
+        defaultExpanded={index < 3} // First 3 rows expanded by default
       />
     </div>
   );
