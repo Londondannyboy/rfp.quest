@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import {
   DocumentArrowUpIcon,
   DocumentTextIcon,
@@ -28,8 +28,50 @@ interface Props {
 export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [isLoadingExisting, setIsLoadingExisting] = useState(true);
   const [documents, setDocuments] = useState<UploadedDocument[]>([]);
   const [error, setError] = useState<string | null>(null);
+
+  // Load existing documents on mount
+  useEffect(() => {
+    loadExistingDocuments();
+  }, [ocid]);
+
+  const loadExistingDocuments = async () => {
+    setIsLoadingExisting(true);
+    try {
+      const response = await fetch(`/api/tender-documents?ocid=${ocid}`);
+      if (response.ok) {
+        const data = await response.json();
+        const docs: UploadedDocument[] = data.documents.map((doc: {
+          id: string;
+          fileName: string;
+          fileType: string;
+          fileSizeBytes: number | null;
+          analysisStatus: string;
+          uploadedAt: string;
+        }) => ({
+          id: doc.id,
+          fileName: doc.fileName,
+          fileType: doc.fileType,
+          fileSizeBytes: doc.fileSizeBytes,
+          analysisStatus: doc.analysisStatus as UploadedDocument['analysisStatus'],
+          uploadedAt: doc.uploadedAt,
+        }));
+        setDocuments(docs);
+
+        // Notify parent of any completed documents
+        const completedDoc = docs.find(d => d.analysisStatus === 'completed');
+        if (completedDoc && onDocumentAnalyzed) {
+          onDocumentAnalyzed(completedDoc.id);
+        }
+      }
+    } catch (err) {
+      console.error('Error loading existing documents:', err);
+    } finally {
+      setIsLoadingExisting(false);
+    }
+  };
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -167,45 +209,53 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
         Tender Documents
       </h3>
 
-      {/* Drop Zone */}
-      <div
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        className={`
-          relative border-2 border-dashed rounded-lg p-8 text-center transition-colors
-          ${isDragging
-            ? 'border-teal-500 bg-teal-500/10'
-            : 'border-slate-700 hover:border-slate-600'
-          }
-          ${isUploading ? 'opacity-50 pointer-events-none' : ''}
-        `}
-      >
-        <input
-          type="file"
-          accept=".pdf,.docx"
-          onChange={handleFileSelect}
-          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-          disabled={isUploading}
-        />
+      {/* Loading existing documents */}
+      {isLoadingExisting ? (
+        <div className="flex items-center justify-center py-8">
+          <ArrowPathIcon className="w-6 h-6 text-teal-400 animate-spin mr-2" />
+          <span className="text-slate-400">Loading documents...</span>
+        </div>
+      ) : (
+        /* Drop Zone */
+        <div
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+          className={`
+            relative border-2 border-dashed rounded-lg p-8 text-center transition-colors
+            ${isDragging
+              ? 'border-teal-500 bg-teal-500/10'
+              : 'border-slate-700 hover:border-slate-600'
+            }
+            ${isUploading ? 'opacity-50 pointer-events-none' : ''}
+          `}
+        >
+          <input
+            type="file"
+            accept=".pdf,.docx"
+            onChange={handleFileSelect}
+            className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+            disabled={isUploading}
+          />
 
-        {isUploading ? (
-          <div className="flex flex-col items-center gap-2">
-            <ArrowPathIcon className="w-10 h-10 text-teal-400 animate-spin" />
-            <p className="text-slate-300">Uploading and extracting text...</p>
-          </div>
-        ) : (
-          <>
-            <DocumentArrowUpIcon className="w-10 h-10 text-slate-500 mx-auto mb-3" />
-            <p className="text-slate-300 mb-1">
-              Drop your ITT/RFP document here
-            </p>
-            <p className="text-sm text-slate-500">
-              or click to browse (PDF, DOCX)
-            </p>
-          </>
-        )}
-      </div>
+          {isUploading ? (
+            <div className="flex flex-col items-center gap-2">
+              <ArrowPathIcon className="w-10 h-10 text-teal-400 animate-spin" />
+              <p className="text-slate-300">Uploading and extracting text...</p>
+            </div>
+          ) : (
+            <>
+              <DocumentArrowUpIcon className="w-10 h-10 text-slate-500 mx-auto mb-3" />
+              <p className="text-slate-300 mb-1">
+                Drop your ITT/RFP document here
+              </p>
+              <p className="text-sm text-slate-500">
+                or click to browse (PDF, DOCX)
+              </p>
+            </>
+          )}
+        </div>
+      )}
 
       {/* Error Message */}
       {error && (
