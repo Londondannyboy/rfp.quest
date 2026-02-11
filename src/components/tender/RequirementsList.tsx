@@ -21,34 +21,94 @@ interface DocumentAnalysis {
   keyDates?: Array<{ date: string; description: string }>;
 }
 
-interface Props {
+// Props for tender-based requirements (new flow)
+interface TenderBasedProps {
+  tenderOcid: string;
+  requirements: Requirement[];
+  onRequirementsUpdate?: (requirements: Requirement[]) => void;
+  documentId?: never;
+  onStartResponse?: never;
+}
+
+// Props for document-based requirements (legacy flow)
+interface DocumentBasedProps {
   documentId: string;
   onStartResponse?: (requirementId: string) => void;
+  tenderOcid?: never;
+  requirements?: never;
+  onRequirementsUpdate?: never;
 }
+
+type Props = TenderBasedProps | DocumentBasedProps;
 
 type FilterType = 'all' | 'mandatory' | 'desirable' | 'informational';
 type SortType = 'number' | 'weighting' | 'status';
 
-export function RequirementsList({ documentId, onStartResponse }: Props) {
-  const [requirements, setRequirements] = useState<Requirement[]>([]);
+export function RequirementsList(props: Props) {
+  const isTenderBased = 'tenderOcid' in props && props.tenderOcid;
+
+  const [localRequirements, setLocalRequirements] = useState<Requirement[]>(
+    isTenderBased ? props.requirements : []
+  );
   const [analysis, setAnalysis] = useState<DocumentAnalysis | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!isTenderBased);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<FilterType>('all');
   const [sortBy, setSortBy] = useState<SortType>('number');
   const [selectedRequirement, setSelectedRequirement] = useState<Requirement | null>(null);
   const [savedResponses, setSavedResponses] = useState<Record<string, string>>({});
 
+  // For tender-based flow, sync with parent requirements
   useEffect(() => {
-    fetchRequirements();
-  }, [documentId]);
+    if (isTenderBased && props.requirements) {
+      setLocalRequirements(props.requirements);
+      loadResponsesForRequirements(props.requirements);
+    }
+  }, [isTenderBased ? props.requirements : null]);
+
+  // For document-based flow, fetch requirements
+  useEffect(() => {
+    if (!isTenderBased && props.documentId) {
+      fetchRequirements();
+    }
+  }, [!isTenderBased ? props.documentId : null]);
+
+  const loadResponsesForRequirements = async (reqs: Requirement[]) => {
+    const responsesMap: Record<string, string> = {};
+    const requirementsWithStatus = await Promise.all(
+      reqs.map(async (r) => {
+        try {
+          const responseRes = await fetch(`/api/bid-responses?requirementId=${r.id}`);
+          if (responseRes.ok) {
+            const responseData = await responseRes.json();
+            if (responseData.responseText) {
+              responsesMap[r.id] = responseData.responseText;
+              return {
+                ...r,
+                responseStatus: responseData.status as Requirement['responseStatus'],
+                currentWordCount: responseData.wordCount,
+              };
+            }
+          }
+        } catch {
+          // Ignore errors fetching individual responses
+        }
+        return { ...r, responseStatus: r.responseStatus || ('not_started' as const) };
+      })
+    );
+
+    setSavedResponses(responsesMap);
+    setLocalRequirements(requirementsWithStatus);
+  };
 
   const fetchRequirements = async () => {
+    if (isTenderBased) return;
+
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await fetch(`/api/analyze-document?documentId=${documentId}`);
+      const response = await fetch(`/api/analyze-document?documentId=${props.documentId}`);
       if (!response.ok) {
         throw new Error('Failed to fetch requirements');
       }
@@ -61,39 +121,15 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
       }
 
       setAnalysis(data.analysis);
-
-      // Load saved responses for each requirement
-      const responsesMap: Record<string, string> = {};
-      const requirementsWithStatus = await Promise.all(
-        data.requirements.map(async (r: Requirement) => {
-          try {
-            const responseRes = await fetch(`/api/bid-responses?requirementId=${r.id}`);
-            if (responseRes.ok) {
-              const responseData = await responseRes.json();
-              if (responseData.responseText) {
-                responsesMap[r.id] = responseData.responseText;
-                return {
-                  ...r,
-                  responseStatus: responseData.status as Requirement['responseStatus'],
-                  currentWordCount: responseData.wordCount,
-                };
-              }
-            }
-          } catch {
-            // Ignore errors fetching individual responses
-          }
-          return { ...r, responseStatus: 'not_started' as const };
-        })
-      );
-
-      setSavedResponses(responsesMap);
-      setRequirements(requirementsWithStatus);
+      await loadResponsesForRequirements(data.requirements);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load requirements');
     } finally {
       setIsLoading(false);
     }
   };
+
+  const requirements = localRequirements;
 
   const filteredRequirements = requirements
     .filter((r) => filter === 'all' || r.type === filter)
@@ -108,7 +144,7 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
             statusOrder.indexOf(b.responseStatus || 'not_started')
           );
         default:
-          return a.number.localeCompare(b.number, undefined, { numeric: true });
+          return (a.number || '').localeCompare(b.number || '', undefined, { numeric: true });
       }
     });
 
@@ -128,7 +164,9 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
     const requirement = requirements.find((r) => r.id === requirementId);
     if (requirement) {
       setSelectedRequirement(requirement);
-      onStartResponse?.(requirementId);
+      if (!isTenderBased && props.onStartResponse) {
+        props.onStartResponse(requirementId);
+      }
     }
   };
 
@@ -157,13 +195,17 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
     }));
 
     // Update requirement status
-    setRequirements((prev) =>
-      prev.map((r) =>
-        r.id === selectedRequirement.id
-          ? { ...r, responseStatus: 'draft' as const, currentWordCount: response.split(/\s+/).filter(Boolean).length }
-          : r
-      )
+    const updatedRequirements = localRequirements.map((r) =>
+      r.id === selectedRequirement.id
+        ? { ...r, responseStatus: 'draft' as const, currentWordCount: response.split(/\s+/).filter(Boolean).length }
+        : r
     );
+    setLocalRequirements(updatedRequirements);
+
+    // Notify parent if tender-based
+    if (isTenderBased && props.onRequirementsUpdate) {
+      props.onRequirementsUpdate(updatedRequirements);
+    }
   };
 
   const handleCloseEditor = () => {
@@ -197,10 +239,13 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
     );
   }
 
+  // Get export identifier (documentId or tenderOcid)
+  const exportId = isTenderBased ? props.tenderOcid : props.documentId;
+
   return (
     <div className="space-y-6">
-      {/* Analysis Summary */}
-      {analysis && (
+      {/* Analysis Summary - only for document-based */}
+      {!isTenderBased && analysis && (
         <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
           <h3 className="text-lg font-semibold text-white mb-4">Document Summary</h3>
 
@@ -280,7 +325,11 @@ export function RequirementsList({ documentId, onStartResponse }: Props) {
               </div>
               <span className="text-white font-medium">{completionPercentage}%</span>
             </div>
-            <ExportBidButton documentId={documentId} disabled={stats.completed === 0} />
+            <ExportBidButton
+              documentId={!isTenderBased ? exportId : undefined}
+              tenderOcid={isTenderBased ? exportId : undefined}
+              disabled={stats.completed === 0}
+            />
           </div>
         </div>
 

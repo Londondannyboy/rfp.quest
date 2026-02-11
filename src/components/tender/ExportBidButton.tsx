@@ -9,7 +9,8 @@ import {
 } from '@heroicons/react/24/outline';
 
 interface Props {
-  documentId: string;
+  documentId?: string;
+  tenderOcid?: string;
   disabled?: boolean;
 }
 
@@ -19,7 +20,7 @@ interface ExportOptions {
   companyName: string;
 }
 
-export function ExportBidButton({ documentId, disabled }: Props) {
+export function ExportBidButton({ documentId, tenderOcid, disabled }: Props) {
   const [isExporting, setIsExporting] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [exportSuccess, setExportSuccess] = useState(false);
@@ -41,6 +42,7 @@ export function ExportBidButton({ documentId, disabled }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           documentId,
+          tenderOcid,
           ...options,
         }),
       });
