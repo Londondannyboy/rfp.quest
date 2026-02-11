@@ -204,6 +204,12 @@ export function Navbar() {
                     >
                       My Bids
                     </Link>
+                    <Link
+                      href="/past-bids"
+                      className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/30 hover:text-teal-600 dark:hover:text-teal-400"
+                    >
+                      Past Bids
+                    </Link>
                     <div className="border-t border-gray-100 dark:border-gray-700 my-1" />
                     <button
                       onClick={handleSignOut}
@@ -352,6 +358,13 @@ export function Navbar() {
                       onClick={() => setMobileOpen(false)}
                     >
                       My Bids
+                    </Link>
+                    <Link
+                      href="/past-bids"
+                      className="block w-full text-center px-5 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium rounded-lg"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      Past Bids
                     </Link>
                     <button
                       onClick={() => {
