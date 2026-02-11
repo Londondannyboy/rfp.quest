@@ -17,10 +17,31 @@ import {
 } from 'docx';
 
 interface ExportRequestBody {
-  documentId: string;
+  documentId?: string;
+  tenderOcid?: string;
   includeTableOfContents?: boolean;
   includeWordCounts?: boolean;
   companyName?: string;
+}
+
+interface TenderInfo {
+  title: string;
+  buyerName: string;
+  deadline: string | null;
+}
+
+interface RequirementRow {
+  id: string;
+  requirement_number: string | null;
+  title: string | null;
+  description: string | null;
+  requirement_type: string | null;
+  word_limit: number | null;
+  weighting: number | null;
+  section_reference: string | null;
+  response_text: string | null;
+  word_count: number | null;
+  status: string | null;
 }
 
 // POST /api/export-bid - Generate Word document with bid responses
@@ -32,10 +53,10 @@ export async function POST(request: Request) {
     }
 
     const body: ExportRequestBody = await request.json();
-    const { documentId, includeTableOfContents = true, includeWordCounts = true } = body;
+    const { documentId, tenderOcid, includeTableOfContents = true, includeWordCounts = true } = body;
 
-    if (!documentId) {
-      return NextResponse.json({ error: 'documentId is required' }, { status: 400 });
+    if (!documentId && !tenderOcid) {
+      return NextResponse.json({ error: 'documentId or tenderOcid is required' }, { status: 400 });
     }
 
     // Get company profile
@@ -50,49 +71,106 @@ export async function POST(request: Request) {
     const companyProfileId = profileResult[0].id;
     const companyName = body.companyName || profileResult[0].company_name || 'Bidder';
 
-    // Get document analysis
-    const docResult = await sql`
-      SELECT
-        td.id,
-        td.file_name,
-        td.analysis_result
-      FROM tender_documents td
-      WHERE td.id = ${documentId}
-      AND td.company_profile_id = ${companyProfileId}
-    `;
+    let tenderInfo: TenderInfo | null = null;
+    let requirementsResult: RequirementRow[] = [];
 
-    if (docResult.length === 0) {
-      return NextResponse.json({ error: 'Document not found' }, { status: 404 });
+    if (tenderOcid) {
+      // Tender-based export (new flow)
+      const tenderResult = await sql`
+        SELECT title, buyer_name, tender_end_date
+        FROM tenders
+        WHERE ocid = ${tenderOcid}
+      `;
+
+      if (tenderResult.length === 0) {
+        return NextResponse.json({ error: 'Tender not found' }, { status: 404 });
+      }
+
+      tenderInfo = {
+        title: tenderResult[0].title as string,
+        buyerName: tenderResult[0].buyer_name as string,
+        deadline: tenderResult[0].tender_end_date as string | null,
+      };
+
+      // Get requirements and responses for this tender
+      const reqResult = await sql`
+        SELECT
+          br.id,
+          br.requirement_number,
+          br.title,
+          br.description,
+          br.requirement_type,
+          br.word_limit,
+          br.weighting,
+          br.section_reference,
+          resp.response_text,
+          resp.word_count,
+          resp.status
+        FROM bid_requirements br
+        LEFT JOIN bid_responses resp ON resp.requirement_id = br.id
+          AND resp.company_profile_id = ${companyProfileId}
+        WHERE br.tender_ocid = ${tenderOcid}
+        ORDER BY br.sort_order
+      `;
+
+      requirementsResult = reqResult as RequirementRow[];
+    } else if (documentId) {
+      // Document-based export (legacy flow)
+      const docResult = await sql`
+        SELECT
+          td.id,
+          td.file_name,
+          td.analysis_result
+        FROM tender_documents td
+        WHERE td.id = ${documentId}
+        AND td.company_profile_id = ${companyProfileId}
+      `;
+
+      if (docResult.length === 0) {
+        return NextResponse.json({ error: 'Document not found' }, { status: 404 });
+      }
+
+      const doc = docResult[0];
+      const analysis = doc.analysis_result as {
+        contractTitle?: string;
+        buyerName?: string;
+        submissionDeadline?: string;
+        summary?: string;
+      } | null;
+
+      tenderInfo = {
+        title: analysis?.contractTitle || 'Tender Response',
+        buyerName: analysis?.buyerName || '',
+        deadline: analysis?.submissionDeadline || null,
+      };
+
+      // Get requirements and responses
+      const reqResult = await sql`
+        SELECT
+          br.id,
+          br.requirement_number,
+          br.title,
+          br.description,
+          br.requirement_type,
+          br.word_limit,
+          br.weighting,
+          br.section_reference,
+          resp.response_text,
+          resp.word_count,
+          resp.status
+        FROM bid_requirements br
+        LEFT JOIN bid_responses resp ON resp.requirement_id = br.id
+          AND resp.company_profile_id = ${companyProfileId}
+        WHERE br.document_id = ${documentId}
+        ORDER BY br.sort_order
+      `;
+
+      requirementsResult = reqResult as RequirementRow[];
     }
 
-    const doc = docResult[0];
-    const analysis = doc.analysis_result as {
-      contractTitle?: string;
-      buyerName?: string;
-      submissionDeadline?: string;
-      summary?: string;
-    } | null;
-
-    // Get requirements and responses
-    const requirementsResult = await sql`
-      SELECT
-        br.id,
-        br.requirement_number,
-        br.title,
-        br.description,
-        br.requirement_type,
-        br.word_limit,
-        br.weighting,
-        br.section_reference,
-        resp.response_text,
-        resp.word_count,
-        resp.status
-      FROM bid_requirements br
-      LEFT JOIN bid_responses resp ON resp.requirement_id = br.id
-        AND resp.company_profile_id = ${companyProfileId}
-      WHERE br.document_id = ${documentId}
-      ORDER BY br.sort_order
-    `;
+    if (!tenderInfo) {
+      return NextResponse.json({ error: 'Could not determine tender info' }, { status: 400 });
+    }
 
     // Build the Word document
     const children: (Paragraph | Table | TableOfContents)[] = [];
@@ -113,7 +191,7 @@ export async function POST(request: Request) {
         alignment: AlignmentType.CENTER,
         children: [
           new TextRun({
-            text: analysis?.contractTitle || 'Tender Response',
+            text: tenderInfo.title,
             bold: true,
             size: 56,
           }),
@@ -133,14 +211,14 @@ export async function POST(request: Request) {
         ],
       })
     );
-    if (analysis?.buyerName) {
+    if (tenderInfo.buyerName) {
       children.push(
         new Paragraph({
           alignment: AlignmentType.CENTER,
           spacing: { before: 200 },
           children: [
             new TextRun({
-              text: `For: ${analysis.buyerName}`,
+              text: `For: ${tenderInfo.buyerName}`,
               size: 28,
               color: '888888',
             }),
@@ -148,14 +226,14 @@ export async function POST(request: Request) {
         })
       );
     }
-    if (analysis?.submissionDeadline) {
+    if (tenderInfo.deadline) {
       children.push(
         new Paragraph({
           alignment: AlignmentType.CENTER,
           spacing: { before: 200 },
           children: [
             new TextRun({
-              text: `Submission Date: ${new Date(analysis.submissionDeadline).toLocaleDateString('en-GB', {
+              text: `Submission Date: ${new Date(tenderInfo.deadline).toLocaleDateString('en-GB', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric',
@@ -187,27 +265,6 @@ export async function POST(request: Request) {
         new TableOfContents('Table of Contents', {
           hyperlink: true,
           headingStyleRange: '1-3',
-        })
-      );
-      children.push(
-        new Paragraph({
-          children: [new PageBreak()],
-        })
-      );
-    }
-
-    // Executive Summary (if available)
-    if (analysis?.summary) {
-      children.push(
-        new Paragraph({
-          heading: HeadingLevel.HEADING_1,
-          children: [new TextRun({ text: 'Executive Summary', bold: true })],
-        })
-      );
-      children.push(
-        new Paragraph({
-          spacing: { after: 200 },
-          children: [new TextRun({ text: analysis.summary })],
         })
       );
       children.push(
@@ -322,7 +379,7 @@ export async function POST(request: Request) {
 
       if (req.response_text) {
         // Split response into paragraphs
-        const responseParagraphs = (req.response_text as string).split('\n\n');
+        const responseParagraphs = req.response_text.split('\n\n');
         for (const para of responseParagraphs) {
           if (para.trim()) {
             children.push(
@@ -470,7 +527,7 @@ export async function POST(request: Request) {
     const buffer = await Packer.toBuffer(wordDoc);
 
     // Generate filename
-    const sanitizedTitle = (analysis?.contractTitle || 'Bid_Response')
+    const sanitizedTitle = tenderInfo.title
       .replace(/[^a-zA-Z0-9]/g, '_')
       .substring(0, 50);
     const filename = `${sanitizedTitle}_${new Date().toISOString().split('T')[0]}.docx`;
