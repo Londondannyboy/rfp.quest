@@ -387,16 +387,23 @@ export function TenderRow({
               </div>
 
               {/* Deadline Display */}
-              <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
-                isExpired ? 'bg-gray-50 border-gray-200 text-gray-500' :
-                isUrgent ? 'bg-red-50 border-red-200 text-red-700' :
-                'bg-blue-50 border-blue-100 text-blue-700'
-              }`}>
-                <ClockIcon className="w-4 h-4" />
-                <span className="text-sm font-medium">
-                  {isExpired ? 'Expired' : daysUntilDeadline === 0 ? 'Today!' : `${daysUntilDeadline}d left`}
-                </span>
-              </div>
+              {daysUntilDeadline !== null ? (
+                <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
+                  isExpired ? 'bg-gray-50 border-gray-200 text-gray-500' :
+                  isUrgent ? 'bg-red-50 border-red-200 text-red-700' :
+                  'bg-blue-50 border-blue-100 text-blue-700'
+                }`}>
+                  <ClockIcon className="w-4 h-4" />
+                  <span className="text-sm font-medium">
+                    {isExpired ? 'Expired' : daysUntilDeadline === 0 ? 'Today!' : `${daysUntilDeadline}d left`}
+                  </span>
+                </div>
+              ) : (
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-gray-50 border-gray-200 text-gray-500">
+                  <ClockIcon className="w-4 h-4" />
+                  <span className="text-sm font-medium">No deadline</span>
+                </div>
+              )}
 
               {/* Competition Level */}
               <div className="hidden sm:block">
