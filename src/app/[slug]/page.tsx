@@ -6,7 +6,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FeatureGrid, StatsBar, TrustBadges, CTABanner } from '@/components/seo';
 
-export const dynamic = 'force-dynamic';
+// Enable ISR with 1-hour revalidation for SEO performance
+// (removed force-dynamic which was disabling caching)
 export const revalidate = 3600;
 
 interface PageProps {

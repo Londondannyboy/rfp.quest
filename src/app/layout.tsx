@@ -71,12 +71,29 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <head>
+        {/* Favicon */}
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#4285F4" />
+        {/* Preconnect */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <link rel="preconnect" href="https://calendly.com" />
         <meta name="format-detection" content="telephone=no" />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/*
+          NOTE: QueryProvider wraps all children because:
+          - Navbar needs auth context (useSession)
+          - App pages (/profile, /dashboard, etc.) use React Query
+          - SEO pages use ISR (revalidate=3600) for caching benefits
+
+          For full SSR optimization, consider using route groups:
+          - (marketing) group for SEO pages without QueryProvider
+          - (app) group for authenticated pages with QueryProvider
+        */}
         <QueryProvider>
           <Navbar />
           <main className="flex-1">{children}</main>
