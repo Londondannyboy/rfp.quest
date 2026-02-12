@@ -35,7 +35,7 @@ function DashboardContent() {
   const [showSavedOnly, setShowSavedOnly] = useState(false);
   const [viewMode, setViewMode] = useState<ViewMode>('list');
 
-  const { savedCount, isSaved } = useSavedTenders();
+  const { savedTenders, savedCount } = useSavedTenders();
 
   // Apply profile-based filters on load (personalization default ON)
   useEffect(() => {
@@ -52,14 +52,27 @@ function DashboardContent() {
     }
   }, [profile, filtersInitialized]);
 
+  // Main query for filtered tenders
   const {
     data,
     isLoading,
-    refetch,
   } = useTenders(filters);
 
-  const tenders = data?.tenders ?? [];
-  const totalCount = data?.totalCount ?? 0;
+  // Separate query for saved tenders (fetches by OCIDs directly from DB)
+  const savedOcids = useMemo(() => savedTenders.map(t => t.ocid), [savedTenders]);
+  const {
+    data: savedData,
+    isLoading: savedLoading,
+  } = useTenders(
+    { ocids: savedOcids },
+    { enabled: showSavedOnly && savedOcids.length > 0 }
+  );
+
+  // Use saved data when showing saved only, otherwise use filtered data
+  const activeTenders = showSavedOnly ? (savedData?.tenders ?? []) : (data?.tenders ?? []);
+  const activeLoading = showSavedOnly ? savedLoading : isLoading;
+  const tenders = activeTenders;
+  const totalCount = showSavedOnly ? (savedData?.totalCount ?? 0) : (data?.totalCount ?? 0);
 
   // Calculate match scores for all tenders based on profile
   const matchScores = useMemo(() => {
@@ -92,11 +105,9 @@ function DashboardContent() {
     return scores;
   }, [tenders, profile]);
 
-  // Filter and sort tenders
+  // Sort tenders (filtering is now handled by API when showSavedOnly)
   const displayTenders = useMemo(() => {
-    let filtered = showSavedOnly
-      ? tenders.filter((t) => isSaved(t.ocid))
-      : tenders;
+    let filtered = [...tenders];
 
     // Sort based on sortBy
     if (sortBy === 'match-desc') {
@@ -112,7 +123,7 @@ function DashboardContent() {
     }
 
     return filtered;
-  }, [tenders, showSavedOnly, isSaved, sortBy, matchScores]);
+  }, [tenders, sortBy, matchScores]);
 
   // Calculate average match score for stats
   const avgMatchScore = useMemo(() => {
@@ -399,7 +410,7 @@ function DashboardContent() {
             <TenderRowList
               tenders={displayTenders}
               matchScores={matchScores}
-              loading={isLoading}
+              loading={activeLoading}
               hasMore={data?.hasMore && !showSavedOnly}
               onLoadMore={() => {
                 setFilters({
@@ -425,7 +436,7 @@ function DashboardContent() {
             <TenderCardGrid
               tenders={displayTenders}
               matchScores={matchScores}
-              isLoading={isLoading}
+              isLoading={activeLoading}
               hasMore={data?.hasMore && !showSavedOnly}
               onLoadMore={() => {
                 setFilters({

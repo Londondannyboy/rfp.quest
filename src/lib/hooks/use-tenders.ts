@@ -38,6 +38,7 @@ export interface TenderSearchParams {
   sustainability?: boolean;
   sortBy?: string;
   sortOrder?: 'asc' | 'desc';
+  ocids?: string[]; // For fetching specific tenders by OCID (saved tenders)
 }
 
 export interface TenderSearchResponse {
@@ -63,6 +64,7 @@ async function fetchTenders(params: TenderSearchParams): Promise<TenderSearchRes
   if (params.sustainability) searchParams.set('sustainability', 'true');
   if (params.sortBy) searchParams.set('sortBy', params.sortBy);
   if (params.sortOrder) searchParams.set('sortOrder', params.sortOrder);
+  if (params.ocids?.length) searchParams.set('ocids', params.ocids.join(','));
 
   const response = await fetch(`/api/tenders/search?${searchParams.toString()}`);
 
@@ -85,10 +87,11 @@ async function fetchTenderByOcid(ocid: string): Promise<Tender> {
   return response.json();
 }
 
-export function useTenders(params: TenderSearchParams = {}) {
+export function useTenders(params: TenderSearchParams = {}, options?: { enabled?: boolean }) {
   return useQuery({
     queryKey: ['tenders', params],
     queryFn: () => fetchTenders(params),
+    enabled: options?.enabled !== false,
   });
 }
 

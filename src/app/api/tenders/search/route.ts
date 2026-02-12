@@ -38,6 +38,59 @@ export async function GET(request: NextRequest) {
     const maxValue = searchParams.get('maxValue') ? parseInt(searchParams.get('maxValue')!) : null;
     const sustainability = searchParams.get('sustainability') === 'true';
     const cpvDivisions = searchParams.get('cpvDivisions')?.split(',').filter(Boolean) || [];
+    const ocids = searchParams.get('ocids')?.split(',').filter(Boolean) || [];
+
+    // If ocids are provided, fetch those specific tenders directly (for saved tenders)
+    if (ocids.length > 0) {
+      const tenders = await sql`
+        SELECT id, ocid, slug, title, description, status, stage, buyer_name, buyer_id,
+               value_amount, value_currency, value_min, value_max,
+               published_date, tender_start_date, tender_end_date, cpv_codes, region, synced_at
+        FROM tenders
+        WHERE ocid = ANY(${ocids})
+        ORDER BY published_date DESC NULLS LAST
+      `;
+
+      const transformedTenders = tenders.map((t) => {
+        const cpvCodes = (t.cpv_codes as string[]) || [];
+        const isSustainability = checkIsSustainability(
+          cpvCodes,
+          t.title as string,
+          t.description as string | null
+        );
+
+        return {
+          id: t.id as string,
+          ocid: t.ocid as string,
+          slug: t.slug as string,
+          title: t.title as string,
+          description: t.description as string | null,
+          status: t.status as string | null,
+          stage: t.stage as string,
+          buyerName: t.buyer_name as string,
+          buyerId: t.buyer_id as string | null,
+          valueAmount: t.value_amount ? parseFloat(t.value_amount as string) : null,
+          valueCurrency: t.value_currency as string,
+          valueMin: t.value_min ? parseFloat(t.value_min as string) : null,
+          valueMax: t.value_max ? parseFloat(t.value_max as string) : null,
+          publishedDate: t.published_date as string,
+          tenderStartDate: t.tender_start_date as string | null,
+          tenderEndDate: t.tender_end_date as string | null,
+          cpvCodes,
+          region: t.region as string | null,
+          syncedAt: t.synced_at as string,
+          isSustainability,
+        };
+      });
+
+      return NextResponse.json({
+        tenders: transformedTenders,
+        totalCount: transformedTenders.length,
+        limit: transformedTenders.length,
+        offset: 0,
+        hasMore: false,
+      });
+    }
 
     // Prepare patterns
     const keywordPattern = keyword ? `%${keyword}%` : '';

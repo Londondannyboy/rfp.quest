@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const STORAGE_KEY = 'rfp-quest-saved-tenders';
 
@@ -17,6 +17,8 @@ export interface SavedTender {
 export function useSavedTenders() {
   const [savedTenders, setSavedTenders] = useState<SavedTender[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isValidating, setIsValidating] = useState(false);
+  const hasValidated = useRef(false);
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -30,6 +32,44 @@ export function useSavedTenders() {
     }
     setIsLoaded(true);
   }, []);
+
+  // Validate saved tenders exist in DB and remove stale entries
+  useEffect(() => {
+    if (!isLoaded || savedTenders.length === 0 || hasValidated.current) return;
+
+    const validateSavedTenders = async () => {
+      setIsValidating(true);
+      hasValidated.current = true;
+
+      try {
+        // Fetch all saved tenders by their OCIDs
+        const ocids = savedTenders.map(t => t.ocid);
+        const response = await fetch(`/api/tenders/search?ocids=${ocids.join(',')}`);
+
+        if (!response.ok) {
+          console.error('Failed to validate saved tenders');
+          return;
+        }
+
+        const data = await response.json();
+        const validOcids = new Set(data.tenders.map((t: { ocid: string }) => t.ocid));
+
+        // Filter out any saved tenders that no longer exist in DB
+        const staleTenders = savedTenders.filter(t => !validOcids.has(t.ocid));
+
+        if (staleTenders.length > 0) {
+          console.log(`Removing ${staleTenders.length} stale saved tender(s)`);
+          setSavedTenders(prev => prev.filter(t => validOcids.has(t.ocid)));
+        }
+      } catch (e) {
+        console.error('Error validating saved tenders:', e);
+      } finally {
+        setIsValidating(false);
+      }
+    };
+
+    validateSavedTenders();
+  }, [isLoaded, savedTenders]);
 
   // Save to localStorage when changed
   useEffect(() => {
@@ -80,5 +120,6 @@ export function useSavedTenders() {
     isSaved,
     toggleSaved,
     isLoaded,
+    isValidating,
   };
 }
