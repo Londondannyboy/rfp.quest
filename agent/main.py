@@ -75,6 +75,8 @@ async def root():
             # Signal Detection
             "/signals/{company_number}",
             "/threshold-watch/{company_number}?turnover=X&employees=Y&balance_sheet=Z",
+            # Decision Maker Profiling (LinkedIn via Apify)
+            "/decision-makers/{company_number}/profile",
         ],
     }
 
@@ -466,6 +468,68 @@ async def threshold_watch(
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Threshold analysis failed: {str(e)}")
+
+
+@app.post("/decision-makers/{company_number}/profile")
+async def profile_decision_makers_endpoint(company_number: str, max_directors: int = 5):
+    """
+    Profile decision makers using LinkedIn data via Apify.
+
+    Searches for LinkedIn profiles of top directors and analyzes their
+    recent posts to extract topics, priorities, and bid writing insights.
+
+    Args:
+        company_number: UK company registration number
+        max_directors: Maximum number of directors to profile (default 5)
+    """
+    try:
+        from tools.companies_house import get_buyer_intelligence
+        from tools.apify_linkedin import profile_decision_maker
+
+        # Get buyer intelligence with decision makers
+        intel = get_buyer_intelligence.invoke(company_number)
+        if "error" in intel:
+            raise HTTPException(status_code=404, detail=intel["error"])
+
+        # Filter to directors only
+        directors = [
+            dm for dm in intel.get("decision_makers", [])
+            if "director" in dm.get("role", "").lower()
+        ][:max_directors]
+
+        if not directors:
+            return {
+                "company_number": company_number,
+                "company_name": intel.get("company_name"),
+                "decision_maker_profiles": [],
+                "message": "No directors found for this company"
+            }
+
+        company_name = intel.get("company_name", "")
+
+        # Profile each director
+        profiles = []
+        for director in directors:
+            profile = await profile_decision_maker(
+                name=director.get("name", ""),
+                role=director.get("role", ""),
+                company_name=company_name
+            )
+            profiles.append(profile)
+
+        return {
+            "company_number": company_number,
+            "company_name": company_name,
+            "decision_maker_profiles": profiles,
+            "directors_found": len(directors),
+            "profiles_with_linkedin": sum(1 for p in profiles if p.get("linkedin_url")),
+            "profiles_with_posts": sum(1 for p in profiles if p.get("post_count", 0) > 0)
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Decision maker profiling failed: {str(e)}")
 
 
 def setup_copilotkit():
