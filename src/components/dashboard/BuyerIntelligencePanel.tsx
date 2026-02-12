@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import type { BuyerIntelligence } from '@/lib/hooks/use-buyer-intelligence';
 import { getSentimentColor, formatRole } from '@/lib/hooks/use-buyer-intelligence';
+import { DecisionMakerInsights } from './DecisionMakerInsights';
 
 interface BuyerIntelligencePanelProps {
   intel: BuyerIntelligence;
@@ -336,6 +337,9 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
           )}
         </div>
       )}
+
+      {/* Decision Maker LinkedIn Insights */}
+      <DecisionMakerInsights companyNumber={intel.companyNumber} />
 
       {/* Companies House Link */}
       <div className="border-t border-slate-200 pt-3">
