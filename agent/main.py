@@ -497,15 +497,16 @@ async def profile_decision_makers_endpoint(company_number: str, max_directors: i
             if "director" in dm.get("role", "").lower()
         ][:max_directors]
 
+        # Get company name from profile (nested structure)
+        company_name = intel.get("profile", {}).get("company_name") or intel.get("company_name", "")
+
         if not directors:
             return {
                 "company_number": company_number,
-                "company_name": intel.get("company_name"),
+                "company_name": company_name,
                 "decision_maker_profiles": [],
                 "message": "No directors found for this company"
             }
-
-        company_name = intel.get("company_name", "")
 
         # Profile each director
         profiles = []
