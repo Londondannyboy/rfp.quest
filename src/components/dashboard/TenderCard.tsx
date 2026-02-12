@@ -25,6 +25,8 @@ import {
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { CompetitorPreview, type Competitor, type Incumbent } from './CompetitorPreview';
+import { BuyerIntelligencePanel, BuyerIntelligenceSkeleton } from './BuyerIntelligencePanel';
+import { useBuyerIntelligence } from '@/lib/hooks/use-buyer-intelligence';
 import { SectorIndicator } from './SectorIndicator';
 import { QuickActionButtons } from './QuickActionButtons';
 import { useTenderImage } from '@/lib/hooks/use-tender-image';
@@ -385,6 +387,13 @@ export function TenderCard({
     tender.description
   );
 
+  // Fetch buyer intelligence (lazy load when details expanded)
+  const [showBuyerIntel, setShowBuyerIntel] = useState(false);
+  const { data: buyerIntel, isLoading: buyerIntelLoading } = useBuyerIntelligence(
+    tender.buyerName,
+    { enabled: showBuyerIntel }
+  );
+
   const insights = generateInsights(tender, matchScore ?? null, competitors, daysUntilDeadline);
 
   // Competition level
@@ -627,6 +636,54 @@ export function TenderCard({
           incumbent={incumbent}
           loading={competitorLoading}
         />
+      </div>
+
+      {/* Buyer Intelligence Section */}
+      <div className="px-5 py-4 border-t border-gray-100 bg-gradient-to-r from-blue-50/50 to-white">
+        <button
+          onClick={() => setShowBuyerIntel(!showBuyerIntel)}
+          className="w-full flex items-center justify-between mb-3 group"
+        >
+          <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5">
+            <BuildingOfficeIcon className="w-4 h-4 text-blue-500" />
+            Buyer Intelligence
+            {buyerIntel && (
+              <span className="text-[10px] text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full ml-2">
+                {buyerIntel.profile.companyType.toUpperCase()}
+              </span>
+            )}
+          </span>
+          <span className="text-xs text-blue-600 group-hover:underline">
+            {showBuyerIntel ? 'Hide' : 'View'} Details
+          </span>
+        </button>
+
+        {/* Compact badges when collapsed */}
+        {!showBuyerIntel && buyerIntel && (
+          <BuyerIntelligencePanel intel={buyerIntel} compact />
+        )}
+
+        {/* Full panel when expanded */}
+        <AnimatePresence>
+          {showBuyerIntel && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {buyerIntelLoading ? (
+                <BuyerIntelligenceSkeleton />
+              ) : buyerIntel ? (
+                <BuyerIntelligencePanel intel={buyerIntel} />
+              ) : (
+                <p className="text-sm text-gray-500 text-center py-4">
+                  No buyer intelligence available for this organization
+                </p>
+              )}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       {/* Deadline Bar */}
