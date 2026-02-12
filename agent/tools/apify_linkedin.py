@@ -49,17 +49,19 @@ async def search_linkedin_profile(
             if not results or len(results) == 0:
                 return None
 
-            # Filter by company match in headline
+            # Filter by company match in headline/position
             company_lower = company.lower()
             for profile in results:
-                headline = profile.get("headline", "").lower()
+                # Apify returns "position" not "headline"
+                headline = (profile.get("position") or profile.get("headline") or "").lower()
                 if company_lower in headline or any(
                     word in headline for word in company_lower.split()[:2]
                 ):
                     return {
-                        "url": profile.get("url") or profile.get("profileUrl"),
-                        "name": profile.get("fullName") or f"{first_name} {last_name}",
-                        "headline": profile.get("headline"),
+                        # Apify returns "linkedinUrl" not "url"
+                        "url": profile.get("linkedinUrl") or profile.get("url") or profile.get("profileUrl"),
+                        "name": profile.get("name") or profile.get("fullName") or f"{first_name} {last_name}",
+                        "headline": profile.get("position") or profile.get("headline"),
                         "location": profile.get("location"),
                         "followers": profile.get("followersCount"),
                         "connections": profile.get("connectionsCount"),
@@ -69,9 +71,9 @@ async def search_linkedin_profile(
             if results:
                 profile = results[0]
                 return {
-                    "url": profile.get("url") or profile.get("profileUrl"),
-                    "name": profile.get("fullName") or f"{first_name} {last_name}",
-                    "headline": profile.get("headline"),
+                    "url": profile.get("linkedinUrl") or profile.get("url") or profile.get("profileUrl"),
+                    "name": profile.get("name") or profile.get("fullName") or f"{first_name} {last_name}",
+                    "headline": profile.get("position") or profile.get("headline"),
                     "location": profile.get("location"),
                     "followers": profile.get("followersCount"),
                     "connections": profile.get("connectionsCount"),
