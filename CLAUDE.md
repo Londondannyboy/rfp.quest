@@ -232,6 +232,34 @@ FIND_A_TENDER_API_KEY=  # Optional, for gov API access
   - Rate limit: 600 requests/hour (50 per 5 minutes)
 - Data under Open Government Licence
 
+## Data Architecture
+
+### Storage Strategy
+| Data Type | Storage | Details |
+|-----------|---------|---------|
+| Tender metadata | Neon (Postgres) | Title, buyer, value, dates, CPV codes, OCID |
+| PDF documents | Cloudflare R2 | Object storage, URL stored in DB |
+| Analysis results | Neon (JSONB) | Extracted requirements, scoring, gaps |
+| Saved tenders | Browser localStorage | Client-side with DB validation |
+| Enrichments | Neon (JSONB) | Buyer intel, competitor research |
+
+### OCID (Open Contracting ID)
+Every UK government tender has a unique OCID following the Open Contracting Data Standard:
+```
+ocds-b5fd17-abc123-xyz
+```
+- Used as primary identifier across APIs and database
+- Enables linking to original tender notices
+- The `ocids` filter in `/api/tenders/search` fetches specific tenders by ID
+
+### Saved Tenders System
+- Stored in browser localStorage (`rfp-quest-saved-tenders`)
+- Validated against database on page load (removes stale entries)
+- Fetched directly by OCID when "Show Saved" is clicked
+- Hook: `src/lib/hooks/use-saved-tenders.ts`
+
+---
+
 ## Companies House / Buyer Intelligence
 
 The agent includes tools for fetching UK company data to enrich bid writing.
@@ -248,28 +276,60 @@ The agent includes tools for fetching UK company data to enrich bid writing.
 | `GET /buyer-intel/{number}` | Full buyer intelligence with bid insights |
 | `GET /buyer-intel-enhanced/{number}` | Buyer intel + news + LinkedIn enrichment |
 | `GET /search/company?q={query}` | Search companies by name |
+| `GET /signals/{number}` | Growth/risk signals for opportunity detection |
+| `POST /decision-makers/{number}/profile` | LinkedIn profiling via Apify (top 5 directors) |
 
 ### Environment Variables
 
 ```bash
 COMPANIES_HOUSE_API_KEY=  # Required for buyer intelligence
-TAVILY_API_KEY=           # Optional - enables news & LinkedIn search
+TAVILY_API_KEY=           # Enables news search
+APIFY_API_TOKEN=          # Enables LinkedIn decision maker profiling
+OPENAI_API_KEY=           # For PDF Vision extraction & post analysis
 ```
 
-### Tools (`agent/tools/companies_house.py`)
+### Tools
 
+**`agent/tools/companies_house.py`**:
 - `get_company_info` - Company profile from CH API
 - `get_company_officers` - Directors/secretaries for decision maker discovery
 - `get_filing_history` - Accounts and other filings
-- `get_buyer_intelligence` - Combined intelligence with PDF analysis
+- `get_buyer_intelligence` - Combined intelligence with PDF analysis (SECR extraction)
 - `search_company_by_name` - Find company number from name
+- `get_opportunity_signals` - Growth/risk detection
+
+**`agent/tools/apify_linkedin.py`**:
+- `search_linkedin_profile` - Find LinkedIn URL by name + company
+- `get_linkedin_posts` - Fetch recent posts (no cookies required)
+- `analyze_director_content` - GPT-4o analysis of posts for bid insights
+- `profile_decision_maker` - Full profiling pipeline
+
+### Frontend Components
+
+**`src/components/dashboard/BuyerIntelligencePanel.tsx`**:
+- Displays company profile, SECR data, signals
+- Expandable sections for decision makers, sustainability, risks
+- Integrates DecisionMakerInsights component
+
+**`src/components/dashboard/DecisionMakerInsights.tsx`**:
+- Lazy-loads LinkedIn profiles on expand
+- Shows headline, location, LinkedIn link
+- Displays topics, priorities, bid writing tips (when posts available)
+
+### API Routes (Frontend)
+
+| Route | Description |
+|-------|-------------|
+| `GET /api/buyer-intel?buyerName=X` | Proxy to agent buyer-intel endpoint |
+| `POST /api/decision-makers/[companyNumber]/profile` | LinkedIn profiling |
 
 ### Usage in Bid Writing
 
 1. When tender uploaded, extract buyer organization name
 2. Search Companies House for company number
 3. Fetch buyer intelligence (profile, officers, SECR data)
-4. Use insights to tailor bid response
+4. Profile decision makers on LinkedIn (topics, priorities)
+5. Use insights to tailor bid response
 
 ## Development Workflow
 

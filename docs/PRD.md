@@ -233,6 +233,44 @@ RFP Quest helps UK businesses win government tenders by using AI to analyse proc
 
 ---
 
+#### F7f: Buyer Intelligence Panel
+**Description**: Rich buyer intelligence from Companies House integrated into tender view.
+
+**User Stories**:
+- As a user, I can see the buyer's company profile (type, age, status)
+- As a user, I can see sustainability data (SECR - Scope 1/2 emissions, Net Zero target)
+- As a user, I can see growth and risk signals for the buyer
+- As a user, I can see bid writing insights based on buyer profile
+
+**Acceptance Criteria**:
+- Panel shows company type, establishment date, SIC codes
+- SECR data extracted from annual accounts PDF (via GPT-4o Vision)
+- Growth signals: new directors, recent expansion
+- Risk signals: insolvency history, charges, going concern warnings
+- Bid insights: what to emphasize, what to avoid
+- Link to Companies House for verification
+
+---
+
+#### F7g: Decision Maker LinkedIn Insights
+**Description**: LinkedIn profiling of buyer's key decision makers via Apify integration.
+
+**User Stories**:
+- As a user, I can see LinkedIn profiles of key directors
+- As a user, I can see what topics directors discuss publicly
+- As a user, I can get bid writing tips based on directors' public priorities
+
+**Acceptance Criteria**:
+- Profiles top 5 directors from Companies House data
+- Uses Apify scrapers (no cookies required)
+- Shows: name, role, headline, location, LinkedIn URL
+- Analyzes recent posts for topics, priorities, concerns
+- Generates bid writing insights based on public statements
+- Lazy-loads on expand (doesn't slow dashboard)
+- Falls back gracefully when LinkedIn profile not found
+
+---
+
 ### Phase 2
 
 #### F8: Real-Time Streaming Analysis
