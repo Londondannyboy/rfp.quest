@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import {
   BuildingOfficeIcon,
   MapPinIcon,
@@ -8,7 +9,15 @@ import {
   GlobeAltIcon,
   DocumentTextIcon,
   CurrencyPoundIcon,
+  UserGroupIcon,
+  ExclamationTriangleIcon,
+  CheckCircleIcon,
+  ArrowTrendingUpIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
 } from '@heroicons/react/24/outline';
+import { LeafIcon } from 'lucide-react';
+import { useBuyerIntelligence, type BuyerIntelligence } from '@/lib/hooks/use-buyer-intelligence';
 
 interface BuyerStats {
   totalTenders: number;
@@ -67,6 +76,9 @@ export function BuyerProfile({
   description,
   sectors,
 }: BuyerProfileProps) {
+  const [showIntel, setShowIntel] = useState(false);
+  const { data: intel, isLoading: intelLoading } = useBuyerIntelligence(name, { enabled: showIntel });
+
   return (
     <div className="bg-slate-900 rounded-xl overflow-hidden">
       {/* Header */}
@@ -143,6 +155,174 @@ export function BuyerProfile({
           </div>
         </div>
       )}
+
+      {/* Companies House Intelligence */}
+      <div className="p-6 border-b border-slate-800">
+        <button
+          onClick={() => setShowIntel(!showIntel)}
+          className="w-full flex items-center justify-between text-sm font-medium text-slate-400 mb-3 hover:text-slate-300 transition-colors"
+        >
+          <span className="flex items-center gap-2">
+            <BuildingOfficeIcon className="w-4 h-4" />
+            Companies House Intelligence
+          </span>
+          {showIntel ? (
+            <ChevronUpIcon className="w-4 h-4" />
+          ) : (
+            <ChevronDownIcon className="w-4 h-4" />
+          )}
+        </button>
+
+        {showIntel && (
+          <div className="space-y-4">
+            {intelLoading ? (
+              <div className="animate-pulse space-y-3">
+                <div className="h-4 bg-slate-800 rounded w-3/4" />
+                <div className="h-4 bg-slate-800 rounded w-1/2" />
+                <div className="h-4 bg-slate-800 rounded w-2/3" />
+              </div>
+            ) : intel ? (
+              <>
+                {/* Company Overview */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <p className="text-xs text-slate-500">Company Type</p>
+                    <p className="text-sm font-medium text-white">{intel.profile.companyType.toUpperCase()}</p>
+                  </div>
+                  <div className="bg-slate-800/50 rounded-lg p-3">
+                    <p className="text-xs text-slate-500">Established</p>
+                    <p className="text-sm font-medium text-white">{intel.profile.dateOfCreation?.split('-')[0] || 'N/A'}</p>
+                  </div>
+                </div>
+
+                {/* Decision Makers */}
+                {intel.decisionMakers.filter(dm => dm.role.toLowerCase().includes('director')).length > 0 && (
+                  <div>
+                    <h5 className="text-xs font-medium text-slate-500 mb-2 flex items-center gap-1">
+                      <UserGroupIcon className="w-3 h-3" />
+                      Key Decision Makers
+                    </h5>
+                    <div className="space-y-2">
+                      {intel.decisionMakers
+                        .filter(dm => dm.role.toLowerCase().includes('director'))
+                        .slice(0, 4)
+                        .map((dm, i) => (
+                          <div key={i} className="flex items-center justify-between text-sm bg-slate-800/30 rounded px-3 py-2">
+                            <span className="text-slate-200">{dm.name}</span>
+                            <span className="text-xs text-slate-500 capitalize">{dm.role.replace('_', ' ')}</span>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Sustainability */}
+                {intel.sustainability?.hasSecrContent && (
+                  <div className="bg-green-900/20 rounded-lg p-3 border border-green-800/30">
+                    <h5 className="text-xs font-medium text-green-400 mb-2 flex items-center gap-1">
+                      <LeafIcon className="w-3 h-3" />
+                      Sustainability (SECR)
+                    </h5>
+                    {intel.sustainability.secrData && (
+                      <div className="grid grid-cols-2 gap-2 text-sm">
+                        {intel.sustainability.secrData.scope1Tonnes && (
+                          <div>
+                            <p className="text-xs text-slate-500">Scope 1</p>
+                            <p className="text-green-300">{intel.sustainability.secrData.scope1Tonnes.toLocaleString()} tCO2e</p>
+                          </div>
+                        )}
+                        {intel.sustainability.secrData.scope2Tonnes && (
+                          <div>
+                            <p className="text-xs text-slate-500">Scope 2</p>
+                            <p className="text-green-300">{intel.sustainability.secrData.scope2Tonnes.toLocaleString()} tCO2e</p>
+                          </div>
+                        )}
+                        {intel.sustainability.secrData.netZeroYear && (
+                          <div className="col-span-2">
+                            <p className="text-xs text-slate-500">Net Zero Target</p>
+                            <p className="text-green-300 font-medium">{intel.sustainability.secrData.netZeroYear}</p>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Risk Signals */}
+                {intel.signals.riskSignals.length > 0 && (
+                  <div className="bg-amber-900/20 rounded-lg p-3 border border-amber-800/30">
+                    <h5 className="text-xs font-medium text-amber-400 mb-2 flex items-center gap-1">
+                      <ExclamationTriangleIcon className="w-3 h-3" />
+                      Risk Signals
+                    </h5>
+                    <div className="space-y-2">
+                      {intel.signals.riskSignals.map((risk, i) => (
+                        <div key={i} className="text-sm">
+                          <p className="text-amber-300">{risk.message}</p>
+                          <p className="text-xs text-slate-500">{risk.implication}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Growth Signals */}
+                {intel.signals.growthSignals.length > 0 && (
+                  <div className="bg-teal-900/20 rounded-lg p-3 border border-teal-800/30">
+                    <h5 className="text-xs font-medium text-teal-400 mb-2 flex items-center gap-1">
+                      <ArrowTrendingUpIcon className="w-3 h-3" />
+                      Growth Signals
+                    </h5>
+                    <div className="space-y-2">
+                      {intel.signals.growthSignals.map((signal, i) => (
+                        <div key={i} className="text-sm">
+                          <p className="text-teal-300">{signal.message}</p>
+                          <p className="text-xs text-slate-500">{signal.implication}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Bid Insights */}
+                {(intel.bidInsights.emphasize.length > 0 || intel.bidInsights.avoid.length > 0) && (
+                  <div>
+                    <h5 className="text-xs font-medium text-slate-500 mb-2">Bid Writing Insights</h5>
+                    <div className="space-y-2">
+                      {intel.bidInsights.emphasize.map((item, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm">
+                          <CheckCircleIcon className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-300">{item}</span>
+                        </div>
+                      ))}
+                      {intel.bidInsights.avoid.map((item, i) => (
+                        <div key={i} className="flex items-start gap-2 text-sm">
+                          <ExclamationTriangleIcon className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-slate-300">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Companies House Link */}
+                <a
+                  href={`https://find-and-update.company-information.service.gov.uk/company/${intel.companyNumber}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center text-sm text-teal-400 hover:text-teal-300 transition-colors"
+                >
+                  View on Companies House →
+                </a>
+              </>
+            ) : (
+              <p className="text-sm text-slate-500 text-center py-4">
+                No Companies House data available for this organization
+              </p>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* Contact Info */}
       <div className="p-6">
