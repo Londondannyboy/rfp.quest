@@ -40,7 +40,7 @@ async def search_linkedin_profile(
                 headers={"Content-Type": "application/json"}
             )
 
-            if response.status_code != 200:
+            if response.status_code not in [200, 201]:
                 print(f"Apify search failed: {response.status_code} - {response.text[:200]}")
                 return None
 
@@ -117,7 +117,7 @@ async def get_linkedin_posts(
                 headers={"Content-Type": "application/json"}
             )
 
-            if response.status_code != 200:
+            if response.status_code not in [200, 201]:
                 print(f"Apify posts fetch failed: {response.status_code}")
                 return []
 
@@ -208,7 +208,7 @@ Return JSON only:
                 }
             )
 
-            if response.status_code != 200:
+            if response.status_code not in [200, 201]:
                 print(f"OpenAI analysis failed: {response.status_code}")
                 return {
                     "topics": _extract_basic_topics(posts),
