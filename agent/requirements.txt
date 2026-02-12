@@ -22,6 +22,7 @@ psycopg[binary]>=3.2
 # PDF Processing
 pypdf>=5.0
 pdfplumber>=0.11
+pymupdf>=1.24  # For Companies House PDF extraction
 
 # Utils
 pydantic>=2.0

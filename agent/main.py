@@ -58,7 +58,24 @@ async def root():
     return {
         "service": "RFP.quest Agent",
         "version": "0.1.0",
-        "endpoints": ["/health", "/copilotkit", "/parse-pdf", "/analyze-pdf"],
+        "endpoints": [
+            "/health",
+            "/copilotkit",
+            "/parse-pdf",
+            "/analyze-pdf",
+            # Companies House / Buyer Intelligence
+            "/company/{company_number}",
+            "/company/{company_number}/officers",
+            "/company/{company_number}/filings",
+            "/company/{company_number}/news",
+            "/company/{company_number}/decision-makers",
+            "/buyer-intel/{company_number}",
+            "/buyer-intel-enhanced/{company_number}",
+            "/search/company?q={query}",
+            # Signal Detection
+            "/signals/{company_number}",
+            "/threshold-watch/{company_number}?turnover=X&employees=Y&balance_sheet=Z",
+        ],
     }
 
 
@@ -164,6 +181,291 @@ async def analyze_pdf_endpoint(
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Analysis failed: {str(e)}")
+
+
+# ============================================================================
+# Companies House / Buyer Intelligence Endpoints
+# ============================================================================
+
+@app.get("/company/{company_number}")
+async def get_company(company_number: str):
+    """
+    Get basic company information from Companies House.
+
+    Args:
+        company_number: UK company registration number (e.g., "07524813")
+    """
+    try:
+        from tools.companies_house import get_company_info
+        result = get_company_info.invoke(company_number)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Company lookup failed: {str(e)}")
+
+
+@app.get("/company/{company_number}/officers")
+async def get_officers(company_number: str):
+    """
+    Get company officers (directors, secretaries) for decision maker discovery.
+
+    Args:
+        company_number: UK company registration number
+    """
+    try:
+        from tools.companies_house import get_company_officers
+        result = get_company_officers.invoke(company_number)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Officers lookup failed: {str(e)}")
+
+
+@app.get("/company/{company_number}/filings")
+async def get_filings(company_number: str, category: str = "accounts", max_results: int = 5):
+    """
+    Get company filing history.
+
+    Args:
+        company_number: UK company registration number
+        category: Filing category (accounts, confirmation-statement, etc.)
+        max_results: Maximum number of filings to return
+    """
+    try:
+        from tools.companies_house import get_filing_history
+        result = get_filing_history.invoke(company_number, category=category, max_results=max_results)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Filing history lookup failed: {str(e)}")
+
+
+@app.get("/buyer-intel/{company_number}")
+async def get_buyer_intel(company_number: str):
+    """
+    Get comprehensive buyer intelligence for bid writing.
+
+    Combines company profile, officers, and accounts analysis to provide
+    insights for tailoring bid responses.
+
+    Args:
+        company_number: UK company registration number
+    """
+    try:
+        from tools.companies_house import get_buyer_intelligence
+        result = get_buyer_intelligence.invoke(company_number)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Buyer intelligence failed: {str(e)}")
+
+
+@app.get("/search/company")
+async def search_company(q: str):
+    """
+    Search for a company by name.
+
+    Args:
+        q: Search query (company name)
+    """
+    try:
+        from tools.companies_house import search_company_by_name
+        result = search_company_by_name(q)
+        if "error" in result:
+            raise HTTPException(status_code=500, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Company search failed: {str(e)}")
+
+
+@app.get("/buyer-intel-enhanced/{company_number}")
+async def get_enhanced_buyer_intel(company_number: str):
+    """
+    Get comprehensive buyer intelligence with web enrichment.
+
+    Includes Companies House data PLUS:
+    - Recent news from Tavily
+    - LinkedIn decision maker search
+    - Web-verified data points
+
+    Args:
+        company_number: UK company registration number
+    """
+    try:
+        from tools.companies_house import get_enhanced_buyer_intelligence
+        result = get_enhanced_buyer_intelligence.invoke(company_number)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Enhanced buyer intelligence failed: {str(e)}")
+
+
+@app.get("/company/{company_number}/news")
+async def get_news(company_number: str):
+    """
+    Get recent news about a company.
+
+    Args:
+        company_number: UK company registration number
+    """
+    try:
+        from tools.companies_house import get_company_info, get_company_news
+
+        # First get company name
+        company = get_company_info.invoke(company_number)
+        if "error" in company:
+            raise HTTPException(status_code=404, detail=company["error"])
+
+        company_name = company.get("company_name")
+        if not company_name:
+            raise HTTPException(status_code=404, detail="Company name not found")
+
+        # Get news
+        result = get_company_news(company_name)
+        result["company_number"] = company_number
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"News search failed: {str(e)}")
+
+
+@app.get("/company/{company_number}/decision-makers")
+async def get_decision_makers(company_number: str, roles: str = None):
+    """
+    Get decision makers from Companies House + LinkedIn search.
+
+    Args:
+        company_number: UK company registration number
+        roles: Comma-separated list of roles to search (optional)
+    """
+    try:
+        from tools.companies_house import (
+            get_company_info,
+            get_company_officers,
+            search_decision_makers
+        )
+
+        # Get company info and officers
+        company = get_company_info.invoke(company_number)
+        if "error" in company:
+            raise HTTPException(status_code=404, detail=company["error"])
+
+        officers = get_company_officers.invoke(company_number)
+
+        result = {
+            "company_number": company_number,
+            "company_name": company.get("company_name"),
+            "decision_makers": []
+        }
+
+        # Add Companies House officers
+        if "error" not in officers:
+            for officer in officers.get("officers", []):
+                result["decision_makers"].append({
+                    **officer,
+                    "source": "companies_house",
+                    "confidence": "high"
+                })
+
+        # Search LinkedIn via Tavily
+        company_name = company.get("company_name")
+        if company_name:
+            role_list = roles.split(",") if roles else None
+            linkedin_results = search_decision_makers(company_name, role_list)
+
+            if linkedin_results.get("decision_makers"):
+                existing_names = {dm.get("name", "").lower() for dm in result["decision_makers"]}
+                for dm in linkedin_results["decision_makers"]:
+                    if dm.get("name", "").lower() not in existing_names:
+                        result["decision_makers"].append(dm)
+
+                result["linkedin_search"] = {
+                    "profiles_found": len(linkedin_results["decision_makers"]),
+                    "roles_searched": linkedin_results.get("roles_searched", [])
+                }
+
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Decision maker search failed: {str(e)}")
+
+
+@app.get("/signals/{company_number}")
+async def get_signals(company_number: str):
+    """
+    Get opportunity signals for a company.
+
+    Detects growth signals, risk indicators, and leadership changes
+    to identify sales opportunities and timing.
+
+    Args:
+        company_number: UK company registration number
+    """
+    try:
+        from tools.companies_house import get_opportunity_signals
+        result = get_opportunity_signals.invoke(company_number)
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Signal detection failed: {str(e)}")
+
+
+@app.get("/threshold-watch/{company_number}")
+async def threshold_watch(
+    company_number: str,
+    turnover: float = None,
+    employees: int = None,
+    balance_sheet: float = None
+):
+    """
+    Check how close a company is to regulatory thresholds.
+
+    Analyzes proximity to SECR, Gender Pay Gap, Modern Slavery,
+    and Mandatory Audit thresholds.
+
+    Args:
+        company_number: UK company registration number
+        turnover: Estimated annual turnover in GBP
+        employees: Estimated employee count
+        balance_sheet: Estimated balance sheet total in GBP
+    """
+    try:
+        from tools.companies_house import detect_threshold_signals
+        result = detect_threshold_signals(
+            company_number=company_number,
+            estimated_turnover=turnover,
+            estimated_employees=employees,
+            estimated_balance_sheet=balance_sheet
+        )
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Threshold analysis failed: {str(e)}")
 
 
 def setup_copilotkit():

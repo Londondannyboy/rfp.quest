@@ -227,7 +227,49 @@ FIND_A_TENDER_API_KEY=  # Optional, for gov API access
   - Docs: https://www.find-tender.service.gov.uk/apidocumentation
 - **Contracts Finder**: REST, JSON/XML, public access
   - Docs: https://www.contractsfinder.service.gov.uk/apidocumentation
+- **Companies House**: REST, JSON, API key required
+  - Docs: https://developer-specs.company-information.service.gov.uk/
+  - Rate limit: 600 requests/hour (50 per 5 minutes)
 - Data under Open Government Licence
+
+## Companies House / Buyer Intelligence
+
+The agent includes tools for fetching UK company data to enrich bid writing.
+
+### Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `GET /company/{number}` | Basic company info (name, SIC codes, status) |
+| `GET /company/{number}/officers` | Directors and secretaries (decision makers) |
+| `GET /company/{number}/filings` | Filing history (accounts, etc.) |
+| `GET /company/{number}/news` | Recent news via Tavily |
+| `GET /company/{number}/decision-makers` | Officers + LinkedIn search |
+| `GET /buyer-intel/{number}` | Full buyer intelligence with bid insights |
+| `GET /buyer-intel-enhanced/{number}` | Buyer intel + news + LinkedIn enrichment |
+| `GET /search/company?q={query}` | Search companies by name |
+
+### Environment Variables
+
+```bash
+COMPANIES_HOUSE_API_KEY=  # Required for buyer intelligence
+TAVILY_API_KEY=           # Optional - enables news & LinkedIn search
+```
+
+### Tools (`agent/tools/companies_house.py`)
+
+- `get_company_info` - Company profile from CH API
+- `get_company_officers` - Directors/secretaries for decision maker discovery
+- `get_filing_history` - Accounts and other filings
+- `get_buyer_intelligence` - Combined intelligence with PDF analysis
+- `search_company_by_name` - Find company number from name
+
+### Usage in Bid Writing
+
+1. When tender uploaded, extract buyer organization name
+2. Search Companies House for company number
+3. Fetch buyer intelligence (profile, officers, SECR data)
+4. Use insights to tailor bid response
 
 ## Development Workflow
 
