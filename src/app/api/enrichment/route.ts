@@ -222,7 +222,11 @@ export async function GET(request: NextRequest) {
 }
 
 // Helper to get cached enrichment data
-async function getCachedEnrichment(referenceId: string, referenceType: string) {
+async function getCachedEnrichment(referenceId: string, referenceType: string): Promise<{
+  data: any;
+  created_at: string;
+  expires_at: string;
+} | null> {
   // This would query the enrichment_cache table from your schema
   // For now, return null
   return null;

@@ -56,12 +56,13 @@ export function BidWritingWorkspace({
   const [winProbability, setWinProbability] = useState<number | null>(null);
   
   const editorRef = useRef<HTMLDivElement>(null);
-  const autoSaveTimer = useRef<NodeJS.Timeout>();
+  const autoSaveTimer = useRef<NodeJS.Timeout | undefined>(undefined);
 
   // Parse tender requirements into sections
   useEffect(() => {
-    if (!bid && tender.analysis) {
-      const requirements = tender.analysis.requirements || [];
+    const tenderWithAnalysis = tender as any;
+    if (!bid && tenderWithAnalysis.analysis) {
+      const requirements = tenderWithAnalysis.analysis.requirements || [];
       const newSections: BidSection[] = requirements.map((req: any) => ({
         id: `section-${Date.now()}-${Math.random()}`,
         title: req.title || req.section || 'Section',

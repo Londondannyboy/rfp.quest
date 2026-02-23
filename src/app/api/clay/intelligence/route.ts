@@ -133,34 +133,41 @@ export async function POST(request: NextRequest) {
         
         try {
           // Check cache first
-          const cached = await getCachedIntelligence(company.company_number);
+          const cached = await getCachedIntelligenceFromDB(company.company_number);
           
-          if (cached && isRecentEnoughForClay(cached.created_at)) {
+          if (cached) {
             return {
               success: true,
               cached: true,
-              company: formatIntelligenceForClay(cached.data, company.company_name, company.company_number),
+              company: formatIntelligenceForClay(cached, company.company_name, company.company_number),
             };
           }
           
-          // Extract fresh intelligence
-          const intelligence = await extractCompanyIntelligence(
-            company.company_number,
-            company.company_name,
-            sectors || company.sectors
-          );
+          // Extract fresh intelligence via main API
+          const extractionResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/intelligence/extract`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              company_number: company.company_number,
+              company_name: company.company_name,
+              rfp_context: sectors || company.sectors ? { sectors: sectors || company.sectors } : undefined,
+            }),
+          });
+
+          if (!extractionResponse.ok) {
+            throw new Error(`Extraction API failed: ${extractionResponse.status}`);
+          }
+
+          const extractionData = await extractionResponse.json();
           
-          if (!intelligence) {
+          if (!extractionData.success || !extractionData.intelligence) {
             throw new Error('No data extracted');
           }
-          
-          // Cache the results
-          await cacheIntelligence(company.company_number, intelligence);
           
           return {
             success: true,
             cached: false,
-            company: formatIntelligenceForClay(intelligence, company.company_name, company.company_number),
+            company: formatIntelligenceForClay(extractionData.intelligence, company.company_name, company.company_number),
           };
           
         } catch (error) {
