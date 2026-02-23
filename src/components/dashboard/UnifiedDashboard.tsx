@@ -242,7 +242,6 @@ export function UnifiedDashboard({
                 <TenderCardGrid
                   tenders={filteredTenders}
                   onAnalyze={handleTenderAnalyze}
-                  onEdit={handleTenderEdit}
                 />
               </motion.div>
             )}
