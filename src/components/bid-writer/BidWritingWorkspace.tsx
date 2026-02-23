@@ -224,7 +224,7 @@ export function BidWritingWorkspace({
         <div className="flex-1 overflow-y-auto p-6">
           {/* Requirements Sections */}
           <div className="space-y-6">
-            {tender.analysis?.requirements?.map((req: any, index: number) => (
+            {(tender as any).analysis?.requirements?.map((req: any, index: number) => (
               <div
                 key={req.id || index}
                 className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-sm transition-shadow"
@@ -252,7 +252,7 @@ export function BidWritingWorkspace({
           <div className="border-t border-gray-200 p-4 bg-gray-50">
             <ComplianceChecker
               sections={sections}
-              requirements={tender.analysis?.requirements || []}
+              requirements={(tender as any).analysis?.requirements || []}
               onScoreUpdate={setComplianceScore}
             />
           </div>
@@ -390,7 +390,7 @@ export function BidWritingWorkspace({
           <AIResponseGenerator
             onClose={() => setShowAIGenerator(false)}
             onGenerate={handleAIGeneration}
-            requirement={tender.analysis?.requirements?.find(
+            requirement={(tender as any).analysis?.requirements?.find(
               (r: any) => r.id === sections.find(s => s.id === selectedSection)?.requirement_ref
             )}
             companyProfile={companyProfile}
