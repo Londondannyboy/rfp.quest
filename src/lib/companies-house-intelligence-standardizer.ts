@@ -354,7 +354,7 @@ export class CompaniesHouseIntelligenceExtractor {
     for (const pattern of revenuePatterns) {
       const matches = Array.from(fullText.matchAll(pattern));
       for (const match of matches) {
-        const value = parseInt(match[1].replace(/,/g, ''));
+        const value = parseInt((match as RegExpMatchArray)[1].replace(/,/g, ''));
         if (value > 10000) { // Reasonable minimum
           return value;
         }
