@@ -60,13 +60,13 @@ export function UnifiedDashboard({
       return false;
     }
     
-    if (tender.value < filters.minValue) {
+    if ((tender.valueAmount || 0) < filters.minValue) {
       return false;
     }
     
-    const daysToDeadline = Math.ceil(
-      (new Date(tender.deadline).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
-    );
+    const daysToDeadline = tender.tenderEndDate ? Math.ceil(
+      (new Date(tender.tenderEndDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)
+    ) : Infinity;
     if (daysToDeadline > filters.maxDaysToDeadline) {
       return false;
     }
@@ -102,8 +102,8 @@ export function UnifiedDashboard({
     const csvData = selectedTenders.map(tender => ({
       title: tender.title,
       buyer: tender.buyer_name,
-      value: tender.value,
-      deadline: tender.deadline,
+      value: tender.valueAmount,
+      deadline: tender.tenderEndDate,
       match_score: tender.match_score,
       status: tender.status,
     }));
