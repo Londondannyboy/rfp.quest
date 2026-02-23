@@ -757,5 +757,4 @@ function getActionRecommendations(intelligence: IntelligenceData): string[] {
   return actions;
 }
 
-export { IntelligenceDashboard };
 export type { IntelligenceData };
