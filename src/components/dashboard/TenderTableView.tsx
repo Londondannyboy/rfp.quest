@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import {
   useReactTable,
   getCoreRowModel,
@@ -83,7 +83,6 @@ export function TenderTableView({
           <input
             type="checkbox"
             checked={table.getIsAllPageRowsSelected()}
-            indeterminate={table.getIsSomePageRowsSelected()}
             onChange={(e) => {
               table.toggleAllPageRowsSelected(!!e.target.checked);
               if (e.target.checked) {
@@ -96,6 +95,7 @@ export function TenderTableView({
               }
             }}
             className="rounded border-gray-300"
+            style={{ opacity: table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected() ? 0.5 : 1 }}
           />
         ),
         cell: ({ row }) => (
