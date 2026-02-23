@@ -323,7 +323,7 @@ export function UnifiedDashboard({
                         </div>
                         <div>
                           <div className="text-2xl font-bold text-gray-900">
-                            £{(filteredTenders.reduce((sum, t) => sum + (t.value || 0), 0) / 1000000).toFixed(1)}M
+                            £{(filteredTenders.reduce((sum, t) => sum + (t.valueAmount || 0), 0) / 1000000).toFixed(1)}M
                           </div>
                           <div className="text-sm text-gray-600">Total Value</div>
                         </div>
