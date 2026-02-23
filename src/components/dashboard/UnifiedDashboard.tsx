@@ -15,7 +15,7 @@ import {
 import { DashboardViewToggle, type DashboardView } from './DashboardViewToggle';
 import { TenderCardGrid } from './TenderCardGrid';
 import { TenderTableView } from './TenderTableView';
-import { TenderNetworkGraph } from '../visualization/TenderNetworkGraph';
+// import { TenderNetworkGraph } from '../visualization/TenderNetworkGraph';
 import { GraphAnalyticsPanel } from '../visualization/GraphAnalyticsPanel';
 import { WinPredictionPanel } from './WinPredictionPanel';
 import { BidWritingWorkspace } from '../bid-writer/BidWritingWorkspace';
@@ -272,11 +272,16 @@ export function UnifiedDashboard({
                 exit={{ opacity: 0, scale: 0.95 }}
                 className="h-full relative"
               >
+                {/* Temporarily disabled to fix build
                 <TenderNetworkGraph
                   tenders={graphTenders}
                   focusId={selectedTender?.id}
                   onNodeClick={handleNodeClick}
                 />
+                */}
+                <div className="flex items-center justify-center h-full text-gray-500">
+                  <p>Network visualization temporarily disabled</p>
+                </div>
                 
                 {/* Analytics Overlay */}
                 {selectedNodeId && (
