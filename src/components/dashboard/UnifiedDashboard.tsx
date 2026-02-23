@@ -72,7 +72,7 @@ export function UnifiedDashboard({
     }
     
     if (filters.sectors.length > 0) {
-      const hasMatchingSector = tender.cpv_codes?.some(code => 
+      const hasMatchingSector = tender.cpvCodes?.some(code => 
         filters.sectors.some(sector => code.startsWith(sector))
       );
       if (!hasMatchingSector) {
