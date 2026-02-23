@@ -101,10 +101,10 @@ export function UnifiedDashboard({
     // Export functionality
     const csvData = selectedTenders.map(tender => ({
       title: tender.title,
-      buyer: tender.buyer_name,
+      buyer: tender.buyerName,
       value: tender.valueAmount,
       deadline: tender.tenderEndDate,
-      match_score: tender.match_score,
+      match_score: (tender as any).match_score,
       status: tender.status,
     }));
     
