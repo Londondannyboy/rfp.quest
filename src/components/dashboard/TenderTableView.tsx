@@ -530,12 +530,12 @@ export function TenderTableView({
                         <p className="text-sm text-gray-700">
                           <strong>Description:</strong> {row.original.description}
                         </p>
-                        {row.original.analysis && (
+                        {(row.original as any).analysis && (
                           <div className="grid grid-cols-3 gap-4 mt-3">
                             <div>
                               <strong className="text-sm">Requirements:</strong>
                               <ul className="mt-1 text-xs text-gray-600">
-                                {row.original.analysis.requirements?.slice(0, 3).map((req: any, i: number) => (
+                                {(row.original as any).analysis.requirements?.slice(0, 3).map((req: any, i: number) => (
                                   <li key={i}>• {req.title}</li>
                                 ))}
                               </ul>
