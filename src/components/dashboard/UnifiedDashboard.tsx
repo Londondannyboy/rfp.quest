@@ -143,7 +143,7 @@ export function UnifiedDashboard({
   // Transform tender data for graph visualization
   const graphTenders = filteredTenders.map(tender => ({
     ...tender,
-    competitors: tender.competitor_analysis?.competitors || [],
+    competitors: (tender as any).competitor_analysis?.competitors || [],
   }));
 
   return (
