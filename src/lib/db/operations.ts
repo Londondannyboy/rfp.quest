@@ -29,7 +29,7 @@ export async function createResponseLibraryItem(item: NewResponseLibraryItem): P
     )
     RETURNING *
   `;
-  return result[0];
+  return result[0] as ResponseLibraryItem;
 }
 
 export async function searchResponseLibrary(
@@ -95,7 +95,7 @@ export async function createBid(bid: NewBid): Promise<Bid> {
     )
     RETURNING *
   `;
-  return result[0];
+  return result[0] as Bid;
 }
 
 export async function updateBid(
@@ -142,8 +142,8 @@ export async function updateBid(
     RETURNING *
   `;
   
-  const result = await sql.unsafe(query, values);
-  return result[0];
+  const result = await sql.unsafe(query) as any[];
+  return result[0] as Bid;
 }
 
 export async function saveBidVersion(bidId: string, userId?: string): Promise<void> {
@@ -179,7 +179,7 @@ export async function getTeamCredits(teamId: string): Promise<TeamCredits | null
     WHERE team_id = ${teamId}
     LIMIT 1
   `;
-  return result[0] || null;
+  return (result[0] as TeamCredits) || null;
 }
 
 export async function initializeTeamCredits(
@@ -212,7 +212,7 @@ export async function initializeTeamCredits(
     RETURNING *
   `;
   
-  return result[0];
+  return result[0] as TeamCredits;
 }
 
 export async function useCredits(
@@ -235,13 +235,13 @@ export async function useCredits(
     // Log transaction but don't deduct
     await logCreditTransaction({
       team_id: teamId,
-      user_id: userId,
+      user_id: userId || null,
       transaction_type: 'enrichment',
       credits_amount: -amount,
       balance_after: -1,
       description,
-      reference_id: referenceId,
-      reference_type: referenceType,
+      reference_id: referenceId || null,
+      reference_type: referenceType || null,
       metadata: null
     });
     
@@ -322,7 +322,7 @@ export async function checkEnrichmentCache(
       WHERE id = ${result[0].id}
     `;
     
-    return result[0];
+    return result[0] as EnrichmentCache;
   }
   
   return null;
@@ -436,7 +436,7 @@ export async function getTeamSubscription(teamId: string): Promise<TeamSubscript
     AND ts.status = 'active'
     LIMIT 1
   `;
-  return result[0] || null;
+  return (result[0] as TeamSubscription) || null;
 }
 
 export async function getSubscriptionTiers(): Promise<SubscriptionTier[]> {

@@ -344,7 +344,7 @@ export function TenderNetworkGraph({
     
     // Center on clicked node
     if (graphRef.current) {
-      graphRef.current.centerAt(node.x, node.y, 1000);
+      graphRef.current.centerAt((node as any).x, (node as any).y, 1000);
       graphRef.current.zoom(2, 1000);
     }
   }, [onNodeClick]);
