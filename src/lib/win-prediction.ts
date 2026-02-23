@@ -3,7 +3,7 @@
 
 import type { WinPredictionFeatures } from './db/types';
 
-interface PredictionInput {
+export interface PredictionInput {
   // Company features
   companyAge?: number;
   companyTurnover?: number;
