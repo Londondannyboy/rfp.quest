@@ -54,7 +54,7 @@ export function TenderNetworkGraph({
   focusId,
   onNodeClick,
 }: TenderNetworkGraphProps) {
-  const graphRef = useRef<any>();
+  const graphRef = useRef<any>(null);
   const [graphData, setGraphData] = useState<{ nodes: GraphNode[]; links: GraphLink[] }>({
     nodes: [],
     links: [],
