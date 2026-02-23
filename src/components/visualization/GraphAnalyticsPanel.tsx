@@ -202,7 +202,7 @@ export function GraphAnalyticsPanel({
     }));
     
     const topNodes = nodeDegrees
-      .sort((a, b) => b.degree - a.degree)
+      .sort((a: any, b: any) => b.degree - a.degree)
       .slice(0, 5);
     
     if (topNodes.length > 0) {
