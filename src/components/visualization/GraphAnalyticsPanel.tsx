@@ -143,9 +143,9 @@ export function GraphAnalyticsPanel({
           return acc;
         }, {});
       
-      const avgCompetition = Object.values(avgCompetitorsPerTender).length > 0
-        ? Object.values(avgCompetitorsPerTender).reduce((a: any, b: any) => a + b, 0) / 
-          Object.values(avgCompetitorsPerTender).length
+      const competitorCounts = Object.values(avgCompetitorsPerTender) as number[];
+      const avgCompetition = competitorCounts.length > 0
+        ? competitorCounts.reduce((a, b) => a + b, 0) / competitorCounts.length
         : 0;
       
       if (avgCompetition > 8) {
