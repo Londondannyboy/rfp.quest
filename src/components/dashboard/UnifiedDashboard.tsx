@@ -80,7 +80,7 @@ export function UnifiedDashboard({
       }
     }
     
-    if (tender.match_score !== null && tender.match_score < filters.matchScoreMin) {
+    if ((tender as any).match_score !== null && (tender as any).match_score < filters.matchScoreMin) {
       return false;
     }
     
