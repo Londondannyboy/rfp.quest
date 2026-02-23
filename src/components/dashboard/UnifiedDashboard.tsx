@@ -337,7 +337,7 @@ export function UnifiedDashboard({
                         </div>
                         <div>
                           <div className="text-2xl font-bold text-gray-900">
-                            {Math.round(filteredTenders.reduce((sum, t) => sum + (t.match_score || 0), 0) / Math.max(filteredTenders.length, 1))}%
+                            {Math.round(filteredTenders.reduce((sum, t) => sum + ((t as any).match_score || 0), 0) / Math.max(filteredTenders.length, 1))}%
                           </div>
                           <div className="text-sm text-gray-600">Avg Match Score</div>
                         </div>
