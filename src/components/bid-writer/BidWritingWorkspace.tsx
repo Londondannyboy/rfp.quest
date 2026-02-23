@@ -382,7 +382,7 @@ export function BidWritingWorkspace({
             onClose={() => setShowResponseLibrary(false)}
             onInsert={handleResponseLibraryInsert}
             teamId={bid?.team_id || ''}
-            sectorCodes={tender.cpv_codes}
+            sectorCodes={tender.cpvCodes}
           />
         )}
         
