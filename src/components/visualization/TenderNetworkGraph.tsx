@@ -543,16 +543,16 @@ export function TenderNetworkGraph({
       <ForceGraph2D
         ref={graphRef}
         graphData={graphData}
-        nodeLabel={getNodeLabel}
-        nodeColor={getNodeColor}
+        nodeLabel={getNodeLabel as any}
+        nodeColor={getNodeColor as any}
         nodeRelSize={1}
-        nodeVal={getNodeSize}
-        linkColor={(link: GraphLink) => link.color || '#ffffff33'}
-        linkWidth={(link: GraphLink) => (link.strength || 0.5) * 2}
+        nodeVal={getNodeSize as any}
+        linkColor={(link: any) => link.color || '#ffffff33'}
+        linkWidth={(link: any) => (link.strength || 0.5) * 2}
         linkDirectionalParticles={2}
         linkDirectionalParticleSpeed={0.005}
-        onNodeClick={handleNodeClick}
-        onNodeHover={handleNodeHover}
+        onNodeClick={handleNodeClick as any}
+        onNodeHover={handleNodeHover as any}
         enableNodeDrag={true}
         enableZoomPanInteraction={true}
         enablePointerInteraction={true}
