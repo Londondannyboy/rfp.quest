@@ -543,7 +543,7 @@ export function TenderTableView({
                             <div>
                               <strong className="text-sm">Key Dates:</strong>
                               <ul className="mt-1 text-xs text-gray-600">
-                                <li>Published: {new Date(row.original.published_date).toLocaleDateString()}</li>
+                                <li>Published: {new Date(row.original.publishedDate).toLocaleDateString()}</li>
                                 <li>Deadline: {new Date(row.original.deadline).toLocaleDateString()}</li>
                               </ul>
                             </div>
