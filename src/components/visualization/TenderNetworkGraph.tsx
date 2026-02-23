@@ -554,7 +554,7 @@ export function TenderNetworkGraph({
         onNodeClick={handleNodeClick as any}
         onNodeHover={handleNodeHover as any}
         enableNodeDrag={true}
-        enableZoomPanInteraction={true}
+        enableZoomInteraction={true}
         enablePointerInteraction={true}
         cooldownTime={physics ? 3000 : 0}
         d3AlphaDecay={0.02}
