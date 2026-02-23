@@ -352,7 +352,7 @@ export function UnifiedDashboard({
                         <div>
                           <div className="text-2xl font-bold text-gray-900">
                             {filteredTenders.filter(t => {
-                              const days = Math.ceil((new Date(t.deadline).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
+                              const days = t.tenderEndDate ? Math.ceil((new Date(t.tenderEndDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)) : Infinity;
                               return days <= 14;
                             }).length}
                           </div>
