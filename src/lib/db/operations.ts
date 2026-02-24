@@ -142,7 +142,7 @@ export async function updateBid(
     RETURNING *
   `;
   
-  const result = await sql.unsafe(query) as any[];
+  const result = await sql.unsafe(query) as unknown as any[];
   return result[0] as Bid;
 }
 
