@@ -273,12 +273,12 @@ export async function useCredits(
   // Log transaction
   await logCreditTransaction({
     team_id: teamId,
-    user_id: userId,
+    user_id: userId ?? null,
     transaction_type: 'enrichment',
     credits_amount: -amount,
     balance_after: newBalance,
     description,
-    reference_id: referenceId,
+    reference_id: referenceId ?? null,
     reference_type: referenceType,
     metadata: null
   });
