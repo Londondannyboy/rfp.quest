@@ -342,6 +342,7 @@ Return structured data with confidence levels for each extracted value.
       energyConsumption: {
         ...existing.energyConsumption,
         ...newData.energyConsumption,
+        total: newData.energyConsumption?.total || existing.energyConsumption?.total || 0,
       },
       
       emissions: {
