@@ -258,7 +258,7 @@ Return structured data with confidence levels for each extracted value.
       secrStatementPage: this.extractNumber(data, ['secr_page', 'statement_page']),
       
       energyConsumption: {
-        total: this.extractNumber(data, ['energy_total', 'energy_consumption', 'total_energy']),
+        total: this.extractNumber(data, ['energy_total', 'energy_consumption', 'total_energy']) || 0,
         intensity: this.extractNumber(data, ['energy_intensity', 'energy_per_million']),
         baseYear: this.extractNumber(data, ['energy_base_year', 'base_year']),
       },
