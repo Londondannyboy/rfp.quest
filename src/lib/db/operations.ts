@@ -279,7 +279,7 @@ export async function useCredits(
     balance_after: newBalance,
     description,
     reference_id: referenceId ?? null,
-    reference_type: referenceType,
+    reference_type: referenceType ?? null,
     metadata: null
   });
   
