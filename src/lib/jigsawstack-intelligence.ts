@@ -658,7 +658,10 @@ Return structured data that can be easily parsed and analyzed.
     // Merge results from all chunks
     const merged: CompanyIntelligence = {
       company: { name: companyName },
-      financial: {},
+      financial: {
+        financialYear: new Date().getFullYear().toString(),
+        currency: 'GBP'
+      },
       strategic: {},
       operational: {},
       sustainability: {},
