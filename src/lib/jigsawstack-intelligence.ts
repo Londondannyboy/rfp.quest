@@ -682,11 +682,23 @@ Return structured data that can be easily parsed and analyzed.
     // Deep merge all results
     results.forEach(result => {
       Object.keys(result).forEach(key => {
-        if (key in merged) {
-          merged[key as keyof CompanyIntelligence] = {
-            ...merged[key as keyof CompanyIntelligence],
-            ...result[key as keyof CompanyIntelligence],
-          };
+        if (key in merged && key !== 'extractionMetadata') {
+          const mergedValue = merged[key as keyof CompanyIntelligence];
+          const resultValue = result[key as keyof CompanyIntelligence];
+          
+          if (key === 'financial' && resultValue) {
+            // Special handling for financial to preserve required fields
+            merged.financial = {
+              ...merged.financial,
+              ...(resultValue as any),
+            };
+          } else if (typeof mergedValue === 'object' && typeof resultValue === 'object') {
+            // Generic object merge for other properties
+            (merged as any)[key] = {
+              ...mergedValue,
+              ...resultValue,
+            };
+          }
         }
       });
     });
