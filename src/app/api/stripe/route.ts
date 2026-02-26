@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 import { sql } from '@/lib/db';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2026-01-28.clover',
-});
+// Initialize Stripe only if secret key is available
+const stripe = process.env.STRIPE_SECRET_KEY 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, {
+      apiVersion: '2026-01-28.clover',
+    })
+  : null;
 
 // Stripe product/price IDs (would be in env vars in production)
 const PRICE_IDS = {
@@ -19,6 +22,13 @@ const PRICE_IDS = {
 // Create Stripe checkout session
 export async function POST(req: NextRequest) {
   try {
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe is not configured' },
+        { status: 500 }
+      );
+    }
+
     const { priceId, teamId, userId, successUrl, cancelUrl } = await req.json();
 
     if (!priceId || !teamId) {
@@ -52,7 +62,7 @@ export async function POST(req: NextRequest) {
     if (teamData[0]?.stripe_customer_id) {
       customerId = teamData[0].stripe_customer_id;
     } else {
-      const customer = await stripe.customers.create({
+      const customer = await stripe!.customers.create({
         metadata: {
           team_id: teamId,
           user_id: userId,
@@ -69,7 +79,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Create checkout session
-    const session = await stripe.checkout.sessions.create({
+    const session = await stripe!.checkout.sessions.create({
       customer: customerId,
       payment_method_types: ['card'],
       line_items: [
@@ -138,8 +148,8 @@ export async function PUT(req: NextRequest) {
       case 'upgrade':
       case 'downgrade':
         // Change subscription plan
-        const stripeSubscription = await stripe.subscriptions.retrieve(stripeSubscriptionId);
-        await stripe.subscriptions.update(stripeSubscriptionId, {
+        const stripeSubscription = await stripe!.subscriptions.retrieve(stripeSubscriptionId);
+        await stripe!.subscriptions.update(stripeSubscriptionId, {
           items: [
             {
               id: stripeSubscription.items.data[0].id,
@@ -152,7 +162,7 @@ export async function PUT(req: NextRequest) {
 
       case 'cancel':
         // Cancel at period end
-        await stripe.subscriptions.update(stripeSubscriptionId, {
+        await stripe!.subscriptions.update(stripeSubscriptionId, {
           cancel_at_period_end: true,
         });
         
@@ -165,7 +175,7 @@ export async function PUT(req: NextRequest) {
 
       case 'reactivate':
         // Reactivate cancelled subscription
-        await stripe.subscriptions.update(stripeSubscriptionId, {
+        await stripe!.subscriptions.update(stripeSubscriptionId, {
           cancel_at_period_end: false,
         });
         

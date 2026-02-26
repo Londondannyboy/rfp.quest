@@ -1,13 +1,15 @@
 // Zep Client for Graph Database Operations
 // Zep provides memory and knowledge graph capabilities for AI applications
+// NOTE: Zep integration is disabled until @getzep/zep-cloud is added to dependencies
 
-import { ZepClient } from '@getzep/zep-cloud';
-
-// Initialize Zep client
-const zepApiKey = process.env.ZEP_API_KEY || '';
-const zepClient = new ZepClient({
-  apiKey: zepApiKey,
-});
+// Stub implementation until Zep is properly integrated
+const zepClient = {
+  memory: {
+    add: async (sessionId: string, data: any) => {},
+    get: async (sessionId: string, options?: any) => ({ messages: [] }),
+    searchMemory: async (sessionId: string, query: string, options?: any) => [],
+  }
+};
 
 // Graph node types for RFP Quest
 export type NodeType = 
@@ -329,7 +331,7 @@ export class RFPQuestGraphDB {
       lastn: 1000,
     });
     
-    const embeddingRecord = memory.messages?.find(
+    const embeddingRecord = (memory.messages as any[])?.find(
       (msg: any) => msg.metadata?.type === 'embedding' && msg.metadata?.nodeId === nodeId
     );
     
