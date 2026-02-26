@@ -21,7 +21,7 @@ interface SECRData {
   
   // Energy Consumption
   energyConsumption?: {
-    total: number; // MWh
+    total?: number; // MWh
     intensity?: number; // MWh per £m revenue
     baseYear?: number;
     currency?: string;
@@ -40,26 +40,26 @@ interface SECRData {
   // Reduction Targets & Progress
   reductionTargets?: {
     energyReduction?: {
-      target: number; // MWh
-      achieved: number; // MWh
-      percentage: number; // %
-      baseYear: number;
+      target?: number; // MWh
+      achieved?: number; // MWh
+      percentage?: number; // %
+      baseYear?: number;
     };
     emissionReduction?: {
-      target: number; // tCO2e
-      achieved: number; // tCO2e
-      percentage: number; // %
-      baseYear: number;
+      target?: number; // tCO2e
+      achieved?: number; // tCO2e
+      percentage?: number; // %
+      baseYear?: number;
     };
     netZeroTarget?: {
-      year: number;
-      scope: string; // 'Scope 1+2', 'All Scopes', etc.
+      year?: number;
+      scope?: string; // 'Scope 1+2', 'All Scopes', etc.
     };
   };
   
   // Verification & Assurance
   verification?: {
-    verified: boolean;
+    verified?: boolean;
     verificationBody?: string; // e.g., "Bureau Veritas"
     scope?: string; // What was verified
     standard?: string; // e.g., "ISO 14064"
@@ -258,7 +258,7 @@ Return structured data with confidence levels for each extracted value.
       secrStatementPage: this.extractNumber(data, ['secr_page', 'statement_page']),
       
       energyConsumption: {
-        total: this.extractNumber(data, ['energy_total', 'energy_consumption', 'total_energy']) || 0,
+        total: this.extractNumber(data, ['energy_total', 'energy_consumption', 'total_energy']),
         intensity: this.extractNumber(data, ['energy_intensity', 'energy_per_million']),
         baseYear: this.extractNumber(data, ['energy_base_year', 'base_year']),
       },
@@ -273,14 +273,14 @@ Return structured data with confidence levels for each extracted value.
       
       reductionTargets: {
         energyReduction: {
-          achieved: this.extractNumber(data, ['energy_reduction_achieved', 'energy_saved']) || 0,
-          percentage: this.extractNumber(data, ['energy_reduction_percentage', 'energy_reduction_percent']) || 0,
-          baseYear: this.extractNumber(data, ['reduction_base_year', 'base_year']) || new Date().getFullYear() - 1,
-          target: 0, // Would need to be extracted
+          achieved: this.extractNumber(data, ['energy_reduction_achieved', 'energy_saved']),
+          percentage: this.extractNumber(data, ['energy_reduction_percentage', 'energy_reduction_percent']),
+          baseYear: this.extractNumber(data, ['reduction_base_year', 'base_year']),
+          target: this.extractNumber(data, ['energy_reduction_target', 'energy_target']),
         },
         netZeroTarget: {
-          year: this.extractNumber(data, ['net_zero_year', 'net_zero_target']) || 2050,
-          scope: this.extractString(data, ['net_zero_scope']) || 'All Scopes',
+          year: this.extractNumber(data, ['net_zero_year', 'net_zero_target']),
+          scope: this.extractString(data, ['net_zero_scope']),
         },
       },
       
@@ -336,13 +336,12 @@ Return structured data with confidence levels for each extracted value.
   private mergeExtractionResults(existing: Partial<SECRData>, newData: Partial<SECRData>): Partial<SECRData> {
     // Merge results from multiple chunks, preferring non-null values
     return {
-      secrCompliant: newData.secrCompliant || existing.secrCompliant || false,
+      secrCompliant: newData.secrCompliant ?? existing.secrCompliant ?? false,
       secrStatementPage: newData.secrStatementPage || existing.secrStatementPage,
       
       energyConsumption: {
         ...existing.energyConsumption,
         ...newData.energyConsumption,
-        total: newData.energyConsumption?.total || existing.energyConsumption?.total || 0,
       },
       
       emissions: {
