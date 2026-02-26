@@ -273,14 +273,14 @@ Return structured data with confidence levels for each extracted value.
       
       reductionTargets: {
         energyReduction: {
-          achieved: this.extractNumber(data, ['energy_reduction_achieved', 'energy_saved']),
-          percentage: this.extractNumber(data, ['energy_reduction_percentage', 'energy_reduction_percent']),
-          baseYear: this.extractNumber(data, ['reduction_base_year', 'base_year']),
+          achieved: this.extractNumber(data, ['energy_reduction_achieved', 'energy_saved']) || 0,
+          percentage: this.extractNumber(data, ['energy_reduction_percentage', 'energy_reduction_percent']) || 0,
+          baseYear: this.extractNumber(data, ['reduction_base_year', 'base_year']) || new Date().getFullYear() - 1,
           target: 0, // Would need to be extracted
         },
         netZeroTarget: {
-          year: this.extractNumber(data, ['net_zero_year', 'net_zero_target']),
-          scope: this.extractString(data, ['net_zero_scope']),
+          year: this.extractNumber(data, ['net_zero_year', 'net_zero_target']) || 2050,
+          scope: this.extractString(data, ['net_zero_scope']) || 'All Scopes',
         },
       },
       
