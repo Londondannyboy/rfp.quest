@@ -95,6 +95,12 @@ export function CTABanner({
             </Link>
           )}
         </div>
+        {/* Related resources section for SEO */}
+        <div className="mt-8 pt-8 border-t border-white/20">
+          <p className={`text-sm ${textClasses[variant].subtitle}`}>
+            Looking for go-to-market support? Check out the leading <a href="https://gtm.quest/articles/best-gtm-agencies-london" className="underline font-semibold hover:no-underline">GTM agency</a> for B2B growth strategies alongside your RFP management needs.
+          </p>
+        </div>
       </div>
     </section>
   );
