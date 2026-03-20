@@ -86,6 +86,7 @@ export default function CertificationsHubPage() {
   }
 
   const certifications = [
+    // Core ISO Standards
     {
       name: 'ISO 9001',
       sectors: 'All sectors',
@@ -127,6 +128,23 @@ export default function CertificationsHubPage() {
       link: '/certifications/iso-42001-uk-tenders'
     },
     {
+      name: 'ISO 22301',
+      sectors: 'Critical Services',
+      status: 'Mandatory (critical)',
+      cost: '£3k-£12k',
+      time: '4-8 months',
+      link: '/certifications/iso-22301-uk-tenders'
+    },
+    {
+      name: 'ISO 13485',
+      sectors: 'Medical/NHS',
+      status: 'Mandatory (medical)',
+      cost: '£3k-£15k',
+      time: '6-12 months',
+      link: '/certifications/iso-13485-uk-tenders'
+    },
+    // Cyber Security
+    {
       name: 'Cyber Essentials',
       sectors: 'All (data handling)',
       status: 'Mandatory (gov data)',
@@ -142,6 +160,7 @@ export default function CertificationsHubPage() {
       time: '2-8 weeks',
       link: '/certifications/cyber-essentials-plus-uk-tenders'
     },
+    // Construction & Safety
     {
       name: 'CHAS',
       sectors: 'Construction, FM',
@@ -166,6 +185,48 @@ export default function CertificationsHubPage() {
       time: '2-4 weeks',
       link: '/certifications/safecontractor-uk-tenders'
     },
+    // Sector-Specific
+    {
+      name: 'JOSCAR',
+      sectors: 'Defence/Aerospace',
+      status: 'Mandatory',
+      cost: '£500-£1.5k/yr',
+      time: '4-8 weeks',
+      link: '/certifications/joscar-defence-tenders'
+    },
+    {
+      name: 'RISQS',
+      sectors: 'Rail',
+      status: 'Mandatory',
+      cost: '£400+/yr',
+      time: '4-6 weeks',
+      link: '/certifications/risqs-rail-tenders'
+    },
+    {
+      name: 'Achilles UVDB',
+      sectors: 'Utilities',
+      status: 'Mandatory',
+      cost: '£500-£2.5k/yr',
+      time: '4-6 weeks',
+      link: '/certifications/achilles-uk-tenders'
+    },
+    {
+      name: 'BRCGS',
+      sectors: 'Food',
+      status: 'Mandatory',
+      cost: '£1.5k-£4k/yr',
+      time: '6-12 months',
+      link: '/certifications/brcgs-food-tenders-uk'
+    },
+    {
+      name: 'AS9100',
+      sectors: 'Aerospace',
+      status: 'Mandatory',
+      cost: '£3k-£15k',
+      time: '6-12 months',
+      link: '/certifications/as9100-aerospace-tenders'
+    },
+    // Healthcare
     {
       name: 'DSP Toolkit',
       sectors: 'NHS, Healthcare',
@@ -174,6 +235,7 @@ export default function CertificationsHubPage() {
       time: 'Annual cycle',
       link: '/certifications/dsp-toolkit-nhs-tenders'
     },
+    // Facilities Management
     {
       name: 'SFG20',
       sectors: 'FM, Maintenance',
@@ -181,6 +243,33 @@ export default function CertificationsHubPage() {
       cost: '£500+/year',
       time: 'Subscription',
       link: '/certifications/sfg20-uk-tenders'
+    },
+    // Payment & Data
+    {
+      name: 'PCI DSS',
+      sectors: 'Payments',
+      status: 'Mandatory',
+      cost: '£2k-£15k',
+      time: '3-6 months',
+      link: '/certifications/pci-dss-uk-tenders'
+    },
+    // Social Value
+    {
+      name: 'SMETA/Sedex',
+      sectors: 'Food/Goods',
+      status: 'Mandatory (retail)',
+      cost: '£350-£2.5k/yr',
+      time: '1-3 days',
+      link: '/certifications/smeta-sedex-uk-tenders'
+    },
+    // Frameworks
+    {
+      name: 'G-Cloud',
+      sectors: 'Digital/Cloud',
+      status: 'Entry requirement',
+      cost: 'Free (apply)',
+      time: '4-6 weeks',
+      link: '/certifications/g-cloud-uk-digital-tenders'
     }
   ]
 
