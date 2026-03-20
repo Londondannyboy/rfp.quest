@@ -4,11 +4,11 @@ import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'ISO 9001 UK Tenders: Requirements & Cost Guide 2026',
-  description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it's mandatory.',
+  description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it\'s mandatory.',
   keywords: 'ISO 9001 UK tenders, ISO 9001 certification requirements, ISO 9001 government contracts, quality management certification UK, ISO 9001 cost UK',
   openGraph: {
     title: 'ISO 9001 for UK Tenders: Requirements, Cost and How to Get Certified',
-    description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it's mandatory.',
+    description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it\'s mandatory.',
     url: 'https://rfp.quest/certifications/iso-9001-uk-tenders',
     siteName: 'rfp.quest',
     type: 'article',
@@ -23,7 +23,7 @@ export default function Page() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'ISO 9001 for UK Tenders: Requirements, Cost and How to Get Certified',
-    description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it's mandatory.',
+    description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it\'s mandatory.',
     author: {
       '@type': 'Organization',
       name: 'rfp.quest',
