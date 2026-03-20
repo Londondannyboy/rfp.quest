@@ -99,7 +99,7 @@ Winning government contracts often requires specific certifications. Our compreh
       description: 'Understand which ISO standards and certifications you need for government tenders'
     };
     
-    const hasCertFeature = currentFeatures.some(f => 
+    const hasCertFeature = currentFeatures.some((f: any) => 
       f.title && f.title.toLowerCase().includes('certification')
     );
     
