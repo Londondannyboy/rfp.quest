@@ -65,7 +65,7 @@ Winning government contracts often requires specific certifications. Our compreh
     let inserted = false;
     for (const pattern of ctaPatterns) {
       if (pattern.test(updatedContent)) {
-        updatedContent = updatedContent.replace(pattern, (match) => {
+        updatedContent = updatedContent.replace(pattern, (match: string) => {
           return certificationSection + '\n' + match;
         });
         inserted = true;
