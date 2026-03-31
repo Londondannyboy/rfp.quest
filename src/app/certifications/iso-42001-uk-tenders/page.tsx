@@ -3,14 +3,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'ISO 42001 UK Tenders: AI Cert Guide 2026 | rfp.quest',
+  title: 'ISO 42001 UK Tenders: AI Cert Guide 2026 | RFP Platform Quest',
   description: 'ISO 42001 AI management certification is now required for UK AI contracts. EU AI Act enforcement begins Aug 2026. Costs from £8,000. Complete guide.',
   keywords: 'ISO 42001 UK tenders, AI management certification UK government, ISO 42001 cost UK, AI governance certification public sector, ISO 42001 procurement',
   openGraph: {
     title: 'ISO 42001 UK Tenders: AI Certification Guide 2026',
     description: 'ISO 42001 AI management certification is now required for UK AI contracts. EU AI Act enforcement begins Aug 2026. Complete guide.',
     url: 'https://rfp.quest/certifications/iso-42001-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function ISO42001Page() {
     description: 'ISO 42001 AI management certification is now required for UK AI contracts. EU AI Act enforcement begins Aug 2026. Costs from £8,000. Complete guide.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -612,7 +612,7 @@ export default function ISO42001Page() {
               </li>
               <li>
                 <Link href="/" className="text-blue-600 hover:underline">
-                  rfp.quest - UK RFP intelligence platform
+                  RFP Platform Quest - UK RFP intelligence platform
                 </Link>
               </li>
             </ul>

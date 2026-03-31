@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'ISO 9001 for UK Tenders: Requirements, Cost and How to Get Certified',
     description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it\'s mandatory.',
     url: 'https://rfp.quest/certifications/iso-9001-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function Page() {
     description: 'ISO 9001 is the most requested certification in UK government tenders. Learn what it costs (from £2,500), how long it takes, and when it\'s mandatory.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -159,7 +159,7 @@ export default function Page() {
               </li>
               <li>
                 <Link href="/" className="text-blue-600 hover:underline">
-                  rfp.quest - UK RFP platform
+                  RFP Platform Quest - UK RFP platform
                 </Link>
               </li>
             </ul>

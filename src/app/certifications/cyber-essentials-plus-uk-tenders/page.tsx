@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Cyber Essentials Plus for UK Government Contracts: Complete Guide',
     description: 'Cyber Essentials Plus is mandatory for MOD contracts and NHS digital services. Learn the difference from basic CE, costs, timeline and technical audit requirements.',
     url: 'https://rfp.quest/certifications/cyber-essentials-plus-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function CyberEssentialsPlusUKTendersPage() {
     description: 'Cyber Essentials Plus is mandatory for MOD contracts and NHS digital services. Learn the difference from basic CE, costs, timeline and technical audit requirements.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

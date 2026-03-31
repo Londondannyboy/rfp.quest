@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!tender) {
     return {
-      title: 'Tender Not Found | RFP.quest',
+      title: 'Tender Not Found | RFP Platform Quest',
       description: 'The requested tender could not be found.',
     };
   }
@@ -71,7 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // SEO-optimized description with keywords
   const seoDescription = tender.description
     ? `${tender.description.substring(0, 120)}... ${tender.buyerName} ${tender.stage} contract worth ${valueText}. View full details, deadlines, and requirements.`
-    : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP.quest.`;
+    : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP Platform Quest.`;
 
   return {
     title: seoTitle,
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seoDescription.substring(0, 200),
       type: 'article',
       url: `https://rfp.quest/tender/${tender.slug}`,
-      siteName: 'RFP.quest',
+      siteName: 'RFP Platform Quest',
       images: [
         {
           url: 'https://rfp.quest/og-tender.png',

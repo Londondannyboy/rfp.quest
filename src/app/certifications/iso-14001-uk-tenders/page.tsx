@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'ISO 14001 for UK Tenders: Environmental Certification Guide 2026',
     description: 'ISO 14001 environmental management is increasingly required for UK Works and FM tenders. Complete guide to requirements and costs.',
     url: 'https://rfp.quest/certifications/iso-14001-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function ISO14001Page() {
     description: 'ISO 14001 environmental management is increasingly required for UK Works and FM tenders. Costs from £1,300. See which contracts need it and how to get it.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -482,7 +482,7 @@ export default function ISO14001Page() {
               href="/"
               className="inline-block bg-white text-green-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
             >
-              Try rfp.quest Free →
+              Try RFP Platform Quest Free →
             </Link>
           </div>
 
@@ -506,7 +506,7 @@ export default function ISO14001Page() {
               </li>
               <li>
                 <Link href="/" className="text-blue-600 hover:underline">
-                  rfp.quest - UK RFP intelligence platform
+                  RFP Platform Quest - UK RFP intelligence platform
                 </Link>
               </li>
             </ul>

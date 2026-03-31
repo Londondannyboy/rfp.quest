@@ -37,7 +37,7 @@ export default async function AuthPage({ params }: { params: Promise<{ path: str
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-2 group">
             <span className="text-3xl font-bold text-indigo-600">RFP</span>
-            <span className="text-3xl font-medium text-gray-900">.quest</span>
+            <span className="text-3xl font-medium text-gray-900"> Platform Quest</span>
           </Link>
           <p className="mt-2 text-sm text-gray-500">
             UK Government Tender Analysis

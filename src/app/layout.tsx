@@ -7,10 +7,10 @@ import { QueryProvider } from "@/lib/providers/query-provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "RFP Platform & RFP Software UK | AI Bid Management",
+    default: "RFP Platform Quest | RFP Software UK | AI Bid Management",
     template: "%s | RFP Platform Quest",
   },
-  description: "Leading RFP platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.",
+  description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.",
   keywords: [
     "RFP platform",
     "RFP platform UK",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   publisher: "RFP Platform Quest",
   category: "Business Software",
   openGraph: {
-    title: "RFP Platform & RFP Software UK | AI Bid Management",
-    description: "Leading RFP platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.",
+    title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
+    description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.",
     url: "https://rfp.quest",
     siteName: "RFP Platform Quest",
     locale: "en_GB",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RFP Platform UK | AI-Powered Bid Management",
-    description: "RFP Platform and RFP software for UK businesses. AI-powered bid writing and proposal management.",
+    title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
+    description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing and proposal management.",
   },
   alternates: {
     canonical: "https://rfp.quest",

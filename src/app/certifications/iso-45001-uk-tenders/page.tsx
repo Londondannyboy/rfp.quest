@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'ISO 45001 for UK Tenders: Complete Health & Safety Certification Guide',
     description: 'ISO 45001 is the leading health and safety certification for UK construction, FM and engineering contracts. Learn costs (from £5k), timeline (3-6 months) and when it\'s required.',
     url: 'https://rfp.quest/certifications/iso-45001-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function ISO45001UKTendersPage() {
     description: 'ISO 45001 is the leading health and safety certification for UK construction, FM and engineering contracts. Learn costs, timeline and when it\'s required.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

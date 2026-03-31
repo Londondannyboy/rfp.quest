@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'ISO 27001 for UK Tenders: Information Security Certification Guide',
     description: 'ISO 27001 is increasingly mandatory for NHS and digital government tenders. Complete guide to requirements, costs, and implementation.',
     url: 'https://rfp.quest/certifications/iso-27001-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function ISO27001Page() {
     description: 'ISO 27001 is increasingly mandatory for NHS and digital government tenders in the UK. Costs, timelines and which contracts require it — complete 2026 guide.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -573,7 +573,7 @@ export default function ISO27001Page() {
               href="/"
               className="inline-block bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
             >
-              Try rfp.quest Free →
+              Try RFP Platform Quest Free →
             </Link>
           </div>
 
@@ -603,7 +603,7 @@ export default function ISO27001Page() {
               </li>
               <li>
                 <Link href="/" className="text-blue-600 hover:underline">
-                  rfp.quest - UK RFP intelligence platform
+                  RFP Platform Quest - UK RFP intelligence platform
                 </Link>
               </li>
             </ul>

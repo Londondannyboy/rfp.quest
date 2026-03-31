@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'SFG20 for UK Facilities Management: Complete Standards Guide',
     description: 'SFG20 provides industry-standard maintenance specifications for UK buildings. Essential for FM contracts and compliance.',
     url: 'https://rfp.quest/certifications/sfg20-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function SFG20UKTendersPage() {
     description: 'SFG20 provides industry-standard maintenance specifications for UK buildings. Essential for FM contracts and compliance.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Constructionline for UK Government Contracts: Complete Certification Guide',
     description: 'Constructionline is the UK government\'s official PQQ database. Learn about Gold/Silver levels, costs, and which frameworks require certification.',
     url: 'https://rfp.quest/certifications/constructionline-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function ConstructionlineUKTendersPage() {
     description: 'Constructionline is the UK government\'s official PQQ database. Learn about Gold/Silver levels, costs, and which frameworks require certification.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

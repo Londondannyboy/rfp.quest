@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'CHAS Certification for UK Tenders: Complete Contractor Guide',
     description: 'CHAS is the leading SSIP scheme for UK construction and FM contracts. Learn costs, timeline, and which councils require CHAS accreditation.',
     url: 'https://rfp.quest/certifications/chas-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function CHASUKTendersPage() {
     description: 'CHAS is the leading SSIP scheme for UK construction and FM contracts. Learn costs, timeline, and which councils require CHAS accreditation.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

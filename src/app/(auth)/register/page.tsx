@@ -35,7 +35,7 @@ export default function RegisterPage() {
         <div>
           <Link href="/" className="flex justify-center items-center gap-2">
             <span className="text-3xl font-bold text-indigo-600">RFP</span>
-            <span className="text-3xl font-medium text-gray-900">.quest</span>
+            <span className="text-3xl font-medium text-gray-900"> Platform Quest</span>
           </Link>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Create your account

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'SafeContractor for UK Government Contracts: Complete SSIP Guide',
     description: 'SafeContractor is a leading SSIP scheme for UK utilities, FM and construction. Learn costs, timeline, and which sectors require accreditation.',
     url: 'https://rfp.quest/certifications/safecontractor-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function SafeContractorUKTendersPage() {
     description: 'SafeContractor is a leading SSIP scheme for UK utilities, FM and construction. Learn costs, timeline, and which sectors require accreditation.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

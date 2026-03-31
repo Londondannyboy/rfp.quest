@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Cyber Essentials for UK Tenders: Is It Mandatory in 2026?',
     description: 'Cyber Essentials is now mandatory for G-Cloud 15 and most central government contracts. Costs from £320. See who needs it and how to get certified fast.',
     url: 'https://rfp.quest/certifications/cyber-essentials-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function Page() {
     description: 'Cyber Essentials is now mandatory for G-Cloud 15 and most central government contracts. Costs from £320. See who needs it and how to get certified fast.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -159,7 +159,7 @@ export default function Page() {
               </li>
               <li>
                 <Link href="/" className="text-blue-600 hover:underline">
-                  rfp.quest - UK RFP platform
+                  RFP Platform Quest - UK RFP platform
                 </Link>
               </li>
             </ul>

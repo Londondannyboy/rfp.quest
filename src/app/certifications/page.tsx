@@ -3,14 +3,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'UK Procurement Certifications Guide 2026 | rfp.quest',
+  title: 'UK Procurement Certifications Guide 2026 | RFP Platform Quest',
   description: 'Which certifications do you need to win UK government tenders? Complete guide to ISO, Cyber Essentials, CHAS, and more. Updated 2026.',
   keywords: 'UK procurement certifications, UK tender certifications, ISO certification tenders, government contract certifications, public sector certifications UK',
   openGraph: {
     title: 'UK Procurement Certifications: Complete Guide for Tender Bidders',
     description: 'Which certifications do you need to win UK government tenders? Complete guide to ISO, Cyber Essentials, CHAS, and more.',
     url: 'https://rfp.quest/certifications/',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'website',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function CertificationsHubPage() {
     description: 'Which certifications do you need to win UK government tenders? Complete guide to ISO, Cyber Essentials, CHAS, and more. Updated 2026.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     dateModified: new Date().toISOString().split('T')[0],
@@ -797,7 +797,7 @@ export default function CertificationsHubPage() {
               href="/"
               className="inline-block bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
             >
-              Try rfp.quest Free →
+              Try RFP Platform Quest Free →
             </Link>
           </div>
 
@@ -832,7 +832,7 @@ export default function CertificationsHubPage() {
           </div>
           <div className="mt-6">
             <Link href="/" className="text-blue-600 hover:underline">
-              rfp.quest - UK RFP intelligence platform
+              RFP Platform Quest - UK RFP intelligence platform
             </Link>
           </div>
         </nav>

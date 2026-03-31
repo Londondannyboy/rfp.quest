@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'DSP Toolkit for NHS Contracts: Complete Compliance Guide',
     description: 'DSP Toolkit is mandatory for all NHS digital suppliers. Learn requirements, costs, and how to achieve Standards Met status.',
     url: 'https://rfp.quest/certifications/dsp-toolkit-nhs-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function DSPToolkitNHSTendersPage() {
     description: 'DSP Toolkit is mandatory for all NHS digital suppliers. Learn requirements, costs, and how to achieve Standards Met status.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

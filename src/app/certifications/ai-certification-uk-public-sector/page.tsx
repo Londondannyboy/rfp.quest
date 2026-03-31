@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'AI Certification for UK Public Sector: Preparing for ISO 42001 & EU AI Act',
     description: 'The August 2026 EU AI Act deadline will transform UK AI procurement. Learn how ISO 42001 certification ensures compliance.',
     url: 'https://rfp.quest/certifications/ai-certification-uk-public-sector',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function AICertificationUKPublicSectorPage() {
     description: 'The August 2026 EU AI Act deadline will transform UK AI procurement. Learn how ISO 42001 certification ensures compliance.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

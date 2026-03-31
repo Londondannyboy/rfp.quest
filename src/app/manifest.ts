@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next';
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'RFP Platform Quest',
-    short_name: 'RFP Quest',
+    short_name: 'RFP Platform Quest',
     description: 'RFP Platform and RFP software for UK businesses. AI-powered bid writing and proposal management.',
     start_url: '/',
     display: 'standalone',

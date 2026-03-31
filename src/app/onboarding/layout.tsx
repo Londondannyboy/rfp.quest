@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Set Up Your Company Profile | RFP Quest',
+  title: 'Set Up Your Company Profile | RFP Platform Quest',
   description: 'Complete your company profile to get personalized tender matches.',
 };
 

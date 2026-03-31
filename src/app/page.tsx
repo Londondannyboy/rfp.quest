@@ -38,8 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getHomepage();
   if (!page) {
     return {
-      title: 'RFP Platform UK | AI-Powered RFP Software & Bid Management',
-      description: 'RFP Platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders with RFP Platform Quest.',
+      title: 'RFP Platform Quest | RFP Software UK | AI Bid Management',
+      description: 'RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.',
     };
   }
 
@@ -74,7 +74,7 @@ export default async function Home() {
       <div className="px-4 py-20">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-4">RFP Platform Quest</h1>
-          <p className="text-lg text-gray-600">AI-powered RFP and tender management software. Coming soon.</p>
+          <p className="text-lg text-gray-600">AI-powered RFP software for tender management and bid writing. Coming soon.</p>
         </div>
       </div>
     );
@@ -89,9 +89,9 @@ export default async function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "RFP Platform Quest",
-    "alternateName": ["RFP Platform", "RFP Software", "rfp.quest"],
+    "alternateName": ["RFP Platform Quest", "RFP Software", "RFP Platform", "rfp.quest"],
     "url": "https://rfp.quest",
-    "description": "RFP Platform and RFP software for UK businesses. AI-powered bid writing, compliance checking, and proposal management.",
+    "description": "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management.",
     "inLanguage": "en-GB",
     "potentialAction": {
       "@type": "SearchAction",

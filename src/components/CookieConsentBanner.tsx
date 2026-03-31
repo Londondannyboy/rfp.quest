@@ -28,7 +28,7 @@ export function CookieConsentBanner() {
     <div className="fixed bottom-0 left-0 right-0 bg-slate-900 border-t border-slate-700/50 p-4 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-slate-300 text-center sm:text-left">
-          We use cookies to improve your experience on RFP Quest. By continuing, you agree to our{' '}
+          We use cookies to improve your experience on RFP Platform Quest. By continuing, you agree to our{' '}
           <Link href="/privacy" className="text-teal-400 hover:text-teal-300 underline">
             Privacy Policy
           </Link>

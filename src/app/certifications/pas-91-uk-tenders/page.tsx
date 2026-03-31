@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'PAS 91 for UK Construction: Complete PQQ Standardisation Guide',
     description: 'PAS 91 standardises construction pre-qualification across UK public sector. Learn how it reduces costs and streamlines tender processes.',
     url: 'https://rfp.quest/certifications/pas-91-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function PAS91UKTendersPage() {
     description: 'PAS 91 standardises construction pre-qualification across UK public sector. Learn how it reduces costs and streamlines tender processes.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

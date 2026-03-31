@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'SSIP for UK Tenders: Complete Guide to Safety Schemes in Procurement',
     description: 'SSIP mutual recognition means one H&S assessment works across multiple schemes. Learn how CHAS, SafeContractor, and others work together.',
     url: 'https://rfp.quest/certifications/ssip-uk-tenders',
-    siteName: 'rfp.quest',
+    siteName: 'RFP Platform Quest',
     type: 'article',
   },
   alternates: {
@@ -26,12 +26,12 @@ export default function SSIPUKTendersPage() {
     description: 'SSIP mutual recognition means one H&S assessment works across multiple schemes. Learn how CHAS, SafeContractor, and others work together.',
     author: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     publisher: {
       '@type': 'Organization',
-      name: 'rfp.quest',
+      name: 'RFP Platform Quest',
       url: 'https://rfp.quest'
     },
     datePublished: '2024-03-20',

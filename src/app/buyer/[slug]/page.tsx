@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!buyer) {
     return {
-      title: 'Organization Not Found | RFP.quest',
+      title: 'Organization Not Found | RFP Platform Quest',
       description: 'The requested organization could not be found.',
     };
   }
@@ -89,7 +89,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seoDescription.substring(0, 200),
       type: 'website',
       url: `https://rfp.quest/buyer/${buyer.slug}`,
-      siteName: 'RFP.quest',
+      siteName: 'RFP Platform Quest',
     },
     alternates: {
       canonical: `https://rfp.quest/buyer/${buyer.slug}`,
