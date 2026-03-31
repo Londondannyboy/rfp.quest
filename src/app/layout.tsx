@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     type: "website",
     countryName: "United Kingdom",
-    images: [{ url: "https://rfp.quest/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Logo.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
+    images: [{ url: "https://rfp.quest/og-image.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
     description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing and proposal management.",
-    images: ["https://rfp.quest/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Logo.png"],
+    images: ["https://rfp.quest/og-image.png"],
   },
   alternates: {
     canonical: "https://rfp.quest",
