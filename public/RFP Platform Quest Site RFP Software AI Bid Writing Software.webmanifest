@@ -1,0 +1,21 @@
+{
+  "name": "RFP Platform Quest RFP Software AI Bid Writing",
+  "short_name": "RFP Platform Quest",
+  "icons": [
+    {
+      "src": "/RFP%20Platform%20Quest%20Web%20App%20Manifest%20192x192%20RFP%20Software%20AI%20Bid%20Writing%20Software.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/RFP%20Platform%20Quest%20Web%20App%20Manifest%20512x512%20RFP%20Software%20AI%20Bid%20Writing%20Software.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

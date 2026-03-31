@@ -72,11 +72,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB">
       <head>
         {/* Favicon */}
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#4285F4" />
+        <link rel="icon" type="image/png" href="/RFP%20Platform%20Quest%20Favicon%2096x96%20RFP%20Software%20AI%20Bid%20Writing%20Software.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/RFP%20Platform%20Quest%20Favicon%20RFP%20Software%20AI%20Bid%20Writing%20Software.svg" />
+        <link rel="shortcut icon" href="/RFP%20Platform%20Quest%20Favicon%20RFP%20Software%20AI%20Bid%20Writing%20Software.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/RFP%20Platform%20Quest%20Apple%20Touch%20Icon%20RFP%20Software%20AI%20Bid%20Writing%20Software.png" />
+        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest RFP Software AI Bid Writing" />
+        <link rel="manifest" href="/RFP%20Platform%20Quest%20Site%20RFP%20Software%20AI%20Bid%20Writing%20Software.webmanifest" />
         {/* Preconnect */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
