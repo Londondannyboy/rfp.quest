@@ -73,11 +73,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <head>
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon%2096x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon.svg" />
-        <link rel="shortcut icon" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Apple%20Touch%20Icon%20180x180.png" />
+        {/* Favicon - RFP Platform Quest branding */}
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-title" content="RFP Platform Quest RFP Software AI Tender Writing" />
         <link rel="manifest" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Site.webmanifest" />
         {/* Preconnect */}

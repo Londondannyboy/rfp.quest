@@ -11,7 +11,7 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0F766E',
     icons: [
       {
-        src: '/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon.svg',
+        src: '/favicon.svg',
         sizes: '48x48',
         type: 'image/svg+xml',
       },
