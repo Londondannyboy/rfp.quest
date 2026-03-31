@@ -11,19 +11,21 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0F766E',
     icons: [
       {
-        src: '/icon.svg',
+        src: '/RFP%20Platform%20Quest%20Favicon%20RFP%20Software%20AI%20Bid%20Writing%20Software.svg',
         sizes: '48x48',
         type: 'image/svg+xml',
       },
       {
-        src: '/icon.svg',
+        src: '/RFP%20Platform%20Quest%20Web%20App%20Manifest%20192x192%20RFP%20Software%20AI%20Bid%20Writing%20Software.png',
         sizes: '192x192',
-        type: 'image/svg+xml',
+        type: 'image/png',
+        purpose: 'maskable',
       },
       {
-        src: '/icon.svg',
+        src: '/RFP%20Platform%20Quest%20Web%20App%20Manifest%20512x512%20RFP%20Software%20AI%20Bid%20Writing%20Software.png',
         sizes: '512x512',
-        type: 'image/svg+xml',
+        type: 'image/png',
+        purpose: 'maskable',
       },
     ],
     categories: ['business', 'productivity'],
