@@ -52,7 +52,7 @@ export function Navbar() {
               <span className="text-teal-600">RFP</span> Platform <span className="text-teal-600">Quest</span>
             </Link>
             <span className="px-2 py-0.5 text-xs font-bold bg-amber-600 text-black rounded uppercase">Beta</span>
-            <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">Launching Q1 2026</span>
+            <span className="hidden sm:inline text-xs text-gray-500 dark:text-gray-400">Launching Q2 2026</span>
           </div>
 
           {/* Desktop Nav */}

@@ -248,7 +248,7 @@ export default async function Page({ params }: PageProps) {
       {isCommercial && (
         <CTABanner
           title="Ready to Win More Bids?"
-          subtitle="Join UK businesses preparing to use RFP Platform Quest. Register early for exclusive access when we launch in Q1 2026."
+          subtitle="Join UK businesses preparing to use RFP Platform Quest. Register early for exclusive access when we launch in Q2 2026."
           primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
           secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
           variant="gradient"

@@ -28,7 +28,7 @@ export default function DemoPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
                 </span>
-                Launching Q1 2026
+                Launching Q2 2026
               </div>
 
               <h1 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight text-gray-900 dark:text-white leading-[1.1]">
