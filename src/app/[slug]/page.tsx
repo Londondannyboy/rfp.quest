@@ -247,10 +247,10 @@ export default async function Page({ params }: PageProps) {
       {/* CTA Section for commercial pages */}
       {isCommercial && (
         <CTABanner
-          title="Ready to Win More Bids?"
-          subtitle="Join UK businesses preparing to use RFP Platform Quest. Register early for exclusive access when we launch in Q2 2026."
+          title="Ready to Try Our RFP Software?"
+          subtitle="Join UK businesses preparing to use RFP Platform Quest — the RFP software built for winning. Register early for exclusive access when we launch in Q2 2026."
           primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
-          secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
+          secondaryCta={{ text: 'Explore RFP Software', href: '/' }}
           variant="gradient"
         />
       )}

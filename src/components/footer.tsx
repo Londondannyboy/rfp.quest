@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 const softwareLinks = [
+  { href: '/', label: 'RFP Software Home' },
   { href: '/rfp-platform', label: 'RFP Platform' },
-  { href: '/rfp-software', label: 'RFP Software' },
   { href: '/rfp-uk', label: 'RFP UK' },
   { href: '/ai-tender-writing-platform', label: 'AI Tender Writing' },
   { href: '/ai-rfp-discovery', label: 'AI Discovery' },
@@ -45,7 +45,7 @@ export function Footer() {
               <span className="text-teal-600">RFP</span> Platform <span className="text-teal-600">Quest</span>
             </Link>
             <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-              AI-powered RFP and tender management software for UK procurement teams.
+              AI-powered <Link href="/" className="text-teal-600 hover:underline">RFP software</Link> and tender management platform for UK procurement teams.
             </p>
           </div>
 

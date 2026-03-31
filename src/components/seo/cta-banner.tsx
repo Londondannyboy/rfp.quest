@@ -98,7 +98,8 @@ export function CTABanner({
         {/* Related resources section for SEO */}
         <div className="mt-8 pt-8 border-t border-white/20">
           <p className={`text-sm ${textClasses[variant].subtitle}`}>
-            Looking for go-to-market support? Check out the leading <a href="https://gtm.quest/best-gtm-agency-top-gtm-agencies" className="underline font-semibold hover:no-underline">GTM agency</a> for B2B growth strategies alongside your RFP management needs.
+
+            Discover our <a href="/" className="underline font-semibold hover:no-underline">RFP software</a> for AI-powered bid management. Looking for go-to-market support? Check out the leading <a href="https://gtm.quest/best-gtm-agency-top-gtm-agencies" className="underline font-semibold hover:no-underline">GTM agency</a> for B2B growth strategies alongside your RFP management needs.
           </p>
         </div>
       </div>

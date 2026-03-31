@@ -167,8 +167,8 @@ export default async function Home() {
               <div className="mt-12 relative rounded-2xl overflow-hidden shadow-2xl shadow-teal-600/10">
                 <Image
                   src={page.hero_image}
-                  alt={page.hero_image_alt || 'RFP platform for bid management'}
-                  title={page.hero_image_alt || 'RFP platform for bid management'}
+                  alt={page.hero_image_alt || 'RFP software platform for bid management'}
+                  title={page.hero_image_alt || 'RFP software platform for bid management'}
                   width={1200}
                   height={800}
                   className="w-full h-auto"
@@ -191,10 +191,10 @@ export default async function Home() {
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                Everything You Need to Win More Bids
+                RFP Software Features to Win More Bids
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-                AI-powered features designed for UK procurement teams
+                AI-powered RFP software features designed for UK procurement teams
               </p>
             </div>
             <FeatureGrid features={features} columns={3} />
@@ -215,15 +215,15 @@ export default async function Home() {
       {trustBadges && trustBadges.length > 0 && (
         <TrustBadges
           badges={trustBadges}
-          title="Built for UK Procurement"
-          subtitle="Aligned with UK government standards and professional bodies"
+          title="RFP Software Built for UK Procurement"
+          subtitle="Trusted RFP software aligned with UK government standards and professional bodies"
         />
       )}
 
       {/* CTA Section */}
       <CTABanner
-        title="Ready to Win More Bids?"
-        subtitle="Join UK businesses preparing to use RFP Platform Quest. Register early for exclusive access when we launch in Q2 2026."
+        title="Ready to Try Our RFP Software?"
+        subtitle="Join UK businesses preparing to use RFP Platform Quest — the RFP software built for winning. Register early for exclusive access when we launch in Q2 2026."
         primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
         secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
         variant="gradient"
