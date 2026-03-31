@@ -27,14 +27,19 @@ async function getTender(slug: string) {
   if (result.length === 0) return null;
 
   const row = result[0];
+  const validStages = ['planning', 'tender', 'award', 'contract'] as const;
+  const rawStage = row.stage as string;
+  const stage = validStages.includes(rawStage as typeof validStages[number])
+    ? (rawStage as 'planning' | 'tender' | 'award' | 'contract')
+    : 'tender';
   return {
     ocid: row.ocid as string,
     slug: row.slug as string,
     title: row.title as string,
     description: row.description as string | null,
-    stage: row.stage as 'planning' | 'tender' | 'award' | 'contract',
+    stage,
     status: row.status as string | null,
-    buyerName: row.buyer_name as string,
+    buyerName: (row.buyer_name as string) || 'Unknown Organisation',
     buyerId: row.buyer_id as string | null,
     valueMin: row.value_min ? Number(row.value_min) : null,
     valueMax: row.value_max ? Number(row.value_max) : null,
