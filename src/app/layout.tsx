@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     type: "website",
     countryName: "United Kingdom",
-    images: [{ url: "https://rfp.quest/rfp-platform-quest-rfp-software-ai-tender-writing-logo.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
+    images: [{ url: "https://rfp.quest/og-image.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
     description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing and proposal management.",
-    images: ["https://rfp.quest/rfp-platform-quest-rfp-software-ai-tender-writing-logo.png"],
+    images: ["https://rfp.quest/og-image.png"],
   },
   alternates: {
     canonical: "https://rfp.quest",
@@ -73,13 +73,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <head>
-        {/* Favicon - RFP Platform Quest branding */}
-        <link rel="icon" type="image/png" href="/rfp-platform-quest-rfp-software-ai-tender-writing-favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/rfp-platform-quest-rfp-software-ai-tender-writing-favicon.svg" />
-        <link rel="shortcut icon" href="/rfp-platform-quest-rfp-software-ai-tender-writing-favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/rfp-platform-quest-rfp-software-ai-tender-writing-apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest RFP Software AI Tender Writing" />
-        <link rel="manifest" href="/rfp-platform-quest-rfp-software-ai-tender-writing.webmanifest" />
+        {/* Favicon */}
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest" />
+        <link rel="manifest" href="/site.webmanifest" />
         {/* Preconnect */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />

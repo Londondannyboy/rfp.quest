@@ -100,7 +100,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       siteName: 'RFP Platform Quest',
       images: [
         {
-          url: 'https://rfp.quest/rfp-platform-quest-rfp-software-ai-tender-writing-logo.png',
+          url: 'https://rfp.quest/og-image.png',
           width: 1200,
           height: 630,
           alt: tender.title,
