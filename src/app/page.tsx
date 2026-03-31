@@ -57,11 +57,13 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: 'RFP Platform Quest',
       locale: 'en_GB',
       type: 'website',
+      images: [{ url: 'https://rfp.quest/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png', width: 1200, height: 630, alt: 'RFP Platform Quest — RFP Software for AI Tender Writing' }],
     },
     twitter: {
       card: 'summary_large_image',
       title: page.h1,
       description: page.meta_description,
+      images: ['https://rfp.quest/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png'],
     },
   };
 }

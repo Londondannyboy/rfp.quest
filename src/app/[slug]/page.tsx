@@ -77,13 +77,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       siteName: 'RFP Platform Quest',
       locale: 'en_GB',
       type: page.intent === 'informational' ? 'article' : 'website',
-      images: page.og_image ? [{ url: page.og_image, width: 1200, height: 630, alt: page.hero_image_alt || page.h1 }] : undefined,
+      images: [{ url: page.og_image || `${baseUrl}/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png`, width: 1200, height: 630, alt: page.hero_image_alt || page.h1 }],
     },
     twitter: {
       card: 'summary_large_image',
       title: page.h1,
       description: page.meta_description,
-      images: page.og_image ? [page.og_image] : undefined,
+      images: [page.og_image || `${baseUrl}/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png`],
     },
   };
 }
