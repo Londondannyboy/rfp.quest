@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     locale: "en_GB",
     type: "website",
     countryName: "United Kingdom",
-    images: [{ url: "https://rfp.quest/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
+    images: [{ url: "https://rfp.quest/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Logo.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
     description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing and proposal management.",
-    images: ["https://rfp.quest/RFP%20Platform%20Quest%20LOGO%20RFP%20Software%20AI%20Bid%20Writing%20Software.png"],
+    images: ["https://rfp.quest/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Logo.png"],
   },
   alternates: {
     canonical: "https://rfp.quest",
@@ -74,12 +74,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-GB">
       <head>
         {/* Favicon */}
-        <link rel="icon" type="image/png" href="/RFP%20Platform%20Quest%20Favicon%2096x96%20RFP%20Software%20AI%20Bid%20Writing%20Software.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/RFP%20Platform%20Quest%20Favicon%20RFP%20Software%20AI%20Bid%20Writing%20Software.svg" />
-        <link rel="shortcut icon" href="/RFP%20Platform%20Quest%20Favicon%20RFP%20Software%20AI%20Bid%20Writing%20Software.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/RFP%20Platform%20Quest%20Apple%20Touch%20Icon%20RFP%20Software%20AI%20Bid%20Writing%20Software.png" />
-        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest RFP Software AI Bid Writing" />
-        <link rel="manifest" href="/RFP%20Platform%20Quest%20Site%20RFP%20Software%20AI%20Bid%20Writing%20Software.webmanifest" />
+        <link rel="icon" type="image/png" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon%2096x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon.svg" />
+        <link rel="shortcut icon" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Apple%20Touch%20Icon%20180x180.png" />
+        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest RFP Software AI Tender Writing" />
+        <link rel="manifest" href="/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Site.webmanifest" />
         {/* Preconnect */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
