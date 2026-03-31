@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { CopilotKit, useCopilotReadable } from '@copilotkit/react-core';
 import { CopilotSidebar } from '@copilotkit/react-ui';
 import '@copilotkit/react-ui/styles.css';
@@ -10,16 +11,7 @@ import { BuyerProfile } from '@/components/tender-viz/BuyerProfile';
 import { TenderStats } from '@/components/tender-viz/TenderStats';
 import { KeyDates } from '@/components/tender-viz/KeyDates';
 import { CPVExplorer } from '@/components/tender-viz/CPVExplorer';
-import { InteractiveHeroGraph } from '@/components/tender-viz/InteractiveHeroGraph';
 import { ScopeOfWork } from '@/components/tender-viz/ScopeOfWork';
-import { RelatedTenders } from '@/components/tender-viz/RelatedTenders';
-import { SectorBubbleChart } from '@/components/tender-viz/SectorBubbleChart';
-import { BuyerNetworkGraph } from '@/components/tender-viz/BuyerNetworkGraph';
-import {
-  TenderDetailDashboard,
-  TenderMatchGauge,
-  MarketActivityChart,
-} from '@/components/tender-viz/TenderDetailCharts';
 import {
   ArrowLeftIcon,
   ArrowTopRightOnSquareIcon,
@@ -29,6 +21,15 @@ import {
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { MatchAnalysisCard } from '@/components/tenders/MatchAnalysisCard';
+
+// Lazy-load heavy visualization components (below the fold)
+const InteractiveHeroGraph = dynamic(() => import('@/components/tender-viz/InteractiveHeroGraph').then(m => ({ default: m.InteractiveHeroGraph })), { ssr: false });
+const RelatedTenders = dynamic(() => import('@/components/tender-viz/RelatedTenders').then(m => ({ default: m.RelatedTenders })), { ssr: false });
+const SectorBubbleChart = dynamic(() => import('@/components/tender-viz/SectorBubbleChart').then(m => ({ default: m.SectorBubbleChart })), { ssr: false });
+const BuyerNetworkGraph = dynamic(() => import('@/components/tender-viz/BuyerNetworkGraph').then(m => ({ default: m.BuyerNetworkGraph })), { ssr: false });
+const TenderDetailDashboard = dynamic(() => import('@/components/tender-viz/TenderDetailCharts').then(m => ({ default: m.TenderDetailDashboard })), { ssr: false });
+const TenderMatchGauge = dynamic(() => import('@/components/tender-viz/TenderDetailCharts').then(m => ({ default: m.TenderMatchGauge })), { ssr: false });
+const MarketActivityChart = dynamic(() => import('@/components/tender-viz/TenderDetailCharts').then(m => ({ default: m.MarketActivityChart })), { ssr: false });
 
 // Helper to create buyer slug
 function slugifyBuyer(name: string): string {
