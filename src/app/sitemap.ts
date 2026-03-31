@@ -15,11 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ORDER BY search_volume DESC
   `;
 
-  // Get all tender pages
+  // Get tender pages (exclude cancelled/terminated)
   const tenders = await sql`
     SELECT slug, updated_at, stage
     FROM tenders
     WHERE slug IS NOT NULL
+      AND stage NOT IN ('tenderCancellation', 'contractTermination')
     ORDER BY published_date DESC
   `;
 
