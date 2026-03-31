@@ -54,47 +54,54 @@ async function getBuyer(slug: string) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const buyer = await getBuyer(slug);
+  try {
+    const { slug } = await params;
+    const buyer = await getBuyer(slug);
 
-  if (!buyer) {
+    if (!buyer) {
+      return {
+        title: 'Organization Not Found | RFP Platform Quest',
+        description: 'The requested organization could not be found.',
+      };
+    }
+
+    const valueText = buyer.totalValue >= 1000000
+      ? `£${(buyer.totalValue / 1000000).toFixed(1)}M`
+      : buyer.totalValue >= 1000
+      ? `£${(buyer.totalValue / 1000).toFixed(0)}K`
+      : 'Various values';
+
+    const seoTitle = `${buyer.name} Tenders & Contracts | UK Government Procurement`;
+    const seoDescription = `View all ${buyer.totalTenders} UK government tenders from ${buyer.name}. ${buyer.activeTenders} active opportunities worth ${valueText}. Track procurement spending and contract history.`;
+
     return {
-      title: 'Organization Not Found | RFP Platform Quest',
-      description: 'The requested organization could not be found.',
+      title: seoTitle,
+      description: seoDescription.substring(0, 160),
+      keywords: [
+        buyer.name,
+        'UK tenders',
+        'government contracts',
+        'public procurement',
+        buyer.region || 'UK',
+        'contract opportunities',
+      ].filter(Boolean),
+      openGraph: {
+        title: seoTitle,
+        description: seoDescription.substring(0, 200),
+        type: 'website',
+        url: `https://rfp.quest/buyer/${buyer.slug}`,
+        siteName: 'RFP Platform Quest',
+      },
+      alternates: {
+        canonical: `https://rfp.quest/buyer/${buyer.slug}`,
+      },
+    };
+  } catch {
+    return {
+      title: 'UK Government Buyer | RFP Platform Quest',
+      description: 'View UK government buyer procurement history, tenders, and contract details on RFP Platform Quest.',
     };
   }
-
-  const valueText = buyer.totalValue >= 1000000
-    ? `£${(buyer.totalValue / 1000000).toFixed(1)}M`
-    : buyer.totalValue >= 1000
-    ? `£${(buyer.totalValue / 1000).toFixed(0)}K`
-    : 'Various values';
-
-  const seoTitle = `${buyer.name} Tenders & Contracts | UK Government Procurement`;
-  const seoDescription = `View all ${buyer.totalTenders} UK government tenders from ${buyer.name}. ${buyer.activeTenders} active opportunities worth ${valueText}. Track procurement spending and contract history.`;
-
-  return {
-    title: seoTitle,
-    description: seoDescription.substring(0, 160),
-    keywords: [
-      buyer.name,
-      'UK tenders',
-      'government contracts',
-      'public procurement',
-      buyer.region || 'UK',
-      'contract opportunities',
-    ].filter(Boolean),
-    openGraph: {
-      title: seoTitle,
-      description: seoDescription.substring(0, 200),
-      type: 'website',
-      url: `https://rfp.quest/buyer/${buyer.slug}`,
-      siteName: 'RFP Platform Quest',
-    },
-    alternates: {
-      canonical: `https://rfp.quest/buyer/${buyer.slug}`,
-    },
-  };
 }
 
 export default async function BuyerPage({ params }: Props) {

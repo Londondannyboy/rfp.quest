@@ -55,32 +55,33 @@ async function getTender(slug: string) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { ocid } = await params;
-  const tender = await getTender(ocid);
+  try {
+    const { ocid } = await params;
+    const tender = await getTender(ocid);
 
-  if (!tender) {
+    if (!tender) {
+      return {
+        title: 'Tender Not Found | RFP Platform Quest',
+        description: 'The requested tender could not be found.',
+      };
+    }
+
+    const year = new Date(tender.publishedDate).getFullYear();
+    const valueText = tender.valueMax
+      ? `£${(tender.valueMax / 1000000).toFixed(1)}M`
+      : 'Value TBC';
+
+    // SEO-optimized title: "[Title] | [Buyer] Contract [Year]"
+    const seoTitle = `${tender.title} | ${tender.buyerName} Contract ${year}`;
+
+    // SEO-optimized description with keywords
+    const seoDescription = tender.description
+      ? `${tender.description.substring(0, 120)}... ${tender.buyerName} ${tender.stage} contract worth ${valueText}. View full details, deadlines, and requirements.`
+      : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP Platform Quest.`;
+
     return {
-      title: 'Tender Not Found | RFP Platform Quest',
-      description: 'The requested tender could not be found.',
-    };
-  }
-
-  const year = new Date(tender.publishedDate).getFullYear();
-  const valueText = tender.valueMax
-    ? `£${(tender.valueMax / 1000000).toFixed(1)}M`
-    : 'Value TBC';
-
-  // SEO-optimized title: "[Title] | [Buyer] Contract [Year]"
-  const seoTitle = `${tender.title} | ${tender.buyerName} Contract ${year}`;
-
-  // SEO-optimized description with keywords
-  const seoDescription = tender.description
-    ? `${tender.description.substring(0, 120)}... ${tender.buyerName} ${tender.stage} contract worth ${valueText}. View full details, deadlines, and requirements.`
-    : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP Platform Quest.`;
-
-  return {
-    title: seoTitle,
-    description: seoDescription.substring(0, 160),
+      title: seoTitle,
+      description: seoDescription.substring(0, 160),
     keywords: [
       tender.title,
       tender.buyerName,
@@ -119,6 +120,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       follow: true,
     },
   };
+  } catch {
+    return {
+      title: 'UK Government Tender | RFP Platform Quest',
+      description: 'View UK government tender details, deadlines, and requirements on RFP Platform Quest.',
+    };
+  }
 }
 
 export default async function TenderPage({ params }: Props) {
