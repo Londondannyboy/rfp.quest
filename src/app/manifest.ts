@@ -11,18 +11,18 @@ export default function manifest(): MetadataRoute.Manifest {
     theme_color: '#0F766E',
     icons: [
       {
-        src: '/favicon.svg',
+        src: '/rfp-platform-quest-rfp-software-ai-tender-writing-favicon.svg',
         sizes: '48x48',
         type: 'image/svg+xml',
       },
       {
-        src: '/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Manifest%20192x192.png',
+        src: '/rfp-platform-quest-rfp-software-ai-tender-writing-manifest-192x192.png',
         sizes: '192x192',
         type: 'image/png',
         purpose: 'maskable',
       },
       {
-        src: '/RFP%20Platform%20Quest%20RFP%20Software%20AI%20Tender%20Writing%20Manifest%20512x512.png',
+        src: '/rfp-platform-quest-rfp-software-ai-tender-writing-manifest-512x512.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',
