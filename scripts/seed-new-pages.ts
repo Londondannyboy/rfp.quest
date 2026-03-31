@@ -1450,6 +1450,8 @@ Government buyers require extensive compliance documentation. Government tender 
 - Financial statements and references
 - Security clearances and Cyber Essentials status
 
+Organisations tendering for sustainability services should be aware of <a href="https://sustainabilityreportingstandards.co.uk/who-must-comply-uk-srs">UK SRS sustainability reporting requirements</a> that apply to listed companies from January 2027.
+
 Having this documentation organised and current dramatically speeds up tender responses.
 
 ### Social Value Response Support
