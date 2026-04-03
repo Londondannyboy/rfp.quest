@@ -7,10 +7,10 @@ import { QueryProvider } from "@/lib/providers/query-provider";
 
 export const metadata: Metadata = {
   title: {
-    default: "RFP Platform Quest | RFP Software UK | AI Bid Management",
-    template: "%s | RFP Platform Quest",
+    default: "RFP Software | UK RFP Platform for AI Bid Writing",
+    template: "%s | RFP Quest",
   },
-  description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.",
+  description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
   keywords: [
     "RFP platform",
     "RFP platform UK",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   publisher: "RFP Platform Quest",
   category: "Business Software",
   openGraph: {
-    title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
-    description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.",
+    title: "RFP Software | UK RFP Platform for AI Bid Writing",
+    description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
     url: "https://rfp.quest",
     siteName: "RFP Platform Quest",
     locale: "en_GB",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "RFP Platform Quest | RFP Software UK | AI Bid Management",
-    description: "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing and proposal management.",
+    title: "RFP Software | UK RFP Platform for AI Bid Writing",
+    description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
     images: ["https://rfp.quest/og-image.png"],
   },
   alternates: {

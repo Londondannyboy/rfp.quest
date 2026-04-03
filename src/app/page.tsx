@@ -38,8 +38,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const page = await getHomepage();
   if (!page) {
     return {
-      title: 'RFP Platform Quest | RFP Software UK | AI Bid Management',
-      description: 'RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management. Win more tenders.',
+      title: 'RFP Software | UK RFP Platform for AI Bid Writing',
+      description: 'RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.',
     };
   }
 
@@ -93,7 +93,7 @@ export default async function Home() {
     "name": "RFP Platform Quest",
     "alternateName": ["RFP Platform Quest", "RFP Software", "RFP Platform", "rfp.quest"],
     "url": "https://rfp.quest",
-    "description": "RFP Platform Quest — leading RFP software and RFP platform for UK businesses. AI-powered bid writing, compliance checking, and proposal management.",
+    "description": "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
     "inLanguage": "en-GB",
     "potentialAction": {
       "@type": "SearchAction",

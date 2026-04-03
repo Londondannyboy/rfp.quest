@@ -22,6 +22,7 @@ const softwareLinks = [
   { href: '/contracts-finder-uk', label: 'Contracts Finder UK' },
   { href: '/find-a-tender-integration', label: 'Find a Tender Integration' },
   { href: '/free-rfp-software', label: 'Free Trial' },
+  { href: '/best-rfp-software', label: 'Best RFP Software' },
 ];
 
 const guideLinks = [

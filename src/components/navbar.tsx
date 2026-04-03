@@ -16,6 +16,7 @@ const softwareLinks = [
   { href: '/ai-tender-software-smes', label: 'AI for SMEs' },
   { href: '/government-tender-software', label: 'Government Tenders' },
   { href: '/bid-versioning', label: 'Version Control' },
+  { href: '/best-rfp-software', label: 'Best RFP Software' },
 ];
 
 const guideLinks = [
