@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
     <div className="min-h-screen bg-slate-950">
       <div className="max-w-4xl mx-auto px-4 py-16">
         <h1 className="text-4xl font-bold text-white mb-8">Terms of Service</h1>
-        <p className="text-slate-400 mb-8">Last updated: February 2025</p>
+        <p className="text-slate-400 mb-8">Last updated: April 2026</p>
 
         <div className="prose prose-invert prose-slate max-w-none space-y-8">
           <section>
