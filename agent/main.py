@@ -616,6 +616,41 @@ def setup_copilotkit():
             except Exception as e:
                 return json.dumps({"error": str(e)})
 
+        async def sync_person_to_zep_action(email: str, company: str = None, skills: list = None, sector: str = None):
+            """Sync person's profile to Zep skills graph."""
+            try:
+                from tools.zep_graph import sync_person_to_zep
+                result = sync_person_to_zep(email, company, skills, sector)
+                return json.dumps(result)
+            except Exception as e:
+                return json.dumps({"success": False, "error": str(e)})
+
+        async def add_bid_outcome_action(
+            email: str, 
+            contract_name: str, 
+            buyer: str, 
+            value: float = None, 
+            year: int = None, 
+            outcome: str = "win", 
+            role: str = None
+        ):
+            """Add bid win/loss outcome to skills graph."""
+            try:
+                from tools.zep_graph import add_bid_outcome
+                result = add_bid_outcome(email, contract_name, buyer, value, year, outcome, role)
+                return json.dumps(result)
+            except Exception as e:
+                return json.dumps({"success": False, "error": str(e)})
+
+        async def get_user_graph_action(email: str):
+            """Get user's skills graph for visualization."""
+            try:
+                from tools.zep_graph import get_user_graph
+                result = get_user_graph(email)
+                return json.dumps(result)
+            except Exception as e:
+                return json.dumps({"success": False, "error": str(e)})
+
         # Define CopilotKit actions
         actions = [
             CopilotAction(
@@ -738,6 +773,99 @@ def setup_copilotkit():
                 ],
                 handler=get_gap_analysis_action,
             ),
+            CopilotAction(
+                name="syncPersonToZep",
+                description="Sync person's profile and skills to the knowledge graph",
+                parameters=[
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "description": "User's email address",
+                        "required": True,
+                    },
+                    {
+                        "name": "company",
+                        "type": "string",
+                        "description": "Company name",
+                        "required": False,
+                    },
+                    {
+                        "name": "skills",
+                        "type": "array",
+                        "description": "List of skills/capabilities",
+                        "required": False,
+                    },
+                    {
+                        "name": "sector",
+                        "type": "string",
+                        "description": "Primary sector/industry",
+                        "required": False,
+                    },
+                ],
+                handler=sync_person_to_zep_action,
+            ),
+            CopilotAction(
+                name="addBidOutcome",
+                description="Record a bid win or loss outcome in the skills graph",
+                parameters=[
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "description": "User's email address",
+                        "required": True,
+                    },
+                    {
+                        "name": "contract_name",
+                        "type": "string",
+                        "description": "Name of the contract or tender",
+                        "required": True,
+                    },
+                    {
+                        "name": "buyer",
+                        "type": "string",
+                        "description": "Buyer/client organization name",
+                        "required": True,
+                    },
+                    {
+                        "name": "value",
+                        "type": "number",
+                        "description": "Contract value in GBP",
+                        "required": False,
+                    },
+                    {
+                        "name": "year",
+                        "type": "number",
+                        "description": "Year of the bid",
+                        "required": False,
+                    },
+                    {
+                        "name": "outcome",
+                        "type": "string",
+                        "description": "Bid outcome: 'win' or 'loss'",
+                        "required": False,
+                    },
+                    {
+                        "name": "role",
+                        "type": "string",
+                        "description": "User's role in the bid (e.g., Bid Manager)",
+                        "required": False,
+                    },
+                ],
+                handler=add_bid_outcome_action,
+            ),
+            CopilotAction(
+                name="getUserGraph",
+                description="Get user's skills graph data for visualization",
+                parameters=[
+                    {
+                        "name": "email",
+                        "type": "string",
+                        "description": "User's email address",
+                        "required": True,
+                    },
+                ],
+                handler=get_user_graph_action,
+            ),
         ]
 
         # Initialize CopilotKit SDK
@@ -745,13 +873,16 @@ def setup_copilotkit():
 
         # Add CopilotKit endpoint
         add_fastapi_endpoint(app, sdk, "/copilotkit")
-        print("CopilotKit endpoint registered with 6 actions:")
+        print("CopilotKit endpoint registered with 9 actions:")
         print("  - analyzeTender (full pipeline)")
         print("  - searchBuyer")
         print("  - detectFramework")
         print("  - getSummary")
         print("  - getCompliance")
         print("  - getGapAnalysis")
+        print("  - syncPersonToZep (Zep graph sync)")
+        print("  - addBidOutcome (bid wins/losses)")
+        print("  - getUserGraph (graph visualization)")
 
     except ImportError as e:
         print(f"Warning: CopilotKit not available: {e}")
