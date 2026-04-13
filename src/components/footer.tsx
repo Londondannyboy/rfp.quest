@@ -158,7 +158,23 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
+        {/* Featured Badge */}
+        <div className="flex justify-center mt-8">
+          <a 
+            href="https://findly.tools/rfp-quest?utm_source=rfp-quest" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            <img 
+              src="https://findly.tools/badges/findly-tools-badge-light.svg" 
+              alt="Featured on Findly.tools" 
+              width="175" 
+              height="55" 
+            />
+          </a>
+        </div>
+
+        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500 dark:text-gray-400">
             &copy; {new Date().getFullYear()} RFP Platform Quest. All rights reserved.
           </p>
