@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     template: "%s | RFP Quest",
   },
   description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
+  metadataBase: new URL("https://rfp.quest"),
   keywords: [
     "RFP platform",
     "RFP platform UK",
@@ -29,6 +30,18 @@ export const metadata: Metadata = {
   creator: "RFP Platform Quest",
   publisher: "RFP Platform Quest",
   category: "Business Software",
+  icons: {
+    icon: [
+      { type: 'image/png', sizes: '96x96', url: '/favicon-96x96.png' },
+      { type: 'image/svg+xml', url: '/favicon.svg' }
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  appleWebApp: {
+    title: 'RFP Platform Quest',
+  },
   openGraph: {
     title: "RFP Software | UK RFP Platform for AI Bid Writing",
     description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
@@ -73,13 +86,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB">
       <head>
-        {/* Favicon */}
-        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <meta name="apple-mobile-web-app-title" content="RFP Platform Quest" />
-        <link rel="manifest" href="/site.webmanifest" />
         {/* Preconnect */}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
