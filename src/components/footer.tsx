@@ -56,6 +56,7 @@ const certificationLinks = [
 ];
 
 const partnerLinks = [
+  { href: 'https://uksrs.org.uk', label: 'UK Sustainability Reporting', external: true },
   { href: 'https://miam.quest', label: 'MIAM Certificate', external: true },
   { href: 'https://membership.quest', label: 'Membership Marketing Agency', external: true },
   { href: 'https://relocation.quest', label: 'Relocation Advice', external: true },
