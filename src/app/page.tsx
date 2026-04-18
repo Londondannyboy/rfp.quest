@@ -157,10 +157,10 @@ export default async function Home() {
                 </svg>
               </a>
               <Link
-                href="/tender-software"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-xl transition-all duration-200 text-lg"
+                href="/browse-tenders"
+                className="inline-flex items-center justify-center px-8 py-4 border-2 border-teal-300 dark:border-teal-600 text-teal-700 dark:text-teal-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-xl transition-all duration-200 text-lg"
               >
-                Explore Features
+                Browse UK Tenders
               </Link>
             </div>
 
@@ -227,7 +227,7 @@ export default async function Home() {
         title="Ready to Try Our RFP Software?"
         subtitle="Join UK businesses preparing to use RFP Platform Quest — the RFP software built for winning. Register early for exclusive access when we launch in Q2 2026."
         primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
-        secondaryCta={{ text: 'Explore Features', href: '/tender-software' }}
+        secondaryCta={{ text: 'Browse UK Tenders', href: '/browse-tenders' }}
         variant="gradient"
       />
 

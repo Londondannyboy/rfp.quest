@@ -43,5 +43,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: tender.stage === 'tender' ? 0.8 : 0.6,
   }));
 
-  return [...seoPages, ...tenderPages];
+  // Additional static pages
+  const staticPages: MetadataRoute.Sitemap = [
+    {
+      url: `${baseUrl}/browse-tenders`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.9,
+    }
+  ];
+
+  return [...seoPages, ...staticPages, ...tenderPages];
 }

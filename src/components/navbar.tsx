@@ -130,6 +130,14 @@ export function Navbar() {
               )}
             </div>
 
+            {/* Browse Tenders - public access */}
+            <Link
+              href="/browse-tenders"
+              className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-teal-600 dark:hover:text-teal-400 font-medium"
+            >
+              Browse Tenders
+            </Link>
+
             {/* Dashboard - prominent link */}
             <Link
               href="/dashboard"
@@ -294,6 +302,17 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+
+              <div className="px-2 py-2 mt-4 text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                Opportunities
+              </div>
+              <Link
+                href="/browse-tenders"
+                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/30 rounded"
+                onClick={() => setMobileOpen(false)}
+              >
+                Browse Tenders
+              </Link>
 
               <div className="pt-4 px-2 space-y-2">
                 {user ? (

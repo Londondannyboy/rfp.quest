@@ -112,12 +112,15 @@ function formatValue(value: number | null): string {
 
 function TenderAnalysisContent({ tender }: { tender: Tender }) {
   const [showRawData, setShowRawData] = useState(false);
+  
+  // Generate fallback title if main title is missing/empty (for display, not truncated)
+  const displayTitle = tender.title?.trim() || `${tender.stage.charAt(0).toUpperCase() + tender.stage.slice(1)} Contract Opportunity`;
 
   useCopilotReadable({
     description: 'The current tender being analyzed',
     value: {
       ocid: tender.ocid,
-      title: tender.title,
+      title: displayTitle,
       description: tender.description,
       buyer: tender.buyerName,
       stage: tender.stage,
@@ -206,11 +209,18 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <Link
-            href="/dashboard"
+            href="/browse-tenders"
             className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
           >
             <ArrowLeftIcon className="w-4 h-4" />
-            Back to UK Government Tenders
+            Back to Browse Tenders
+          </Link>
+          <span className="text-slate-600 mx-2">•</span>
+          <Link
+            href="/dashboard"
+            className="text-slate-400 hover:text-white transition-colors"
+          >
+            Advanced Search
           </Link>
           <div className="flex items-center gap-3">
             <Link
@@ -232,7 +242,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
               Official Notice
             </a>
             <button
-              onClick={() => navigator.share?.({ title: tender.title, url: window.location.href })}
+              onClick={() => navigator.share?.({ title: displayTitle, url: window.location.href })}
               className="inline-flex items-center gap-2 px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg hover:bg-slate-700 transition-colors text-sm"
             >
               <ShareIcon className="w-4 h-4" />
@@ -247,7 +257,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-6">
           <div className="lg:col-span-3">
             <TenderHero
-              title={tender.title}
+              title={displayTitle}
               buyerName={tender.buyerName}
               stage={tender.stage}
               valueMin={tender.valueMin}
@@ -261,7 +271,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
           {/* Interactive graph visualization */}
           <div className="lg:block">
             <InteractiveHeroGraph
-              title={tender.title}
+              title={displayTitle}
               buyerName={tender.buyerName}
               stage={tender.stage}
               valueMax={tender.valueMax}
@@ -279,7 +289,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             This <strong>{tender.stage === 'tender' ? 'open tender' : tender.stage + ' stage contract'}</strong> from{' '}
             <strong>{tender.buyerName}</strong>
             {tender.region && <> in <strong>{tender.region}</strong></>} was published in{' '}
-            <strong>{year}</strong>. The <strong>{tender.title}</strong> contract
+            <strong>{year}</strong>. The <strong>{displayTitle}</strong> contract
             {tender.valueMax && <> has an estimated value of <strong>{formatValue(tender.valueMax)}</strong></>}
             {tender.tenderEndDate && (
               <> with a submission deadline of{' '}
@@ -326,7 +336,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             {/* Scope of Work with smart parsing */}
             <ScopeOfWork
               description={tender.description}
-              title={tender.title}
+              title={displayTitle}
             />
 
             <ValueAnalysis
@@ -487,8 +497,11 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 <Link href="/" className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors">
                   Try RFP.quest Free
                 </Link>
+                <Link href="/browse-tenders" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
+                  Browse All Tenders
+                </Link>
                 <Link href="/dashboard?stage=tender" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
-                  View Open Tenders
+                  Advanced Search
                 </Link>
                 <Link href={`/dashboard?buyer=${encodeURIComponent(tender.buyerName)}`} className="px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 font-medium rounded-lg transition-colors border border-slate-700">
                   More from {tender.buyerName.length > 25 ? tender.buyerName.substring(0, 25) + '...' : tender.buyerName}
@@ -531,12 +544,15 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 }
 
 export function TenderPageClient({ tender }: { tender: Tender }) {
+  // Generate fallback title if main title is missing/empty
+  const displayTitle = tender.title?.trim() || `${tender.stage.charAt(0).toUpperCase() + tender.stage.slice(1)} Contract Opportunity`;
+
   return (
     <CopilotKit runtimeUrl="/api/copilotkit">
       <CopilotSidebar
         labels={{
           title: 'Tender Assistant',
-          initial: `I can help you understand this ${tender.buyerName} contract:\n\n• Requirements and evaluation criteria\n• Risks and gaps analysis\n• Buyer and market context\n• Related opportunities\n\nAsk me anything about "${tender.title}"!`,
+          initial: `I can help you understand this ${tender.buyerName} contract:\n\n• Requirements and evaluation criteria\n• Risks and gaps analysis\n• Buyer and market context\n• Related opportunities\n\nAsk me anything about "${displayTitle}"!`,
         }}
         defaultOpen={false}
         clickOutsideToClose={true}
