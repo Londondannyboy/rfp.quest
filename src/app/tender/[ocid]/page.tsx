@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!tender) {
       return {
-        title: 'Tender Not Found | RFP Platform Quest',
+        title: 'Tender Not Found | RFP Software Quest',
         description: 'The requested tender could not be found.',
       };
     }
@@ -77,7 +77,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // SEO-optimized description with keywords
     const seoDescription = tender.description
       ? `${tender.description.substring(0, 120)}... ${tender.buyerName} ${tender.stage} contract worth ${valueText}. View full details, deadlines, and requirements.`
-      : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP Platform Quest.`;
+      : `${tender.title} - ${tender.stage} UK government contract by ${tender.buyerName}${tender.region ? ` in ${tender.region}` : ''}. Contract value: ${valueText}. View tender details on RFP Software Quest.`;
 
     return {
       title: seoTitle,
@@ -97,7 +97,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: seoDescription.substring(0, 200),
       type: 'article',
       url: `https://rfp.quest/tender/${tender.slug}`,
-      siteName: 'RFP Platform Quest',
+      siteName: 'RFP Software Quest',
       images: [
         {
           url: 'https://rfp.quest/og-image.png',
@@ -122,8 +122,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
   } catch {
     return {
-      title: 'UK Government Tender | RFP Platform Quest',
-      description: 'View UK government tender details, deadlines, and requirements on RFP Platform Quest.',
+      title: 'UK Government Tender | RFP Software Quest',
+      description: 'View UK government tender details, deadlines, and requirements on RFP Software Quest.',
     };
   }
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'RFP Platform Quest terms of service. Read our terms and conditions for using the platform.',
+  description: 'RFP Software Quest terms of service. Read our terms and conditions for using the platform.',
 };
 
 export default function TermsOfServicePage() {
@@ -17,17 +17,17 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">1. Acceptance of Terms</h2>
             <p className="text-slate-300 leading-relaxed">
-              Welcome to RFP Platform Quest. By accessing or using our platform at rfp.quest, you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, please do not use our service.
+              Welcome to RFP Software Quest. By accessing or using our platform at rfp.quest, you agree to be bound by these Terms of Service (&quot;Terms&quot;). If you do not agree to these Terms, please do not use our service.
             </p>
             <p className="text-slate-300 leading-relaxed mt-4">
-              We may update these Terms from time to time. Continued use of RFP Platform Quest after any changes constitutes acceptance of the new Terms.
+              We may update these Terms from time to time. Continued use of RFP Software Quest after any changes constitutes acceptance of the new Terms.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">2. Service Description</h2>
             <p className="text-slate-300 leading-relaxed">
-              RFP Platform Quest is a tender analysis and bid management platform that helps UK businesses discover and respond to government procurement opportunities. Our services include:
+              RFP Software Quest is a tender analysis and bid management platform that helps UK businesses discover and respond to government procurement opportunities. Our services include:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li>Access to UK government tender listings</li>
@@ -57,7 +57,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">4. User Responsibilities</h2>
             <p className="text-slate-300 leading-relaxed">
-              When using RFP Platform Quest, you agree not to:
+              When using RFP Software Quest, you agree not to:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li>Use the service for any unlawful purpose</li>
@@ -73,7 +73,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">5. Tender Data</h2>
             <p className="text-slate-300 leading-relaxed">
-              RFP Platform Quest aggregates publicly available tender data from UK government sources, including Find a Tender and Contracts Finder. This data is:
+              RFP Software Quest aggregates publicly available tender data from UK government sources, including Find a Tender and Contracts Finder. This data is:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li>Published under the Open Government Licence</li>
@@ -88,17 +88,17 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">6. Intellectual Property</h2>
             <p className="text-slate-300 leading-relaxed">
-              The RFP Platform Quest platform, including its design, features, and content (excluding government tender data), is owned by us and protected by intellectual property laws.
+              The RFP Software Quest platform, including its design, features, and content (excluding government tender data), is owned by us and protected by intellectual property laws.
             </p>
             <p className="text-slate-300 leading-relaxed mt-4">
-              You retain ownership of any content you create or upload to RFP Platform Quest, such as company profiles and bid documents. By using our service, you grant us a licence to use this content solely for providing our services.
+              You retain ownership of any content you create or upload to RFP Software Quest, such as company profiles and bid documents. By using our service, you grant us a licence to use this content solely for providing our services.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">7. AI-Powered Features</h2>
             <p className="text-slate-300 leading-relaxed">
-              Some features of RFP Platform Quest use artificial intelligence. You acknowledge that:
+              Some features of RFP Software Quest use artificial intelligence. You acknowledge that:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li>AI-generated content is provided for assistance only</li>
@@ -126,7 +126,7 @@ export default function TermsOfServicePage() {
               To the maximum extent permitted by law:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
-              <li>RFP Platform Quest is provided &quot;as is&quot; without warranties of any kind</li>
+              <li>RFP Software Quest is provided &quot;as is&quot; without warranties of any kind</li>
               <li>We are not liable for any indirect, incidental, or consequential damages</li>
               <li>We are not responsible for lost bids, missed opportunities, or business losses</li>
               <li>Our total liability is limited to the amount you paid us in the past 12 months</li>
@@ -158,7 +158,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">11. Termination</h2>
             <p className="text-slate-300 leading-relaxed">
-              We may suspend or terminate your access to RFP Platform Quest at any time, with or without cause, including for:
+              We may suspend or terminate your access to RFP Software Quest at any time, with or without cause, including for:
             </p>
             <ul className="list-disc list-inside text-slate-300 space-y-2 mt-4">
               <li>Violation of these Terms</li>
@@ -209,7 +209,7 @@ export default function TermsOfServicePage() {
             href="/"
             className="text-teal-400 hover:text-teal-300 transition-colors"
           >
-            &larr; Back to RFP Platform Quest
+            &larr; Back to RFP Software Quest
           </Link>
           <Link
             href="/privacy"

@@ -10,7 +10,7 @@ export async function GET() {
   `;
 
   if (!result.length) {
-    return new NextResponse('# RFP Platform Quest\n\nAI-powered RFP and tender management software.\n\nFull documentation coming soon.', {
+    return new NextResponse('# RFP Software Quest\n\nAI-powered RFP and tender management software.\n\nFull documentation coming soon.', {
       headers: { 'Content-Type': 'text/plain; charset=utf-8' },
     });
   }

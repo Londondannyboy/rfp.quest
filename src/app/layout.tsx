@@ -6,11 +6,9 @@ import { CookieConsentBanner } from "@/components/CookieConsentBanner";
 import { QueryProvider } from "@/lib/providers/query-provider";
 
 export const metadata: Metadata = {
-  title: {
-    default: "RFP Software | UK RFP Platform for AI Bid Writing",
-    template: "%s | RFP Quest",
-  },
+  title: "RFP Software | UK RFP Platform for AI Bid Writing",
   description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
+  applicationName: "RFP Software Quest",
   metadataBase: new URL("https://rfp.quest"),
   keywords: [
     "RFP platform",
@@ -26,9 +24,9 @@ export const metadata: Metadata = {
     "proposal management",
     "RFP response software",
   ],
-  authors: [{ name: "RFP Platform Quest" }],
-  creator: "RFP Platform Quest",
-  publisher: "RFP Platform Quest",
+  authors: [{ name: "RFP Software Quest" }],
+  creator: "RFP Software Quest",
+  publisher: "RFP Software Quest",
   category: "Business Software",
   icons: {
     icon: [
@@ -40,17 +38,17 @@ export const metadata: Metadata = {
   },
   manifest: '/site.webmanifest',
   appleWebApp: {
-    title: 'RFP Platform Quest',
+    title: 'RFP Software Quest',
   },
   openGraph: {
     title: "RFP Software | UK RFP Platform for AI Bid Writing",
     description: "RFP software and RFP platform for UK teams. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
     url: "https://rfp.quest",
-    siteName: "RFP Platform Quest",
+    siteName: "RFP Software Quest",
     locale: "en_GB",
     type: "website",
     countryName: "United Kingdom",
-    images: [{ url: "https://rfp.quest/og-image.png", width: 1200, height: 630, alt: "RFP Platform Quest — RFP Software for AI Tender Writing" }],
+    images: [{ url: "https://rfp.quest/og-image.png", width: 1200, height: 630, alt: "RFP Software Quest — RFP Software for AI Tender Writing" }],
   },
   twitter: {
     card: "summary_large_image",
