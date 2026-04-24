@@ -60,7 +60,7 @@ export function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {/* Software Dropdown */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setOpenDropdown('software')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
@@ -69,12 +69,17 @@ export function Navbar() {
                 <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
               {openDropdown === 'software' && (
-                <div className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2">
+                <div 
+                  className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
+                  onMouseEnter={() => setOpenDropdown('software')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   {softwareLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       className="block px-4 py-2 text-slate-300 hover:bg-blue-950/30 hover:text-blue-400 transition-all duration-200 rounded-lg mx-2"
+                      onClick={() => setOpenDropdown(null)}
                     >
                       {link.label}
                     </Link>
@@ -85,7 +90,7 @@ export function Navbar() {
 
             {/* Guides Dropdown */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setOpenDropdown('guides')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
@@ -93,12 +98,17 @@ export function Navbar() {
                 Guides
               </button>
               {openDropdown === 'guides' && (
-                <div className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2">
+                <div 
+                  className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
+                  onMouseEnter={() => setOpenDropdown('guides')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   {guideLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       className="block px-4 py-2 text-slate-300 hover:bg-blue-950/30 hover:text-blue-400 transition-all duration-200 rounded-lg mx-2"
+                      onClick={() => setOpenDropdown(null)}
                     >
                       {link.label}
                     </Link>
@@ -109,7 +119,7 @@ export function Navbar() {
 
             {/* Templates Dropdown */}
             <div
-              className="relative"
+              className="relative group"
               onMouseEnter={() => setOpenDropdown('templates')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
@@ -117,12 +127,17 @@ export function Navbar() {
                 Templates
               </button>
               {openDropdown === 'templates' && (
-                <div className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2">
+                <div 
+                  className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
+                  onMouseEnter={() => setOpenDropdown('templates')}
+                  onMouseLeave={() => setOpenDropdown(null)}
+                >
                   {templateLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       className="block px-4 py-2 text-slate-300 hover:bg-blue-950/30 hover:text-blue-400 transition-all duration-200 rounded-lg mx-2"
+                      onClick={() => setOpenDropdown(null)}
                     >
                       {link.label}
                     </Link>
@@ -153,7 +168,7 @@ export function Navbar() {
             ) : user ? (
               /* User Profile Dropdown */
               <div
-                className="relative ml-4"
+                className="relative ml-4 group"
                 onMouseEnter={() => setOpenDropdown('profile')}
                 onMouseLeave={() => setOpenDropdown(null)}
               >
@@ -179,7 +194,11 @@ export function Navbar() {
                   </svg>
                 </button>
                 {openDropdown === 'profile' && (
-                  <div className="absolute top-full right-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2">
+                  <div 
+                    className="absolute top-full right-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
+                    onMouseEnter={() => setOpenDropdown('profile')}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
                     <div className="px-4 py-2 border-b border-slate-700/50">
                       <p className="text-sm font-medium text-white truncate">{user.name}</p>
                       <p className="text-xs text-slate-400 truncate">{user.email}</p>
