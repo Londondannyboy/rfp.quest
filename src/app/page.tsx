@@ -131,49 +131,73 @@ export default async function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-        {/* Decorative background elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/50 dark:bg-teal-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-teal-100/30 dark:bg-teal-900/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        {/* Modern decorative background elements */}
+        <div className="absolute inset-0">
+          {/* Grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          
+          {/* Glass morphism decorative elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-slate-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-600/20 to-slate-800/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+          
+          {/* Additional floating elements */}
+          <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
+          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-slate-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
+        </div>
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight text-gray-900 dark:text-white leading-[1.1]">
-              {page.h1}
+            {/* Announcement badge */}
+            <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-blue-950/50 text-blue-300 ring-1 ring-blue-500/20 backdrop-blur-sm mb-8">
+              <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.236 4.53L8.093 10.5a.75.75 0 00-1.186.918l1.875 2.416a.75.75 0 001.183.02l3.633-5.05.12-.045z" clipRule="evenodd" />
+              </svg>
+              Coming Soon - Q2 2026
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight text-white leading-[1.1]">
+              <span className="block">{page.h1}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            
+            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
               {page.meta_description}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
               <a
                 href="https://calendly.com/my-first-quest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-teal-700 hover:bg-teal-800 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
+                className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 text-lg"
               >
                 Register Early
-                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>
               <Link
                 href="/browse-tenders"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-teal-300 dark:border-teal-600 text-teal-700 dark:text-teal-300 hover:border-teal-600 hover:text-teal-600 dark:hover:border-teal-400 dark:hover:text-teal-400 font-semibold rounded-xl transition-all duration-200 text-lg"
+                className="group inline-flex items-center justify-center px-8 py-4 border-2 border-slate-500 bg-slate-900/50 text-slate-100 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-950/30 font-semibold rounded-xl transition-all duration-200 text-lg backdrop-blur-sm"
               >
                 Browse UK Tenders
+                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
               </Link>
             </div>
 
-            {/* Hero Image */}
+            {/* Hero Image with glass morphism effect */}
             {page.hero_image && (
-              <div className="mt-12 relative rounded-2xl overflow-hidden shadow-2xl shadow-teal-600/10">
+              <div className="relative rounded-3xl overflow-hidden backdrop-blur-sm bg-slate-900/20 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-slate-500/10" />
                 <Image
                   src={page.hero_image}
                   alt={page.hero_image_alt || 'RFP software platform for bid management'}
                   title={page.hero_image_alt || 'RFP software platform for bid management'}
                   width={1200}
                   height={800}
-                  className="w-full h-auto"
+                  className="w-full h-auto relative z-10"
                   priority
                 />
               </div>

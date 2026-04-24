@@ -39,30 +39,38 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
   };
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className={`grid grid-cols-1 ${gridCols[columns]} gap-8 md:gap-12`}>
+    <section className="py-16 md:py-24 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className={`grid grid-cols-1 ${gridCols[columns]} gap-6 md:gap-8`}>
           {features.map((feature, index) => {
             const Icon = iconMap[feature.icon] || SparklesIcon;
             return (
               <div
                 key={index}
-                className="group relative"
+                className="group relative overflow-hidden rounded-2xl bg-white ring-1 ring-slate-200/60 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 p-8"
               >
-                {/* Icon container */}
-                <div className="mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-7 h-7" />
+                {/* Background gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-slate-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                
+                {/* Icon container with improved design */}
+                <div className="relative z-10 mb-6">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-50 to-slate-50 ring-1 ring-blue-100/50 text-blue-600 group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-blue-100 group-hover:to-slate-100 transition-all duration-300">
+                    <Icon className="w-8 h-8" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
+                <div className="relative z-10">
+                  <h3 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+
+                {/* Subtle hover border */}
+                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-blue-500/50 to-slate-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             );
           })}
