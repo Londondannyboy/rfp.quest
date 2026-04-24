@@ -83,7 +83,7 @@ export function CTABanner({
 
       <div className="relative max-w-5xl mx-auto px-4 text-center">
         {/* Premium glass morphism content container */}
-        <div className={`${variant === 'gradient' ? 'bg-slate-900/60 backdrop-blur-xl rounded-3xl p-10 md:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border border-slate-800/50' : variant !== 'gradient' ? 'bg-slate-900/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20' : ''}`}>
+        <div className={`${variant === 'gradient' ? 'bg-slate-900/60 backdrop-blur-xl rounded-3xl p-10 md:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border border-slate-800/50' : 'bg-slate-900/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20'}`}>
           
           {/* Top accent decoration */}
           <div className="flex justify-center mb-8">
