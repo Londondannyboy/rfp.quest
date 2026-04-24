@@ -170,15 +170,29 @@ export default async function Home() {
         {/* Additional decorative elements */}
         <div className="absolute inset-0 pointer-events-none">
           {/* Floating orbital elements */}
-          <FloatingElement className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl" intensity={15} duration={8} />
-          <FloatingElement className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-slate-400/15 rounded-full blur-2xl" intensity={12} duration={10} />
-          <FloatingElement className="absolute top-2/3 left-2/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl" intensity={8} duration={6} />
+          <FloatingElement className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl" intensity={15} duration={8}>
+            <div />
+          </FloatingElement>
+          <FloatingElement className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-slate-400/15 rounded-full blur-2xl" intensity={12} duration={10}>
+            <div />
+          </FloatingElement>
+          <FloatingElement className="absolute top-2/3 left-2/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl" intensity={8} duration={6}>
+            <div />
+          </FloatingElement>
           
           {/* Particle constellation */}
-          <FloatingElement className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-70" intensity={5} duration={4} />
-          <FloatingElement className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full opacity-60" intensity={6} duration={5} />
-          <FloatingElement className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full opacity-80" intensity={4} duration={3} />
-          <FloatingElement className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50" intensity={7} duration={7} />
+          <FloatingElement className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-70" intensity={5} duration={4}>
+            <div />
+          </FloatingElement>
+          <FloatingElement className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full opacity-60" intensity={6} duration={5}>
+            <div />
+          </FloatingElement>
+          <FloatingElement className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full opacity-80" intensity={4} duration={3}>
+            <div />
+          </FloatingElement>
+          <FloatingElement className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50" intensity={7} duration={7}>
+            <div />
+          </FloatingElement>
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
