@@ -251,7 +251,7 @@ export default async function Home() {
       {/* Main Content */}
       <section className="py-16 md:py-24 bg-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <article className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-p:leading-relaxed prose-p:mb-6 prose-li:my-2 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-headings:text-slate-900 prose-p:text-slate-700">
+          <article className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-slate-900 prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-p:leading-relaxed prose-p:mb-6 prose-p:text-slate-700 prose-li:my-2 prose-li:text-slate-700 prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline prose-a:font-medium prose-strong:text-slate-800 prose-ul:text-slate-700">
             <Markdown>{page.body_content}</Markdown>
           </article>
         </div>

@@ -188,10 +188,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-slate-700/50 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-300">
             &copy; {new Date().getFullYear()} RFP Platform Quest. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-slate-500">
+          <div className="flex gap-6 text-sm text-slate-300">
             <Link href="/privacy" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-blue-400 transition-colors">Terms of Service</Link>
           </div>
