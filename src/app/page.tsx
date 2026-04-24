@@ -4,6 +4,18 @@ import Markdown from 'react-markdown';
 import Link from 'next/link';
 import Image from 'next/image';
 import { FeatureGrid, StatsBar, TrustBadges, CTABanner } from '@/components/seo';
+import { InteractiveBackground } from '@/components/ui/interactive-background';
+import { RotatingWords, StaggeredRotatingWords } from '@/components/ui/rotating-words';
+import { 
+  StaggeredContainer, 
+  StaggeredItem, 
+  SlideReveal, 
+  FloatingElement, 
+  MagneticElement,
+  TextReveal 
+} from '@/components/ui/sophisticated-animations';
+import { ProfessionalButton } from '@/components/ui/professional-buttons';
+import { NavigationCard, InteractiveCard } from '@/components/ui/interactive-cards';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600;
@@ -150,27 +162,23 @@ export default async function Home() {
         />
       )}
 
-      {/* Enhanced Hero Section with UKSRS.org.uk Ultra Blue Styling */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 min-h-screen flex items-center">
-        {/* Enhanced modern decorative background elements */}
-        <div className="absolute inset-0">
-          {/* Animated grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
-          
-          {/* Premium glass morphism decorative elements */}
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/20 to-slate-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-600/20 to-slate-800/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
-          
+      {/* Advanced Interactive Hero Section with THREE.js Background */}
+      <section className="relative overflow-hidden min-h-screen flex items-center">
+        {/* THREE.js Interactive Background */}
+        <InteractiveBackground className="pointer-events-auto" />
+        
+        {/* Additional decorative elements */}
+        <div className="absolute inset-0 pointer-events-none">
           {/* Floating orbital elements */}
-          <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl animate-pulse" />
-          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-slate-400/15 rounded-full blur-2xl animate-pulse delay-1000" />
-          <div className="absolute top-2/3 left-2/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-500" />
+          <FloatingElement className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl" intensity={15} duration={8} />
+          <FloatingElement className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-slate-400/15 rounded-full blur-2xl" intensity={12} duration={10} />
+          <FloatingElement className="absolute top-2/3 left-2/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl" intensity={8} duration={6} />
           
           {/* Particle constellation */}
-          <div className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-70"></div>
-          <div className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full animate-pulse delay-700 opacity-60"></div>
-          <div className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full animate-pulse delay-300 opacity-80"></div>
-          <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-1500 opacity-50"></div>
+          <FloatingElement className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-70" intensity={5} duration={4} />
+          <FloatingElement className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full opacity-60" intensity={6} duration={5} />
+          <FloatingElement className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full opacity-80" intensity={4} duration={3} />
+          <FloatingElement className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-purple-400 rounded-full opacity-50" intensity={7} duration={7} />
         </div>
 
         <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
@@ -184,42 +192,61 @@ export default async function Home() {
               </svg>
             </div>
 
-            {/* Enhanced title with gradient text effect */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-10 tracking-tight leading-[1.05] bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
-              <span className="block">{page.h1}</span>
-            </h1>
+            {/* Advanced title with rotating words and gradient effects */}
+            <StaggeredContainer className="mb-10">
+              <StaggeredItem>
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+                  <TextReveal className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
+                    RFP Platform Quest — AI-Powered 
+                  </TextReveal>
+                  <div className="mt-2">
+                    <StaggeredRotatingWords 
+                      words={['RFP Software', 'Bid Writing', 'Tender Discovery', 'Proposal Management', 'UK Procurement']}
+                      className="text-5xl sm:text-6xl lg:text-7xl"
+                      interval={3500}
+                    />
+                  </div>
+                  <TextReveal className="bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent" delay={0.3}>
+                    for UK Procurement
+                  </TextReveal>
+                </h1>
+              </StaggeredItem>
+            </StaggeredContainer>
             
             {/* Enhanced subtitle */}
             <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto mb-14 leading-relaxed font-light">
               {page.meta_description}
             </p>
             
-            {/* Premium CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <a
-                href="https://calendly.com/my-first-quest"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold rounded-2xl transition-all duration-300 shadow-2xl shadow-blue-600/30 hover:shadow-blue-500/40 hover:-translate-y-1 hover:scale-105 text-lg"
-              >
-                {/* Button inner glow */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <span className="relative z-10">Register Early</span>
-                <svg className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </a>
-              <Link
-                href="/browse-tenders"
-                className="group relative inline-flex items-center justify-center px-10 py-5 border-2 border-slate-500 bg-slate-900/60 text-slate-100 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-950/40 font-semibold rounded-2xl transition-all duration-300 text-lg backdrop-blur-xl hover:-translate-y-1"
-              >
-                <span className="relative z-10">Browse UK Tenders</span>
-                <svg className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </Link>
-            </div>
+            {/* Advanced CTA buttons with professional styling */}
+            <StaggeredContainer className="mb-16">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                <StaggeredItem>
+                  <ProfessionalButton
+                    variant="gradient"
+                    size="xl"
+                    href="https://calendly.com/my-first-quest"
+                    icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>}
+                  >
+                    Register Early
+                  </ProfessionalButton>
+                </StaggeredItem>
+                <StaggeredItem>
+                  <ProfessionalButton
+                    variant="ghost"
+                    size="xl"
+                    href="/browse-tenders"
+                    icon={<svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>}
+                  >
+                    Browse UK Tenders
+                  </ProfessionalButton>
+                </StaggeredItem>
+              </div>
+            </StaggeredContainer>
 
             {/* Premium trust indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16">
@@ -261,6 +288,96 @@ export default async function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Interactive Navigation Cards Section */}
+      <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <StaggeredContainer>
+            <StaggeredItem>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                  Discover Your 
+                  <RotatingWords 
+                    words={['RFP Journey', 'Bid Strategy', 'Procurement Path', 'Success Route']}
+                    className="ml-3 text-blue-400"
+                  />
+                </h2>
+                <p className="text-lg text-slate-300 max-w-2xl mx-auto">
+                  Explore our comprehensive RFP platform features and find the perfect solution for your procurement needs
+                </p>
+              </div>
+            </StaggeredItem>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <StaggeredItem>
+                <NavigationCard
+                  title="AI Bid Writing"
+                  description="Generate compelling, compliant proposals with our advanced AI writing assistant powered by UK procurement expertise"
+                  href="/ai-bid-writing"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>}
+                />
+              </StaggeredItem>
+
+              <StaggeredItem>
+                <NavigationCard
+                  title="Tender Discovery"
+                  description="Never miss an opportunity with our AI-powered tender discovery system covering government and private sector contracts"
+                  href="/browse-tenders"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>}
+                />
+              </StaggeredItem>
+
+              <StaggeredItem>
+                <NavigationCard
+                  title="Team Collaboration"
+                  description="Streamline your proposal process with advanced team collaboration tools and real-time editing capabilities"
+                  href="/dashboard/team"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>}
+                />
+              </StaggeredItem>
+
+              <StaggeredItem>
+                <NavigationCard
+                  title="Compliance Tracking"
+                  description="Ensure all requirements are met with our comprehensive compliance tracking and validation system"
+                  href="/dashboard/compliance"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>}
+                />
+              </StaggeredItem>
+
+              <StaggeredItem>
+                <NavigationCard
+                  title="Performance Analytics"
+                  description="Track win rates, identify improvement opportunities, and optimize your bidding strategy with detailed analytics"
+                  href="/dashboard/analytics"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>}
+                />
+              </StaggeredItem>
+
+              <StaggeredItem>
+                <NavigationCard
+                  title="Template Library"
+                  description="Access our comprehensive library of proven proposal templates tailored for UK government and private sector tenders"
+                  href="/library"
+                  icon={<svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>}
+                />
+              </StaggeredItem>
+            </div>
+          </StaggeredContainer>
         </div>
       </section>
 

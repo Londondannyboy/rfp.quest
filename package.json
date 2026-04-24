@@ -27,7 +27,7 @@
     "bcryptjs": "^3.0.3",
     "docx": "^9.5.1",
     "file-saver": "^2.0.5",
-    "framer-motion": "^12.33.0",
+    "framer-motion": "^12.38.0",
     "iron-session": "^8.0.4",
     "jigsawstack": "^0.4.2",
     "mammoth": "^1.11.0",
@@ -37,6 +37,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-force-graph-2d": "^1.29.1",
+    "react-intersection-observer": "^10.0.3",
     "react-markdown": "^10.1.0",
     "recharts": "^3.7.0",
     "three": "^0.182.0"
