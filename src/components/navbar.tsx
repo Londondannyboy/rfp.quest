@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { authClient } from '@/lib/auth/client';
 
 const softwareLinks = [
@@ -37,6 +37,20 @@ export function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (dropdown: string) => {
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+    setOpenDropdown(dropdown);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeoutRef.current = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // 150ms delay before closing
+  };
 
   const handleSignOut = () => {
     // Use the AuthView sign-out page for proper session cleanup
@@ -61,8 +75,8 @@ export function Navbar() {
             {/* Software Dropdown */}
             <div
               className="relative group"
-              onMouseEnter={() => setOpenDropdown('software')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter('software')}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="px-4 py-2 text-slate-300 hover:text-blue-400 font-medium transition-colors relative">
                 Software
@@ -71,8 +85,8 @@ export function Navbar() {
               {openDropdown === 'software' && (
                 <div 
                   className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
-                  onMouseEnter={() => setOpenDropdown('software')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter('software')}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {softwareLinks.map((link) => (
                     <Link
@@ -91,8 +105,8 @@ export function Navbar() {
             {/* Guides Dropdown */}
             <div
               className="relative group"
-              onMouseEnter={() => setOpenDropdown('guides')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter('guides')}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="px-4 py-2 text-slate-300 hover:text-blue-400 font-medium transition-colors">
                 Guides
@@ -100,8 +114,8 @@ export function Navbar() {
               {openDropdown === 'guides' && (
                 <div 
                   className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
-                  onMouseEnter={() => setOpenDropdown('guides')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter('guides')}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {guideLinks.map((link) => (
                     <Link
@@ -120,8 +134,8 @@ export function Navbar() {
             {/* Templates Dropdown */}
             <div
               className="relative group"
-              onMouseEnter={() => setOpenDropdown('templates')}
-              onMouseLeave={() => setOpenDropdown(null)}
+              onMouseEnter={() => handleMouseEnter('templates')}
+              onMouseLeave={handleMouseLeave}
             >
               <button className="px-4 py-2 text-slate-300 hover:text-blue-400 font-medium transition-colors">
                 Templates
@@ -129,8 +143,8 @@ export function Navbar() {
               {openDropdown === 'templates' && (
                 <div 
                   className="absolute top-full left-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
-                  onMouseEnter={() => setOpenDropdown('templates')}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => handleMouseEnter('templates')}
+                  onMouseLeave={handleMouseLeave}
                 >
                   {templateLinks.map((link) => (
                     <Link
@@ -169,8 +183,8 @@ export function Navbar() {
               /* User Profile Dropdown */
               <div
                 className="relative ml-4 group"
-                onMouseEnter={() => setOpenDropdown('profile')}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => handleMouseEnter('profile')}
+                onMouseLeave={handleMouseLeave}
               >
                 <button className="flex items-center gap-2 px-2 py-1 rounded-lg hover:bg-slate-800/50 transition-colors">
                   {user.image ? (
@@ -196,8 +210,8 @@ export function Navbar() {
                 {openDropdown === 'profile' && (
                   <div 
                     className="absolute top-full right-0 w-56 bg-slate-900/95 backdrop-blur-xl shadow-2xl shadow-blue-900/20 rounded-2xl border border-slate-700/50 py-2 mt-2 z-50"
-                    onMouseEnter={() => setOpenDropdown('profile')}
-                    onMouseLeave={() => setOpenDropdown(null)}
+                    onMouseEnter={() => handleMouseEnter('profile')}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <div className="px-4 py-2 border-b border-slate-700/50">
                       <p className="text-sm font-medium text-white truncate">{user.name}</p>
