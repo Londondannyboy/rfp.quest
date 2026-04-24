@@ -150,78 +150,116 @@ export default async function Home() {
         />
       )}
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
-        {/* Modern decorative background elements */}
+      {/* Enhanced Hero Section with UKSRS.org.uk Ultra Blue Styling */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 min-h-screen flex items-center">
+        {/* Enhanced modern decorative background elements */}
         <div className="absolute inset-0">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30" />
           
-          {/* Glass morphism decorative elements */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-slate-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-600/20 to-slate-800/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+          {/* Premium glass morphism decorative elements */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-blue-500/20 to-slate-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 animate-pulse" />
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-blue-600/20 to-slate-800/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3" />
           
-          {/* Additional floating elements */}
-          <div className="absolute top-1/3 left-1/4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl animate-pulse" />
-          <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-slate-400/10 rounded-full blur-2xl animate-pulse delay-1000" />
+          {/* Floating orbital elements */}
+          <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-blue-500/15 rounded-full blur-2xl animate-pulse" />
+          <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-slate-400/15 rounded-full blur-2xl animate-pulse delay-1000" />
+          <div className="absolute top-2/3 left-2/3 w-24 h-24 bg-blue-400/20 rounded-full blur-xl animate-pulse delay-500" />
+          
+          {/* Particle constellation */}
+          <div className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-70"></div>
+          <div className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full animate-pulse delay-700 opacity-60"></div>
+          <div className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full animate-pulse delay-300 opacity-80"></div>
+          <div className="absolute top-1/2 left-1/6 w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse delay-1500 opacity-50"></div>
         </div>
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
-          <div className="max-w-4xl mx-auto text-center">
-            {/* Announcement badge */}
-            <div className="inline-flex items-center rounded-full px-4 py-2 text-sm font-medium bg-blue-950/50 text-blue-300 ring-1 ring-blue-500/20 backdrop-blur-sm mb-8">
-              <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-36">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Premium announcement badge with enhanced styling */}
+            <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold bg-slate-900/60 text-blue-300 ring-1 ring-blue-500/30 backdrop-blur-xl shadow-lg shadow-blue-900/20 mb-10 transition-all duration-300 hover:scale-105 hover:bg-slate-800/60">
+              <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+              <span>Coming Soon - Q2 2026</span>
+              <svg className="ml-3 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.236 4.53L8.093 10.5a.75.75 0 00-1.186.918l1.875 2.416a.75.75 0 001.183.02l3.633-5.05.12-.045z" clipRule="evenodd" />
               </svg>
-              Coming Soon - Q2 2026
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight text-white leading-[1.1]">
+            {/* Enhanced title with gradient text effect */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-10 tracking-tight leading-[1.05] bg-gradient-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
               <span className="block">{page.h1}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            {/* Enhanced subtitle */}
+            <p className="text-xl md:text-2xl lg:text-3xl text-slate-300 max-w-4xl mx-auto mb-14 leading-relaxed font-light">
               {page.meta_description}
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            {/* Premium CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
               <a
                 href="https://calendly.com/my-first-quest"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 text-lg"
+                className="group relative inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-semibold rounded-2xl transition-all duration-300 shadow-2xl shadow-blue-600/30 hover:shadow-blue-500/40 hover:-translate-y-1 hover:scale-105 text-lg"
               >
-                Register Early
-                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {/* Button inner glow */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-blue-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <span className="relative z-10">Register Early</span>
+                <svg className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </a>
               <Link
                 href="/browse-tenders"
-                className="group inline-flex items-center justify-center px-8 py-4 border-2 border-slate-500 bg-slate-900/50 text-slate-100 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-950/30 font-semibold rounded-xl transition-all duration-200 text-lg backdrop-blur-sm"
+                className="group relative inline-flex items-center justify-center px-10 py-5 border-2 border-slate-500 bg-slate-900/60 text-slate-100 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-950/40 font-semibold rounded-2xl transition-all duration-300 text-lg backdrop-blur-xl hover:-translate-y-1"
               >
-                Browse UK Tenders
-                <svg className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="relative z-10">Browse UK Tenders</span>
+                <svg className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </Link>
             </div>
 
-            {/* Hero Image with glass morphism effect */}
+            {/* Premium trust indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16">
+              <div className="flex items-center text-slate-400">
+                <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-sm font-medium">UK government focused</span>
+              </div>
+              <div className="flex items-center text-slate-400">
+                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3"></div>
+                <span className="text-sm font-medium">AI-powered bid writing</span>
+              </div>
+              <div className="flex items-center text-slate-400">
+                <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                <span className="text-sm font-medium">Procurement specialists</span>
+              </div>
+            </div>
+
+            {/* SEO Image - Hidden but important for search ranking */}
             {page.hero_image && (
-              <div className="relative rounded-3xl overflow-hidden backdrop-blur-sm bg-slate-900/20 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20">
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-slate-500/10" />
+              <div className="sr-only">
                 <Image
                   src={page.hero_image}
-                  alt={page.hero_image_alt || 'RFP software platform for bid management'}
-                  title={page.hero_image_alt || 'RFP software platform for bid management'}
+                  alt="RFP software RFP platform for UK procurement teams and bid management"
+                  title="RFP software RFP platform for UK procurement teams and bid management"
                   width={1200}
                   height={800}
-                  className="w-full h-auto relative z-10"
+                  className="w-full h-auto"
                   priority
                 />
               </div>
             )}
+
+            {/* Bottom decorative scroll indicator */}
+            <div className="mt-16 flex justify-center">
+              <div className="animate-bounce">
+                <div className="w-6 h-10 border-2 border-slate-600 rounded-full flex justify-center">
+                  <div className="w-1 h-3 bg-slate-400 rounded-full mt-2 animate-pulse"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
