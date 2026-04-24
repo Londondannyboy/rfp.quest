@@ -69,11 +69,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const page = await getHomepage();
+  let page = await getHomepage();
 
   if (!page) {
     // Fallback with sample data to showcase all components
-    const samplePage = {
+    page = {
       h1: "RFP Platform Quest — AI-Powered RFP Software for UK Procurement",
       meta_description: "Transform your tender response process with RFP Platform Quest. AI-powered bid writing, tender discovery, and proposal management to win more contracts.",
       hero_image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=2850&q=80",
@@ -100,9 +100,6 @@ export default async function Home() {
         { name: "Crown Commercial", description: "Framework agreement holder" }
       ]
     };
-    
-    // Use sample page data
-    page = samplePage;
   }
 
   const jsonLd = page.json_ld as { schemas: object[] } | null;
