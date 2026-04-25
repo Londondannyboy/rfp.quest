@@ -62,7 +62,7 @@ export default function DemoPage() {
             </div>
 
             {/* Right Column - Form */}
-            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 rounded-2xl shadow-xl p-8 border-slate-600/50 dark:border-slate-300/50">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 rounded-2xl shadow-xl p-8 border-slate-600/50 dark:border-slate-600/50/50">
               <h2 className="text-2xl font-bold text-slate-100 dark:text-white mb-6">
                 Book Your Demo
               </h2>

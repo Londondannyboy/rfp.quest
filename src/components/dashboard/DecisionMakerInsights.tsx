@@ -89,7 +89,7 @@ export function DecisionMakerInsights({ companyNumber }: DecisionMakerInsightsPr
   }
 
   return (
-    <div className="border-t border-slate-200 pt-3">
+    <div className="border-t border-slate-700/50 pt-3">
       <button
         onClick={handleToggle}
         className="flex items-center justify-between w-full text-left"
@@ -178,7 +178,7 @@ function DecisionMakerCard({ profile }: { profile: DecisionMakerProfile }) {
   };
 
   return (
-    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-200 p-3">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50 p-3">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
@@ -288,7 +288,7 @@ function DecisionMakerCard({ profile }: { profile: DecisionMakerProfile }) {
 // Loading skeleton
 export function DecisionMakerInsightsSkeleton() {
   return (
-    <div className="border-t border-slate-200 pt-3 animate-pulse">
+    <div className="border-t border-slate-700/50 pt-3 animate-pulse">
       <div className="flex items-center gap-2">
         <div className="w-4 h-4 bg-slate-700/70 rounded" />
         <div className="h-4 w-40 bg-slate-700/70 rounded" />

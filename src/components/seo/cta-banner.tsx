@@ -34,7 +34,7 @@ export function CTABanner({
   const variantClasses = {
     gradient: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950',
     dark: 'bg-slate-900',
-    light: 'bg-slate-50',
+    light: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950',
   };
 
   const textClasses = {
@@ -47,7 +47,7 @@ export function CTABanner({
       subtitle: 'text-slate-400',
     },
     light: {
-      title: 'text-slate-900',
+      title: 'text-slate-100',
       subtitle: 'text-slate-600',
     },
   };
@@ -63,7 +63,7 @@ export function CTABanner({
     },
     light: {
       primary: 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/25',
-      secondary: 'border-2 border-slate-300 text-slate-700 hover:bg-slate-800/60 hover:border-blue-400',
+      secondary: 'border-2 border-slate-600/50 text-slate-700 hover:bg-slate-800/60 hover:border-blue-400',
     },
   };
 

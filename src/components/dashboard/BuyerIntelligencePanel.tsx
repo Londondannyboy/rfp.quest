@@ -88,12 +88,12 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
   }
 
   return (
-    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border-slate-200">
+    <div className="space-y-3 p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg border-slate-700/50">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Building2 className="w-5 h-5 text-slate-600" />
-          <h4 className="font-semibold text-slate-900">Buyer Intelligence</h4>
+          <h4 className="font-semibold text-slate-100">Buyer Intelligence</h4>
         </div>
         <span className={`px-2 py-1 text-xs font-medium rounded-full ${getSentimentColor(intel.signals.overallSentiment)}`}>
           {intel.signals.overallSentiment}
@@ -114,7 +114,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
       {/* Decision Makers Section */}
       {directors.length > 0 && (
-        <div className="border-t border-slate-200 pt-3">
+        <div className="border-t border-slate-700/50 pt-3">
           <button
             onClick={() => toggleSection('directors')}
             className="flex items-center justify-between w-full text-left"
@@ -152,7 +152,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
       {/* Sustainability Section */}
       {intel.sustainability && (
-        <div className="border-t border-slate-200 pt-3">
+        <div className="border-t border-slate-700/50 pt-3">
           <button
             onClick={() => toggleSection('sustainability')}
             className="flex items-center justify-between w-full text-left"
@@ -221,7 +221,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
       {/* Risk Signals Section */}
       {hasRiskSignals && (
-        <div className="border-t border-slate-200 pt-3">
+        <div className="border-t border-slate-700/50 pt-3">
           <button
             onClick={() => toggleSection('risks')}
             className="flex items-center justify-between w-full text-left"
@@ -261,7 +261,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
       {/* Bid Insights Section */}
       {(intel.bidInsights.emphasize.length > 0 || intel.bidInsights.avoid.length > 0) && (
-        <div className="border-t border-slate-200 pt-3">
+        <div className="border-t border-slate-700/50 pt-3">
           <button
             onClick={() => toggleSection('insights')}
             className="flex items-center justify-between w-full text-left"
@@ -298,7 +298,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
       {/* Recent News Section */}
       {intel.recentNews && intel.recentNews.length > 0 && (
-        <div className="border-t border-slate-200 pt-3">
+        <div className="border-t border-slate-700/50 pt-3">
           <button
             onClick={() => toggleSection('news')}
             className="flex items-center justify-between w-full text-left"
@@ -324,7 +324,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                   href={news.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-sm bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded hover:bg-slate-50 transition-colors"
+                  className="block text-sm bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <p className="font-medium text-slate-800 line-clamp-2">{news.title}</p>
@@ -342,7 +342,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
       <DecisionMakerInsights companyNumber={intel.companyNumber} />
 
       {/* Companies House Link */}
-      <div className="border-t border-slate-200 pt-3">
+      <div className="border-t border-slate-700/50 pt-3">
         <a
           href={`https://find-and-update.company-information.service.gov.uk/company/${intel.companyNumber}`}
           target="_blank"
@@ -360,7 +360,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 // Loading skeleton
 export function BuyerIntelligenceSkeleton() {
   return (
-    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border-slate-200 animate-pulse">
+    <div className="space-y-3 p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg border-slate-700/50 animate-pulse">
       <div className="flex items-center gap-2">
         <div className="w-5 h-5 bg-slate-700/70 rounded" />
         <div className="h-4 w-32 bg-slate-700/70 rounded" />

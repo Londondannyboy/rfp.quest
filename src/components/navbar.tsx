@@ -66,7 +66,7 @@ export function Navbar() {
             <Link href="/" className="group font-bold text-xl text-white hover:scale-105 transition-transform">
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">RFP</span> Platform <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Quest</span>
             </Link>
-            <span className="px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-amber-500 to-amber-600 text-black rounded-md uppercase shadow-sm">Beta</span>
+            <span className="px-2 py-0.5 text-xs font-bold bg-gradient-to-r from-amber-500 to-amber-600 text-slate-100 rounded-md uppercase shadow-sm">Beta</span>
             <span className="hidden sm:inline text-xs text-slate-400">Launching Q2 2026</span>
           </div>
 

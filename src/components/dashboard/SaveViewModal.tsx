@@ -223,7 +223,7 @@ export function SaveViewModal({
                       onClick={() => setColor(c.value)}
                       className={`w-9 h-9 rounded-lg border-2 flex items-center justify-center transition-colors ${
                         color === c.value
-                          ? 'border-slate-200/30'
+                          ? 'border-slate-700/50/30'
                           : 'border-transparent'
                       }`}
                       title={c.name}

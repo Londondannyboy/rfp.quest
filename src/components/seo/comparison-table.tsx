@@ -59,7 +59,7 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
                       index === 1
                         ? 'bg-blue-950/20 dark:bg-blue-950/20 text-blue-400 dark:text-blue-400 font-bold'
                         : 'text-slate-300 dark:text-slate-400'
-                    } text-sm md:text-base font-semibold border-b-2 border-slate-700/50 dark:border-slate-300/50`}
+                    } text-sm md:text-base font-semibold border-b-2 border-slate-700/50 dark:border-slate-600/50/50`}
                   >
                     {header}
                   </th>
@@ -70,7 +70,7 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
               {rows.map((row, rowIndex) => (
                 <tr
                   key={rowIndex}
-                  className="border-b border-slate-700/40 dark:border-slate-200/40 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:hover:bg-slate-800/50 transition-colors"
+                  className="border-b border-slate-700/40 dark:border-slate-700/50/40 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:hover:bg-slate-800/50 transition-colors"
                 >
                   <td className="px-4 md:px-6 py-4 text-slate-100 dark:text-white font-medium">
                     {row.feature}

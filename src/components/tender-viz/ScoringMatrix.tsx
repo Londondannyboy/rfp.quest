@@ -235,7 +235,7 @@ export function ScoringMatrix({ criteria, totalWeight = 100, priceWeight }: Scor
                           <ScoreBar
                             score={sub.yourScore}
                             max={sub.maxScore}
-                            color="bg-slate-500"
+                            color="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500"
                           />
                         </div>
                       )}

@@ -29,7 +29,7 @@ export const SECTOR_INFO: Record<string, { label: string; color: string; icon: R
   '65': { label: 'Utilities', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: LightBulbIcon },
   '66': { label: 'Finance', color: 'bg-blue-100 text-blue-700 border-blue-200', icon: BuildingLibraryIcon },
   '70': { label: 'Real Estate', color: 'bg-stone-100 text-stone-700 border-stone-200', icon: HomeIcon },
-  '71': { label: 'Engineering', color: 'bg-slate-800/60 text-slate-700 border-slate-200', icon: BeakerIcon },
+  '71': { label: 'Engineering', color: 'bg-slate-800/60 text-slate-700 border-slate-700/50', icon: BeakerIcon },
   '72': { label: 'IT Services', color: 'bg-violet-100 text-violet-700 border-violet-200', icon: ComputerDesktopIcon },
   '73': { label: 'R&D', color: 'bg-purple-100 text-purple-700 border-purple-200', icon: BeakerIcon },
   '75': { label: 'Government', color: 'bg-red-100 text-red-700 border-red-200', icon: BuildingLibraryIcon },

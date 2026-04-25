@@ -420,7 +420,7 @@ export function BidRecommendationCard({
     green: 'bg-blue-900/200/10 border-blue-500/30 text-green-400',
     amber: 'bg-amber-900/200/10 border-amber-500/30 text-amber-400',
     red: 'bg-red-900/200/10 border-red-500/30 text-red-400',
-    slate: 'bg-slate-500/10 border-slate-500/30 text-slate-400',
+    slate: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/10 border-slate-500/30 text-slate-400',
   };
 
   return (

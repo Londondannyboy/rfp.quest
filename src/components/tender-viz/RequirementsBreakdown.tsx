@@ -31,7 +31,7 @@ const statusConfig: Record<RequirementStatus, { icon: typeof CheckCircleIcon; co
   met: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-blue-900/200/10', label: 'Met' },
   partial: { icon: QuestionMarkCircleIcon, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial' },
   gap: { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-900/200/10', label: 'Gap' },
-  unknown: { icon: QuestionMarkCircleIcon, color: 'text-slate-400', bg: 'bg-slate-500/10', label: 'Unknown' },
+  unknown: { icon: QuestionMarkCircleIcon, color: 'text-slate-400', bg: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/10', label: 'Unknown' },
 };
 
 function RequirementRow({

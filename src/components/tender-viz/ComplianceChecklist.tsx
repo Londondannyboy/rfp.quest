@@ -37,7 +37,7 @@ const statusConfig: Record<ComplianceStatus, { icon: typeof CheckCircleIcon; col
   compliant: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-blue-900/200/10', label: 'Compliant' },
   'non-compliant': { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-900/200/10', label: 'Non-Compliant' },
   partial: { icon: ExclamationTriangleIcon, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial' },
-  'not-assessed': { icon: ClipboardDocumentCheckIcon, color: 'text-slate-400', bg: 'bg-slate-500/10', label: 'Not Assessed' },
+  'not-assessed': { icon: ClipboardDocumentCheckIcon, color: 'text-slate-400', bg: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/10', label: 'Not Assessed' },
 };
 
 const categoryConfig: Record<ComplianceCategory, { icon: typeof DocumentTextIcon; label: string; color: string }> = {

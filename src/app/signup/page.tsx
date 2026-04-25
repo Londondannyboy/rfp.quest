@@ -48,7 +48,7 @@ export default function SignupPage() {
                     name="email"
                     placeholder="Enter your work email"
                     required
-                    className="w-full px-6 py-4 text-lg border-2 border-slate-600/50 dark:border-slate-300/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 text-slate-100 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
+                    className="w-full px-6 py-4 text-lg border-2 border-slate-600/50 dark:border-slate-600/50/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 text-slate-100 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
                   />
                 </div>
                 <button
@@ -141,7 +141,7 @@ export default function SignupPage() {
               { title: 'Deadline Tracking', desc: 'Never miss a submission deadline with smart reminders' },
               { title: 'Analytics Dashboard', desc: 'Track your win rates and identify improvement areas' },
             ].map((feature, i) => (
-              <div key={i} className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 p-5 rounded-xl shadow-sm border-slate-600/50 dark:border-slate-300/50">
+              <div key={i} className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 p-5 rounded-xl shadow-sm border-slate-600/50 dark:border-slate-600/50/50">
                 <h3 className="font-semibold text-slate-100 dark:text-white mb-2">{feature.title}</h3>
                 <p className="text-sm text-slate-300 dark:text-slate-400">{feature.desc}</p>
               </div>

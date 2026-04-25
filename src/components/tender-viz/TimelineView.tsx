@@ -25,7 +25,7 @@ const eventStyles: Record<TimelineEventType, { bg: string; border: string; icon:
   published: { bg: 'bg-blue-900/200', border: 'border-blue-500', icon: '📢' },
   award: { bg: 'bg-purple-500', border: 'border-purple-500', icon: '🏆' },
   contract: { bg: 'bg-blue-950/200', border: 'border-blue-500/50', icon: '📝' },
-  custom: { bg: 'bg-slate-500', border: 'border-slate-500', icon: '📌' },
+  custom: { bg: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500', border: 'border-slate-500', icon: '📌' },
 };
 
 function formatDate(dateString: string): string {

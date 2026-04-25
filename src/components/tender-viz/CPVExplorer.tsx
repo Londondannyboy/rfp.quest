@@ -53,7 +53,7 @@ const divisionColors: Record<string, { bg: string; text: string; border: string 
   '77': { bg: 'bg-violet-600/10', text: 'text-violet-300', border: 'border-violet-600/30' },
   '79': { bg: 'bg-fuchsia-600/10', text: 'text-fuchsia-300', border: 'border-fuchsia-600/30' },
   '80': { bg: 'bg-sky-600/10', text: 'text-sky-300', border: 'border-sky-600/30' },
-  '85': { bg: 'bg-slate-500/10', text: 'text-slate-300', border: 'border-slate-500/30' },
+  '85': { bg: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/10', text: 'text-slate-300', border: 'border-slate-500/30' },
   '90': { bg: 'bg-stone-500/10', text: 'text-stone-300', border: 'border-stone-500/30' },
   '92': { bg: 'bg-neutral-500/10', text: 'text-neutral-300', border: 'border-neutral-500/30' },
   '98': { bg: 'bg-zinc-500/10', text: 'text-zinc-300', border: 'border-zinc-500/30' },
@@ -61,7 +61,7 @@ const divisionColors: Record<string, { bg: string; text: string; border: string 
 
 function getColorForCode(code: string) {
   const division = code.substring(0, 2);
-  return divisionColors[division] || { bg: 'bg-slate-500/10', text: 'text-slate-400', border: 'border-slate-500/30' };
+  return divisionColors[division] || { bg: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/10', text: 'text-slate-400', border: 'border-slate-500/30' };
 }
 
 function CPVCodeBadge({ code, isPrimary }: { code: CPVCode; isPrimary?: boolean }) {
