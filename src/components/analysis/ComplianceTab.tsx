@@ -33,7 +33,7 @@ const StatusIcon = ({ status }: { status: ComplianceStatus }) => {
 
 const StatusBadge = ({ status }: { status: string }) => {
   const colors: Record<string, string> = {
-    compliant: 'bg-green-900/50 text-green-300 border-green-700',
+    compliant: 'bg-blue-900/50 text-green-300 border-blue-700',
     partially_compliant: 'bg-yellow-900/50 text-yellow-300 border-yellow-700',
     non_compliant: 'bg-red-900/50 text-red-300 border-red-700',
     needs_review: 'bg-orange-900/50 text-orange-300 border-orange-700',
@@ -90,7 +90,7 @@ export function ComplianceTab({ compliance }: Props) {
             <div
               className={`h-full rounded-full transition-all ${
                 complianceScore >= 80
-                  ? 'bg-green-900/200'
+                  ? 'bg-blue-900/200'
                   : complianceScore >= 60
                   ? 'bg-yellow-500'
                   : complianceScore >= 40
@@ -118,7 +118,7 @@ export function ComplianceTab({ compliance }: Props) {
                   req.status === 'fail'
                     ? 'bg-red-900/20 border-red-800'
                     : req.status === 'pass'
-                    ? 'bg-green-900/20 border-green-800'
+                    ? 'bg-blue-900/20 border-blue-800'
                     : 'bg-slate-700/50'
                 }`}
               >

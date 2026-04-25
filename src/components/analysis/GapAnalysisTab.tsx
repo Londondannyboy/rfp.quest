@@ -18,7 +18,7 @@ type DimensionStatus = 'strong' | 'good' | 'partial' | 'gap' | 'critical_gap';
 
 const StatusBar = ({ score, benchmark }: { score: number; benchmark?: number }) => {
   const getColor = (s: number) => {
-    if (s >= 80) return 'bg-green-900/200';
+    if (s >= 80) return 'bg-blue-900/200';
     if (s >= 60) return 'bg-yellow-500';
     if (s >= 40) return 'bg-orange-500';
     return 'bg-red-900/200';
@@ -79,7 +79,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
   const getRecommendationColor = (rec: string) => {
     switch (rec) {
       case 'proceed':
-        return 'bg-green-900/50 text-green-300 border-green-700';
+        return 'bg-blue-900/50 text-green-300 border-blue-700';
       case 'proceed_with_caution':
         return 'bg-yellow-900/50 text-yellow-300 border-yellow-700';
       case 'needs_work':
@@ -229,7 +229,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
             {strengthsToHighlight.map((strength, index) => (
               <div
                 key={index}
-                className="p-4 bg-green-900/20 rounded-lg border-green-800"
+                className="p-4 bg-blue-900/20 rounded-lg border-blue-800"
               >
                 <div className="font-medium text-white mb-1">
                   {strength.strength as string}

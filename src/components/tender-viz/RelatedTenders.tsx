@@ -28,7 +28,7 @@ interface RelatedTendersProps {
 
 const stageColors: Record<string, string> = {
   planning: 'bg-blue-500/20 text-blue-300',
-  tender: 'bg-green-900/200/20 text-green-300',
+  tender: 'bg-blue-900/200/20 text-green-300',
   award: 'bg-purple-500/20 text-purple-300',
   contract: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/20 text-slate-400',
 };

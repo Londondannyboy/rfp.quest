@@ -348,7 +348,7 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
             </motion.div>
             <span className="text-base font-medium">AI-powered features coming Q2 2026</span>
             <motion.div 
-              className="w-2 h-2 bg-green-400 rounded-full ml-4"
+              className="w-2 h-2 bg-blue-400 rounded-full ml-4"
               animate={{ 
                 scale: [1, 1.3, 1], 
                 opacity: [1, 0.5, 1] 

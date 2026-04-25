@@ -49,7 +49,7 @@ export function MatchScoreGauge({
         style={{ width: config.width, height: config.width }}
       >
         <motion.div
-          className={`w-full h-full rounded-full border-${config.stroke} border-slate-700/50 border-t-teal-500`}
+          className={`w-full h-full rounded-full border-${config.stroke} border-slate-700/50 border-t-blue-500`}
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           style={{ borderWidth: config.stroke }}
@@ -129,7 +129,7 @@ export function MatchScoreBadge({
   if (loading) {
     return (
       <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-900/40 backdrop-blur-xl rounded-full text-xs text-slate-400">
-        <span className="w-3 h-3 border-2 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
+        <span className="w-3 h-3 border-2 border-slate-600/50 border-t-blue-500 rounded-full animate-spin" />
         <span>...</span>
       </span>
     );
@@ -145,7 +145,7 @@ export function MatchScoreBadge({
 
   let bgClass = 'bg-slate-900/40 backdrop-blur-xl text-slate-300';
   if (score >= 75) {
-    bgClass = 'bg-green-100 text-green-700';
+    bgClass = 'bg-blue-100 text-green-400';
   } else if (score >= 50) {
     bgClass = 'bg-yellow-100 text-yellow-700';
   } else if (score >= 25) {

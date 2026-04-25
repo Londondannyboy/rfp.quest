@@ -100,7 +100,7 @@ export default function PastBidsPage() {
   const getOutcomeStyle = (outcome: PastBid['outcome']) => {
     switch (outcome) {
       case 'won':
-        return { bg: 'bg-green-900/50', text: 'text-green-400', icon: TrophyIcon };
+        return { bg: 'bg-blue-900/50', text: 'text-green-400', icon: TrophyIcon };
       case 'lost':
         return { bg: 'bg-red-900/50', text: 'text-red-400', icon: XCircleIcon };
       case 'pending':
@@ -148,7 +148,7 @@ export default function PastBidsPage() {
               <div className="text-2xl font-bold text-white">{stats.total}</div>
               <div className="text-sm text-slate-400">Total Bids</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border-green-900/50">
+            <div className="bg-slate-900 rounded-xl p-4 border-blue-900/50">
               <div className="text-2xl font-bold text-green-400">{stats.won}</div>
               <div className="text-sm text-slate-400">Won</div>
             </div>
@@ -168,7 +168,7 @@ export default function PastBidsPage() {
         )}
 
         {/* Info Banner */}
-        <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 mb-6">
+        <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 mb-6">
           <div className="flex items-start gap-3">
             <ChartBarIcon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
             <div>

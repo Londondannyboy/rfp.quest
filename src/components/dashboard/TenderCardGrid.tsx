@@ -150,7 +150,7 @@ export function TenderCardGrid({
       {isLoading && tenders.length > 0 && (
         <div className="flex justify-center py-4">
           <motion.div
-            className="w-6 h-6 border-2 border-slate-600/50 border-t-teal-500 rounded-full"
+            className="w-6 h-6 border-2 border-slate-600/50 border-t-blue-500 rounded-full"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />

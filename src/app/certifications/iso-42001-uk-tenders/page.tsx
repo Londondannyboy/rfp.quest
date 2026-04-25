@@ -398,7 +398,7 @@ export default function ISO42001Page() {
             </table>
           </div>
 
-          <div className="bg-green-900/20 p-6 rounded-lg my-6">
+          <div className="bg-blue-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-2">Integration Benefits</h3>
             <p>
               If you already have ISO 27001, adding ISO 42001 is more efficient. The standards 

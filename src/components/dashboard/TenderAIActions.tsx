@@ -226,7 +226,7 @@ export function TenderAIButton({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => setExpanded(true)}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-lg text-xs font-medium shadow-sm hover:shadow-md transition-all"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg text-xs font-medium shadow-sm hover:shadow-md transition-all"
     >
       <SparklesIcon className="w-3.5 h-3.5" />
       AI Actions

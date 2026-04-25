@@ -141,7 +141,7 @@ function PhaseCard({ phase }: { phase: ParsedSection }) {
     { bg: 'from-blue-500/20 to-cyan-500/20', border: 'border-blue-500/30', text: 'text-blue-400' },
     { bg: 'from-purple-500/20 to-pink-500/20', border: 'border-purple-500/30', text: 'text-purple-400' },
     { bg: 'from-amber-500/20 to-orange-500/20', border: 'border-amber-500/30', text: 'text-amber-400' },
-    { bg: 'from-emerald-500/20 to-teal-500/20', border: 'border-emerald-500/30', text: 'text-emerald-400' },
+    { bg: 'from-blue-500/20 to-blue-500/20', border: 'border-blue-500/30', text: 'text-blue-400' },
   ];
   const colorIdx = ((phase.phaseNumber || 1) - 1) % phaseColors.length;
   const color = phaseColors[colorIdx];
@@ -252,7 +252,7 @@ function TextSection({ section }: { section: ParsedSection }) {
   const colors: Record<string, string> = {
     responsibilities: 'text-cyan-400',
     requirements: 'text-amber-400',
-    deliverables: 'text-emerald-400',
+    deliverables: 'text-blue-400',
     general: 'text-slate-400',
   };
 

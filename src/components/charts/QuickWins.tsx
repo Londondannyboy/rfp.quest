@@ -33,8 +33,8 @@ export function QuickWins({ opportunities, loading }: QuickWinsProps) {
     return (
       <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-xl p-6 border border-slate-700/50">
         <div className="flex items-center gap-2 mb-4">
-          <div className="w-6 h-6 bg-green-200 rounded animate-pulse" />
-          <div className="h-6 bg-green-200 rounded w-32 animate-pulse" />
+          <div className="w-6 h-6 bg-blue-200 rounded animate-pulse" />
+          <div className="h-6 bg-blue-200 rounded w-32 animate-pulse" />
         </div>
         <div className="space-y-3">
           {[...Array(3)].map((_, i) => (
@@ -72,7 +72,7 @@ export function QuickWins({ opportunities, loading }: QuickWinsProps) {
           <RocketLaunchIcon className="w-6 h-6 text-green-500" />
           <h3 className="text-lg font-semibold text-slate-100">Quick Wins</h3>
         </div>
-        <span className="text-xs text-green-600 font-medium bg-green-100 px-2 py-1 rounded-full">
+        <span className="text-xs text-green-600 font-medium bg-blue-100 px-2 py-1 rounded-full">
           Under £100k
         </span>
       </div>
@@ -91,7 +91,7 @@ export function QuickWins({ opportunities, loading }: QuickWinsProps) {
           >
             <Link
               href={`/tender/${opp.slug}`}
-              className="block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-4 hover:shadow-md transition-all group border-transparent hover:border-green-200"
+              className="block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-4 hover:shadow-md transition-all group border-transparent hover:border-blue-200"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex-1 min-w-0">
@@ -106,7 +106,7 @@ export function QuickWins({ opportunities, loading }: QuickWinsProps) {
                   </p>
                 </div>
                 {opp.valueMax && (
-                  <span className="text-xs font-medium text-green-700 bg-green-900/20 px-2 py-1 rounded">
+                  <span className="text-xs font-medium text-green-400 bg-blue-900/20 px-2 py-1 rounded">
                     {formatValue(opp.valueMax)}
                   </span>
                 )}
@@ -118,7 +118,7 @@ export function QuickWins({ opportunities, loading }: QuickWinsProps) {
 
       <Link
         href="#opportunities"
-        className="flex items-center justify-center gap-2 mt-4 text-sm font-medium text-green-600 hover:text-green-700"
+        className="flex items-center justify-center gap-2 mt-4 text-sm font-medium text-green-600 hover:text-green-400"
       >
         Find more quick wins
         <ArrowRightIcon className="w-4 h-4" />

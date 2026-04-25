@@ -98,7 +98,7 @@ export default function ISO14001Page() {
             ISO 14001 for UK Tenders: Environmental Certification Guide 2026
           </h1>
           
-          <div className="bg-green-900/20 border-l-4 border-green-500 p-6 mb-8">
+          <div className="bg-blue-900/20 border-l-4 border-blue-500 p-6 mb-8">
             <p className="font-semibold text-green-900 mb-2">🌱 Procurement Act 2023 Impact</p>
             <p className="text-green-800">
               The Most Advantageous Tenders (MAT) framework now formally weights environmental 
@@ -275,7 +275,7 @@ export default function ISO14001Page() {
             </table>
           </div>
 
-          <div className="bg-green-900/20 p-6 rounded-lg my-6">
+          <div className="bg-blue-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-2">Cost-Saving Opportunities</h3>
             <ul className="space-y-2">
               <li>• Implement alongside ISO 9001/45001 for 30-40% savings</li>
@@ -347,7 +347,7 @@ export default function ISO14001Page() {
             <h3 className="text-xl font-semibold mb-4">Typical 4-Month Journey</h3>
             
             <div className="space-y-4">
-              <div className="border-l-4 border-green-500 pl-4">
+              <div className="border-l-4 border-blue-500 pl-4">
                 <h4 className="font-semibold">Month 1: Initial Environmental Review</h4>
                 <ul className="text-sm space-y-1 mt-2">
                   <li>• Identify environmental aspects and impacts</li>
@@ -357,7 +357,7 @@ export default function ISO14001Page() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-green-500 pl-4">
+              <div className="border-l-4 border-blue-500 pl-4">
                 <h4 className="font-semibold">Month 2: Planning</h4>
                 <ul className="text-sm space-y-1 mt-2">
                   <li>• Develop environmental policy</li>
@@ -367,7 +367,7 @@ export default function ISO14001Page() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-green-500 pl-4">
+              <div className="border-l-4 border-blue-500 pl-4">
                 <h4 className="font-semibold">Month 3: Implementation</h4>
                 <ul className="text-sm space-y-1 mt-2">
                   <li>• Deploy operational controls</li>
@@ -377,7 +377,7 @@ export default function ISO14001Page() {
                 </ul>
               </div>
 
-              <div className="border-l-4 border-green-500 pl-4">
+              <div className="border-l-4 border-blue-500 pl-4">
                 <h4 className="font-semibold">Month 4: Certification</h4>
                 <ul className="text-sm space-y-1 mt-2">
                   <li>• Internal audit</li>
@@ -408,7 +408,7 @@ export default function ISO14001Page() {
               </ul>
             </div>
             
-            <div className="bg-green-900/20 p-6 rounded-lg">
+            <div className="bg-blue-900/20 p-6 rounded-lg">
               <h3 className="font-semibold mb-3">Business Benefits</h3>
               <ul className="space-y-1 text-sm">
                 <li>• Enhanced reputation</li>
@@ -472,7 +472,7 @@ export default function ISO14001Page() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white p-8 rounded-lg mt-12">
+          <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-8 rounded-lg mt-12">
             <h2 className="text-2xl font-bold mb-4">Check Environmental Requirements in Tenders</h2>
             <p className="mb-6">
               Our platform identifies when tenders require ISO 14001, carbon reduction plans, 

@@ -24,7 +24,7 @@ interface RiskAssessmentProps {
 }
 
 const riskColors: Record<RiskLevel, { bg: string; text: string; border: string; icon: string }> = {
-  low: { bg: 'bg-green-900/200/10', text: 'text-green-400', border: 'border-green-500/30', icon: 'text-green-500' },
+  low: { bg: 'bg-blue-900/200/10', text: 'text-green-400', border: 'border-blue-500/30', icon: 'text-green-500' },
   medium: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/30', icon: 'text-yellow-500' },
   high: { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/30', icon: 'text-orange-500' },
   critical: { bg: 'bg-red-900/200/10', text: 'text-red-400', border: 'border-red-500/30', icon: 'text-red-500' },
@@ -53,7 +53,7 @@ function getScoreColor(score: number): string {
 }
 
 function getScoreGradient(score: number): string {
-  if (score >= 80) return 'from-green-500 to-emerald-400';
+  if (score >= 80) return 'from-blue-500 to-blue-400';
   if (score >= 60) return 'from-yellow-500 to-amber-400';
   if (score >= 40) return 'from-orange-500 to-amber-500';
   return 'from-red-500 to-rose-400';
@@ -118,7 +118,7 @@ export function RiskAssessment({ risks, overallScore }: RiskAssessmentProps) {
                 <defs>
                   <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" className={`${getScoreGradient(overallScore).includes('green') ? 'text-green-500' : getScoreGradient(overallScore).includes('yellow') ? 'text-yellow-500' : getScoreGradient(overallScore).includes('orange') ? 'text-orange-500' : 'text-red-500'}`} stopColor="currentColor" />
-                    <stop offset="100%" className={`${getScoreGradient(overallScore).includes('emerald') ? 'text-emerald-400' : getScoreGradient(overallScore).includes('amber') ? 'text-amber-400' : 'text-rose-400'}`} stopColor="currentColor" />
+                    <stop offset="100%" className={`${getScoreGradient(overallScore).includes('emerald') ? 'text-blue-400' : getScoreGradient(overallScore).includes('amber') ? 'text-amber-400' : 'text-rose-400'}`} stopColor="currentColor" />
                   </linearGradient>
                 </defs>
               </svg>

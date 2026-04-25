@@ -151,7 +151,7 @@ function Scene() {
 function LoadingFallback() {
   return (
     <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-32 h-32 rounded-full border-4 border-blue-500/50/30 border-t-teal-500 animate-spin" />
+      <div className="w-32 h-32 rounded-full border-4 border-blue-500/50/30 border-t-blue-500 animate-spin" />
     </div>
   );
 }

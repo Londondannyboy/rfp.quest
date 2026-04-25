@@ -34,7 +34,7 @@ interface ComplianceChecklistProps {
 }
 
 const statusConfig: Record<ComplianceStatus, { icon: typeof CheckCircleIcon; color: string; bg: string; label: string }> = {
-  compliant: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-green-900/200/10', label: 'Compliant' },
+  compliant: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-blue-900/200/10', label: 'Compliant' },
   'non-compliant': { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-900/200/10', label: 'Non-Compliant' },
   partial: { icon: ExclamationTriangleIcon, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial' },
   'not-assessed': { icon: ClipboardDocumentCheckIcon, color: 'text-slate-400', bg: 'bg-slate-500/10', label: 'Not Assessed' },
@@ -111,7 +111,7 @@ function ComplianceItemRow({ item }: { item: ComplianceItem }) {
           )}
 
           {item.evidence && (
-            <div className="p-3 bg-green-900/200/10 border-green-500/30 rounded-lg">
+            <div className="p-3 bg-blue-900/200/10 border-blue-500/30 rounded-lg">
               <div className="text-xs font-medium text-green-400 mb-1">Evidence Provided</div>
               <p className="text-sm text-slate-300">{item.evidence}</p>
             </div>

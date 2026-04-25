@@ -154,7 +154,7 @@ export default function PastBidDetailPage({
   const getOutcomeConfig = (outcome: string) => {
     switch (outcome) {
       case 'won':
-        return { icon: CheckCircleIcon, color: 'text-green-400', bg: 'bg-green-900/30', label: 'Won' };
+        return { icon: CheckCircleIcon, color: 'text-green-400', bg: 'bg-blue-900/30', label: 'Won' };
       case 'lost':
         return { icon: XCircleIcon, color: 'text-red-400', bg: 'bg-red-900/30', label: 'Lost' };
       case 'pending':
@@ -455,7 +455,7 @@ export default function PastBidDetailPage({
                           <span
                             className={`px-2 py-0.5 rounded text-xs font-medium ${
                               response.scoreReceived / response.maxScore >= 0.8
-                                ? 'bg-green-900/30 text-green-400'
+                                ? 'bg-blue-900/30 text-green-400'
                                 : response.scoreReceived / response.maxScore >= 0.6
                                 ? 'bg-amber-900/30 text-amber-400'
                                 : 'bg-red-900/30 text-red-400'

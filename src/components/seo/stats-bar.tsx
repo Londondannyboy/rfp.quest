@@ -181,7 +181,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
             transition={{ duration: 0.2 }}
           >
             <motion.div 
-              className="w-2 h-2 bg-green-400 rounded-full mr-3"
+              className="w-2 h-2 bg-blue-400 rounded-full mr-3"
               animate={{ scale: [1, 1.2, 1], opacity: [1, 0.5, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             />

@@ -270,7 +270,7 @@ export function EnrichmentButton({
                       </p>
                     </div>
                   </div>
-                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-green-100 text-green-700 text-xs font-medium">
+                  <span className="flex items-center gap-1 px-2 py-1 rounded-full bg-blue-100 text-green-400 text-xs font-medium">
                     <BoltIcon className="w-3 h-3" />
                     3 credits (save 25%)
                   </span>
@@ -313,8 +313,8 @@ export function EnrichmentButton({
 
               {/* Success Message */}
               {result && result.success && (
-                <div className="mb-4 p-3 bg-green-900/20 border-green-200 rounded-lg">
-                  <p className="text-sm text-green-700 flex items-center gap-2">
+                <div className="mb-4 p-3 bg-blue-900/20 border-blue-200 rounded-lg">
+                  <p className="text-sm text-green-400 flex items-center gap-2">
                     <CheckCircleIcon className="w-4 h-4" />
                     Enrichment successful! {result.cached && '(From cache)'}
                   </p>

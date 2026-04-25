@@ -210,9 +210,9 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
       )}
 
       {status === 'success' && uploadedFile && (
-        <div className="border-green-700/50 rounded-xl p-6 bg-green-900/20">
+        <div className="border-blue-700/50 rounded-xl p-6 bg-blue-900/20">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-lg bg-green-900/50 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-blue-900/50 flex items-center justify-center flex-shrink-0">
               <CheckCircleIcon className="h-5 w-5 text-green-400" />
             </div>
             <div className="flex-1 min-w-0">
@@ -227,7 +227,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
               <div className="flex gap-3">
                 <button
                   onClick={handleAnalyze}
-                  className="px-4 py-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white text-sm font-medium rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-colors"
+                  className="px-4 py-2 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-colors"
                 >
                   Analyze This RFP
                 </button>

@@ -54,7 +54,7 @@ function getDeadlineStatus(deadline: string | null | undefined): { text: string;
 
 const stageBadges: Record<string, { bg: string; text: string; label: string }> = {
   planning: { bg: 'bg-blue-100', text: 'text-blue-800', label: 'Planning' },
-  tender: { bg: 'bg-green-100', text: 'text-green-800', label: 'Open for Bids' },
+  tender: { bg: 'bg-blue-100', text: 'text-green-800', label: 'Open for Bids' },
   award: { bg: 'bg-purple-100', text: 'text-purple-800', label: 'Awarded' },
   contract: { bg: 'bg-slate-900/40 backdrop-blur-xl', text: 'text-slate-100', label: 'Contracted' },
 };
@@ -76,7 +76,7 @@ export function TenderHero({
   return (
     <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-2xl overflow-hidden">
       {/* Header with gradient accent */}
-      <div className="h-2 bg-gradient-to-r from-teal-400 via-cyan-500 to-blue-500" />
+      <div className="h-2 bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-500" />
 
       <div className="p-8">
         {/* Stage badge */}

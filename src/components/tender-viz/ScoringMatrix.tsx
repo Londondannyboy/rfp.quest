@@ -132,7 +132,7 @@ export function ScoringMatrix({ criteria, totalWeight = 100, priceWeight }: Scor
             </div>
             <div className="flex h-4 rounded-full overflow-hidden">
               <div
-                className="bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center"
+                className="bg-gradient-to-r from-blue-500 to-blue-400 flex items-center justify-center"
                 style={{ width: `${100 - priceWeight}%` }}
               >
                 <span className="text-xs font-medium text-white">

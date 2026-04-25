@@ -66,7 +66,7 @@ export function ReviewDataStep({
             value={profile.companyName}
             onChange={(e) => onUpdate({ companyName: e.target.value })}
             placeholder="Your company name"
-            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -81,7 +81,7 @@ export function ReviewDataStep({
             value={profile.website}
             onChange={(e) => onUpdate({ website: e.target.value })}
             placeholder="https://example.com"
-            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
         </div>
 
@@ -95,7 +95,7 @@ export function ReviewDataStep({
             onChange={(e) => onUpdate({ description: e.target.value })}
             placeholder="Brief description of what your company does..."
             rows={3}
-            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
+            className="w-full px-4 py-3 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
           />
         </div>
 
@@ -112,7 +112,7 @@ export function ReviewDataStep({
               onChange={(e) => setNewService(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addService())}
               placeholder="Add a service..."
-              className="flex-1 px-4 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+              className="flex-1 px-4 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
             />
             <button
               onClick={addService}

@@ -39,8 +39,8 @@ const colorClasses = {
     text: 'text-amber-600',
   },
   green: {
-    bg: 'bg-green-900/20',
-    icon: 'bg-green-100 text-green-600',
+    bg: 'bg-blue-900/20',
+    icon: 'bg-blue-100 text-green-600',
     text: 'text-green-600',
   },
 };

@@ -171,7 +171,7 @@ export function SaveViewModal({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g., NHS Opportunities"
-                  className="w-full px-4 py-2.5 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   autoFocus
                 />
               </div>

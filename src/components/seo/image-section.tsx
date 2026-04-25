@@ -33,7 +33,7 @@ export function ImageSection({
   const overlayClasses = {
     light: 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50/80 dark:bg-slate-900/80',
     dark: 'bg-black/60',
-    gradient: 'bg-gradient-to-r from-teal-900/90 via-teal-800/70 to-transparent',
+    gradient: 'bg-gradient-to-r from-blue-900/90 via-blue-800/70 to-transparent',
   };
 
   const positionClasses = {

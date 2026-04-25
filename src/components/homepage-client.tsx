@@ -63,7 +63,7 @@ export function HomepageClient({ page }: HomepageClientProps) {
           <div className="max-w-5xl mx-auto text-center">
             {/* Premium announcement badge with enhanced styling */}
             <div className="inline-flex items-center rounded-full px-6 py-3 text-sm font-semibold bg-slate-900/60 text-blue-300 ring-1 ring-blue-500/30 backdrop-blur-xl shadow-lg shadow-blue-900/20 mb-10 transition-all duration-300 hover:scale-105 hover:bg-slate-800/60">
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+              <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
               <span>Coming Soon - Q2 2026</span>
               <svg className="ml-3 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.236 4.53L8.093 10.5a.75.75 0 00-1.186.918l1.875 2.416a.75.75 0 001.183.02l3.633-5.05.12-.045z" clipRule="evenodd" />

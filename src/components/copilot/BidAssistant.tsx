@@ -250,7 +250,7 @@ We are fully committed to delivering this contract to the highest standards, on 
       className="bg-slate-900 rounded-2xl border-slate-700 overflow-hidden"
     >
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-900/50 to-teal-900/50 p-4 border-b border-slate-700">
+      <div className="bg-gradient-to-r from-purple-900/50 to-blue-900/50 p-4 border-b border-slate-700">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg">
@@ -372,7 +372,7 @@ We are fully committed to delivering this contract to the highest standards, on 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setIsGenerating(true)}
-                  className="w-full p-4 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg text-white font-medium flex items-center justify-center gap-2"
+                  className="w-full p-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg text-white font-medium flex items-center justify-center gap-2"
                 >
                   <SparklesIcon className="w-5 h-5" />
                   Generate Bid Outline
@@ -488,7 +488,7 @@ export function BidAssistantButton({ tender }: { tender: Tender }) {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-teal-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-700 to-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
       >
         <SparklesIcon className="w-5 h-5" />
         AI Bid Assistant

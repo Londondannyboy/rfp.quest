@@ -45,7 +45,7 @@ export function CompletionStep({ profile, onComplete }: CompletionStepProps) {
           transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
           className="mb-6"
         >
-          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-teal-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-teal-500/30">
+          <div className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-400 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/30">
             <CheckCircleIcon className="w-12 h-12 text-white" />
           </div>
         </motion.div>
@@ -112,7 +112,7 @@ export function CompletionStep({ profile, onComplete }: CompletionStepProps) {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={onComplete}
-          className="w-full py-4 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-white font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
+          className="w-full py-4 bg-gradient-to-r from-blue-500 to-blue-400 hover:from-blue-400 hover:to-blue-400 text-white font-semibold rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
         >
           <RocketLaunchIcon className="w-5 h-5" />
           Enter Your Dashboard

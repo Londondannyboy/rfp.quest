@@ -24,7 +24,7 @@ import type { DashboardStats } from '@/app/api/dashboard-stats/route';
 function AnimatedBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden rounded-2xl">
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900" />
       <motion.div
         className="absolute inset-0 opacity-30"
         style={{
@@ -69,9 +69,9 @@ function LoadingSkeleton() {
   return (
     <div className="space-y-8">
       {/* Hero banner skeleton */}
-      <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+      <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full border-4 border-blue-500/50/30 border-t-teal-500 animate-spin" />
+          <div className="w-24 h-24 rounded-full border-4 border-blue-500/50/30 border-t-blue-500 animate-spin" />
         </div>
       </div>
 

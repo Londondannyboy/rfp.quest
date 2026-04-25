@@ -85,7 +85,7 @@ export function BuyerProfile({
       <div className="p-6 border-b border-slate-800">
         <div className="flex items-start gap-4">
           {/* Avatar/Icon */}
-          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center flex-shrink-0">
+          <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center flex-shrink-0">
             <BuildingOfficeIcon className="w-8 h-8 text-white" />
           </div>
 
@@ -218,7 +218,7 @@ export function BuyerProfile({
 
                 {/* Sustainability */}
                 {intel.sustainability?.hasSecrContent && (
-                  <div className="bg-green-900/20 rounded-lg p-3 border-green-800/30">
+                  <div className="bg-blue-900/20 rounded-lg p-3 border-blue-800/30">
                     <h5 className="text-xs font-medium text-green-400 mb-2 flex items-center gap-1">
                       <LeafIcon className="w-3 h-3" />
                       Sustainability (SECR)

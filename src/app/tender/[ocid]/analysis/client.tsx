@@ -294,7 +294,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
             <div className="space-y-6">
               {/* AI Insights Panel */}
               {tenderAnalysis && (
-                <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-6 border-blue-800/60/50">
+                <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-xl p-6 border-blue-800/60/50">
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
                     <LightBulbIcon className="w-5 h-5 text-blue-400" />
                     AI Analysis
@@ -347,7 +347,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                   <button
                     onClick={extractRequirements}
                     disabled={isAnalyzing}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-medium rounded-lg hover:from-teal-700 hover:to-cyan-700 disabled:opacity-50 transition-all"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white font-medium rounded-lg hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 transition-all"
                   >
                     {isAnalyzing ? (
                       <>
@@ -383,7 +383,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                 <button
                   onClick={startLegacyAnalysis}
                   disabled={isAnalyzing}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-teal-600 to-cyan-600 text-white font-medium rounded-lg hover:from-teal-700 hover:to-cyan-700 disabled:opacity-50 transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white font-medium rounded-lg hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 transition-all"
                 >
                   {isAnalyzing ? (
                     <>
@@ -454,7 +454,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
               </div>
 
               {analyzedDocumentId && (
-                <div className="bg-green-900/20 border-green-800 rounded-xl p-4">
+                <div className="bg-blue-900/20 border-blue-800 rounded-xl p-4">
                   <div className="flex items-center gap-2 text-green-400">
                     <CheckCircleIcon className="w-5 h-5" />
                     <span>Document analyzed! Requirements updated on the Write Bid tab.</span>

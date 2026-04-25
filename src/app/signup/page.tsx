@@ -12,7 +12,7 @@ export default function SignupPage() {
   return (
     <>
       {/* Hero Section */}
-      <section id="top" className="relative overflow-hidden bg-gradient-to-br from-teal-50 via-white to-teal-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <section id="top" className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-900/30/50 dark:bg-blue-950/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
         <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-900/30/30 dark:bg-blue-950/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
@@ -53,7 +53,7 @@ export default function SignupPage() {
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-blue-800 hover:bg-blue-800/90 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-teal-600/25 hover:shadow-xl hover:shadow-teal-600/30 hover:-translate-y-0.5 text-lg"
+                  className="w-full px-8 py-4 bg-blue-800 hover:bg-blue-800/90 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 text-lg"
                 >
                   Join the Waitlist
                 </button>

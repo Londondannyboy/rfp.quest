@@ -27,7 +27,7 @@ export const SECTOR_INFO: Record<string, { label: string; color: string; icon: R
   '60': { label: 'Transport', color: 'bg-indigo-100 text-indigo-700 border-indigo-200', icon: TruckIcon },
   '64': { label: 'Telecom', color: 'bg-cyan-100 text-cyan-700 border-cyan-200', icon: GlobeAltIcon },
   '65': { label: 'Utilities', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: LightBulbIcon },
-  '66': { label: 'Finance', color: 'bg-emerald-100 text-emerald-700 border-emerald-200', icon: BuildingLibraryIcon },
+  '66': { label: 'Finance', color: 'bg-blue-100 text-blue-700 border-blue-200', icon: BuildingLibraryIcon },
   '70': { label: 'Real Estate', color: 'bg-stone-100 text-stone-700 border-stone-200', icon: HomeIcon },
   '71': { label: 'Engineering', color: 'bg-slate-800/60 text-slate-700 border-slate-200', icon: BeakerIcon },
   '72': { label: 'IT Services', color: 'bg-violet-100 text-violet-700 border-violet-200', icon: ComputerDesktopIcon },
@@ -37,7 +37,7 @@ export const SECTOR_INFO: Record<string, { label: string; color: string; icon: R
   '79': { label: 'Business', color: 'bg-blue-900/30 text-blue-400 border-blue-700/50', icon: BriefcaseIcon },
   '80': { label: 'Education', color: 'bg-amber-100 text-amber-700 border-amber-200', icon: AcademicCapIcon },
   '85': { label: 'Healthcare', color: 'bg-rose-100 text-rose-700 border-rose-200', icon: HeartIcon },
-  '90': { label: 'Environment', color: 'bg-green-100 text-green-700 border-green-200', icon: SparklesIcon },
+  '90': { label: 'Environment', color: 'bg-blue-100 text-green-400 border-blue-200', icon: SparklesIcon },
   '92': { label: 'Culture', color: 'bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200', icon: PaintBrushIcon },
   '98': { label: 'Other', color: 'bg-slate-900/40 backdrop-blur-xl text-slate-200 border-slate-700/50', icon: BriefcaseIcon },
 };

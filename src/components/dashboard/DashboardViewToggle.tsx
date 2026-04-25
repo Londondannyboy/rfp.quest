@@ -57,7 +57,7 @@ export function DashboardViewToggle({
       label: 'Table View',
       description: 'Spreadsheet-style data manipulation and bulk actions',
       icon: TableCellsIcon,
-      gradient: 'from-green-500 to-green-600',
+      gradient: 'from-blue-500 to-blue-600',
       features: [
         'Inline editing',
         'Bulk selection',

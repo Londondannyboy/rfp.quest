@@ -33,7 +33,7 @@ export function CompetitorPreview({
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-4 h-4 border-2 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
+        <div className="w-4 h-4 border-2 border-slate-600/50 border-t-blue-500 rounded-full animate-spin" />
         <span className="text-xs text-slate-400">Researching competitors...</span>
       </div>
     );

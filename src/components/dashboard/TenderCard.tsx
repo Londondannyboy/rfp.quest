@@ -46,7 +46,7 @@ import type { Tender } from '@/lib/hooks/use-tenders';
 // AI Insight chip component
 function InsightChip({ type, label }: { type: 'positive' | 'warning' | 'info' | 'opportunity'; label: string }) {
   const styles = {
-    positive: 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200',
+    positive: 'bg-blue-600/20 text-green-400 border border-blue-500/30 border-blue-200',
     warning: 'bg-amber-600/20 text-amber-400 border border-amber-500/30 border-amber-200',
     info: 'bg-blue-600/20 text-blue-400 border border-blue-500/30 border-blue-200',
     opportunity: 'bg-purple-50 text-purple-700 border-purple-200',
@@ -574,7 +574,7 @@ export function TenderCard({
               <div className="pt-4 space-y-5">
                 {/* Match Breakdown */}
                 {matchScore !== null && matchScore !== undefined && (
-                  <div className="bg-gradient-to-br from-teal-50 to-white p-4 rounded-xl border-blue-700/40/50">
+                  <div className="bg-gradient-to-br from-blue-50 to-white p-4 rounded-xl border-blue-700/40/50">
                     <EnhancedMatchBreakdown score={matchScore ?? null} />
                   </div>
                 )}
@@ -694,7 +694,7 @@ export function TenderCard({
               ? 'bg-slate-900/40 backdrop-blur-xl text-slate-500'
               : isUrgent
               ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
-              : 'bg-gradient-to-r from-teal-500 to-blue-500 text-white'
+              : 'bg-gradient-to-r from-blue-600 to-blue-500 text-white'
           }`}
         >
           <div className="flex items-center gap-2">

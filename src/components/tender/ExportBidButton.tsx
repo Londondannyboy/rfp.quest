@@ -94,7 +94,7 @@ export function ExportBidButton({ documentId, tenderOcid, disabled }: Props) {
           className={`
             inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all
             ${exportSuccess
-              ? 'bg-green-600 text-white'
+              ? 'bg-blue-600 text-white'
               : 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700'
             }
             disabled:opacity-50 disabled:cursor-not-allowed

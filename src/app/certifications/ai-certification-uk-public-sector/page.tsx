@@ -384,7 +384,7 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Competitive Advantage Through Early Adoption</h2>
           
-          <div className="bg-green-900/20 border-l-4 border-green-400 p-6 my-8">
+          <div className="bg-blue-900/20 border-l-4 border-blue-400 p-6 my-8">
             <p className="font-semibold text-green-900 mb-2">
               ✅ Benefits of ISO 42001 Certification Now
             </p>

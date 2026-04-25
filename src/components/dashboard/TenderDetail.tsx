@@ -68,7 +68,7 @@ function DetailSection({
 
 function StageBadge({ stage }: { stage: string }) {
   const colors: Record<string, string> = {
-    tender: 'bg-green-100 text-green-800 border-green-200',
+    tender: 'bg-blue-100 text-green-800 border-blue-200',
     planning: 'bg-blue-100 text-blue-800 border-blue-200',
     award: 'bg-purple-100 text-purple-800 border-purple-200',
     contract: 'bg-slate-900/40 backdrop-blur-xl text-slate-100 border-slate-700/50',

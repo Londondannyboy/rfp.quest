@@ -225,7 +225,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
           <div className="flex items-center gap-3">
             <Link
               href={`/tender/${tender.slug}/analysis`}
-              className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-lg hover:from-teal-700 hover:to-cyan-700 transition-colors text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white rounded-lg hover:from-blue-700 hover:to-cyan-700 transition-colors text-sm font-medium"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -445,7 +445,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             {/* Link to buyer page */}
             <Link
               href={`/buyer/${slugifyBuyer(tender.buyerName)}`}
-              className="block bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 hover:border-blue-500/40 transition-colors"
+              className="block bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 hover:border-blue-500/40 transition-colors"
             >
               <div className="text-sm text-blue-400 mb-1">View All Contracts</div>
               <div className="text-white font-medium">{tender.buyerName}</div>
@@ -486,7 +486,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
         {/* CTA + Internal Links */}
         <div className="mt-12 border-t border-slate-800 pt-8">
-          <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
+          <div className="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
             <div className="max-w-3xl">
               <h2 className="text-2xl font-bold text-white mb-3">Win More <strong>UK Government Contracts</strong></h2>
               <p className="text-slate-300 mb-6">

@@ -239,7 +239,7 @@ export function TenderRow({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
-      className="group bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-b border-slate-700/50 hover:bg-gradient-to-r hover:from-teal-50/50 hover:to-white transition-all"
+      className="group bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-b border-slate-700/50 hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-white transition-all"
     >
       {/* Main Row Content - Much Taller */}
       <div className="p-4">
@@ -356,7 +356,7 @@ export function TenderRow({
                 <span
                   key={i}
                   className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                    insight.type === 'positive' ? 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200' :
+                    insight.type === 'positive' ? 'bg-blue-600/20 text-green-400 border border-blue-500/30 border-blue-200' :
                     insight.type === 'warning' ? 'bg-amber-600/20 text-amber-400 border border-amber-500/30 border-amber-200' :
                     insight.type === 'info' ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30 border-blue-200' :
                     'bg-purple-50 text-purple-700 border-purple-200'
@@ -375,7 +375,7 @@ export function TenderRow({
               <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
                 valueInfo.isEstimate
                   ? 'bg-gradient-to-r from-amber-50 to-white border-amber-200'
-                  : 'bg-gradient-to-r from-teal-50 to-white border-blue-700/40'
+                  : 'bg-gradient-to-r from-blue-50 to-white border-blue-700/40'
               }`}>
                 <CurrencyPoundIcon className={`w-4 h-4 ${valueInfo.isEstimate ? 'text-amber-500' : 'text-blue-500'}`} />
                 <span className="text-sm font-bold text-slate-100">{valueInfo.display}</span>
@@ -450,7 +450,7 @@ export function TenderRow({
                 {companyProfile && (
                   <div className={`mb-4 p-4 rounded-lg border ${
                     profileMatch.overall >= 70
-                      ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200'
+                      ? 'bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 border-blue-200'
                       : profileMatch.overall >= 40
                       ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-amber-200'
                       : 'bg-gradient-to-r from-gray-50 to-slate-50 border-slate-700/50'
@@ -475,7 +475,7 @@ export function TenderRow({
                         <span
                           key={i}
                           className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium ${
-                            insight.type === 'positive' ? 'bg-green-100 text-green-700' :
+                            insight.type === 'positive' ? 'bg-blue-100 text-green-400' :
                             insight.type === 'warning' ? 'bg-amber-100 text-amber-700' :
                             insight.type === 'opportunity' ? 'bg-purple-100 text-purple-700' :
                             'bg-blue-100 text-blue-700'
@@ -517,7 +517,7 @@ export function TenderRow({
                   </div>
 
                   {/* Match Breakdown - use profile match if available */}
-                  <div className="bg-gradient-to-r from-teal-50 to-white p-3 rounded-lg">
+                  <div className="bg-gradient-to-r from-blue-50 to-white p-3 rounded-lg">
                     <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200 mb-2">
                       <SparklesIcon className="w-4 h-4 text-blue-500" />
                       {companyProfile ? 'Profile Match' : 'Match Analysis'}

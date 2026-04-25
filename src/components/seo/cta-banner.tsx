@@ -298,7 +298,7 @@ export function CTABanner({
           {/* Premium trust indicators */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-10">
             <div className="flex items-center text-slate-400">
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+              <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
               <span className="text-sm font-medium">Platform launching Q2 2026</span>
             </div>
             <div className="flex items-center text-slate-400">

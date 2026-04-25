@@ -323,7 +323,7 @@ export function UnifiedDashboard({
                     
                     <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                        <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                           <SparklesIcon className="w-6 h-6 text-green-600" />
                         </div>
                         <div>

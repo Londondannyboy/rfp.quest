@@ -66,7 +66,7 @@ export function BidVersionHistory({
                 <div
                   className={`px-2 py-1 rounded-full text-xs font-medium ${
                     version.version_number === currentVersion
-                      ? 'bg-green-100 text-green-700'
+                      ? 'bg-blue-100 text-green-400'
                       : 'bg-slate-900/40 backdrop-blur-xl text-slate-200'
                   }`}
                 >

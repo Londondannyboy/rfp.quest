@@ -128,8 +128,8 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
         inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-all
         ${
           filters.sustainability
-            ? 'bg-green-100 text-green-800 ring-2 ring-green-500'
-            : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-green-900/20 hover:text-green-700'
+            ? 'bg-blue-100 text-green-800 ring-2 ring-green-500'
+            : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-blue-900/20 hover:text-green-400'
         }
       `}
     >
@@ -361,7 +361,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                   </span>
                 )}
                 {filters.sustainability && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-3 py-1 text-sm text-green-700">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-blue-900/20 px-3 py-1 text-sm text-green-400">
                     🌿 Sustainability
                     <button
                       onClick={handleSustainabilityToggle}

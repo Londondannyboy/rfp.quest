@@ -97,7 +97,7 @@ export function ValueAnalysis({
             )}
           </div>
 
-          <div className="p-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl">
+          <div className="p-3 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-xl">
             <CurrencyPoundIcon className="w-6 h-6 text-blue-400" />
           </div>
         </div>
@@ -144,7 +144,7 @@ export function ValueAnalysis({
                 </div>
                 <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-600 to-blue-500 rounded-full"
                     style={{ width: `${item.percentage}%` }}
                   />
                 </div>

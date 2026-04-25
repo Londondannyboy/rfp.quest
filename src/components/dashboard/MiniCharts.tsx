@@ -74,7 +74,7 @@ export function DeadlineBar({ daysLeft }: { daysLeft: number | null }) {
   const maxDays = 30;
   const percentage = Math.max(0, Math.min(100, (daysLeft / maxDays) * 100));
 
-  let barColor = 'bg-green-900/200';
+  let barColor = 'bg-blue-900/200';
   let textColor = 'text-slate-300';
   if (isExpired) {
     barColor = 'bg-slate-700/70';
@@ -160,7 +160,7 @@ export function CompetitorBadge({
   if (loading) {
     return (
       <div className="flex items-center gap-1">
-        <div className="w-3 h-3 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
+        <div className="w-3 h-3 border-slate-600/50 border-t-blue-500 rounded-full animate-spin" />
       </div>
     );
   }
@@ -193,7 +193,7 @@ export function InsightChip({
   label: string;
 }) {
   const styles = {
-    positive: 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200',
+    positive: 'bg-blue-600/20 text-green-400 border border-blue-500/30 border-blue-200',
     warning: 'bg-red-900/20 text-red-700 border-red-200',
     neutral: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-300 border-slate-700/50',
     opportunity: 'bg-purple-50 text-purple-700 border-purple-200',

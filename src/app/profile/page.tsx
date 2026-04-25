@@ -332,7 +332,7 @@ export default function ProfilePage() {
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-6 p-4 bg-green-900/20 border-green-200 rounded-lg text-green-700 flex items-center gap-2"
+            className="mb-6 p-4 bg-blue-900/20 border-blue-200 rounded-lg text-green-400 flex items-center gap-2"
           >
             <CheckIcon className="w-5 h-5" />
             Profile saved successfully!
@@ -555,7 +555,7 @@ export default function ProfilePage() {
                     onClick={() => toggleRequirement(req.id)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-lg border-2 text-left transition-all ${
                       isSelected
-                        ? 'border-green-500 bg-green-900/20'
+                        ? 'border-blue-500 bg-blue-900/20'
                         : 'border-slate-600/50 hover:border-slate-500/50'
                     }`}
                   >

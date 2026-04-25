@@ -93,8 +93,8 @@ export default function MyBidsPage() {
   };
 
   const getProgressColor = (percentage: number) => {
-    if (percentage === 100) return 'from-green-500 to-emerald-500';
-    if (percentage >= 50) return 'from-teal-500 to-cyan-500';
+    if (percentage === 100) return 'from-blue-500 to-blue-400';
+    if (percentage >= 50) return 'from-blue-600 to-blue-500';
     if (percentage > 0) return 'from-amber-500 to-orange-500';
     return 'from-slate-600 to-slate-500';
   };

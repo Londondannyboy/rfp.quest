@@ -108,7 +108,7 @@ export function ComplianceChecker({
   const getStatusColor = (level: string) => {
     switch (level) {
       case 'compliant':
-        return 'bg-green-900/20 border-green-200';
+        return 'bg-blue-900/20 border-blue-200';
       case 'partial':
         return 'bg-yellow-50 border-yellow-200';
       case 'non-compliant':
@@ -137,7 +137,7 @@ export function ComplianceChecker({
         <div className="w-full bg-slate-800/60 rounded-full h-2 mb-3">
           <div
             className={`h-2 rounded-full transition-all ${
-              complianceStatus.score >= 80 ? 'bg-green-900/200' :
+              complianceStatus.score >= 80 ? 'bg-blue-900/200' :
               complianceStatus.score >= 60 ? 'bg-yellow-500' :
               'bg-red-900/200'
             }`}
@@ -147,8 +147,8 @@ export function ComplianceChecker({
         
         {/* Summary Stats */}
         <div className="grid grid-cols-3 gap-2 text-center">
-          <div className="bg-green-900/20 rounded-lg p-2">
-            <div className="text-lg font-semibold text-green-700">
+          <div className="bg-blue-900/20 rounded-lg p-2">
+            <div className="text-lg font-semibold text-green-400">
               {complianceStatus.summary.compliant}
             </div>
             <div className="text-xs text-green-600">Compliant</div>

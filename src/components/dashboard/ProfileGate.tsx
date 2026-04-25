@@ -35,7 +35,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <motion.div
-          className="w-8 h-8 border-3 border-blue-500/50/30 border-t-teal-500 rounded-full"
+          className="w-8 h-8 border-3 border-blue-500/50/30 border-t-blue-500 rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
         />
@@ -69,7 +69,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.1, type: 'spring' }}
-            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border-blue-500/50/30 flex items-center justify-center"
+            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border-blue-500/50/30 flex items-center justify-center"
           >
             <UserCircleIcon className="w-10 h-10 text-blue-400" />
           </motion.div>
@@ -96,7 +96,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
                 initial={{ width: 0 }}
                 animate={{ width: `${completionPercentage}%` }}
                 transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
-                className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full"
+                className="h-full bg-gradient-to-r from-blue-600 to-blue-500 rounded-full"
               />
             </div>
           </div>
@@ -130,7 +130,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-teal-500/25"
+              className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-blue-500/25"
             >
               Complete Profile
               <ArrowRightIcon className="w-5 h-5" />

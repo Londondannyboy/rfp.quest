@@ -90,7 +90,7 @@ export function WinPredictionPanel({
   };
 
   const getProbabilityBg = (probability: number) => {
-    if (probability >= 0.7) return 'bg-green-900/20 border-green-200';
+    if (probability >= 0.7) return 'bg-blue-900/20 border-blue-200';
     if (probability >= 0.5) return 'bg-yellow-50 border-yellow-200';
     if (probability >= 0.3) return 'bg-orange-50 border-orange-200';
     return 'bg-red-900/20 border-red-200';
@@ -166,7 +166,7 @@ export function WinPredictionPanel({
                 animate={{ width: `${probability}%` }}
                 transition={{ duration: 1, ease: 'easeOut' }}
                 className={`h-4 rounded-full ${
-                  probability >= 70 ? 'bg-gradient-to-r from-green-400 to-green-600' :
+                  probability >= 70 ? 'bg-gradient-to-r from-blue-400 to-blue-600' :
                   probability >= 50 ? 'bg-gradient-to-r from-yellow-400 to-yellow-600' :
                   probability >= 30 ? 'bg-gradient-to-r from-orange-400 to-orange-600' :
                   'bg-gradient-to-r from-red-400 to-red-600'

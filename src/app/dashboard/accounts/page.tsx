@@ -53,7 +53,7 @@ function CompanyCard({ company }: { company: CompanySignal }) {
           </div>
         </div>
         <span className={`px-2 py-1 text-xs font-medium rounded-full ${
-          company.signals.overallSentiment === 'positive' ? 'bg-green-600/20 text-green-400 border border-green-500/30' :
+          company.signals.overallSentiment === 'positive' ? 'bg-blue-600/20 text-green-400 border border-blue-500/30' :
           company.signals.overallSentiment === 'cautious' ? 'bg-amber-600/20 text-amber-400 border border-amber-500/30' :
           'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-300'
         }`}>
@@ -69,7 +69,7 @@ function CompanyCard({ company }: { company: CompanySignal }) {
         </span>
 
         {hasSECR && (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium bg-green-600/20 text-green-400 border border-green-500/30 rounded-full">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium bg-blue-600/20 text-green-400 border border-blue-500/30 rounded-full">
             <Leaf className="w-3 h-3" />
             SECR Reported
           </span>
@@ -110,7 +110,7 @@ function CompanyCard({ company }: { company: CompanySignal }) {
             {company.sustainability.secrData.netZeroYear && (
               <div>
                 <p className="text-xs text-slate-400">Net Zero</p>
-                <p className="font-medium text-green-700">{company.sustainability.secrData.netZeroYear}</p>
+                <p className="font-medium text-green-400">{company.sustainability.secrData.netZeroYear}</p>
               </div>
             )}
           </div>

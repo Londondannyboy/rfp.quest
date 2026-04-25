@@ -37,7 +37,7 @@ function formatDate(dateString: string | null): string {
 
 function StageBadge({ stage }: { stage: string }) {
   const colors: Record<string, string> = {
-    tender: 'bg-green-100 text-green-800',
+    tender: 'bg-blue-100 text-green-800',
     planning: 'bg-blue-100 text-blue-800',
     award: 'bg-purple-100 text-purple-800',
     contract: 'bg-slate-900/40 backdrop-blur-xl text-slate-100',
@@ -104,7 +104,7 @@ function CPVBadges({ codes }: { codes: string[] }) {
 function SustainabilityBadge() {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-2 py-0.5 text-xs font-medium text-green-700"
+      className="inline-flex items-center gap-1 rounded-full bg-blue-900/20 px-2 py-0.5 text-xs font-medium text-green-400"
       title="Sustainability-related tender"
     >
       🌿 Sustainability

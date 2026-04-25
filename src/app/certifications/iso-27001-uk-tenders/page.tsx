@@ -481,7 +481,7 @@ export default function ISO27001Page() {
             Toolkit assertions but doesn't replace it. You'll likely need both:
           </p>
 
-          <div className="bg-green-900/20 p-6 rounded-lg my-6">
+          <div className="bg-blue-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-3">How ISO 27001 Supports DSP Toolkit</h3>
             <ul className="space-y-2">
               <li>✓ Provides evidence for multiple DSP assertions</li>

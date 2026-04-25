@@ -230,7 +230,7 @@ export function TenderListStats({
     <motion.div
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex items-center gap-6 px-4 py-2 bg-gradient-to-r from-teal-50 to-transparent rounded-lg mb-4"
+      className="flex items-center gap-6 px-4 py-2 bg-gradient-to-r from-blue-50 to-transparent rounded-lg mb-4"
     >
       <div className="flex items-center gap-2">
         <span className="text-2xl font-bold text-blue-600">{total}</span>
@@ -255,7 +255,7 @@ export function TenderListStats({
 
       {sustainableCount > 0 && (
         <div className="flex items-center gap-1.5 text-sm">
-          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600 text-xs font-bold">
+          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-100 text-green-600 text-xs font-bold">
             {sustainableCount}
           </span>
           <span className="text-slate-500">green</span>

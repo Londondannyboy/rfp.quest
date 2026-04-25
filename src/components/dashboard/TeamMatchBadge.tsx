@@ -135,7 +135,7 @@ function TeamMemberCard({
 
   const scoreColor = score >= 70 ? 'emerald' : score >= 40 ? 'amber' : 'red';
   const gradientColors = {
-    emerald: 'from-emerald-500 to-teal-600',
+    emerald: 'from-blue-500 to-blue-600',
     amber: 'from-amber-500 to-orange-600',
     red: 'from-red-500 to-rose-600',
   };
@@ -189,7 +189,7 @@ function TeamMemberCard({
           {/* Score label */}
           <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-1.5 py-0.5 rounded-full border-slate-700/50 shadow-sm">
             <span className={`text-[10px] font-bold ${
-              score >= 70 ? 'text-emerald-600' : score >= 40 ? 'text-amber-600' : 'text-red-600'
+              score >= 70 ? 'text-blue-600' : score >= 40 ? 'text-amber-600' : 'text-red-600'
             }`}>
               {score}%
             </span>
@@ -219,7 +219,7 @@ function TeamMemberCard({
             <div className="mt-2 space-y-1">
               {reasons.slice(0, 3).map((reason, i) => (
                 <div key={i} className="flex items-center gap-1.5">
-                  <svg className="w-3 h-3 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-3 h-3 text-blue-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                   <span className="text-[11px] text-slate-300">{reason}</span>

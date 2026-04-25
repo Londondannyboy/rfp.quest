@@ -66,7 +66,7 @@ export function RequirementItem({ requirement, onStartResponse }: Props) {
   const getStatusStyles = (status?: Requirement['responseStatus']) => {
     switch (status) {
       case 'complete':
-        return { bg: 'bg-green-600', text: 'Complete' };
+        return { bg: 'bg-blue-600', text: 'Complete' };
       case 'review':
         return { bg: 'bg-purple-600', text: 'In Review' };
       case 'draft':

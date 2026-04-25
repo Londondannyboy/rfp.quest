@@ -235,7 +235,7 @@ export default function PAS91UKTendersPage() {
           <h2 className="text-2xl font-bold mt-10 mb-4">Benefits of PAS 91 Standardisation</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-green-900/20 rounded-lg p-6">
+            <div className="bg-blue-900/20 rounded-lg p-6">
               <h3 className="font-semibold mb-3">For Contractors</h3>
               <ul className="space-y-2">
                 <li>✅ Complete PQQ once, use multiple times</li>

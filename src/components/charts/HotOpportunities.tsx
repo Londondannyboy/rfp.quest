@@ -31,7 +31,7 @@ function formatValue(value: number | null): string {
 function getUrgencyBadge(days: number) {
   if (days <= 3) return { text: 'Urgent', color: 'bg-red-100 text-red-700 border-red-200' };
   if (days <= 7) return { text: 'This Week', color: 'bg-amber-100 text-amber-700 border-amber-200' };
-  return { text: `${days} days`, color: 'bg-green-100 text-green-700 border-green-200' };
+  return { text: `${days} days`, color: 'bg-blue-100 text-green-400 border-blue-200' };
 }
 
 export function HotOpportunities({ opportunities, loading }: HotOpportunitiesProps) {

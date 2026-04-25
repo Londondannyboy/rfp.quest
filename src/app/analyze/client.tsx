@@ -74,7 +74,7 @@ export function AnalyzePageClient() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-cyan-500 mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-500 mb-6">
             <SparklesIcon className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-4">

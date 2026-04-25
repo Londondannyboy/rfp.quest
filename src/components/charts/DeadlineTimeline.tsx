@@ -21,13 +21,13 @@ interface DeadlineTimelineProps {
 function getUrgencyColor(days: number): string {
   if (days <= 7) return 'bg-red-900/200';
   if (days <= 14) return 'bg-amber-900/200';
-  return 'bg-green-900/200';
+  return 'bg-blue-900/200';
 }
 
 function getUrgencyBadgeColor(days: number): string {
   if (days <= 7) return 'bg-red-100 text-red-700';
   if (days <= 14) return 'bg-amber-100 text-amber-700';
-  return 'bg-green-100 text-green-700';
+  return 'bg-blue-100 text-green-400';
 }
 
 export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {

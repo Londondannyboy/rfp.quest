@@ -159,7 +159,7 @@ export function TenderTableView({
                 />
                 <button
                   onClick={() => handleCellEdit(row.original.id, 'title', editValue)}
-                  className="p-1 text-green-600 hover:bg-green-900/20 rounded"
+                  className="p-1 text-green-600 hover:bg-blue-900/20 rounded"
                 >
                   <CheckIcon className="w-4 h-4" />
                 </button>
@@ -270,7 +270,7 @@ export function TenderTableView({
               <div className="w-16 bg-slate-800/60 rounded-full h-2">
                 <div
                   className={`h-2 rounded-full ${
-                    score >= 80 ? 'bg-green-900/200' :
+                    score >= 80 ? 'bg-blue-900/200' :
                     score >= 60 ? 'bg-yellow-500' :
                     'bg-red-900/200'
                   }`}
@@ -341,7 +341,7 @@ export function TenderTableView({
             reviewing: 'bg-yellow-100 text-yellow-700',
             writing: 'bg-purple-100 text-purple-700',
             submitted: 'bg-slate-900/40 backdrop-blur-xl text-slate-200',
-            won: 'bg-green-100 text-green-700',
+            won: 'bg-blue-100 text-green-400',
             lost: 'bg-red-100 text-red-700',
           };
           

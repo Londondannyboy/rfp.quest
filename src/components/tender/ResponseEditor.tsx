@@ -220,7 +220,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
             <button
               onClick={generateResponse}
               disabled={isGenerating || isRefining}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-lg hover:from-teal-700 hover:to-cyan-700 disabled:opacity-50 transition-all text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-950 text-white rounded-lg hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 transition-all text-sm font-medium"
             >
               {isGenerating ? (
                 <>
@@ -318,7 +318,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
               value={response}
               onChange={(e) => setResponse(e.target.value)}
               placeholder="Start typing your response, or click 'Generate with AI' to create a draft..."
-              className="w-full h-full p-4 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full h-full p-4 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               disabled={isGenerating || isRefining}
             />
           </div>

@@ -186,7 +186,7 @@ export function SummaryTab({ summary, tender }: Props) {
                   className={`w-3 h-3 rounded-full ${
                     dateItem.isPast
                       ? 'bg-slate-600'
-                      : 'bg-blue-950/200 ring-4 ring-teal-500/20'
+                      : 'bg-blue-950/200 ring-4 ring-blue-500/20'
                   }`}
                 />
                 <div className="flex-1">

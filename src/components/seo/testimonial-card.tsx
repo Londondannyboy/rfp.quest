@@ -19,7 +19,7 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
 
   if (variant === 'featured') {
     return (
-      <div className="bg-gradient-to-br from-teal-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 md:p-12 shadow-xl">
+      <div className="bg-gradient-to-br from-blue-50 to-white dark:from-slate-800 dark:to-slate-900 rounded-2xl p-8 md:p-12 shadow-xl">
         {/* Stars */}
         <div className="flex gap-1 mb-6">
           {[...Array(5)].map((_, i) => (

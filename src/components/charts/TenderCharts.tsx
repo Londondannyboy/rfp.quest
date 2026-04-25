@@ -149,7 +149,7 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
   if (orientation === 'vertical') {
     return (
       <div className="relative pl-4">
-        <div className="absolute left-1 top-0 bottom-0 w-0.5 bg-gradient-to-b from-teal-400 via-blue-400 to-purple-400" />
+        <div className="absolute left-1 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-blue-400 to-purple-400" />
         {events.map((event, i) => (
           <motion.div
             key={i}
@@ -161,7 +161,7 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
             <div
               className={`absolute -left-3 w-2.5 h-2.5 rounded-full border-2 ${
                 event.isActive
-                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-teal-200'
+                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-blue-200'
                   : event.isPast
                   ? 'bg-slate-700/70 border-slate-600/50'
                   : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-blue-500/60'
@@ -181,7 +181,7 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
 
   return (
     <div className="relative">
-      <div className="absolute top-2 left-0 right-0 h-0.5 bg-gradient-to-r from-teal-400 via-blue-400 to-purple-400" />
+      <div className="absolute top-2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 via-blue-400 to-purple-400" />
       <div className="flex justify-between">
         {events.map((event, i) => (
           <motion.div
@@ -194,7 +194,7 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
             <div
               className={`w-3 h-3 rounded-full border-2 z-10 ${
                 event.isActive
-                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-teal-200'
+                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-blue-200'
                   : event.isPast
                   ? 'bg-slate-700/70 border-slate-600/50'
                   : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-blue-400'

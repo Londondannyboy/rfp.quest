@@ -319,7 +319,7 @@ export function RequirementsList(props: Props) {
             <div className="hidden md:flex items-center gap-4">
               <div className="w-32 h-2 bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-teal-500 to-cyan-500 transition-all"
+                  className="h-full bg-gradient-to-r from-blue-600 to-blue-500 transition-all"
                   style={{ width: `${completionPercentage}%` }}
                 />
               </div>

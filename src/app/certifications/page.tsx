@@ -660,7 +660,7 @@ export default function CertificationsHubPage() {
             Understanding the return on certification investment helps justify the expense:
           </p>
 
-          <div className="bg-green-900/20 p-6 rounded-lg my-6">
+          <div className="bg-blue-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-3">Typical ROI Metrics</h3>
             <ul className="space-y-2">
               <li><strong>Win rate improvement:</strong> 40-65% higher with appropriate certifications</li>

@@ -472,7 +472,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
             className="w-16 h-16 rounded-full object-cover"
           />
         ) : (
-          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-teal-500 to-indigo-500 flex items-center justify-center text-white text-xl font-bold">
+          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white text-xl font-bold">
             {member.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
           </div>
         )}

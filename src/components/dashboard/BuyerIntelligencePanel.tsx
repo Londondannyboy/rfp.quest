@@ -58,7 +58,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
         {/* Sustainability Badge */}
         {hasSustainability && (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-600/20 text-green-400 border border-green-500/30">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-blue-600/20 text-green-400 border border-blue-500/30">
             <Leaf className="w-3 h-3" />
             SECR Reported
           </span>
@@ -193,7 +193,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                   {intel.sustainability.secrData.netZeroYear && (
                     <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded col-span-2">
                       <p className="text-xs text-slate-500">Net Zero Target</p>
-                      <p className="font-semibold text-green-700">
+                      <p className="font-semibold text-green-400">
                         {intel.sustainability.secrData.netZeroYear}
                       </p>
                     </div>
@@ -280,7 +280,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
           {expandedSection === 'insights' && (
             <div className="mt-2 space-y-2">
               {intel.bidInsights.emphasize.map((item, i) => (
-                <div key={i} className="flex items-start gap-2 text-sm bg-green-900/20 p-2 rounded">
+                <div key={i} className="flex items-start gap-2 text-sm bg-blue-900/20 p-2 rounded">
                   <span className="text-green-600 font-medium">+</span>
                   <span className="text-slate-700">{item}</span>
                 </div>

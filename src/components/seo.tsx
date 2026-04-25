@@ -55,7 +55,7 @@ interface StatsBarProps {
 
 export function StatsBar({ stats, variant = 'default' }: StatsBarProps) {
   const bgClass = variant === 'gradient'
-    ? 'bg-gradient-to-r from-teal-600 to-teal-700 dark:from-teal-700 dark:to-teal-800'
+    ? 'bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800'
     : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 border-y border-slate-700/50 dark:border-slate-700';
 
   const textClass = variant === 'gradient'
@@ -168,7 +168,7 @@ interface CTABannerProps {
 
 export function CTABanner({ title, subtitle, primaryCta, secondaryCta, variant = 'default' }: CTABannerProps) {
   const bgClass = variant === 'gradient'
-    ? 'bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800'
+    ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800'
     : 'bg-slate-950 dark:bg-slate-900';
 
   return (

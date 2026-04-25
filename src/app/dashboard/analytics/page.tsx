@@ -20,7 +20,7 @@ const GlobeScene = dynamic(
 function GlobeLoadingFallback() {
   return (
     <div className="w-full h-64 bg-gradient-to-b from-slate-900 to-slate-800 rounded-xl flex items-center justify-center">
-      <div className="w-16 h-16 rounded-full border-4 border-blue-500/30 border-t-teal-500 animate-spin" />
+      <div className="w-16 h-16 rounded-full border-4 border-blue-500/30 border-t-blue-500 animate-spin" />
     </div>
   );
 }

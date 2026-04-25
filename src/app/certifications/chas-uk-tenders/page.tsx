@@ -99,7 +99,7 @@ export default function CHASUKTendersPage() {
             CHAS Certification for UK Tenders: Complete Contractor Guide
           </h1>
           
-          <div className="bg-green-900/20 border-l-4 border-green-400 p-6 mb-8">
+          <div className="bg-blue-900/20 border-l-4 border-blue-400 p-6 mb-8">
             <p className="text-lg font-semibold text-green-900 mb-2">
               ✅ Essential for Council & NHS Contracts
             </p>

@@ -22,7 +22,7 @@ interface TimelineViewProps {
 const eventStyles: Record<TimelineEventType, { bg: string; border: string; icon: string }> = {
   milestone: { bg: 'bg-blue-500', border: 'border-blue-500', icon: '🎯' },
   deadline: { bg: 'bg-red-900/200', border: 'border-red-500', icon: '⏰' },
-  published: { bg: 'bg-green-900/200', border: 'border-green-500', icon: '📢' },
+  published: { bg: 'bg-blue-900/200', border: 'border-blue-500', icon: '📢' },
   award: { bg: 'bg-purple-500', border: 'border-purple-500', icon: '🏆' },
   contract: { bg: 'bg-blue-950/200', border: 'border-blue-500/50', icon: '📝' },
   custom: { bg: 'bg-slate-500', border: 'border-slate-500', icon: '📌' },
@@ -160,12 +160,12 @@ export function TimelineView({ events, currentDate = new Date() }: TimelineViewP
                   {/* "Now" indicator between events */}
                   {index === nowIndex - 1 && (
                     <div className="absolute left-0 right-0 mt-3 mb-3 flex items-center">
-                      <div className="flex-1 h-0.5 bg-gradient-to-r from-teal-500 to-transparent" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-500 to-transparent" />
                       <div className="flex items-center gap-1.5 px-3 py-1 bg-blue-950/200 rounded-full">
                         <ClockIcon className="w-3 h-3 text-white" />
                         <span className="text-xs font-medium text-white">Now</span>
                       </div>
-                      <div className="flex-1 h-0.5 bg-gradient-to-l from-teal-500 to-transparent" />
+                      <div className="flex-1 h-0.5 bg-gradient-to-l from-blue-500 to-transparent" />
                     </div>
                   )}
                 </div>

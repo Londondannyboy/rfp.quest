@@ -181,7 +181,7 @@ export function TenderInsightsPanel({
 
   const bgForType = (type: InsightItem['type']) => {
     switch (type) {
-      case 'opportunity': return 'bg-green-900/200/10 border-green-500/30';
+      case 'opportunity': return 'bg-blue-900/200/10 border-blue-500/30';
       case 'risk': return 'bg-red-900/200/10 border-red-500/30';
       case 'tip': return 'bg-amber-900/200/10 border-amber-500/30';
       case 'action': return 'bg-blue-500/10 border-blue-500/30';
@@ -194,7 +194,7 @@ export function TenderInsightsPanel({
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-purple-900/30 to-teal-900/30 rounded-xl border-purple-500/20 hover:border-purple-500/40 transition-all"
+        className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-purple-900/30 to-blue-900/30 rounded-xl border-purple-500/20 hover:border-purple-500/40 transition-all"
       >
         <div className="flex items-center gap-3">
           <div className="p-2 bg-purple-500/20 rounded-lg">
@@ -266,7 +266,7 @@ export function TenderInsightsPanel({
                       window.dispatchEvent(evt);
                     }, 100);
                   }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-purple-600 to-teal-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-700 to-blue-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-all"
                 >
                   <SparklesIcon className="w-5 h-5" />
                   Generate Insights
@@ -417,7 +417,7 @@ export function BidRecommendationCard({
   }, [matchScore]);
 
   const colorClasses = {
-    green: 'bg-green-900/200/10 border-green-500/30 text-green-400',
+    green: 'bg-blue-900/200/10 border-blue-500/30 text-green-400',
     amber: 'bg-amber-900/200/10 border-amber-500/30 text-amber-400',
     red: 'bg-red-900/200/10 border-red-500/30 text-red-400',
     slate: 'bg-slate-500/10 border-slate-500/30 text-slate-400',

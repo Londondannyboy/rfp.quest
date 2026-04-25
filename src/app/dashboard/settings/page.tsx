@@ -261,7 +261,7 @@ export default function SettingsPage() {
         </div>
       )}
       {success && (
-        <div className="mb-6 flex items-center gap-2 rounded-md bg-green-900/20 px-4 py-3 text-sm text-green-700">
+        <div className="mb-6 flex items-center gap-2 rounded-md bg-blue-900/20 px-4 py-3 text-sm text-green-400">
           <CheckIcon className="h-5 w-5" />
           Profile saved successfully!
         </div>
@@ -528,7 +528,7 @@ export default function SettingsPage() {
             <button
               onClick={() => setSustainabilityFocus(!sustainabilityFocus)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                sustainabilityFocus ? 'bg-green-900/200' : 'bg-slate-700/70'
+                sustainabilityFocus ? 'bg-blue-900/200' : 'bg-slate-700/70'
               }`}
             >
               <span
@@ -557,11 +557,11 @@ export default function SettingsPage() {
                     onChange={(e) => setNewSustainabilityKeyword(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addSustainabilityKeyword())}
                     placeholder="e.g., carbon reduction, net zero..."
-                    className="flex-1 rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
+                    className="flex-1 rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-green-500"
                   />
                   <button
                     onClick={addSustainabilityKeyword}
-                    className="px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700"
+                    className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700"
                   >
                     Add
                   </button>
@@ -573,12 +573,12 @@ export default function SettingsPage() {
                   {sustainabilityKeywords.map((keyword) => (
                     <span
                       key={keyword}
-                      className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-3 py-1 text-sm text-green-700"
+                      className="inline-flex items-center gap-1 rounded-full bg-blue-900/20 px-3 py-1 text-sm text-green-400"
                     >
                       {keyword}
                       <button
                         onClick={() => removeSustainabilityKeyword(keyword)}
-                        className="text-green-500 hover:text-green-700"
+                        className="text-green-500 hover:text-green-400"
                       >
                         &times;
                       </button>

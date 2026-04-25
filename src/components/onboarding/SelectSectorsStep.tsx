@@ -152,7 +152,7 @@ export function SelectSectorsStep({
                   })
                 }
                 placeholder="0"
-                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
               />
             </div>
             <span className="text-slate-500 pt-5">to</span>
@@ -171,7 +171,7 @@ export function SelectSectorsStep({
                   })
                 }
                 placeholder="No limit"
-                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
               />
             </div>
           </div>
@@ -193,7 +193,7 @@ export function SelectSectorsStep({
               onUpdate({ sustainabilityFocus: !profile.sustainabilityFocus })
             }
             className={`relative w-12 h-6 rounded-full transition-colors ${
-              profile.sustainabilityFocus ? 'bg-green-900/200' : 'bg-slate-600'
+              profile.sustainabilityFocus ? 'bg-blue-900/200' : 'bg-slate-600'
             }`}
           >
             <motion.div

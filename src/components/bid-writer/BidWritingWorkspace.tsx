@@ -295,7 +295,7 @@ export function BidWritingWorkspace({
               </button>
               <button
                 onClick={() => onSubmit({ content: { sections } })}
-                className="px-4 py-1.5 rounded-lg bg-green-600 hover:bg-green-700 text-white text-sm font-medium transition-colors"
+                className="px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium transition-colors"
               >
                 Submit Bid
               </button>
@@ -315,7 +315,7 @@ export function BidWritingWorkspace({
                 </div>
                 <div className="w-full bg-slate-800/60 rounded-full h-1.5">
                   <div
-                    className="bg-gradient-to-r from-orange-500 to-green-500 h-1.5 rounded-full"
+                    className="bg-gradient-to-r from-blue-500 to-blue-600 h-1.5 rounded-full"
                     style={{ width: `${winProbability * 100}%` }}
                   />
                 </div>
@@ -349,7 +349,7 @@ export function BidWritingWorkspace({
                         <span
                           className={`px-2 py-1 rounded-full text-xs font-medium ${
                             section.compliance_status === 'compliant'
-                              ? 'bg-green-100 text-green-700'
+                              ? 'bg-blue-100 text-green-400'
                               : section.compliance_status === 'partial'
                               ? 'bg-yellow-100 text-yellow-700'
                               : 'bg-red-100 text-red-700'

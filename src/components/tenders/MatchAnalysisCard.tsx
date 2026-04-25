@@ -72,7 +72,7 @@ function ScoreGauge({ score }: { score: number }) {
 
 function BreakdownBar({ item }: { item: MatchBreakdown }) {
   let colorClass = 'bg-red-900/200';
-  if (item.score >= 70) colorClass = 'bg-green-900/200';
+  if (item.score >= 70) colorClass = 'bg-blue-900/200';
   else if (item.score >= 50) colorClass = 'bg-yellow-500';
 
   return (

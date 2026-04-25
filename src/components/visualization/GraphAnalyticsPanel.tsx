@@ -435,7 +435,7 @@ export function GraphAnalyticsPanel({
                   insight.type === 'warning' 
                     ? 'bg-red-900/200/20 border-red-500/50' 
                     : insight.type === 'opportunity'
-                    ? 'bg-green-900/200/20 border-green-500/50'
+                    ? 'bg-blue-900/200/20 border-blue-500/50'
                     : 'bg-blue-500/20 border-blue-500/50'
                 }`}
               >

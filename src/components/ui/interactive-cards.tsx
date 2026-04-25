@@ -266,7 +266,7 @@ export function FeatureCard({
     >
       {/* Highlight badge */}
       <motion.div
-        className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-300 text-xs font-semibold rounded-full border-emerald-500/30"
+        className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-300 text-xs font-semibold rounded-full border-blue-500/30"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
@@ -275,7 +275,7 @@ export function FeatureCard({
 
       {/* Icon */}
       <motion.div
-        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 backdrop-blur-sm border-emerald-500/30"
+        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm border-blue-500/30"
         whileHover={{ 
           scale: 1.1, 
           rotate: -5,
@@ -283,7 +283,7 @@ export function FeatureCard({
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="text-emerald-400 relative z-10">
+        <div className="text-blue-400 relative z-10">
           {icon}
         </div>
       </motion.div>

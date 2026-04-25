@@ -98,7 +98,7 @@ function formatValue(value: number): string {
 
 const stageColors: Record<string, string> = {
   planning: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-  tender: 'bg-green-900/200/20 text-green-300 border-green-500/30',
+  tender: 'bg-blue-900/200/20 text-green-300 border-blue-500/30',
   award: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
   contract: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/20 text-slate-400 border-slate-400/50/30',
 };
@@ -127,7 +127,7 @@ function SpendingTrendChart({ data }: { data: YearlyData[] }) {
               <div className="w-full flex items-end gap-1 h-40">
                 {/* Value bar */}
                 <div
-                  className="flex-1 bg-gradient-to-t from-teal-600 to-teal-400 rounded-t transition-all hover:from-teal-500 hover:to-teal-300"
+                  className="flex-1 bg-gradient-to-t from-blue-600 to-blue-400 rounded-t transition-all hover:from-blue-500 hover:to-blue-300"
                   style={{ height: `${valueHeight}%` }}
                   title={`Value: ${formatValue(item.value)}`}
                 />
@@ -455,7 +455,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
         ) : null}
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
+        <div className="mt-12 bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
           <h2 className="text-2xl font-bold text-white mb-3">
             Win contracts from <strong>{buyer.name}</strong>
           </h2>

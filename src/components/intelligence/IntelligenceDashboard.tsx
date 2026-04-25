@@ -202,9 +202,9 @@ function ScoreCard({
   color: 'emerald' | 'orange' | 'green';
 }) {
   const colorClasses = {
-    emerald: 'text-emerald-200 bg-emerald-500/20',
+    emerald: 'text-blue-200 bg-blue-500/20',
     orange: 'text-orange-200 bg-orange-500/20', 
-    green: 'text-green-200 bg-green-900/200/20',
+    green: 'text-green-200 bg-blue-900/200/20',
   };
 
   return (
@@ -228,7 +228,7 @@ function ThreatLevelCard({ intelligence }: { intelligence: IntelligenceData }) {
   const threatColors = {
     High: 'text-red-200 bg-red-900/200/20',
     Medium: 'text-yellow-200 bg-yellow-500/20',
-    Low: 'text-green-200 bg-green-900/200/20',
+    Low: 'text-green-200 bg-blue-900/200/20',
     Minimal: 'text-blue-200 bg-blue-500/20',
   };
 
@@ -413,7 +413,7 @@ function RiskTab({ intelligence }: { intelligence: IntelligenceData }) {
             <div className="w-full bg-slate-800/60 rounded-full h-2">
               <div 
                 className={`rounded-full h-2 ${
-                  intelligence.risk_score >= 70 ? 'bg-green-900/200' :
+                  intelligence.risk_score >= 70 ? 'bg-blue-900/200' :
                   intelligence.risk_score >= 50 ? 'bg-yellow-500' :
                   'bg-red-900/200'
                 }`}
@@ -475,7 +475,7 @@ function ESGTab({ intelligence }: { intelligence: IntelligenceData }) {
             </div>
             <div className="w-full bg-slate-800/60 rounded-full h-2">
               <div 
-                className="bg-green-900/200 rounded-full h-2"
+                className="bg-blue-900/200 rounded-full h-2"
                 style={{ width: `${intelligence.esg_score}%` }}
               />
             </div>
@@ -522,7 +522,7 @@ function CompetitiveTab({ intelligence }: { intelligence: IntelligenceData }) {
               <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
                 intelligence.competitive_threat_level === 'High' ? 'bg-red-100 text-red-800' :
                 intelligence.competitive_threat_level === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                intelligence.competitive_threat_level === 'Low' ? 'bg-green-100 text-green-800' :
+                intelligence.competitive_threat_level === 'Low' ? 'bg-blue-100 text-green-800' :
                 'bg-blue-100 text-blue-800'
               }`}>
                 {intelligence.competitive_threat_level}
