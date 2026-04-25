@@ -236,7 +236,7 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
       <button
         onClick={handleAnalyze}
         disabled={loading}
-        className="w-full px-4 py-2 bg-slate-700 text-slate-300 rounded-lg text-sm hover:bg-slate-600 disabled:opacity-50 flex items-center justify-center gap-2 transition-colors"
+        className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg text-sm disabled:opacity-50 flex items-center justify-center gap-2 transition-colors"
       >
         <ArrowPathIcon className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
         Re-analyze

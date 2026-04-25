@@ -418,7 +418,7 @@ export default function PastBidDetailPage({
                       setIsAddingResponse(false);
                       resetForm();
                     }}
-                    className="px-6 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
+                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-colors"
                   >
                     Cancel
                   </button>

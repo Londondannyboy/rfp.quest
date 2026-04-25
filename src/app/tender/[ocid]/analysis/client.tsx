@@ -268,7 +268,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
               <button
                 onClick={extractRequirements}
                 disabled={isAnalyzing}
-                className="flex items-center gap-2 px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 <ArrowPathIcon className={`h-4 w-4 ${isAnalyzing ? 'animate-spin' : ''}`} />
                 Refresh

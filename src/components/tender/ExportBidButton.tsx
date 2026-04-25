@@ -122,7 +122,7 @@ export function ExportBidButton({ documentId, tenderOcid, disabled }: Props) {
         <button
           onClick={() => setShowOptions(!showOptions)}
           disabled={disabled || isExporting}
-          className="p-2 bg-slate-700 text-slate-300 rounded-lg hover:bg-slate-600 disabled:opacity-50 transition-colors"
+          className="p-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg disabled:opacity-50 transition-colors"
           title="Export options"
         >
           <Cog6ToothIcon className="w-5 h-5" />

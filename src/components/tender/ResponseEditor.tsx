@@ -241,7 +241,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
                 <button
                   onClick={() => setShowRefinements(!showRefinements)}
                   disabled={isGenerating || isRefining}
-                  className="inline-flex items-center gap-2 px-3 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 disabled:opacity-50 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg disabled:opacity-50 transition-colors text-sm"
                 >
                   {isRefining ? (
                     <>
@@ -358,7 +358,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
         <div className="flex items-center justify-end gap-3 p-4 border-t border-slate-700">
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition-colors"
+            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-lg transition-colors"
           >
             Close
           </button>

@@ -2,52 +2,84 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --background: #ffffff;
-  --foreground: #111827;
-  --accent: #0F766E;
+  --background: #020617;
+  --background-gradient: linear-gradient(to bottom right, #020617, #1e3a8a, #020617);
+  --foreground: #f1f5f9;
+  --foreground-secondary: #cbd5e1;
+  --foreground-muted: #94a3b8;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --blue-gradient: linear-gradient(to right, #2563eb, #1d4ed8);
+  --blue-gradient-hover: linear-gradient(to right, #1d4ed8, #1e40af);
+  --glass-background: rgba(15, 23, 42, 0.4);
+  --glass-border: rgba(148, 163, 184, 0.5);
+  --card-background: rgba(15, 23, 42, 0.6);
+  --card-border: rgba(148, 163, 184, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0f172a;
-    --foreground: #f1f5f9;
-  }
-}
-
+/* Force ultra blue theme regardless of system preference */
 body {
   background: var(--background);
+  background-image: var(--background-gradient);
+  background-attachment: fixed;
   color: var(--foreground);
   font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
 }
 
-/* Custom prose styling */
+/* Ensure all white backgrounds are overridden */
+.bg-white,
+.bg-gray-50,
+.bg-slate-50,
+.bg-gray-100,
+.bg-slate-100,
+.bg-zinc-50,
+.bg-neutral-50 {
+  background: var(--glass-background) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid var(--glass-border) !important;
+}
+
+/* Ultra blue theme prose styling */
 .prose {
-  --tw-prose-links: #0F766E;
-  --tw-prose-headings: #111827;
+  --tw-prose-body: #cbd5e1;
+  --tw-prose-headings: #f1f5f9;
+  --tw-prose-links: #60a5fa;
+  --tw-prose-bold: #f1f5f9;
+  --tw-prose-quotes: #94a3b8;
+  --tw-prose-code: #e2e8f0;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: #f1f5f9;
+  font-weight: 700;
 }
 
 .prose h2 {
   margin-top: 2em;
   margin-bottom: 0.75em;
-  font-weight: 700;
-  color: var(--foreground);
 }
 
 .prose h3 {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   font-weight: 600;
-  color: var(--foreground);
 }
 
 .prose a {
-  color: #0F766E;
+  color: #60a5fa;
   text-decoration: underline;
   text-underline-offset: 2px;
+  transition: color 0.2s;
 }
 
 .prose a:hover {
-  color: #0d9488;
+  color: #93c5fd;
 }
 
 .prose ul {
@@ -63,47 +95,61 @@ body {
 .prose li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  color: #cbd5e1;
 }
 
 .prose strong {
   font-weight: 600;
-  color: var(--foreground);
+  color: #f1f5f9;
 }
 
 .prose blockquote {
-  border-left: 4px solid #0F766E;
+  border-left: 4px solid #2563eb;
   padding-left: 1em;
   font-style: italic;
-  color: #4b5563;
+  color: #94a3b8;
 }
 
-@media (prefers-color-scheme: dark) {
-  .prose {
-    --tw-prose-body: #e2e8f0;
-    --tw-prose-headings: #f1f5f9;
-    --tw-prose-links: #2dd4bf;
-    --tw-prose-bold: #f1f5f9;
-    --tw-prose-quotes: #94a3b8;
-  }
+.prose p {
+  color: #cbd5e1;
+}
 
-  .prose h2,
-  .prose h3 {
-    color: #f1f5f9;
-  }
+/* Button overrides */
+.bg-gray-500,
+.bg-gray-600,
+.bg-slate-500,
+.bg-slate-600,
+.bg-zinc-500,
+.bg-zinc-600 {
+  background: var(--blue-gradient) !important;
+}
 
-  .prose a {
-    color: #2dd4bf;
-  }
+.hover\\:bg-gray-600:hover,
+.hover\\:bg-slate-600:hover,
+.hover\\:bg-zinc-600:hover {
+  background: var(--blue-gradient-hover) !important;
+}
 
-  .prose a:hover {
-    color: #5eead4;
-  }
+/* Glass morphism utility classes */
+.glass {
+  background: var(--glass-background);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+}
 
-  .prose strong {
-    color: #f1f5f9;
-  }
+.card-glass {
+  background: var(--card-background);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--card-border);
+}
 
-  .prose blockquote {
-    color: #94a3b8;
-  }
+/* Blue gradient button utility */
+.btn-blue {
+  background: var(--blue-gradient);
+  color: white;
+  transition: background 0.2s;
+}
+
+.btn-blue:hover {
+  background: var(--blue-gradient-hover);
 }

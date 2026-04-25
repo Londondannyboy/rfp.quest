@@ -95,13 +95,13 @@ export function useBuyerIntelligence(buyerName: string | null, options?: { enabl
 export function getSentimentColor(sentiment: string): string {
   switch (sentiment) {
     case 'positive':
-      return 'text-green-600 bg-green-50';
+      return 'text-green-400 bg-green-900/20';
     case 'cautious':
-      return 'text-amber-600 bg-amber-50';
+      return 'text-amber-400 bg-amber-900/20';
     case 'negative':
-      return 'text-red-600 bg-red-50';
+      return 'text-red-400 bg-red-900/20';
     default:
-      return 'text-slate-600 bg-slate-50';
+      return 'text-slate-300 bg-slate-800/50';
   }
 }
 

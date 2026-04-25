@@ -233,7 +233,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
                 </button>
                 <button
                   onClick={handleReset}
-                  className="px-4 py-2 bg-slate-700 text-slate-300 text-sm rounded-lg hover:bg-slate-600 transition-colors"
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-sm rounded-lg transition-colors"
                 >
                   Upload Another
                 </button>
@@ -260,7 +260,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
               <p className="text-sm text-red-300 mb-3">{error}</p>
               <button
                 onClick={handleReset}
-                className="px-4 py-2 bg-slate-700 text-slate-300 text-sm rounded-lg hover:bg-slate-600 transition-colors"
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-sm rounded-lg transition-colors"
               >
                 Try Again
               </button>
