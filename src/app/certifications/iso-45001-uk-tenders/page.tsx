@@ -95,7 +95,7 @@ export default function ISO45001UKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             ISO 45001 for UK Tenders: Complete Health & Safety Certification Guide
           </h1>
           
@@ -108,8 +108,8 @@ export default function ISO45001UKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: iso-45001-uk-tenders.jpg - ISO 45001 health and safety management certification for UK government contracts]
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function ISO45001UKTendersPage() {
             While rarely an absolute legal requirement, ISO 45001 has become a de facto standard for winning certain types of UK government contracts:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Construction & Civil Engineering</h3>
             <ul className="space-y-2">
               <li>• Crown Commercial Service (CCS) construction frameworks - strongly preferred</li>
@@ -141,7 +141,7 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Facilities Management</h3>
             <ul className="space-y-2">
               <li>• Total FM contracts - almost always required</li>
@@ -151,7 +151,7 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Other High-Risk Sectors</h3>
             <ul className="space-y-2">
               <li>• Utilities and energy sector contracts</li>
@@ -167,34 +167,34 @@ export default function ISO45001UKTendersPage() {
             The total investment for ISO 45001 certification varies by organisation size and existing safety maturity:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Company Size</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Year 1 Total Cost</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Surveillance</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Company Size</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Year 1 Total Cost</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Surveillance</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Small (under 50 staff)</td>
-                <td className="border border-gray-300 px-4 py-2">£5,000 - £10,000</td>
-                <td className="border border-gray-300 px-4 py-2">£1,000 - £1,500</td>
+                <td className="border-slate-500/50 px-4 py-2">Small (under 50 staff)</td>
+                <td className="border-slate-500/50 px-4 py-2">£5,000 - £10,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,000 - £1,500</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Medium (50-250 staff)</td>
-                <td className="border border-gray-300 px-4 py-2">£8,000 - £15,000</td>
-                <td className="border border-gray-300 px-4 py-2">£1,500 - £2,500</td>
+                <td className="border-slate-500/50 px-4 py-2">Medium (50-250 staff)</td>
+                <td className="border-slate-500/50 px-4 py-2">£8,000 - £15,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,500 - £2,500</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Large (250+ staff)</td>
-                <td className="border border-gray-300 px-4 py-2">£12,000 - £25,000</td>
-                <td className="border border-gray-300 px-4 py-2">£2,000 - £3,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Large (250+ staff)</td>
+                <td className="border-slate-500/50 px-4 py-2">£12,000 - £25,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,000 - £3,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Multi-site operations</td>
-                <td className="border border-gray-300 px-4 py-2">£20,000+</td>
-                <td className="border border-gray-300 px-4 py-2">£3,000+</td>
+                <td className="border-slate-500/50 px-4 py-2">Multi-site operations</td>
+                <td className="border-slate-500/50 px-4 py-2">£20,000+</td>
+                <td className="border-slate-500/50 px-4 py-2">£3,000+</td>
               </tr>
             </tbody>
           </table>
@@ -216,9 +216,9 @@ export default function ISO45001UKTendersPage() {
             Standard timeline is 3-6 months, depending on your starting point:
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Month 1: Gap Analysis & Planning</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Current system assessment against ISO 45001</li>
               <li>• Risk assessment and hazard identification review</li>
               <li>• Project plan and resource allocation</li>
@@ -226,9 +226,9 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Months 2-3: System Development</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Create/update H&S management system documentation</li>
               <li>• Develop procedures for risk assessment, incident management</li>
               <li>• Establish worker consultation processes</li>
@@ -236,9 +236,9 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Month 4: Implementation</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Roll out new processes and procedures</li>
               <li>• Conduct staff training and awareness</li>
               <li>• Gather evidence of implementation</li>
@@ -246,9 +246,9 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Month 5: Internal Audit & Review</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Conduct internal audit against ISO 45001</li>
               <li>• Management review of system performance</li>
               <li>• Corrective actions for non-conformities</li>
@@ -256,9 +256,9 @@ export default function ISO45001UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Month 6: Certification Audit</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Stage 1 audit (documentation review)</li>
               <li>• Stage 2 audit (implementation verification)</li>
               <li>• Corrective actions for any findings</li>
@@ -302,44 +302,44 @@ export default function ISO45001UKTendersPage() {
             Understanding the relationship between ISO 45001 and SSIP (Safety Schemes in Procurement) is crucial:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">ISO 45001</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">SSIP (CHAS, SafeContractor)</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">ISO 45001</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">SSIP (CHAS, SafeContractor)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Focus</td>
-                <td className="border border-gray-300 px-4 py-2">Management system standard</td>
-                <td className="border border-gray-300 px-4 py-2">H&S competency assessment</td>
+                <td className="border-slate-500/50 px-4 py-2">Focus</td>
+                <td className="border-slate-500/50 px-4 py-2">Management system standard</td>
+                <td className="border-slate-500/50 px-4 py-2">H&S competency assessment</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Validity</td>
-                <td className="border border-gray-300 px-4 py-2">3 years (annual surveillance)</td>
-                <td className="border border-gray-300 px-4 py-2">1 year</td>
+                <td className="border-slate-500/50 px-4 py-2">Validity</td>
+                <td className="border-slate-500/50 px-4 py-2">3 years (annual surveillance)</td>
+                <td className="border-slate-500/50 px-4 py-2">1 year</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Cost</td>
-                <td className="border border-gray-300 px-4 py-2">£5,000 - £25,000</td>
-                <td className="border border-gray-300 px-4 py-2">£500 - £2,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Cost</td>
+                <td className="border-slate-500/50 px-4 py-2">£5,000 - £25,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£500 - £2,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Timeline</td>
-                <td className="border border-gray-300 px-4 py-2">3-6 months</td>
-                <td className="border border-gray-300 px-4 py-2">2-4 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">Timeline</td>
+                <td className="border-slate-500/50 px-4 py-2">3-6 months</td>
+                <td className="border-slate-500/50 px-4 py-2">2-4 weeks</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Recognition</td>
-                <td className="border border-gray-300 px-4 py-2">International standard</td>
-                <td className="border border-gray-300 px-4 py-2">UK-specific schemes</td>
+                <td className="border-slate-500/50 px-4 py-2">Recognition</td>
+                <td className="border-slate-500/50 px-4 py-2">International standard</td>
+                <td className="border-slate-500/50 px-4 py-2">UK-specific schemes</td>
               </tr>
             </tbody>
           </table>
 
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Important: Check Specific Requirements
             </p>
@@ -357,7 +357,7 @@ export default function ISO45001UKTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Leadership & Worker Participation</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Top management demonstrating visible leadership</li>
                 <li>• Worker consultation and participation processes</li>
                 <li>• Clear H&S roles and responsibilities</li>
@@ -367,7 +367,7 @@ export default function ISO45001UKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Risk-Based Approach</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Hazard identification and risk assessment</li>
                 <li>• Legal and compliance obligations register</li>
                 <li>• Hierarchy of controls implementation</li>
@@ -377,7 +377,7 @@ export default function ISO45001UKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Performance Evaluation</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Monitoring, measurement and analysis</li>
                 <li>• Incident investigation and corrective action</li>
                 <li>• Internal audit programme</li>
@@ -491,32 +491,32 @@ export default function ISO45001UKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/iso-14001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 14001 Environmental Management
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Often required alongside ISO 45001</p>
+                <p className="text-sm text-slate-300 mt-1">Often required alongside ISO 45001</p>
               </div>
               <div>
                 <Link href="/certifications/iso-9001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 9001 Quality Management
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Create an integrated management system</p>
+                <p className="text-sm text-slate-300 mt-1">Create an integrated management system</p>
               </div>
               <div>
                 <Link href="/certifications/chas-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   CHAS Certification
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">SSIP scheme for smaller contractors</p>
+                <p className="text-sm text-slate-300 mt-1">SSIP scheme for smaller contractors</p>
               </div>
               <div>
                 <Link href="/certifications/safecontractor-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SafeContractor Certification
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Alternative SSIP pre-qualification</p>
+                <p className="text-sm text-slate-300 mt-1">Alternative SSIP pre-qualification</p>
               </div>
             </div>
             

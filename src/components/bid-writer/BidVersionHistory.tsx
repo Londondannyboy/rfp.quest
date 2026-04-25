@@ -44,10 +44,10 @@ export function BidVersionHistory({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200">
-      <div className="px-4 py-3 border-b border-gray-200">
-        <h3 className="font-medium text-gray-900 flex items-center gap-2">
-          <ClockIcon className="w-5 h-5 text-gray-500" />
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50">
+      <div className="px-4 py-3 border-b border-slate-700/50">
+        <h3 className="font-medium text-slate-100 flex items-center gap-2">
+          <ClockIcon className="w-5 h-5 text-slate-500" />
           Version History
         </h3>
       </div>
@@ -56,7 +56,7 @@ export function BidVersionHistory({
         {versions.map((version) => (
           <div
             key={version.id}
-            className={`px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors ${
+            className={`px-4 py-3 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 cursor-pointer transition-colors ${
               selectedVersion?.id === version.id ? 'bg-blue-50' : ''
             }`}
             onClick={() => setSelectedVersion(version)}
@@ -67,16 +67,16 @@ export function BidVersionHistory({
                   className={`px-2 py-1 rounded-full text-xs font-medium ${
                     version.version_number === currentVersion
                       ? 'bg-green-100 text-green-700'
-                      : 'bg-gray-100 text-gray-700'
+                      : 'bg-slate-900/40 backdrop-blur-xl text-slate-200'
                   }`}
                 >
                   {getVersionLabel(version.version_number)}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-900">
+                  <p className="text-sm font-medium text-slate-100">
                     Version {version.version_number}
                   </p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-slate-500">
                     {formatDate(version.created_at)}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export function BidVersionHistory({
             </div>
             
             {version.changes_summary && (
-              <p className="mt-2 text-xs text-gray-600 line-clamp-2">
+              <p className="mt-2 text-xs text-slate-300 line-clamp-2">
                 {version.changes_summary}
               </p>
             )}
@@ -106,9 +106,9 @@ export function BidVersionHistory({
       
       {versions.length === 0 && (
         <div className="p-8 text-center">
-          <DocumentDuplicateIcon className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-          <p className="text-sm text-gray-500">No version history yet</p>
-          <p className="text-xs text-gray-400 mt-1">
+          <DocumentDuplicateIcon className="w-12 h-12 text-slate-400 mx-auto mb-3" />
+          <p className="text-sm text-slate-500">No version history yet</p>
+          <p className="text-xs text-slate-400 mt-1">
             Versions are created automatically as you save
           </p>
         </div>

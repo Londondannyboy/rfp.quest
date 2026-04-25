@@ -292,7 +292,7 @@ export function BuyerNetworkGraph({ currentBuyer, region }: BuyerNetworkGraphPro
 
       {/* Selected buyer details */}
       {(hoveredBuyer || selectedBuyer) && (
-        <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border-slate-700">
           {sortedBuyers
             .filter((b) => b.id === (hoveredBuyer || selectedBuyer))
             .map((buyer) => (
@@ -305,7 +305,7 @@ export function BuyerNetworkGraph({ currentBuyer, region }: BuyerNetworkGraphPro
                     )}
                   </div>
                   <div className="text-right">
-                    <div className="text-teal-400 font-bold">{buyer.tenderCount} tenders</div>
+                    <div className="text-blue-400 font-bold">{buyer.tenderCount} tenders</div>
                     <div className="text-slate-400 text-sm">{formatValue(buyer.totalValue)}</div>
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export function BuyerNetworkGraph({ currentBuyer, region }: BuyerNetworkGraphPro
 
                 <Link
                   href={`/dashboard?buyer=${encodeURIComponent(buyer.name)}`}
-                  className="mt-4 inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300"
+                  className="mt-4 inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300"
                 >
                   View all {buyer.name} tenders →
                 </Link>

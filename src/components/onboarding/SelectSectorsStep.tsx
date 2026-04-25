@@ -57,12 +57,12 @@ export function SelectSectorsStep({
     profile.targetCpvDivisions.length > 0 && profile.targetRegions.length > 0;
 
   return (
-    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8">
+    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border-slate-700/50 p-8">
       <div className="space-y-8">
         {/* Target Sectors */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <TagIcon className="w-5 h-5 text-teal-400" />
+            <TagIcon className="w-5 h-5 text-blue-400" />
             <h3 className="text-lg font-medium text-white">
               Target Sectors
             </h3>
@@ -80,7 +80,7 @@ export function SelectSectorsStep({
                 onClick={() => toggleSector(div.code)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all border ${
                   profile.targetCpvDivisions.includes(div.code)
-                    ? 'bg-teal-600 border-teal-500 text-white'
+                    ? 'bg-blue-700 border-blue-500/50 text-white'
                     : 'bg-slate-900/50 border-slate-600 text-slate-300 hover:border-slate-500'
                 }`}
               >
@@ -96,7 +96,7 @@ export function SelectSectorsStep({
         {/* Target Regions */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <MapPinIcon className="w-5 h-5 text-teal-400" />
+            <MapPinIcon className="w-5 h-5 text-blue-400" />
             <h3 className="text-lg font-medium text-white">
               Target Regions
             </h3>
@@ -114,7 +114,7 @@ export function SelectSectorsStep({
                 onClick={() => toggleRegion(region)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all border ${
                   profile.targetRegions.includes(region)
-                    ? 'bg-teal-600 border-teal-500 text-white'
+                    ? 'bg-blue-700 border-blue-500/50 text-white'
                     : 'bg-slate-900/50 border-slate-600 text-slate-300 hover:border-slate-500'
                 }`}
               >
@@ -130,7 +130,7 @@ export function SelectSectorsStep({
         {/* Contract Value Range */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <CurrencyPoundIcon className="w-5 h-5 text-teal-400" />
+            <CurrencyPoundIcon className="w-5 h-5 text-blue-400" />
             <h3 className="text-lg font-medium text-white">
               Contract Value Range
             </h3>
@@ -152,7 +152,7 @@ export function SelectSectorsStep({
                   })
                 }
                 placeholder="0"
-                className="w-full px-3 py-2 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
               />
             </div>
             <span className="text-slate-500 pt-5">to</span>
@@ -171,14 +171,14 @@ export function SelectSectorsStep({
                   })
                 }
                 placeholder="No limit"
-                className="w-full px-3 py-2 bg-slate-900/50 border border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
+                className="w-full px-3 py-2 bg-slate-900/50 border-slate-600 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-sm"
               />
             </div>
           </div>
         </div>
 
         {/* Sustainability Focus */}
-        <div className="flex items-center justify-between p-4 bg-slate-900/50 rounded-xl border border-slate-600">
+        <div className="flex items-center justify-between p-4 bg-slate-900/50 rounded-xl border-slate-600">
           <div className="flex items-center gap-3">
             <SparklesIcon className="w-5 h-5 text-green-400" />
             <div>
@@ -193,11 +193,11 @@ export function SelectSectorsStep({
               onUpdate({ sustainabilityFocus: !profile.sustainabilityFocus })
             }
             className={`relative w-12 h-6 rounded-full transition-colors ${
-              profile.sustainabilityFocus ? 'bg-green-500' : 'bg-slate-600'
+              profile.sustainabilityFocus ? 'bg-green-900/200' : 'bg-slate-600'
             }`}
           >
             <motion.div
-              className="absolute top-1 w-4 h-4 bg-white rounded-full"
+              className="absolute top-1 w-4 h-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full"
               animate={{ left: profile.sustainabilityFocus ? 28 : 4 }}
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             />
@@ -208,7 +208,7 @@ export function SelectSectorsStep({
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-4 bg-red-900/30 border border-red-700/50 rounded-lg text-red-300 text-sm"
+            className="p-4 bg-red-900/30 border-red-700/50 rounded-lg text-red-300 text-sm"
           >
             {error}
           </motion.div>
@@ -227,7 +227,7 @@ export function SelectSectorsStep({
           <button
             onClick={onNext}
             disabled={!isValid || isLoading}
-            className="flex items-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-500 disabled:bg-slate-700 text-white font-medium rounded-xl transition-colors disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-6 py-3 bg-blue-700 hover:bg-blue-950/200 disabled:bg-slate-700 text-white font-medium rounded-xl transition-colors disabled:cursor-not-allowed"
           >
             {isLoading ? (
               <>

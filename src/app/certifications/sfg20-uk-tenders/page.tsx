@@ -95,7 +95,7 @@ export default function SFG20UKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             SFG20 for UK Facilities Management: Complete Standards Guide
           </h1>
           
@@ -108,8 +108,8 @@ export default function SFG20UKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: sfg20-facilities-management.jpg - SFG20 maintenance standards dashboard for UK building services]
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function SFG20UKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Who Requires SFG20 Compliance?</h2>
           
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Public Sector</h3>
             <ul className="space-y-2">
               <li>• <strong>NHS Trusts:</strong> Standard for all estates maintenance</li>
@@ -138,7 +138,7 @@ export default function SFG20UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Private Sector</h3>
             <ul className="space-y-2">
               <li>• Commercial property managers</li>
@@ -157,9 +157,9 @@ export default function SFG20UKTendersPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Mechanical Services</h3>
-              <ul className="space-y-1 text-gray-700 text-sm">
+              <ul className="space-y-1 text-slate-300 text-sm">
                 <li>• Air handling units and ventilation</li>
                 <li>• Chillers and cooling towers</li>
                 <li>• Boilers and heating systems</li>
@@ -169,9 +169,9 @@ export default function SFG20UKTendersPage() {
               </ul>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Electrical Services</h3>
-              <ul className="space-y-1 text-gray-700 text-sm">
+              <ul className="space-y-1 text-slate-300 text-sm">
                 <li>• HV and LV distribution</li>
                 <li>• Switchgear and transformers</li>
                 <li>• Emergency lighting</li>
@@ -181,9 +181,9 @@ export default function SFG20UKTendersPage() {
               </ul>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Specialist Systems</h3>
-              <ul className="space-y-1 text-gray-700 text-sm">
+              <ul className="space-y-1 text-slate-300 text-sm">
                 <li>• Fire detection and alarm</li>
                 <li>• Sprinklers and suppression</li>
                 <li>• Security and access control</li>
@@ -193,9 +193,9 @@ export default function SFG20UKTendersPage() {
               </ul>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Building Fabric</h3>
-              <ul className="space-y-1 text-gray-700 text-sm">
+              <ul className="space-y-1 text-slate-300 text-sm">
                 <li>• Roofing and gutters</li>
                 <li>• Windows and doors</li>
                 <li>• Internal finishes</li>
@@ -254,92 +254,92 @@ export default function SFG20UKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">SFG20 Implementation Costs</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Component</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Cost Range</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Notes</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Component</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Cost Range</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Notes</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">SFG20 License</td>
-                <td className="border border-gray-300 px-4 py-2">£595 - £2,995/year</td>
-                <td className="border border-gray-300 px-4 py-2">Based on company size</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">SFG20 License</td>
+                <td className="border-slate-500/50 px-4 py-2">£595 - £2,995/year</td>
+                <td className="border-slate-500/50 px-4 py-2">Based on company size</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">CAFM Integration</td>
-                <td className="border border-gray-300 px-4 py-2">£5,000 - £50,000</td>
-                <td className="border border-gray-300 px-4 py-2">Software and setup</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">CAFM Integration</td>
+                <td className="border-slate-500/50 px-4 py-2">£5,000 - £50,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Software and setup</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Asset Surveys</td>
-                <td className="border border-gray-300 px-4 py-2">£10,000 - £100,000</td>
-                <td className="border border-gray-300 px-4 py-2">Portfolio dependent</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Asset Surveys</td>
+                <td className="border-slate-500/50 px-4 py-2">£10,000 - £100,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Portfolio dependent</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Staff Training</td>
-                <td className="border border-gray-300 px-4 py-2">£1,000 - £5,000</td>
-                <td className="border border-gray-300 px-4 py-2">Engineers and managers</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Staff Training</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,000 - £5,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Engineers and managers</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Process Update</td>
-                <td className="border border-gray-300 px-4 py-2">£5,000 - £20,000</td>
-                <td className="border border-gray-300 px-4 py-2">Documentation and QA</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Process Update</td>
+                <td className="border-slate-500/50 px-4 py-2">£5,000 - £20,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Documentation and QA</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Consultancy</td>
-                <td className="border border-gray-300 px-4 py-2">£10,000 - £30,000</td>
-                <td className="border border-gray-300 px-4 py-2">Implementation support</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Consultancy</td>
+                <td className="border-slate-500/50 px-4 py-2">£10,000 - £30,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Implementation support</td>
               </tr>
             </tbody>
           </table>
 
           <h2 className="text-2xl font-bold mt-10 mb-4">SFG20 Subscription Tiers</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Tier</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Cost</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Suitable For</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Features</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Tier</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Cost</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Suitable For</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Features</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Essential</td>
-                <td className="border border-gray-300 px-4 py-2">£595 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Small contractors</td>
-                <td className="border border-gray-300 px-4 py-2">Core schedules, 1 user</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Essential</td>
+                <td className="border-slate-500/50 px-4 py-2">£595 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Small contractors</td>
+                <td className="border-slate-500/50 px-4 py-2">Core schedules, 1 user</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Professional</td>
-                <td className="border border-gray-300 px-4 py-2">£1,295 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Medium FM providers</td>
-                <td className="border border-gray-300 px-4 py-2">All schedules, 5 users</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Professional</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,295 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Medium FM providers</td>
+                <td className="border-slate-500/50 px-4 py-2">All schedules, 5 users</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Enterprise</td>
-                <td className="border border-gray-300 px-4 py-2">£2,995 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Large FM companies</td>
-                <td className="border border-gray-300 px-4 py-2">Unlimited users, API</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Enterprise</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,995 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Large FM companies</td>
+                <td className="border-slate-500/50 px-4 py-2">Unlimited users, API</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Corporate</td>
-                <td className="border border-gray-300 px-4 py-2">POA</td>
-                <td className="border border-gray-300 px-4 py-2">National providers</td>
-                <td className="border border-gray-300 px-4 py-2">Custom integration</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Corporate</td>
+                <td className="border-slate-500/50 px-4 py-2">POA</td>
+                <td className="border-slate-500/50 px-4 py-2">National providers</td>
+                <td className="border-slate-500/50 px-4 py-2">Custom integration</td>
               </tr>
             </tbody>
           </table>
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Implementing SFG20 Successfully</h2>
           
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Phase 1: Assessment (Month 1)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Gap analysis of current maintenance</li>
               <li>• Asset register validation</li>
               <li>• Identify applicable schedules</li>
@@ -348,9 +348,9 @@ export default function SFG20UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Phase 2: Planning (Month 2)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Select implementation approach</li>
               <li>• Customise schedules for assets</li>
               <li>• Define criticality adjustments</li>
@@ -359,9 +359,9 @@ export default function SFG20UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Phase 3: Implementation (Months 3-6)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Load schedules into CAFM</li>
               <li>• Train engineering teams</li>
               <li>• Update work procedures</li>
@@ -370,9 +370,9 @@ export default function SFG20UKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Phase 4: Rollout (Months 6-12)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Phased deployment across portfolio</li>
               <li>• Monitor compliance rates</li>
               <li>• Address resource gaps</li>
@@ -383,7 +383,7 @@ export default function SFG20UKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">SFG20 and Compliance Defence</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚖️ Legal Protection Through SFG20
             </p>
@@ -411,7 +411,7 @@ export default function SFG20UKTendersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <h3 className="font-medium mb-2">CAFM Platforms</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Concept Evolution (built-in)</li>
                 <li>• Planon (integration module)</li>
                 <li>• Maximo (custom integration)</li>
@@ -421,7 +421,7 @@ export default function SFG20UKTendersPage() {
             </div>
             <div>
               <h3 className="font-medium mb-2">Integration Benefits</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Automated PPM scheduling</li>
                 <li>• Compliance tracking</li>
                 <li>• Resource planning</li>
@@ -433,7 +433,7 @@ export default function SFG20UKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common SFG20 Challenges</h2>
           
-          <div className="bg-red-50 border-l-4 border-red-400 p-6 my-8">
+          <div className="bg-red-900/20 border-l-4 border-red-400 p-6 my-8">
             <p className="font-semibold text-red-900 mb-2">
               🚫 Implementation Pitfalls
             </p>
@@ -452,7 +452,7 @@ export default function SFG20UKTendersPage() {
           <h2 className="text-2xl font-bold mt-10 mb-4">SFG20 Benefits for FM Providers</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-green-50 rounded-lg p-6">
+            <div className="bg-green-900/20 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Operational Benefits</h3>
               <ul className="space-y-2">
                 <li>✅ Standardised maintenance across portfolio</li>
@@ -563,32 +563,32 @@ export default function SFG20UKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/iso-9001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 9001 Quality Management
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Quality systems for FM</p>
+                <p className="text-sm text-slate-300 mt-1">Quality systems for FM</p>
               </div>
               <div>
                 <Link href="/certifications/iso-14001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 14001 Environmental
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Environmental management</p>
+                <p className="text-sm text-slate-300 mt-1">Environmental management</p>
               </div>
               <div>
                 <Link href="/certifications/iso-45001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 45001 Health & Safety
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">H&S management systems</p>
+                <p className="text-sm text-slate-300 mt-1">H&S management systems</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

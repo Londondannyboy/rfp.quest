@@ -56,12 +56,12 @@ function DetailSection({
   children: React.ReactNode;
 }) {
   return (
-    <div className="py-4 border-b border-gray-200 last:border-b-0">
-      <h3 className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-2">
+    <div className="py-4 border-b border-slate-700/50 last:border-b-0">
+      <h3 className="flex items-center gap-2 text-sm font-medium text-slate-500 mb-2">
         <Icon className="h-4 w-4" />
         {title}
       </h3>
-      <div className="text-sm text-gray-900">{children}</div>
+      <div className="text-sm text-slate-100">{children}</div>
     </div>
   );
 }
@@ -71,12 +71,12 @@ function StageBadge({ stage }: { stage: string }) {
     tender: 'bg-green-100 text-green-800 border-green-200',
     planning: 'bg-blue-100 text-blue-800 border-blue-200',
     award: 'bg-purple-100 text-purple-800 border-purple-200',
-    contract: 'bg-gray-100 text-gray-800 border-gray-200',
+    contract: 'bg-slate-900/40 backdrop-blur-xl text-slate-100 border-slate-700/50',
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${colors[stage] || 'bg-gray-100 text-gray-600 border-gray-200'}`}
+      className={`inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium ${colors[stage] || 'bg-slate-900/40 backdrop-blur-xl text-slate-300 border-slate-700/50'}`}
     >
       {stage.charAt(0).toUpperCase() + stage.slice(1)}
     </span>
@@ -97,23 +97,23 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
       />
 
       {/* Panel */}
-      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-lg bg-white shadow-xl flex flex-col">
+      <div className="fixed inset-y-0 right-0 z-50 w-full max-w-lg bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-xl flex flex-col">
         {/* Header */}
-        <div className="flex items-start justify-between p-6 border-b border-gray-200">
+        <div className="flex items-start justify-between p-6 border-b border-slate-700/50">
           <div className="flex-1 min-w-0">
-            <h2 className="text-lg font-semibold text-gray-900 pr-8">
+            <h2 className="text-lg font-semibold text-slate-100 pr-8">
               {tender.title}
             </h2>
             <div className="mt-2 flex items-center gap-3">
               <StageBadge stage={tender.stage} />
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-slate-500">
                 OCID: {tender.ocid}
               </span>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="rounded-md p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+            className="rounded-md p-2 text-slate-400 hover:text-slate-500 hover:bg-slate-900/40 backdrop-blur-xl"
           >
             <XMarkIcon className="h-5 w-5" />
           </button>
@@ -132,7 +132,7 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
           <DetailSection title="Buyer" icon={BuildingOfficeIcon}>
             <p className="font-medium">{tender.buyerName}</p>
             {tender.region && (
-              <p className="text-gray-500 mt-1">{tender.region}</p>
+              <p className="text-slate-500 mt-1">{tender.region}</p>
             )}
           </DetailSection>
 
@@ -147,7 +147,7 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
           <DetailSection title="Submission Deadline" icon={CalendarIcon}>
             <p className="font-medium">{formatDate(tender.tenderEndDate)}</p>
             {tender.tenderEndDate && (
-              <p className="text-gray-500 mt-1">
+              <p className="text-slate-500 mt-1">
                 {new Date(tender.tenderEndDate).toLocaleTimeString('en-GB', {
                   hour: '2-digit',
                   minute: '2-digit',
@@ -175,7 +175,7 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
                 {tender.cpvCodes.map((code) => (
                   <span
                     key={code}
-                    className="inline-flex items-center rounded-md bg-gray-100 px-2.5 py-1 text-sm font-medium text-gray-700"
+                    className="inline-flex items-center rounded-md bg-slate-900/40 backdrop-blur-xl px-2.5 py-1 text-sm font-medium text-slate-200"
                   >
                     {code}
                   </span>
@@ -186,20 +186,20 @@ export function TenderDetail({ tender, onClose }: TenderDetailProps) {
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-gray-200 bg-gray-50">
+        <div className="p-6 border-t border-slate-700/50 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
           <div className="flex gap-3">
             <a
               href={findATenderUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-teal-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-700"
+              className="flex-1 inline-flex items-center justify-center gap-2 rounded-md bg-blue-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-800"
             >
               View on Find a Tender
               <ArrowTopRightOnSquareIcon className="h-4 w-4" />
             </a>
             <button
               onClick={onClose}
-              className="rounded-md border border-gray-300 bg-white px-4 py-2.5 text-sm font-semibold text-gray-700 shadow-sm hover:bg-gray-50"
+              className="rounded-md border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-4 py-2.5 text-sm font-semibold text-slate-200 shadow-sm hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
             >
               Close
             </button>

@@ -131,7 +131,7 @@ export default function PastBidsPage() {
 
             <button
               onClick={() => setShowAddModal(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-5 h-5" />
               Add Past Bid
@@ -144,23 +144,23 @@ export default function PastBidsPage() {
         {/* Stats Cards */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-white">{stats.total}</div>
               <div className="text-sm text-slate-400">Total Bids</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-green-900/50">
+            <div className="bg-slate-900 rounded-xl p-4 border-green-900/50">
               <div className="text-2xl font-bold text-green-400">{stats.won}</div>
               <div className="text-sm text-slate-400">Won</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-red-900/50">
+            <div className="bg-slate-900 rounded-xl p-4 border-red-900/50">
               <div className="text-2xl font-bold text-red-400">{stats.lost}</div>
               <div className="text-sm text-slate-400">Lost</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
-              <div className="text-2xl font-bold text-teal-400">{stats.winRate}%</div>
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
+              <div className="text-2xl font-bold text-blue-400">{stats.winRate}%</div>
               <div className="text-sm text-slate-400">Win Rate</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-amber-400">{formatValue(stats.totalValue)}</div>
               <div className="text-sm text-slate-400">Value Won</div>
             </div>
@@ -168,9 +168,9 @@ export default function PastBidsPage() {
         )}
 
         {/* Info Banner */}
-        <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border border-teal-500/20 mb-6">
+        <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 mb-6">
           <div className="flex items-start gap-3">
-            <ChartBarIcon className="w-5 h-5 text-teal-400 flex-shrink-0 mt-0.5" />
+            <ChartBarIcon className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
             <div>
               <h3 className="text-white font-medium">Your winning responses power AI generation</h3>
               <p className="text-slate-400 text-sm mt-1">
@@ -194,7 +194,7 @@ export default function PastBidsPage() {
               onClick={() => setFilter(f.id as typeof filter)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 filter === f.id
-                  ? 'bg-teal-600 text-white'
+                  ? 'bg-blue-600 text-white'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
@@ -206,7 +206,7 @@ export default function PastBidsPage() {
         {/* Bids List */}
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
-            <ArrowPathIcon className="w-8 h-8 text-teal-400 animate-spin" />
+            <ArrowPathIcon className="w-8 h-8 text-blue-400 animate-spin" />
           </div>
         ) : filteredBids.length > 0 ? (
           <div className="space-y-4">
@@ -217,7 +217,7 @@ export default function PastBidsPage() {
               return (
                 <div
                   key={bid.id}
-                  className="bg-slate-900 rounded-xl border border-slate-800 p-6 hover:border-slate-700 transition-colors"
+                  className="bg-slate-900 rounded-xl border-slate-800 p-6 hover:border-slate-700 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-6">
                     {/* Left: Title and Info */}
@@ -251,7 +251,7 @@ export default function PastBidsPage() {
                             Submitted {new Date(bid.submissionDate).toLocaleDateString('en-GB')}
                           </span>
                         )}
-                        <span className="flex items-center gap-1 text-teal-400">
+                        <span className="flex items-center gap-1 text-blue-400">
                           <DocumentTextIcon className="w-4 h-4" />
                           {bid.responseCount} responses
                         </span>
@@ -299,7 +299,7 @@ export default function PastBidsPage() {
             })}
           </div>
         ) : (
-          <div className="bg-slate-900 rounded-xl border border-slate-800 p-12 text-center">
+          <div className="bg-slate-900 rounded-xl border-slate-800 p-12 text-center">
             <TrophyIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-white mb-2">No Past Bids Yet</h3>
             <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
@@ -308,7 +308,7 @@ export default function PastBidsPage() {
             </p>
             <button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-5 h-5" />
               Add Your First Past Bid
@@ -397,7 +397,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-slate-900 rounded-xl border border-slate-700 w-full max-w-2xl max-h-[90vh] flex flex-col">
+      <div className="bg-slate-900 rounded-xl border-slate-700 w-full max-w-2xl max-h-[90vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
           <h2 className="text-lg font-semibold text-white">
@@ -416,7 +416,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
         {/* Form */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {error && (
-            <div className="p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300 text-sm">
+            <div className="p-3 bg-red-900/30 border-red-700 rounded-lg text-red-300 text-sm">
               {error}
             </div>
           )}
@@ -431,7 +431,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 value={tenderTitle}
                 onChange={(e) => setTenderTitle(e.target.value)}
                 placeholder="e.g., IT Support Services Framework"
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -444,7 +444,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 value={buyerName}
                 onChange={(e) => setBuyerName(e.target.value)}
                 placeholder="e.g., NHS England"
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -457,7 +457,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 value={contractValue}
                 onChange={(e) => setContractValue(e.target.value)}
                 placeholder="e.g., 500000"
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -468,7 +468,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
               <select
                 value={outcome}
                 onChange={(e) => setOutcome(e.target.value as PastBid['outcome'])}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
                 <option value="pending">Pending</option>
                 <option value="won">Won</option>
@@ -485,7 +485,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 type="date"
                 value={submissionDate}
                 onChange={(e) => setSubmissionDate(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -498,7 +498,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 value={sector}
                 onChange={(e) => setSector(e.target.value)}
                 placeholder="e.g., Healthcare, IT Services, Construction"
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -511,7 +511,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 value={winThemes}
                 onChange={(e) => setWinThemes(e.target.value)}
                 placeholder="e.g., Innovation, Cost Savings, Local Delivery"
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -524,7 +524,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
                 onChange={(e) => setLessonsLearned(e.target.value)}
                 placeholder="What worked well? What could be improved?"
                 rows={3}
-                className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+                className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
               />
             </div>
           </div>
@@ -541,7 +541,7 @@ function PastBidModal({ bid, onClose, onSave }: PastBidModalProps) {
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
           >
             {isSaving ? 'Saving...' : bid ? 'Update' : 'Add Past Bid'}
           </button>

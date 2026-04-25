@@ -18,10 +18,10 @@ type DimensionStatus = 'strong' | 'good' | 'partial' | 'gap' | 'critical_gap';
 
 const StatusBar = ({ score, benchmark }: { score: number; benchmark?: number }) => {
   const getColor = (s: number) => {
-    if (s >= 80) return 'bg-green-500';
+    if (s >= 80) return 'bg-green-900/200';
     if (s >= 60) return 'bg-yellow-500';
     if (s >= 40) return 'bg-orange-500';
-    return 'bg-red-500';
+    return 'bg-red-900/200';
   };
 
   return (
@@ -32,7 +32,7 @@ const StatusBar = ({ score, benchmark }: { score: number; benchmark?: number }) 
       />
       {benchmark && (
         <div
-          className="absolute top-0 w-0.5 h-full bg-white/50"
+          className="absolute top-0 w-0.5 h-full bg-slate-900/60 backdrop-blur-xl border-slate-700/50/50"
           style={{ left: `${benchmark}%` }}
           title={`Benchmark: ${benchmark}%`}
         />
@@ -94,7 +94,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
   return (
     <div className="space-y-6">
       {/* Overall Score Header */}
-      <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+      <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
         <div className="flex items-start justify-between mb-4">
           <div>
             <h3 className="text-lg font-medium text-white">Gap Analysis Score</h3>
@@ -127,7 +127,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
           {dimensions.map((dim, index) => (
             <div
               key={index}
-              className="p-4 bg-slate-800/50 rounded-lg border border-slate-700"
+              className="p-4 bg-slate-800/50 rounded-lg border-slate-700"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -173,7 +173,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
 
       {/* Detailed Gaps */}
       {dimensions && dimensions.some((d) => ((d.gaps as Array<Record<string, unknown>>)?.length || 0) > 0) && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <ArrowTrendingDownIcon className="h-5 w-5 text-red-400" />
             Identified Gaps
@@ -205,7 +205,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
                     </span>
                   </div>
                   <div className="text-sm text-red-300 mb-2">Gap: {gap.gap as string}</div>
-                  <div className="text-sm text-teal-300">
+                  <div className="text-sm text-blue-300">
                     → {gap.remediation as string}
                   </div>
                   <div className="text-xs text-slate-400 mt-2">
@@ -220,7 +220,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
 
       {/* Strengths to Highlight */}
       {strengthsToHighlight && strengthsToHighlight.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <ArrowTrendingUpIcon className="h-5 w-5 text-green-400" />
             Strengths to Highlight
@@ -229,7 +229,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
             {strengthsToHighlight.map((strength, index) => (
               <div
                 key={index}
-                className="p-4 bg-green-900/20 rounded-lg border border-green-800"
+                className="p-4 bg-green-900/20 rounded-lg border-green-800"
               >
                 <div className="font-medium text-white mb-1">
                   {strength.strength as string}
@@ -248,7 +248,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
 
       {/* Action Plan */}
       {actionPlan && actionPlan.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <LightBulbIcon className="h-5 w-5 text-yellow-400" />
             Action Plan
@@ -280,7 +280,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
                     {Boolean(action.owner) && <span>Owner: {action.owner as string}</span>}
                   </div>
                   {Boolean(action.impact) && (
-                    <div className="text-sm text-teal-300 mt-2">
+                    <div className="text-sm text-blue-300 mt-2">
                       Impact: {action.impact as string}
                     </div>
                   )}
@@ -293,7 +293,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
 
       {/* Risk Assessment */}
       {riskAssessment && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <ShieldCheckIcon className="h-5 w-5 text-purple-400" />
             Risk Assessment
@@ -346,7 +346,7 @@ export function GapAnalysisTab({ gapAnalysis }: Props) {
           )}
 
           {(riskAssessment.dealBreakers as string[])?.length > 0 && (
-            <div className="mt-4 p-3 bg-red-900/30 rounded-lg border border-red-700">
+            <div className="mt-4 p-3 bg-red-900/30 rounded-lg border-red-700">
               <div className="text-red-300 font-medium mb-2">Deal Breakers</div>
               <ul className="space-y-1">
                 {(riskAssessment.dealBreakers as string[]).map((breaker, index) => (

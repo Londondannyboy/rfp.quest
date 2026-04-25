@@ -26,7 +26,7 @@ export function AnalysisTabs({ tabs, activeTab, onTabChange }: Props) {
                 flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-t-lg transition-colors
                 ${
                   isActive
-                    ? 'bg-slate-800 text-white border-b-2 border-teal-500'
+                    ? 'bg-slate-800 text-white border-b-2 border-blue-500/50'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/50'
                 }
               `}

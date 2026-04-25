@@ -32,14 +32,14 @@ function formatValue(min: number | null | undefined, max: number | null | undefi
 }
 
 function getDeadlineStatus(deadline: string | null | undefined): { text: string; color: string; urgent: boolean } {
-  if (!deadline) return { text: 'No deadline set', color: 'text-gray-500', urgent: false };
+  if (!deadline) return { text: 'No deadline set', color: 'text-slate-500', urgent: false };
 
   const date = new Date(deadline);
   const now = new Date();
   const diffDays = Math.ceil((date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
   if (diffDays < 0) {
-    return { text: 'Deadline passed', color: 'text-gray-400', urgent: false };
+    return { text: 'Deadline passed', color: 'text-slate-400', urgent: false };
   } else if (diffDays === 0) {
     return { text: 'Due today!', color: 'text-red-600', urgent: true };
   } else if (diffDays <= 3) {
@@ -56,7 +56,7 @@ const stageBadges: Record<string, { bg: string; text: string; label: string }> =
   planning: { bg: 'bg-blue-100', text: 'text-blue-800', label: 'Planning' },
   tender: { bg: 'bg-green-100', text: 'text-green-800', label: 'Open for Bids' },
   award: { bg: 'bg-purple-100', text: 'text-purple-800', label: 'Awarded' },
-  contract: { bg: 'bg-gray-100', text: 'text-gray-800', label: 'Contracted' },
+  contract: { bg: 'bg-slate-900/40 backdrop-blur-xl', text: 'text-slate-100', label: 'Contracted' },
 };
 
 export function TenderHero({

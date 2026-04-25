@@ -218,7 +218,7 @@ export function BuyerProfile({
 
                 {/* Sustainability */}
                 {intel.sustainability?.hasSecrContent && (
-                  <div className="bg-green-900/20 rounded-lg p-3 border border-green-800/30">
+                  <div className="bg-green-900/20 rounded-lg p-3 border-green-800/30">
                     <h5 className="text-xs font-medium text-green-400 mb-2 flex items-center gap-1">
                       <LeafIcon className="w-3 h-3" />
                       Sustainability (SECR)
@@ -250,7 +250,7 @@ export function BuyerProfile({
 
                 {/* Risk Signals */}
                 {intel.signals.riskSignals.length > 0 && (
-                  <div className="bg-amber-900/20 rounded-lg p-3 border border-amber-800/30">
+                  <div className="bg-amber-900/20 rounded-lg p-3 border-amber-800/30">
                     <h5 className="text-xs font-medium text-amber-400 mb-2 flex items-center gap-1">
                       <ExclamationTriangleIcon className="w-3 h-3" />
                       Risk Signals
@@ -268,15 +268,15 @@ export function BuyerProfile({
 
                 {/* Growth Signals */}
                 {intel.signals.growthSignals.length > 0 && (
-                  <div className="bg-teal-900/20 rounded-lg p-3 border border-teal-800/30">
-                    <h5 className="text-xs font-medium text-teal-400 mb-2 flex items-center gap-1">
+                  <div className="bg-blue-950/20 rounded-lg p-3 border-blue-800/60/30">
+                    <h5 className="text-xs font-medium text-blue-400 mb-2 flex items-center gap-1">
                       <ArrowTrendingUpIcon className="w-3 h-3" />
                       Growth Signals
                     </h5>
                     <div className="space-y-2">
                       {intel.signals.growthSignals.map((signal, i) => (
                         <div key={i} className="text-sm">
-                          <p className="text-teal-300">{signal.message}</p>
+                          <p className="text-blue-300">{signal.message}</p>
                           <p className="text-xs text-slate-500">{signal.implication}</p>
                         </div>
                       ))}
@@ -310,7 +310,7 @@ export function BuyerProfile({
                   href={`https://find-and-update.company-information.service.gov.uk/company/${intel.companyNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-center text-sm text-teal-400 hover:text-teal-300 transition-colors"
+                  className="block text-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
                 >
                   View on Companies House →
                 </a>
@@ -338,7 +338,7 @@ export function BuyerProfile({
           {contact?.email && (
             <a
               href={`mailto:${contact.email}`}
-              className="flex items-center gap-3 text-sm text-teal-400 hover:text-teal-300 transition-colors"
+              className="flex items-center gap-3 text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               <EnvelopeIcon className="w-5 h-5" />
               {contact.email}
@@ -348,7 +348,7 @@ export function BuyerProfile({
           {contact?.phone && (
             <a
               href={`tel:${contact.phone}`}
-              className="flex items-center gap-3 text-sm text-teal-400 hover:text-teal-300 transition-colors"
+              className="flex items-center gap-3 text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               <PhoneIcon className="w-5 h-5" />
               {contact.phone}
@@ -360,7 +360,7 @@ export function BuyerProfile({
               href={website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 text-sm text-teal-400 hover:text-teal-300 transition-colors"
+              className="flex items-center gap-3 text-sm text-blue-400 hover:text-blue-300 transition-colors"
             >
               <GlobeAltIcon className="w-5 h-5" />
               {website.replace(/^https?:\/\//, '')}
@@ -372,7 +372,7 @@ export function BuyerProfile({
       {/* Action buttons */}
       <div className="px-6 pb-6">
         <div className="flex gap-3">
-          <button className="flex-1 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white text-sm font-medium rounded-lg transition-colors">
+          <button className="flex-1 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium rounded-lg transition-colors">
             View All Tenders
           </button>
           <button className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium rounded-lg transition-colors">

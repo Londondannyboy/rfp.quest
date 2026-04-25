@@ -34,7 +34,7 @@ export function UrlInputStep({
   };
 
   return (
-    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8">
+    <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border-slate-700/50 p-8">
       <div className="text-center mb-8">
         <p className="text-slate-300">
           Enter your company website and we'll automatically extract your
@@ -51,7 +51,7 @@ export function UrlInputStep({
             onChange={(e) => setUrl(e.target.value)}
             placeholder="example.com"
             disabled={isLoading}
-            className="w-full pl-12 pr-4 py-4 bg-slate-900/50 border border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-lg disabled:opacity-50"
+            className="w-full pl-12 pr-4 py-4 bg-slate-900/50 border-slate-600 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent text-lg disabled:opacity-50"
           />
         </div>
 
@@ -59,7 +59,7 @@ export function UrlInputStep({
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="p-4 bg-red-900/30 border border-red-700/50 rounded-lg text-red-300 text-sm"
+            className="p-4 bg-red-900/30 border-red-700/50 rounded-lg text-red-300 text-sm"
           >
             {error}
           </motion.div>
@@ -68,7 +68,7 @@ export function UrlInputStep({
         <button
           type="submit"
           disabled={isLoading || !url.trim()}
-          className="w-full py-4 bg-teal-600 hover:bg-teal-500 disabled:bg-slate-700 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed"
+          className="w-full py-4 bg-blue-700 hover:bg-blue-950/200 disabled:bg-slate-700 text-white font-medium rounded-xl transition-colors flex items-center justify-center gap-2 disabled:cursor-not-allowed"
         >
           {isLoading ? (
             <>
@@ -119,7 +119,7 @@ function PulsingRings() {
       {[0, 1, 2].map((i) => (
         <motion.div
           key={i}
-          className="absolute inset-0 rounded-full border-2 border-teal-400"
+          className="absolute inset-0 rounded-full border-2 border-blue-500/60"
           initial={{ scale: 0.5, opacity: 1 }}
           animate={{
             scale: [0.5, 1.5, 2],
@@ -134,7 +134,7 @@ function PulsingRings() {
         />
       ))}
       <div className="absolute inset-0 flex items-center justify-center">
-        <GlobeAltIcon className="w-8 h-8 text-teal-400" />
+        <GlobeAltIcon className="w-8 h-8 text-blue-400" />
       </div>
     </div>
   );

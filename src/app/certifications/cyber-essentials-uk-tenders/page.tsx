@@ -94,12 +94,12 @@ export default function Page() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             Cyber Essentials for UK Tenders: Is It Mandatory in 2026?
           </h1>
           
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: cyber-essentials-uk-tenders-uk.jpg - Cyber Essentials UK tenders requirements for UK government tenders]
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function Page() {
             
           </div>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Guides</h3>
             <ul className="space-y-2">
               <li>

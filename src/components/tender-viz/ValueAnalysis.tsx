@@ -98,7 +98,7 @@ export function ValueAnalysis({
           </div>
 
           <div className="p-3 bg-gradient-to-br from-teal-500/20 to-cyan-500/20 rounded-xl">
-            <CurrencyPoundIcon className="w-6 h-6 text-teal-400" />
+            <CurrencyPoundIcon className="w-6 h-6 text-blue-400" />
           </div>
         </div>
 
@@ -210,7 +210,7 @@ export function ValueAnalysis({
 
               {/* Position marker */}
               <div
-                className="absolute top-0 bottom-0 w-1 bg-white rounded-full"
+                className="absolute top-0 bottom-0 w-1 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full"
                 style={{
                   left: `${Math.min(
                     Math.log10(displayValue) / Math.log10(1000000000) * 100,

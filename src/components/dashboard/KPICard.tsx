@@ -19,9 +19,9 @@ interface KPICardProps {
 
 const colorClasses = {
   teal: {
-    bg: 'bg-teal-50',
-    icon: 'bg-teal-100 text-teal-600',
-    text: 'text-teal-600',
+    bg: 'bg-blue-950/20',
+    icon: 'bg-blue-900/30 text-blue-600',
+    text: 'text-blue-600',
   },
   blue: {
     bg: 'bg-blue-50',
@@ -34,12 +34,12 @@ const colorClasses = {
     text: 'text-purple-600',
   },
   amber: {
-    bg: 'bg-amber-50',
+    bg: 'bg-amber-900/20',
     icon: 'bg-amber-100 text-amber-600',
     text: 'text-amber-600',
   },
   green: {
-    bg: 'bg-green-50',
+    bg: 'bg-green-900/20',
     icon: 'bg-green-100 text-green-600',
     text: 'text-green-600',
   },
@@ -68,8 +68,8 @@ export function KPICard({
       whileHover={{ scale: isClickable ? 1.03 : 1.02, transition: { duration: 0.2 } }}
       whileTap={isClickable ? { scale: 0.98 } : undefined}
       onClick={onClick}
-      className={`bg-white rounded-xl p-6 shadow-sm border border-gray-100 ${
-        isClickable ? 'cursor-pointer hover:shadow-md hover:border-gray-200' : 'cursor-default'
+      className={`bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 ${
+        isClickable ? 'cursor-pointer hover:shadow-md hover:border-slate-700/50' : 'cursor-default'
       }`}
       title={clickHint}
     >
@@ -89,7 +89,7 @@ export function KPICard({
             formatLarge={formatLarge}
           />
         </p>
-        <p className="text-sm text-gray-500 mt-1">{title}</p>
+        <p className="text-sm text-slate-500 mt-1">{title}</p>
       </div>
     </motion.div>
   );

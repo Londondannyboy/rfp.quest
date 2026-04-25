@@ -77,7 +77,7 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
         <FloatingElement className="absolute top-1/6 left-1/4 w-3 h-3 bg-blue-400/70 rounded-full blur-sm" intensity={6} duration={7}>
           <div />
         </FloatingElement>
-        <FloatingElement className="absolute bottom-1/3 right-1/5 w-2 h-2 bg-slate-300/60 rounded-full blur-sm" intensity={8} duration={5}>
+        <FloatingElement className="absolute bottom-1/3 right-1/5 w-2 h-2 bg-slate-600/80/60 rounded-full blur-sm" intensity={8} duration={5}>
           <div />
         </FloatingElement>
       </div>
@@ -125,7 +125,7 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
                 >
                   {/* Enhanced glass morphism card with 3D effects */}
                   <motion.div 
-                    className="relative h-full bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 lg:p-10 border border-slate-700/50 shadow-2xl shadow-blue-900/20"
+                    className="relative h-full bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 lg:p-10 border-slate-700/50 shadow-2xl shadow-blue-900/20"
                     whileHover={{ 
                       backgroundColor: 'rgba(30, 41, 59, 0.7)',
                       boxShadow: '0 32px 64px -12px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.4)',
@@ -165,7 +165,7 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
                       transition={{ duration: 0.3 }}
                     >
                       <motion.div 
-                        className="relative inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm border border-blue-500/30 overflow-hidden"
+                        className="relative inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm border-blue-500/30 overflow-hidden"
                         whileHover={{ 
                           scale: 1.15,
                           rotate: 5,
@@ -325,7 +325,7 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.div 
-            className="inline-flex items-center px-8 py-4 bg-slate-900/50 backdrop-blur-sm rounded-full border border-slate-700/50 text-slate-300"
+            className="inline-flex items-center px-8 py-4 bg-slate-900/50 backdrop-blur-sm rounded-full border-slate-700/50 text-slate-300"
             whileHover={{ 
               scale: 1.05, 
               backgroundColor: 'rgba(30, 41, 59, 0.6)',

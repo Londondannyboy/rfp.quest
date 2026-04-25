@@ -95,7 +95,7 @@ export default function SSIPUKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             SSIP for UK Tenders: Complete Guide to Safety Schemes in Procurement
           </h1>
           
@@ -108,8 +108,8 @@ export default function SSIPUKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: ssip-uk-schemes-overview.jpg - SSIP member schemes logos and mutual recognition framework]
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function SSIPUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">How SSIP Mutual Recognition Works</h2>
           
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">The SSIP Process</h3>
             <ol className="space-y-3">
               <li><strong>1. Choose any SSIP member scheme</strong> based on your sector, clients, or preference</li>
@@ -150,51 +150,51 @@ export default function SSIPUKTendersPage() {
             Understanding each scheme's strengths helps choose the right one for your business:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6 text-sm">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6 text-sm">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-3 py-2 text-left">Scheme</th>
-                <th className="border border-gray-300 px-3 py-2 text-left">Best For</th>
-                <th className="border border-gray-300 px-3 py-2 text-left">Cost Range</th>
-                <th className="border border-gray-300 px-3 py-2 text-left">Key Strength</th>
+                <th className="border-slate-500/50 px-3 py-2 text-left">Scheme</th>
+                <th className="border-slate-500/50 px-3 py-2 text-left">Best For</th>
+                <th className="border-slate-500/50 px-3 py-2 text-left">Cost Range</th>
+                <th className="border-slate-500/50 px-3 py-2 text-left">Key Strength</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">CHAS</td>
-                <td className="border border-gray-300 px-3 py-2">Local authorities, NHS</td>
-                <td className="border border-gray-300 px-3 py-2">£198-£750</td>
-                <td className="border border-gray-300 px-3 py-2">130+ council members</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">CHAS</td>
+                <td className="border-slate-500/50 px-3 py-2">Local authorities, NHS</td>
+                <td className="border-slate-500/50 px-3 py-2">£198-£750</td>
+                <td className="border-slate-500/50 px-3 py-2">130+ council members</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">SafeContractor</td>
-                <td className="border border-gray-300 px-3 py-2">Utilities, FM, retail</td>
-                <td className="border border-gray-300 px-3 py-2">£299-£969</td>
-                <td className="border border-gray-300 px-3 py-2">National Grid required</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">SafeContractor</td>
+                <td className="border-slate-500/50 px-3 py-2">Utilities, FM, retail</td>
+                <td className="border-slate-500/50 px-3 py-2">£299-£969</td>
+                <td className="border-slate-500/50 px-3 py-2">National Grid required</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">Constructionline Gold</td>
-                <td className="border border-gray-300 px-3 py-2">Major construction</td>
-                <td className="border border-gray-300 px-3 py-2">£285-£2,190</td>
-                <td className="border border-gray-300 px-3 py-2">PQQ + SSIP combined</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">Constructionline Gold</td>
+                <td className="border-slate-500/50 px-3 py-2">Major construction</td>
+                <td className="border-slate-500/50 px-3 py-2">£285-£2,190</td>
+                <td className="border-slate-500/50 px-3 py-2">PQQ + SSIP combined</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">SMAS Worksafe</td>
-                <td className="border border-gray-300 px-3 py-2">General contractors</td>
-                <td className="border border-gray-300 px-3 py-2">£185-£750</td>
-                <td className="border border-gray-300 px-3 py-2">Wide recognition</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">SMAS Worksafe</td>
+                <td className="border-slate-500/50 px-3 py-2">General contractors</td>
+                <td className="border-slate-500/50 px-3 py-2">£185-£750</td>
+                <td className="border-slate-500/50 px-3 py-2">Wide recognition</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">Acclaim</td>
-                <td className="border border-gray-300 px-3 py-2">SME contractors</td>
-                <td className="border border-gray-300 px-3 py-2">£195-£695</td>
-                <td className="border border-gray-300 px-3 py-2">Simple process</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">Acclaim</td>
+                <td className="border-slate-500/50 px-3 py-2">SME contractors</td>
+                <td className="border-slate-500/50 px-3 py-2">£195-£695</td>
+                <td className="border-slate-500/50 px-3 py-2">Simple process</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-3 py-2 font-semibold">Achilles BuildingConfidence</td>
-                <td className="border border-gray-300 px-3 py-2">Infrastructure</td>
-                <td className="border border-gray-300 px-3 py-2">£395-£1,500</td>
-                <td className="border border-gray-300 px-3 py-2">Rail/utilities focus</td>
+                <td className="border-slate-500/50 px-3 py-2 font-semibold">Achilles BuildingConfidence</td>
+                <td className="border-slate-500/50 px-3 py-2">Infrastructure</td>
+                <td className="border-slate-500/50 px-3 py-2">£395-£1,500</td>
+                <td className="border-slate-500/50 px-3 py-2">Rail/utilities focus</td>
               </tr>
             </tbody>
           </table>
@@ -206,9 +206,9 @@ export default function SSIPUKTendersPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Stage 1: Policy & Organisation</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• H&S policy (signed, dated, current)</li>
                 <li>• Organisation for H&S management</li>
                 <li>• Arrangements for H&S</li>
@@ -217,9 +217,9 @@ export default function SSIPUKTendersPage() {
               </ul>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Stage 2: Arrangements</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Risk assessment procedures</li>
                 <li>• Method statements</li>
                 <li>• Training and competence</li>
@@ -230,9 +230,9 @@ export default function SSIPUKTendersPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Stage 3: Implementation</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Risk assessments (examples)</li>
                 <li>• Safe systems of work</li>
                 <li>• Equipment maintenance</li>
@@ -241,9 +241,9 @@ export default function SSIPUKTendersPage() {
               </ul>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-6">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Stage 4: Performance</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Accident statistics (3 years)</li>
                 <li>• Enforcement notices</li>
                 <li>• Insurance certificates</li>
@@ -255,7 +255,7 @@ export default function SSIPUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">When SSIP Mutual Recognition Doesn't Apply</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Important Exceptions
             </p>
@@ -279,28 +279,28 @@ export default function SSIPUKTendersPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <p className="font-medium">Public Sector Construction:</p>
-                  <ul className="text-gray-700">
+                  <ul className="text-slate-300">
                     <li>• 1st choice: CHAS</li>
                     <li>• 2nd choice: Constructionline Gold</li>
                   </ul>
                 </div>
                 <div>
                   <p className="font-medium">Utilities & Energy:</p>
-                  <ul className="text-gray-700">
+                  <ul className="text-slate-300">
                     <li>• 1st choice: SafeContractor</li>
                     <li>• 2nd choice: Achilles BuildingConfidence</li>
                   </ul>
                 </div>
                 <div>
                   <p className="font-medium">Facilities Management:</p>
-                  <ul className="text-gray-700">
+                  <ul className="text-slate-300">
                     <li>• 1st choice: SafeContractor</li>
                     <li>• 2nd choice: CHAS</li>
                   </ul>
                 </div>
                 <div>
                   <p className="font-medium">General Construction:</p>
-                  <ul className="text-gray-700">
+                  <ul className="text-slate-300">
                     <li>• 1st choice: Constructionline Gold</li>
                     <li>• 2nd choice: SMAS Worksafe</li>
                   </ul>
@@ -364,24 +364,24 @@ export default function SSIPUKTendersPage() {
           <h2 className="text-2xl font-bold mt-10 mb-4">Common SSIP Misconceptions</h2>
           
           <div className="space-y-4">
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <p className="font-semibold">❌ Myth: "I need multiple SSIP schemes"</p>
-              <p className="text-gray-700">✅ Reality: One SSIP scheme provides mutual recognition unless buyers specifically mandate certain schemes</p>
+              <p className="text-slate-300">✅ Reality: One SSIP scheme provides mutual recognition unless buyers specifically mandate certain schemes</p>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <p className="font-semibold">❌ Myth: "SSIP certification exists"</p>
-              <p className="text-gray-700">✅ Reality: You get certified by member schemes, not SSIP itself</p>
+              <p className="text-slate-300">✅ Reality: You get certified by member schemes, not SSIP itself</p>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <p className="font-semibold">❌ Myth: "All schemes cost the same"</p>
-              <p className="text-gray-700">✅ Reality: Prices vary significantly - shop around for best value</p>
+              <p className="text-slate-300">✅ Reality: Prices vary significantly - shop around for best value</p>
             </div>
             
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <p className="font-semibold">❌ Myth: "SSIP replaces ISO 45001"</p>
-              <p className="text-gray-700">✅ Reality: SSIP is pre-qualification; ISO 45001 is a management system standard</p>
+              <p className="text-slate-300">✅ Reality: SSIP is pre-qualification; ISO 45001 is a management system standard</p>
             </div>
           </div>
 
@@ -476,32 +476,32 @@ export default function SSIPUKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">SSIP Member Scheme Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/chas-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   CHAS Certification Guide
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Government-owned, 130+ councils</p>
+                <p className="text-sm text-slate-300 mt-1">Government-owned, 130+ councils</p>
               </div>
               <div>
                 <Link href="/certifications/safecontractor-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SafeContractor Guide
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Utilities and FM focused</p>
+                <p className="text-sm text-slate-300 mt-1">Utilities and FM focused</p>
               </div>
               <div>
                 <Link href="/certifications/constructionline-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Constructionline Gold
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">PQQ + SSIP combined</p>
+                <p className="text-sm text-slate-300 mt-1">PQQ + SSIP combined</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

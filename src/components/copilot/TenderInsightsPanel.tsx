@@ -181,9 +181,9 @@ export function TenderInsightsPanel({
 
   const bgForType = (type: InsightItem['type']) => {
     switch (type) {
-      case 'opportunity': return 'bg-green-500/10 border-green-500/30';
-      case 'risk': return 'bg-red-500/10 border-red-500/30';
-      case 'tip': return 'bg-amber-500/10 border-amber-500/30';
+      case 'opportunity': return 'bg-green-900/200/10 border-green-500/30';
+      case 'risk': return 'bg-red-900/200/10 border-red-500/30';
+      case 'tip': return 'bg-amber-900/200/10 border-amber-500/30';
       case 'action': return 'bg-blue-500/10 border-blue-500/30';
     }
   };
@@ -194,7 +194,7 @@ export function TenderInsightsPanel({
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-purple-900/30 to-teal-900/30 rounded-xl border border-purple-500/20 hover:border-purple-500/40 transition-all"
+        className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-purple-900/30 to-teal-900/30 rounded-xl border-purple-500/20 hover:border-purple-500/40 transition-all"
       >
         <div className="flex items-center gap-3">
           <div className="p-2 bg-purple-500/20 rounded-lg">
@@ -215,7 +215,7 @@ export function TenderInsightsPanel({
       initial={{ opacity: 0, height: 0 }}
       animate={{ opacity: 1, height: 'auto' }}
       exit={{ opacity: 0, height: 0 }}
-      className="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden"
+      className="bg-slate-900 rounded-xl border-slate-700 overflow-hidden"
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-slate-700">
@@ -291,7 +291,7 @@ export function TenderInsightsPanel({
                       <div className="flex items-center gap-2">
                         <h4 className="text-sm font-medium text-white">{insight.title}</h4>
                         {insight.priority === 'high' && (
-                          <span className="px-1.5 py-0.5 bg-red-500/20 text-red-400 rounded text-[10px] font-medium">
+                          <span className="px-1.5 py-0.5 bg-red-900/200/20 text-red-400 rounded text-[10px] font-medium">
                             HIGH
                           </span>
                         )}
@@ -417,9 +417,9 @@ export function BidRecommendationCard({
   }, [matchScore]);
 
   const colorClasses = {
-    green: 'bg-green-500/10 border-green-500/30 text-green-400',
-    amber: 'bg-amber-500/10 border-amber-500/30 text-amber-400',
-    red: 'bg-red-500/10 border-red-500/30 text-red-400',
+    green: 'bg-green-900/200/10 border-green-500/30 text-green-400',
+    amber: 'bg-amber-900/200/10 border-amber-500/30 text-amber-400',
+    red: 'bg-red-900/200/10 border-red-500/30 text-red-400',
     slate: 'bg-slate-500/10 border-slate-500/30 text-slate-400',
   };
 

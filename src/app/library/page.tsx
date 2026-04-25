@@ -124,14 +124,14 @@ export default function LibraryPage() {
               </Link>
               <span className="text-slate-600">/</span>
               <h1 className="text-xl font-semibold text-white flex items-center gap-2">
-                <BookOpenIcon className="w-6 h-6 text-teal-400" />
+                <BookOpenIcon className="w-6 h-6 text-blue-400" />
                 Content Library
               </h1>
             </div>
 
             <button
               onClick={() => setShowAddModal(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-5 h-5" />
               Add Content
@@ -144,14 +144,14 @@ export default function LibraryPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Sidebar - Content Types */}
           <div className="lg:col-span-1">
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800 sticky top-24">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800 sticky top-24">
               <h2 className="text-sm font-medium text-slate-400 mb-3">Content Types</h2>
               <nav className="space-y-1">
                 <button
                   onClick={() => setSelectedType(null)}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${
                     selectedType === null
-                      ? 'bg-teal-600 text-white'
+                      ? 'bg-blue-600 text-white'
                       : 'text-slate-300 hover:bg-slate-800'
                   }`}
                 >
@@ -167,7 +167,7 @@ export default function LibraryPage() {
                       onClick={() => setSelectedType(type.id)}
                       className={`w-full flex items-center justify-between px-3 py-2 rounded-lg transition-colors ${
                         selectedType === type.id
-                          ? 'bg-teal-600 text-white'
+                          ? 'bg-blue-600 text-white'
                           : 'text-slate-300 hover:bg-slate-800'
                       }`}
                     >
@@ -195,7 +195,7 @@ export default function LibraryPage() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                  className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="w-full pl-10 pr-4 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
               <button
@@ -209,7 +209,7 @@ export default function LibraryPage() {
             {/* Content Grid */}
             {isLoading ? (
               <div className="flex items-center justify-center py-12">
-                <ArrowPathIcon className="w-8 h-8 text-teal-400 animate-spin" />
+                <ArrowPathIcon className="w-8 h-8 text-blue-400 animate-spin" />
               </div>
             ) : filteredItems.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -220,7 +220,7 @@ export default function LibraryPage() {
                   return (
                     <div
                       key={item.id}
-                      className="bg-slate-900 rounded-xl border border-slate-800 p-4 hover:border-slate-700 transition-colors"
+                      className="bg-slate-900 rounded-xl border-slate-800 p-4 hover:border-slate-700 transition-colors"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="flex items-center gap-2">
@@ -281,7 +281,7 @@ export default function LibraryPage() {
                 })}
               </div>
             ) : (
-              <div className="bg-slate-900 rounded-xl border border-slate-800 p-12 text-center">
+              <div className="bg-slate-900 rounded-xl border-slate-800 p-12 text-center">
                 <BookOpenIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-white mb-2">No Content Yet</h3>
                 <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
@@ -290,7 +290,7 @@ export default function LibraryPage() {
                 </p>
                 <button
                   onClick={() => setShowAddModal(true)}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <PlusIcon className="w-5 h-5" />
                   Add Your First Item
@@ -375,7 +375,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-slate-900 rounded-xl border border-slate-700 w-full max-w-2xl max-h-[90vh] flex flex-col">
+      <div className="bg-slate-900 rounded-xl border-slate-700 w-full max-w-2xl max-h-[90vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
           <h2 className="text-lg font-semibold text-white">
@@ -394,7 +394,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
         {/* Form */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
           {error && (
-            <div className="p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300 text-sm">
+            <div className="p-3 bg-red-900/30 border-red-700 rounded-lg text-red-300 text-sm">
               {error}
             </div>
           )}
@@ -408,7 +408,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
               value={type}
               onChange={(e) => setType(e.target.value)}
               disabled={!!item}
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-teal-500 disabled:opacity-50"
+              className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
             >
               {CONTENT_TYPES.map((t) => (
                 <option key={t.id} value={t.id}>
@@ -428,7 +428,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="e.g., Company Overview, ISO 27001 Certification"
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -442,7 +442,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
               onChange={(e) => setContent(e.target.value)}
               placeholder="Enter the content that can be reused in bid responses..."
               rows={10}
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+              className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             />
             <p className="mt-1 text-xs text-slate-500">
               {content.split(/\s+/).filter(Boolean).length} words
@@ -459,7 +459,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
               value={tags}
               onChange={(e) => setTags(e.target.value)}
               placeholder="e.g., security, compliance, ISO"
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
@@ -475,7 +475,7 @@ function ContentModal({ item, onClose, onSave }: ContentModalProps) {
           <button
             onClick={handleSave}
             disabled={isSaving}
-            className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors"
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 transition-colors"
           >
             {isSaving ? 'Saving...' : item ? 'Update' : 'Add Item'}
           </button>

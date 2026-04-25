@@ -49,7 +49,7 @@ function BidOutcomeConfirmation({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       className={`rounded-xl border-2 ${
-        isWin ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'
+        isWin ? 'border-green-500 bg-green-900/20' : 'border-red-500 bg-red-900/20'
       } p-6 shadow-lg`}
     >
       {/* Header */}
@@ -64,43 +64,43 @@ function BidOutcomeConfirmation({
               <XCircleIcon className="w-6 h-6 text-red-600" />
             </div>
           )}
-          <h3 className="text-lg font-semibold text-gray-900">
+          <h3 className="text-lg font-semibold text-slate-100">
             Confirm Bid {isWin ? 'Win' : 'Loss'}
           </h3>
         </div>
         <button
           onClick={onEdit}
-          className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          className="p-2 hover:bg-slate-900/40 backdrop-blur-xl rounded-lg transition-colors"
           aria-label="Edit details"
         >
-          <PencilIcon className="w-4 h-4 text-gray-500" />
+          <PencilIcon className="w-4 h-4 text-slate-500" />
         </button>
       </div>
 
       {/* Bid Details */}
       <div className="space-y-3 mb-6">
         <div className="flex items-start gap-3">
-          <BuildingOfficeIcon className="w-5 h-5 text-gray-400 mt-0.5" />
+          <BuildingOfficeIcon className="w-5 h-5 text-slate-400 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-gray-700">Contract</p>
-            <p className="text-sm text-gray-900">{bidData.contractName}</p>
+            <p className="text-sm font-medium text-slate-200">Contract</p>
+            <p className="text-sm text-slate-100">{bidData.contractName}</p>
           </div>
         </div>
 
         <div className="flex items-start gap-3">
-          <BuildingOfficeIcon className="w-5 h-5 text-gray-400 mt-0.5" />
+          <BuildingOfficeIcon className="w-5 h-5 text-slate-400 mt-0.5" />
           <div>
-            <p className="text-sm font-medium text-gray-700">Buyer</p>
-            <p className="text-sm text-gray-900">{bidData.buyer}</p>
+            <p className="text-sm font-medium text-slate-200">Buyer</p>
+            <p className="text-sm text-slate-100">{bidData.buyer}</p>
           </div>
         </div>
 
         {bidData.value && (
           <div className="flex items-start gap-3">
-            <CurrencyPoundIcon className="w-5 h-5 text-gray-400 mt-0.5" />
+            <CurrencyPoundIcon className="w-5 h-5 text-slate-400 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-gray-700">Value</p>
-              <p className="text-sm text-gray-900">
+              <p className="text-sm font-medium text-slate-200">Value</p>
+              <p className="text-sm text-slate-100">
                 £{bidData.value.toLocaleString()}
               </p>
             </div>
@@ -109,28 +109,28 @@ function BidOutcomeConfirmation({
 
         {bidData.year && (
           <div className="flex items-start gap-3">
-            <CalendarIcon className="w-5 h-5 text-gray-400 mt-0.5" />
+            <CalendarIcon className="w-5 h-5 text-slate-400 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-gray-700">Year</p>
-              <p className="text-sm text-gray-900">{bidData.year}</p>
+              <p className="text-sm font-medium text-slate-200">Year</p>
+              <p className="text-sm text-slate-100">{bidData.year}</p>
             </div>
           </div>
         )}
 
         {bidData.role && (
           <div className="flex items-start gap-3">
-            <UserIcon className="w-5 h-5 text-gray-400 mt-0.5" />
+            <UserIcon className="w-5 h-5 text-slate-400 mt-0.5" />
             <div>
-              <p className="text-sm font-medium text-gray-700">Your Role</p>
-              <p className="text-sm text-gray-900">{bidData.role}</p>
+              <p className="text-sm font-medium text-slate-200">Your Role</p>
+              <p className="text-sm text-slate-100">{bidData.role}</p>
             </div>
           </div>
         )}
       </div>
 
       {/* Info message */}
-      <div className="bg-white rounded-lg p-3 mb-4">
-        <p className="text-xs text-gray-600">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-3 mb-4">
+        <p className="text-xs text-slate-300">
           This will be added to your skills graph to track your bid history and win rate.
         </p>
       </div>
@@ -150,7 +150,7 @@ function BidOutcomeConfirmation({
         </button>
         <button
           onClick={onCancel}
-          className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-4 py-2 border-slate-600/50 rounded-lg text-slate-200 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors"
         >
           Cancel
         </button>
@@ -187,7 +187,7 @@ function BidOutcomeForm({
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Outcome
         </label>
         <div className="flex gap-3">
@@ -196,8 +196,8 @@ function BidOutcomeForm({
             onClick={() => setFormData({ ...formData, outcome: 'win' })}
             className={`flex-1 py-2 px-4 rounded-lg border-2 transition-all ${
               formData.outcome === 'win'
-                ? 'border-green-500 bg-green-50 text-green-700'
-                : 'border-gray-300 bg-white text-gray-700'
+                ? 'border-green-500 bg-green-600/20 text-green-400 border border-green-500/30'
+                : 'border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-slate-200'
             }`}
           >
             <TrophyIcon className="w-5 h-5 mx-auto mb-1" />
@@ -208,8 +208,8 @@ function BidOutcomeForm({
             onClick={() => setFormData({ ...formData, outcome: 'loss' })}
             className={`flex-1 py-2 px-4 rounded-lg border-2 transition-all ${
               formData.outcome === 'loss'
-                ? 'border-red-500 bg-red-50 text-red-700'
-                : 'border-gray-300 bg-white text-gray-700'
+                ? 'border-red-500 bg-red-900/20 text-red-700'
+                : 'border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-slate-200'
             }`}
           >
             <XCircleIcon className="w-5 h-5 mx-auto mb-1" />
@@ -219,7 +219,7 @@ function BidOutcomeForm({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Contract Name *
         </label>
         <input
@@ -229,13 +229,13 @@ function BidOutcomeForm({
           onChange={(e) =>
             setFormData({ ...formData, contractName: e.target.value })
           }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="e.g., NHS Digital Transformation"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Buyer Organization *
         </label>
         <input
@@ -243,13 +243,13 @@ function BidOutcomeForm({
           required
           value={formData.buyer || ''}
           onChange={(e) => setFormData({ ...formData, buyer: e.target.value })}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="e.g., Department of Health"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Contract Value (£)
         </label>
         <input
@@ -258,13 +258,13 @@ function BidOutcomeForm({
           onChange={(e) =>
             setFormData({ ...formData, value: Number(e.target.value) })
           }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="e.g., 500000"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Year
         </label>
         <input
@@ -273,7 +273,7 @@ function BidOutcomeForm({
           onChange={(e) =>
             setFormData({ ...formData, year: Number(e.target.value) })
           }
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder={new Date().getFullYear().toString()}
           min="2000"
           max={new Date().getFullYear()}
@@ -281,14 +281,14 @@ function BidOutcomeForm({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-medium text-slate-200 mb-1">
           Your Role
         </label>
         <input
           type="text"
           value={formData.role || ''}
           onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full px-3 py-2 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="e.g., Bid Manager, Lead Writer"
         />
       </div>
@@ -303,7 +303,7 @@ function BidOutcomeForm({
         <button
           type="button"
           onClick={onCancel}
-          className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
+          className="px-4 py-2 border-slate-600/50 rounded-lg text-slate-200 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors"
         >
           Cancel
         </button>
@@ -410,9 +410,9 @@ export function BidOutcomeCollector({ userEmail }: { userEmail: string }) {
           <motion.div
             initial={{ scale: 0.9, y: 20 }}
             animate={{ scale: 1, y: 0 }}
-            className="w-full max-w-md bg-white rounded-xl shadow-xl p-6"
+            className="w-full max-w-md bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl shadow-xl p-6"
           >
-            <h2 className="text-xl font-semibold text-gray-900 mb-4">
+            <h2 className="text-xl font-semibold text-slate-100 mb-4">
               Record Bid Outcome
             </h2>
             <BidOutcomeForm
@@ -453,7 +453,7 @@ export function BidOutcomeCollector({ userEmail }: { userEmail: string }) {
               onEdit={() => setMode('form')}
             />
             {isProcessing && (
-              <div className="mt-4 text-center text-sm text-gray-600">
+              <div className="mt-4 text-center text-sm text-slate-300">
                 Adding to your skills graph...
               </div>
             )}

@@ -129,7 +129,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
         ${
           filters.sustainability
             ? 'bg-green-100 text-green-800 ring-2 ring-green-500'
-            : 'bg-gray-100 text-gray-600 hover:bg-green-50 hover:text-green-700'
+            : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-green-900/20 hover:text-green-700'
         }
       `}
     >
@@ -139,13 +139,13 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
   );
 
   return (
-    <div className="bg-white border-b border-gray-200">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-b border-slate-700/50">
       {/* Filter toggle with sustainability badge */}
       <div className="flex items-center justify-between px-4 py-3">
         <div className="flex items-center gap-4">
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-200 hover:text-slate-100"
           >
             <FunnelIcon className="h-5 w-5" />
             Filters
@@ -163,7 +163,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
         {activeFilterCount > 0 && (
           <button
             onClick={clearFilters}
-            className="text-sm text-gray-500 hover:text-gray-700"
+            className="text-sm text-slate-500 hover:text-slate-200"
           >
             Clear all
           </button>
@@ -172,10 +172,10 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
 
       {/* Expanded filters */}
       {isExpanded && (
-        <div className="border-t border-gray-200 px-4 py-4 space-y-4">
+        <div className="border-t border-slate-700/50 px-4 py-4 space-y-4">
           {/* Stage filters */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-200 mb-2">
               <CalendarIcon className="h-4 w-4" />
               Stage
             </label>
@@ -189,7 +189,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                     ${
                       filters.stages?.includes(stage.value as 'tender')
                         ? 'bg-indigo-100 text-indigo-700'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-slate-800/60'
                     }
                   `}
                 >
@@ -201,7 +201,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
 
           {/* Value range */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-200 mb-2">
               <CurrencyPoundIcon className="h-4 w-4" />
               Contract Value
             </label>
@@ -222,7 +222,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                       ${
                         isSelected
                           ? 'bg-indigo-100 text-indigo-700'
-                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                          : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-slate-800/60'
                       }
                     `}
                   >
@@ -235,7 +235,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
 
           {/* Region */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-200 mb-2">
               <MapPinIcon className="h-4 w-4" />
               Region
             </label>
@@ -249,7 +249,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                     ${
                       filters.region === region
                         ? 'bg-indigo-100 text-indigo-700'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-slate-800/60'
                     }
                   `}
                 >
@@ -261,7 +261,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
 
           {/* Sector / CPV Divisions */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-200 mb-2">
               <TagIcon className="h-4 w-4" />
               Sector
             </label>
@@ -275,7 +275,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                     ${
                       filters.cpvDivisions?.includes(div.code)
                         ? 'bg-indigo-100 text-indigo-700'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        : 'bg-slate-900/40 backdrop-blur-xl text-slate-300 hover:bg-slate-800/60'
                     }
                   `}
                 >
@@ -287,7 +287,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
 
           {/* Buyer search */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-medium text-slate-200 mb-2">
               <BuildingOfficeIcon className="h-4 w-4" />
               Buyer
             </label>
@@ -301,13 +301,13 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                 })
               }
               placeholder="Search by buyer name..."
-              className="w-full max-w-xs rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              className="w-full max-w-xs rounded-md border-slate-600/50 px-3 py-2 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             />
           </div>
 
           {/* Active filters chips */}
           {activeFilterCount > 0 && (
-            <div className="pt-2 border-t border-gray-100">
+            <div className="pt-2 border-t border-slate-700/40">
               <div className="flex flex-wrap gap-2">
                 {filters.stages?.map((stage) => (
                   <span
@@ -361,7 +361,7 @@ export function FilterBar({ filters, onFiltersChange }: FilterBarProps) {
                   </span>
                 )}
                 {filters.sustainability && (
-                  <span className="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-sm text-green-700">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-3 py-1 text-sm text-green-700">
                     🌿 Sustainability
                     <button
                       onClick={handleSustainabilityToggle}

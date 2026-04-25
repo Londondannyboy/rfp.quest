@@ -34,13 +34,13 @@ const COLORS = {
 export function RegionalBarChart({ data, loading }: RegionalBarChartProps) {
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
         <div className="w-full space-y-3">
           {[...Array(5)].map((_, i) => (
             <div key={i} className="flex items-center gap-4">
-              <div className="w-24 h-4 bg-gray-200 rounded animate-pulse" />
+              <div className="w-24 h-4 bg-slate-800/60 rounded animate-pulse" />
               <div
-                className="h-6 bg-gray-200 rounded animate-pulse"
+                className="h-6 bg-slate-800/60 rounded animate-pulse"
                 style={{ width: `${60 - i * 10}%` }}
               />
             </div>
@@ -52,8 +52,8 @@ export function RegionalBarChart({ data, loading }: RegionalBarChartProps) {
 
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
-        <p className="text-gray-500">No regional data available</p>
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
+        <p className="text-slate-500">No regional data available</p>
       </div>
     );
   }
@@ -63,9 +63,9 @@ export function RegionalBarChart({ data, loading }: RegionalBarChartProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40"
     >
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <h3 className="text-lg font-semibold text-slate-100 mb-4">
         Regional Distribution
       </h3>
       <div className="h-72" style={{ minWidth: 300, minHeight: 288 }}>
@@ -96,9 +96,9 @@ export function RegionalBarChart({ data, loading }: RegionalBarChartProps) {
                 if (active && payload && payload.length) {
                   const item = payload[0].payload as RegionData;
                   return (
-                    <div className="bg-white px-3 py-2 shadow-lg rounded-lg border border-gray-100">
-                      <p className="font-medium text-gray-900">{item.region}</p>
-                      <p className="text-sm text-gray-500">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-3 py-2 shadow-lg rounded-lg border-slate-700/40">
+                      <p className="font-medium text-slate-100">{item.region}</p>
+                      <p className="text-sm text-slate-500">
                         {item.count.toLocaleString()} tenders ({item.percentage}%)
                       </p>
                     </div>

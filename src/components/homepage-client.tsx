@@ -48,7 +48,7 @@ export function HomepageClient({ page }: HomepageClientProps) {
           <FloatingElement className="absolute top-1/5 right-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-70" intensity={5} duration={4}>
             <div />
           </FloatingElement>
-          <FloatingElement className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full opacity-60" intensity={6} duration={5}>
+          <FloatingElement className="absolute bottom-1/5 left-1/5 w-1.5 h-1.5 bg-slate-600/80 rounded-full opacity-60" intensity={6} duration={5}>
             <div />
           </FloatingElement>
           <FloatingElement className="absolute top-3/4 right-1/5 w-1 h-1 bg-blue-300 rounded-full opacity-80" intensity={4} duration={3}>

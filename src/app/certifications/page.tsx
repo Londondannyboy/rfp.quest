@@ -283,7 +283,7 @@ export default function CertificationsHubPage() {
       <article className="max-w-6xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             UK Procurement Certifications: Complete Guide for Tender Bidders
           </h1>
           
@@ -297,8 +297,8 @@ export default function CertificationsHubPage() {
           </div>
 
           {/* TODO: Add hero image */}
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: uk-procurement-certifications-uk.jpg - UK procurement certifications requirements for UK government tenders]
             </p>
           </div>
@@ -364,23 +364,23 @@ export default function CertificationsHubPage() {
           </h2>
           
           <div className="overflow-x-auto">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Certification</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Sectors</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Status</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Cost</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Time</th>
-                  <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Guide</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Certification</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Sectors</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Status</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Cost</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Time</th>
+                  <th className="border-slate-500/50 px-4 py-3 text-left font-semibold">Guide</th>
                 </tr>
               </thead>
               <tbody>
                 {certifications.map((cert, index) => (
-                  <tr key={cert.name} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="border border-gray-300 px-4 py-3 font-medium">{cert.name}</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">{cert.sectors}</td>
-                    <td className="border border-gray-300 px-4 py-3">
+                  <tr key={cert.name} className={index % 2 === 0 ? 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50' : 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'}>
+                    <td className="border-slate-500/50 px-4 py-3 font-medium">{cert.name}</td>
+                    <td className="border-slate-500/50 px-4 py-3 text-sm">{cert.sectors}</td>
+                    <td className="border-slate-500/50 px-4 py-3">
                       <span className={`text-xs font-medium px-2 py-1 rounded ${
                         cert.status.includes('Mandatory') ? 'bg-red-100 text-red-800' :
                         cert.status.includes('De facto') ? 'bg-orange-100 text-orange-800' :
@@ -390,9 +390,9 @@ export default function CertificationsHubPage() {
                         {cert.status}
                       </span>
                     </td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">{cert.cost}</td>
-                    <td className="border border-gray-300 px-4 py-3 text-sm">{cert.time}</td>
-                    <td className="border border-gray-300 px-4 py-3">
+                    <td className="border-slate-500/50 px-4 py-3 text-sm">{cert.cost}</td>
+                    <td className="border-slate-500/50 px-4 py-3 text-sm">{cert.time}</td>
+                    <td className="border-slate-500/50 px-4 py-3">
                       <Link href={cert.link} className="text-blue-600 hover:underline">
                         Guide →
                       </Link>
@@ -403,7 +403,7 @@ export default function CertificationsHubPage() {
             </table>
           </div>
 
-          <p className="text-sm text-gray-600 mt-4">
+          <p className="text-sm text-slate-300 mt-4">
             <strong>Note:</strong> Costs are approximate and vary by organisation size, complexity, 
             and certification body. Times shown are typical for SMEs. Get quotes from UKAS-accredited 
             bodies for accurate pricing.
@@ -660,7 +660,7 @@ export default function CertificationsHubPage() {
             Understanding the return on certification investment helps justify the expense:
           </p>
 
-          <div className="bg-green-50 p-6 rounded-lg my-6">
+          <div className="bg-green-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-3">Typical ROI Metrics</h3>
             <ul className="space-y-2">
               <li><strong>Win rate improvement:</strong> 40-65% higher with appropriate certifications</li>
@@ -721,7 +721,7 @@ export default function CertificationsHubPage() {
           </h2>
 
           <div className="space-y-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-6 rounded-lg shadow-sm border-slate-600/50">
               <h3 className="text-lg font-semibold mb-2">
                 Which certifications are most commonly required for UK government tenders?
               </h3>
@@ -734,7 +734,7 @@ export default function CertificationsHubPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-6 rounded-lg shadow-sm border-slate-600/50">
               <h3 className="text-lg font-semibold mb-2">
                 Are certifications mandatory for UK public sector contracts?
               </h3>
@@ -747,7 +747,7 @@ export default function CertificationsHubPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-6 rounded-lg shadow-sm border-slate-600/50">
               <h3 className="text-lg font-semibold mb-2">
                 How much do UK procurement certifications typically cost?
               </h3>
@@ -759,7 +759,7 @@ export default function CertificationsHubPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-6 rounded-lg shadow-sm border-slate-600/50">
               <h3 className="text-lg font-semibold mb-2">
                 How long does it take to get certified?
               </h3>
@@ -771,7 +771,7 @@ export default function CertificationsHubPage() {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-6 rounded-lg shadow-sm border-slate-600/50">
               <h3 className="text-lg font-semibold mb-2">
                 What is SSIP and which scheme should I choose?
               </h3>
@@ -795,13 +795,13 @@ export default function CertificationsHubPage() {
             </p>
             <Link
               href="/"
-              className="inline-block bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
+              className="inline-block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-blue-600 px-6 py-3 rounded font-semibold hover:bg-slate-800/50 transition"
             >
               Try RFP Platform Quest Free →
             </Link>
           </div>
 
-          <div className="bg-gray-50 p-8 rounded-lg border border-gray-200">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-8 rounded-lg border-slate-600/50">
             <h2 className="text-2xl font-bold mb-4">Get Help with Certification</h2>
             <p className="mb-6">
               Need guidance on which certifications to prioritise for your sector? Our experts can 
@@ -817,7 +817,7 @@ export default function CertificationsHubPage() {
         </section>
 
         {/* Internal Links */}
-        <nav className="mt-12 pt-8 border-t border-gray-200">
+        <nav className="mt-12 pt-8 border-t border-slate-600/50">
           <h3 className="text-lg font-semibold mb-4">Certification Guides</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {certifications.map(cert => (
@@ -838,7 +838,7 @@ export default function CertificationsHubPage() {
         </nav>
 
         {/* External Links */}
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+        <div className="mt-8 p-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
           <h3 className="text-lg font-semibold mb-4">Official Resources</h3>
           <ul className="space-y-2">
             <li>

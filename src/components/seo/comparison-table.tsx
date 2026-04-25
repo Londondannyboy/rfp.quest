@@ -18,12 +18,12 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
   const renderCell = (value: boolean | string) => {
     if (typeof value === 'boolean') {
       return value ? (
-        <CheckIcon className="w-6 h-6 text-teal-500 mx-auto" />
+        <CheckIcon className="w-6 h-6 text-blue-500 mx-auto" />
       ) : (
-        <XMarkIcon className="w-6 h-6 text-gray-300 dark:text-gray-600 mx-auto" />
+        <XMarkIcon className="w-6 h-6 text-slate-400 dark:text-slate-300 mx-auto" />
       );
     }
-    return <span className="text-sm text-gray-700 dark:text-gray-300">{value}</span>;
+    return <span className="text-sm text-slate-200 dark:text-slate-400">{value}</span>;
   };
 
   return (
@@ -32,12 +32,12 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
         {(title || subtitle) && (
           <div className="text-center mb-12">
             {title && (
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-100 dark:text-white mb-4">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              <p className="text-lg text-slate-300 dark:text-slate-400 max-w-2xl mx-auto">
                 {subtitle}
               </p>
             )}
@@ -53,13 +53,13 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
                     key={index}
                     className={`px-4 md:px-6 py-4 text-left ${
                       index === 0
-                        ? 'text-gray-900 dark:text-white'
+                        ? 'text-slate-100 dark:text-white'
                         : 'text-center'
                     } ${
                       index === 1
-                        ? 'bg-teal-50 dark:bg-teal-900/20 text-teal-700 dark:text-teal-400 font-bold'
-                        : 'text-gray-600 dark:text-gray-400'
-                    } text-sm md:text-base font-semibold border-b-2 border-gray-200 dark:border-gray-700`}
+                        ? 'bg-blue-950/20 dark:bg-blue-950/20 text-blue-400 dark:text-blue-400 font-bold'
+                        : 'text-slate-300 dark:text-slate-400'
+                    } text-sm md:text-base font-semibold border-b-2 border-slate-700/50 dark:border-slate-300/50`}
                   >
                     {header}
                   </th>
@@ -70,12 +70,12 @@ export function ComparisonTable({ title, subtitle, headers, rows }: ComparisonTa
               {rows.map((row, rowIndex) => (
                 <tr
                   key={rowIndex}
-                  className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-slate-800/50 transition-colors"
+                  className="border-b border-slate-700/40 dark:border-slate-200/40 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:hover:bg-slate-800/50 transition-colors"
                 >
-                  <td className="px-4 md:px-6 py-4 text-gray-900 dark:text-white font-medium">
+                  <td className="px-4 md:px-6 py-4 text-slate-100 dark:text-white font-medium">
                     {row.feature}
                   </td>
-                  <td className="px-4 md:px-6 py-4 text-center bg-teal-50/50 dark:bg-teal-900/10">
+                  <td className="px-4 md:px-6 py-4 text-center bg-blue-950/20/50 dark:bg-blue-950/10">
                     {renderCell(row.rfpquest)}
                   </td>
                   {row.competitor1 !== undefined && (

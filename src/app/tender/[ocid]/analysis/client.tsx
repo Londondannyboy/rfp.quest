@@ -259,7 +259,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
             <div className="flex items-center gap-3">
               {/* Requirements count badge */}
               {requirements.length > 0 && (
-                <span className="px-3 py-1 bg-teal-900/50 text-teal-300 text-sm rounded-full border border-teal-700">
+                <span className="px-3 py-1 bg-blue-950/50 text-blue-300 text-sm rounded-full border-blue-700/60">
                   {requirements.length} requirements
                 </span>
               )}
@@ -294,9 +294,9 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
             <div className="space-y-6">
               {/* AI Insights Panel */}
               {tenderAnalysis && (
-                <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-6 border border-teal-800/50">
+                <div className="bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-6 border-blue-800/60/50">
                   <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <LightBulbIcon className="w-5 h-5 text-teal-400" />
+                    <LightBulbIcon className="w-5 h-5 text-blue-400" />
                     AI Analysis
                   </h3>
                   {tenderAnalysis.summary && (
@@ -306,7 +306,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                     <div className="flex flex-wrap gap-2 mb-3">
                       <span className="text-sm text-slate-400">Key themes:</span>
                       {tenderAnalysis.keyThemes.map((theme, i) => (
-                        <span key={i} className="px-2 py-1 bg-teal-800/50 text-teal-300 rounded text-sm">
+                        <span key={i} className="px-2 py-1 bg-blue-800/90/50 text-blue-300 rounded text-sm">
                           {theme}
                         </span>
                       ))}
@@ -322,8 +322,8 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
 
               {/* Loading State */}
               {isLoadingRequirements ? (
-                <div className="bg-slate-900 rounded-xl p-12 border border-slate-800 text-center">
-                  <ArrowPathIcon className="w-12 h-12 text-teal-400 animate-spin mx-auto mb-4" />
+                <div className="bg-slate-900 rounded-xl p-12 border-slate-800 text-center">
+                  <ArrowPathIcon className="w-12 h-12 text-blue-400 animate-spin mx-auto mb-4" />
                   <h3 className="text-lg font-medium text-white mb-2">Analyzing Tender...</h3>
                   <p className="text-slate-400 text-sm max-w-md mx-auto">
                     Extracting requirements from the tender notice. This usually takes a few seconds.
@@ -338,7 +338,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                 />
               ) : (
                 /* No requirements yet */
-                <div className="bg-slate-900 rounded-xl p-12 border border-slate-800 text-center">
+                <div className="bg-slate-900 rounded-xl p-12 border-slate-800 text-center">
                   <PencilSquareIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                   <h3 className="text-lg font-medium text-white mb-2">Ready to Start Writing</h3>
                   <p className="text-slate-400 text-sm max-w-md mx-auto mb-6">
@@ -374,7 +374,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                 tender={tender}
               />
             ) : (
-              <div className="bg-slate-900 rounded-xl p-8 border border-slate-800 text-center">
+              <div className="bg-slate-900 rounded-xl p-8 border-slate-800 text-center">
                 <SparklesIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-white mb-2">Detailed Analysis</h3>
                 <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
@@ -408,7 +408,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                 compliance={analysis.compliance as Record<string, unknown>}
               />
             ) : (
-              <div className="bg-slate-900 rounded-xl p-8 border border-slate-800 text-center">
+              <div className="bg-slate-900 rounded-xl p-8 border-slate-800 text-center">
                 <CheckCircleIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-white mb-2">Compliance Check</h3>
                 <p className="text-slate-400 text-sm max-w-md mx-auto">
@@ -425,7 +425,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
                 gapAnalysis={analysis.gapAnalysis as Record<string, unknown>}
               />
             ) : (
-              <div className="bg-slate-900 rounded-xl p-8 border border-slate-800 text-center">
+              <div className="bg-slate-900 rounded-xl p-8 border-slate-800 text-center">
                 <SparklesIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-white mb-2">Gap Analysis</h3>
                 <p className="text-slate-400 text-sm max-w-md mx-auto">
@@ -438,9 +438,9 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
           {/* Documents Tab - Optional ITT upload */}
           {activeTab === 'documents' && (
             <div className="space-y-6">
-              <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
+              <div className="bg-slate-900 rounded-xl p-6 border-slate-800">
                 <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
-                  <DocumentArrowUpIcon className="w-5 h-5 text-teal-400" />
+                  <DocumentArrowUpIcon className="w-5 h-5 text-blue-400" />
                   Upload ITT Document (Optional)
                 </h3>
                 <p className="text-slate-400 text-sm mb-4">
@@ -454,7 +454,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
               </div>
 
               {analyzedDocumentId && (
-                <div className="bg-green-900/20 border border-green-800 rounded-xl p-4">
+                <div className="bg-green-900/20 border-green-800 rounded-xl p-4">
                   <div className="flex items-center gap-2 text-green-400">
                     <CheckCircleIcon className="w-5 h-5" />
                     <span>Document analyzed! Requirements updated on the Write Bid tab.</span>
@@ -467,7 +467,7 @@ function AnalysisContent({ tender, existingAnalysis }: Props) {
 
         {/* Analysis Metadata */}
         {hasAnalysis && (
-          <div className="mt-8 p-4 bg-slate-800/30 rounded-lg border border-slate-700 text-sm text-slate-400">
+          <div className="mt-8 p-4 bg-slate-800/30 rounded-lg border-slate-700 text-sm text-slate-400">
             <div className="flex items-center justify-between">
               <span>
                 Analysis ID: <code className="text-slate-300">{analysis.id}</code>

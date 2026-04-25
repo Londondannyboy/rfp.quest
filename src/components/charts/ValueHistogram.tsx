@@ -35,12 +35,12 @@ export function ValueHistogram({ data, loading, onValueClick }: ValueHistogramPr
   };
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
         <div className="flex items-end gap-2">
           {[40, 60, 80, 50, 70].map((h, i) => (
             <div
               key={i}
-              className="animate-pulse bg-gray-200 rounded-t"
+              className="animate-pulse bg-slate-800/60 rounded-t"
               style={{ width: 40, height: h }}
             />
           ))}
@@ -51,8 +51,8 @@ export function ValueHistogram({ data, loading, onValueClick }: ValueHistogramPr
 
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
-        <p className="text-gray-500">No value data available</p>
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
+        <p className="text-slate-500">No value data available</p>
       </div>
     );
   }
@@ -62,9 +62,9 @@ export function ValueHistogram({ data, loading, onValueClick }: ValueHistogramPr
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40"
     >
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <h3 className="text-lg font-semibold text-slate-100 mb-4">
         Contract Value Distribution
       </h3>
       <div className="h-72" style={{ minWidth: 300, minHeight: 288 }}>
@@ -92,9 +92,9 @@ export function ValueHistogram({ data, loading, onValueClick }: ValueHistogramPr
                 if (active && payload && payload.length) {
                   const item = payload[0].payload as ValueData;
                   return (
-                    <div className="bg-white px-3 py-2 shadow-lg rounded-lg border border-gray-100">
-                      <p className="font-medium text-gray-900">{item.bucket}</p>
-                      <p className="text-sm text-gray-500">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-3 py-2 shadow-lg rounded-lg border-slate-700/40">
+                      <p className="font-medium text-slate-100">{item.bucket}</p>
+                      <p className="text-sm text-slate-500">
                         {item.count.toLocaleString()} tenders
                       </p>
                     </div>

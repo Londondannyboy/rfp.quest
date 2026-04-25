@@ -20,7 +20,7 @@ const GlobeScene = dynamic(
 function GlobeLoadingFallback() {
   return (
     <div className="w-full h-64 bg-gradient-to-b from-slate-900 to-slate-800 rounded-xl flex items-center justify-center">
-      <div className="w-16 h-16 rounded-full border-4 border-teal-500/30 border-t-teal-500 animate-spin" />
+      <div className="w-16 h-16 rounded-full border-4 border-blue-500/30 border-t-teal-500 animate-spin" />
     </div>
   );
 }
@@ -49,7 +49,7 @@ export default function AnalyticsPage() {
   if (error) {
     return (
       <div className="p-6">
-        <div className="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div className="bg-red-900/20 border-red-200 rounded-xl p-6">
           <p className="text-red-600">Failed to load analytics: {error}</p>
         </div>
       </div>
@@ -63,8 +63,8 @@ export default function AnalyticsPage() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <h1 className="text-2xl font-bold text-gray-900">Analytics</h1>
-        <p className="text-gray-500">
+        <h1 className="text-2xl font-bold text-slate-100">Analytics</h1>
+        <p className="text-slate-400">
           Explore tender market insights and trends
         </p>
       </motion.div>
@@ -106,41 +106,41 @@ export default function AnalyticsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+          className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40"
         >
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
+          <h3 className="text-lg font-semibold text-slate-100 mb-4">
             Market Overview
           </h3>
           <div className="space-y-4">
             <div className="flex justify-between items-center">
-              <span className="text-gray-500">Total Opportunities</span>
-              <span className="font-semibold text-gray-900">
+              <span className="text-slate-400">Total Opportunities</span>
+              <span className="font-semibold text-slate-100">
                 {stats?.totalOpportunities?.toLocaleString() || '-'}
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-gray-500">Average Contract Value</span>
-              <span className="font-semibold text-gray-900">
+              <span className="text-slate-400">Average Contract Value</span>
+              <span className="font-semibold text-slate-100">
                 {stats?.averageValue
                   ? `£${(stats.averageValue / 1000).toFixed(0)}k`
                   : '-'}
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-gray-500">Your Match Rate</span>
-              <span className="font-semibold text-teal-600">
+              <span className="text-slate-400">Your Match Rate</span>
+              <span className="font-semibold text-blue-400">
                 {stats?.matchedPercentage || 0}%
               </span>
             </div>
             <div className="flex justify-between items-center">
-              <span className="text-gray-500">Top Sector</span>
-              <span className="font-semibold text-gray-900">
+              <span className="text-slate-400">Top Sector</span>
+              <span className="font-semibold text-slate-100">
                 {stats?.topSector?.name || '-'}
               </span>
             </div>
           </div>
           {stats?.lastUpdated && (
-            <p className="text-xs text-gray-400 mt-4">
+            <p className="text-xs text-slate-400 mt-4">
               Last updated: {new Date(stats.lastUpdated).toLocaleString('en-GB')}
             </p>
           )}

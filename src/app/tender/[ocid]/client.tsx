@@ -308,7 +308,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
         {/* Visual Analytics Dashboard - Featured at Top */}
         <div className="bg-slate-900 rounded-xl p-6 mb-6">
           <h2 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
-            <svg className="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
             Contract Analytics
@@ -359,8 +359,8 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 What This <strong>{tender.buyerName}</strong> Contract Means
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
-                  <h3 className="text-sm font-medium text-teal-400 mb-2">For Citizens</h3>
+                <div className="bg-slate-800/50 rounded-lg p-4 border-slate-700">
+                  <h3 className="text-sm font-medium text-blue-400 mb-2">For Citizens</h3>
                   <p className="text-sm text-slate-300">
                     This is a <strong>public procurement</strong> by <strong>{tender.buyerName}</strong>
                     {tender.region && <> in <strong>{tender.region}</strong></>}.
@@ -368,7 +368,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                     {' '}All <strong>UK government contracts</strong> are publicly accessible for transparency.
                   </p>
                 </div>
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                <div className="bg-slate-800/50 rounded-lg p-4 border-slate-700">
                   <h3 className="text-sm font-medium text-cyan-400 mb-2">For Businesses</h3>
                   <p className="text-sm text-slate-300">
                     {tender.stage === 'tender' ? (
@@ -445,9 +445,9 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
             {/* Link to buyer page */}
             <Link
               href={`/buyer/${slugifyBuyer(tender.buyerName)}`}
-              className="block bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border border-teal-500/20 hover:border-teal-500/40 transition-colors"
+              className="block bg-gradient-to-r from-teal-900/30 to-cyan-900/30 rounded-xl p-4 border-blue-500/20 hover:border-blue-500/40 transition-colors"
             >
-              <div className="text-sm text-teal-400 mb-1">View All Contracts</div>
+              <div className="text-sm text-blue-400 mb-1">View All Contracts</div>
               <div className="text-white font-medium">{tender.buyerName}</div>
               <div className="text-xs text-slate-400 mt-1">Spending trends, sector breakdown &amp; more →</div>
             </Link>
@@ -468,7 +468,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
               <h3 className="text-lg font-semibold text-white mb-4">Official Links</h3>
               <div className="space-y-3">
                 <a href={findATenderUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-3 bg-slate-800/50 rounded-lg hover:bg-slate-800 transition-colors">
-                  <ArrowTopRightOnSquareIcon className="w-5 h-5 text-teal-400" />
+                  <ArrowTopRightOnSquareIcon className="w-5 h-5 text-blue-400" />
                   <div>
                     <div className="text-sm font-medium text-white">Find a Tender</div>
                     <div className="text-xs text-slate-400">Official UK portal</div>
@@ -479,14 +479,14 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
             <div className="bg-slate-900 rounded-xl p-6">
               <h3 className="text-sm font-medium text-slate-400 mb-2">Reference ID</h3>
-              <code className="text-xs text-teal-400 bg-slate-800 px-2 py-1 rounded break-all">{tender.ocid}</code>
+              <code className="text-xs text-blue-400 bg-slate-800 px-2 py-1 rounded break-all">{tender.ocid}</code>
             </div>
           </div>
         </div>
 
         {/* CTA + Internal Links */}
         <div className="mt-12 border-t border-slate-800 pt-8">
-          <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border border-teal-500/20">
+          <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
             <div className="max-w-3xl">
               <h2 className="text-2xl font-bold text-white mb-3">Win More <strong>UK Government Contracts</strong></h2>
               <p className="text-slate-300 mb-6">
@@ -494,7 +494,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 Our AI platform analyzes requirements, identifies gaps, and helps craft winning proposals.
               </p>
               <div className="flex flex-wrap gap-3">
-                <Link href="/" className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors">
+                <Link href="/" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors">
                   Try RFP.quest Free
                 </Link>
                 <Link href="/browse-tenders" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
@@ -503,7 +503,7 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
                 <Link href="/dashboard?stage=tender" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">
                   Advanced Search
                 </Link>
-                <Link href={`/dashboard?buyer=${encodeURIComponent(tender.buyerName)}`} className="px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 font-medium rounded-lg transition-colors border border-slate-700">
+                <Link href={`/dashboard?buyer=${encodeURIComponent(tender.buyerName)}`} className="px-5 py-2.5 bg-slate-800/50 hover:bg-slate-700 text-slate-300 font-medium rounded-lg transition-colors border-slate-700">
                   More from {tender.buyerName.length > 25 ? tender.buyerName.substring(0, 25) + '...' : tender.buyerName}
                 </Link>
               </div>
@@ -512,19 +512,19 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
 
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/rfp-software" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
-              <h3 className="text-sm font-medium text-white group-hover:text-teal-400">RFP Software</h3>
+              <h3 className="text-sm font-medium text-white group-hover:text-blue-400">RFP Software</h3>
               <p className="text-xs text-slate-500 mt-1">AI-powered bid management</p>
             </Link>
             <Link href="/tender-software" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
-              <h3 className="text-sm font-medium text-white group-hover:text-teal-400">Tender Software</h3>
+              <h3 className="text-sm font-medium text-white group-hover:text-blue-400">Tender Software</h3>
               <p className="text-xs text-slate-500 mt-1">UK procurement tools</p>
             </Link>
             <Link href="/bid-writing" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
-              <h3 className="text-sm font-medium text-white group-hover:text-teal-400">Bid Writing</h3>
+              <h3 className="text-sm font-medium text-white group-hover:text-blue-400">Bid Writing</h3>
               <p className="text-xs text-slate-500 mt-1">Expert guidance</p>
             </Link>
             <Link href="/how-to-write-a-tender" className="group p-4 bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors">
-              <h3 className="text-sm font-medium text-white group-hover:text-teal-400">How to Write a Tender</h3>
+              <h3 className="text-sm font-medium text-white group-hover:text-blue-400">How to Write a Tender</h3>
               <p className="text-xs text-slate-500 mt-1">Step-by-step guide</p>
             </Link>
           </div>
@@ -532,9 +532,9 @@ function TenderAnalysisContent({ tender }: { tender: Tender }) {
           <div className="mt-8 text-center text-sm text-slate-500">
             <p>
               <strong>UK tender</strong> data from{' '}
-              <a href="https://www.find-tender.service.gov.uk" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:underline">Find a Tender</a>
+              <a href="https://www.find-tender.service.gov.uk" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Find a Tender</a>
               {' '}under the Open Government Licence. Powered by{' '}
-              <Link href="/" className="text-teal-400 hover:underline"><strong>RFP.quest</strong></Link>.
+              <Link href="/" className="text-blue-400 hover:underline"><strong>RFP.quest</strong></Link>.
             </p>
           </div>
         </div>

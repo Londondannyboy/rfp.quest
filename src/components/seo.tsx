@@ -19,19 +19,19 @@ export function FeatureGrid({ features, columns = 3 }: FeatureGridProps) {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-slate-800/50">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:bg-slate-800/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`grid gap-8 ${gridCols[columns]}`}>
           {features.map((feature, index) => (
             <div
               key={index}
-              className="relative p-8 bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-slate-700"
+              className="relative p-8 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300 border-slate-700/40 dark:border-slate-700"
             >
               <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-xl font-bold text-slate-100 dark:text-white mb-3">
                 {feature.title}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-slate-300 dark:text-slate-400 leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -56,15 +56,15 @@ interface StatsBarProps {
 export function StatsBar({ stats, variant = 'default' }: StatsBarProps) {
   const bgClass = variant === 'gradient'
     ? 'bg-gradient-to-r from-teal-600 to-teal-700 dark:from-teal-700 dark:to-teal-800'
-    : 'bg-white dark:bg-slate-800 border-y border-gray-200 dark:border-slate-700';
+    : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 border-y border-slate-700/50 dark:border-slate-700';
 
   const textClass = variant === 'gradient'
     ? 'text-white'
-    : 'text-gray-900 dark:text-white';
+    : 'text-slate-100 dark:text-white';
 
   const labelClass = variant === 'gradient'
-    ? 'text-teal-100'
-    : 'text-gray-500 dark:text-gray-400';
+    ? 'text-blue-200'
+    : 'text-slate-500 dark:text-slate-400';
 
   return (
     <section className={`py-12 ${bgClass}`}>
@@ -102,17 +102,17 @@ interface TrustBadgesProps {
 
 export function TrustBadges({ badges, title, subtitle }: TrustBadgesProps) {
   return (
-    <section className="py-16 bg-gray-50 dark:bg-slate-800/50">
+    <section className="py-16 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:bg-slate-800/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {(title || subtitle) && (
           <div className="text-center mb-12">
             {title && (
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-100 dark:text-white mb-3">
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              <p className="text-slate-300 dark:text-slate-400 max-w-2xl mx-auto">
                 {subtitle}
               </p>
             )}
@@ -125,22 +125,22 @@ export function TrustBadges({ badges, title, subtitle }: TrustBadgesProps) {
               href={badge.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center p-6 bg-white dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 hover:border-teal-300 dark:hover:border-teal-600 hover:shadow-md transition-all duration-200"
+              className="flex flex-col items-center p-6 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 rounded-xl border-slate-700/50 dark:border-slate-700 hover:border-blue-400/50 dark:hover:border-blue-600/50 hover:shadow-md transition-all duration-200"
             >
               {badge.logo ? (
                 <img src={badge.logo} alt={badge.name} className="h-12 mb-3 grayscale hover:grayscale-0 transition-all" />
               ) : (
                 <div className="h-12 flex items-center justify-center mb-3">
-                  <span className="text-2xl font-bold text-teal-600 dark:text-teal-400">
+                  <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">
                     {badge.name.split(' ').map(w => w[0]).join('')}
                   </span>
                 </div>
               )}
-              <span className="text-sm font-semibold text-gray-900 dark:text-white text-center">
+              <span className="text-sm font-semibold text-slate-100 dark:text-white text-center">
                 {badge.name}
               </span>
               {badge.description && (
-                <span className="text-xs text-gray-500 dark:text-gray-400 text-center mt-1">
+                <span className="text-xs text-slate-500 dark:text-slate-400 text-center mt-1">
                   {badge.description}
                 </span>
               )}
@@ -169,13 +169,13 @@ interface CTABannerProps {
 export function CTABanner({ title, subtitle, primaryCta, secondaryCta, variant = 'default' }: CTABannerProps) {
   const bgClass = variant === 'gradient'
     ? 'bg-gradient-to-br from-teal-600 via-teal-700 to-teal-800'
-    : 'bg-gray-900 dark:bg-slate-900';
+    : 'bg-slate-950 dark:bg-slate-900';
 
   return (
     <section className={`relative overflow-hidden ${bgClass}`}>
       {/* Decorative elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/5 rounded-full blur-3xl" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 tracking-tight">
@@ -189,7 +189,7 @@ export function CTABanner({ title, subtitle, primaryCta, secondaryCta, variant =
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href={primaryCta.href}
-            className="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-700 font-semibold rounded-xl hover:bg-teal-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center px-8 py-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-blue-400 font-semibold rounded-xl hover:bg-blue-950/20 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             {primaryCta.text}
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +199,7 @@ export function CTABanner({ title, subtitle, primaryCta, secondaryCta, variant =
           {secondaryCta && (
             <Link
               href={secondaryCta.href}
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:bg-white/10 font-semibold rounded-xl transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 font-semibold rounded-xl transition-all duration-200"
             >
               {secondaryCta.text}
             </Link>

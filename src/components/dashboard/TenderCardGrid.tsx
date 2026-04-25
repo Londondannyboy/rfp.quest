@@ -104,13 +104,13 @@ export function TenderCardGrid({
         animate={{ opacity: 1 }}
         className="flex flex-col items-center justify-center py-16 text-center"
       >
-        <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
+        <div className="w-16 h-16 bg-slate-900/40 backdrop-blur-xl rounded-full flex items-center justify-center mb-4">
           <span className="text-3xl">🔍</span>
         </div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">
+        <h3 className="text-lg font-semibold text-slate-100 mb-2">
           No Tenders Found
         </h3>
-        <p className="text-gray-500 max-w-md">{emptyMessage}</p>
+        <p className="text-slate-500 max-w-md">{emptyMessage}</p>
       </motion.div>
     );
   }
@@ -150,7 +150,7 @@ export function TenderCardGrid({
       {isLoading && tenders.length > 0 && (
         <div className="flex justify-center py-4">
           <motion.div
-            className="w-6 h-6 border-2 border-gray-300 border-t-teal-500 rounded-full"
+            className="w-6 h-6 border-2 border-slate-600/50 border-t-teal-500 rounded-full"
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           />

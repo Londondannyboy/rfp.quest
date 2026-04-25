@@ -19,9 +19,9 @@ interface DeadlineTimelineProps {
 }
 
 function getUrgencyColor(days: number): string {
-  if (days <= 7) return 'bg-red-500';
-  if (days <= 14) return 'bg-amber-500';
-  return 'bg-green-500';
+  if (days <= 7) return 'bg-red-900/200';
+  if (days <= 14) return 'bg-amber-900/200';
+  return 'bg-green-900/200';
 }
 
 function getUrgencyBadgeColor(days: number): string {
@@ -33,15 +33,15 @@ function getUrgencyBadgeColor(days: number): string {
 export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80">
-        <div className="h-6 w-40 bg-gray-200 rounded mb-4 animate-pulse" />
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80">
+        <div className="h-6 w-40 bg-slate-800/60 rounded mb-4 animate-pulse" />
         <div className="space-y-4">
           {[...Array(4)].map((_, i) => (
             <div key={i} className="flex items-start gap-4 animate-pulse">
-              <div className="w-3 h-3 bg-gray-200 rounded-full mt-2" />
+              <div className="w-3 h-3 bg-slate-800/60 rounded-full mt-2" />
               <div className="flex-1">
-                <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-                <div className="h-3 bg-gray-200 rounded w-1/2" />
+                <div className="h-4 bg-slate-800/60 rounded w-3/4 mb-2" />
+                <div className="h-3 bg-slate-800/60 rounded w-1/2" />
               </div>
             </div>
           ))}
@@ -52,8 +52,8 @@ export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
 
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
-        <p className="text-gray-500">No upcoming deadlines</p>
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
+        <p className="text-slate-500">No upcoming deadlines</p>
       </div>
     );
   }
@@ -63,11 +63,11 @@ export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.3 }}
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40"
     >
       <div className="flex items-center gap-2 mb-4">
-        <ClockIcon className="w-5 h-5 text-gray-400" />
-        <h3 className="text-lg font-semibold text-gray-900">
+        <ClockIcon className="w-5 h-5 text-slate-400" />
+        <h3 className="text-lg font-semibold text-slate-100">
           Upcoming Deadlines
         </h3>
       </div>
@@ -93,14 +93,14 @@ export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
                   )}`}
                 />
                 {index < data.length - 1 && (
-                  <div className="w-0.5 h-full bg-gray-200 mt-1" />
+                  <div className="w-0.5 h-full bg-slate-800/60 mt-1" />
                 )}
               </div>
 
               {/* Content */}
               <div className="flex-1 pb-4">
                 <div className="flex items-start justify-between gap-2">
-                  <h4 className="text-sm font-medium text-gray-900 group-hover:text-teal-600 transition-colors line-clamp-2">
+                  <h4 className="text-sm font-medium text-slate-100 group-hover:text-blue-600 transition-colors line-clamp-2">
                     {item.title}
                   </h4>
                   <span
@@ -113,7 +113,7 @@ export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
                       : `${item.daysRemaining} days`}
                   </span>
                 </div>
-                <p className="text-xs text-gray-500 mt-1">
+                <p className="text-xs text-slate-500 mt-1">
                   {item.buyerName || 'Unknown buyer'} &middot;{' '}
                   {new Date(item.deadline).toLocaleDateString('en-GB', {
                     day: 'numeric',
@@ -123,7 +123,7 @@ export function DeadlineTimeline({ data, loading }: DeadlineTimelineProps) {
                 </p>
               </div>
 
-              <ArrowRightIcon className="w-4 h-4 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
+              <ArrowRightIcon className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity mt-1" />
             </Link>
           </motion.div>
         ))}

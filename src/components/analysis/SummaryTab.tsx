@@ -68,7 +68,7 @@ export function SummaryTab({ summary, tender }: Props) {
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Buyer Card */}
-        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-4 bg-slate-800/50 rounded-lg border-slate-700">
           <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
             <BuildingOfficeIcon className="h-4 w-4" />
             Buyer
@@ -84,7 +84,7 @@ export function SummaryTab({ summary, tender }: Props) {
         </div>
 
         {/* Value Card */}
-        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-4 bg-slate-800/50 rounded-lg border-slate-700">
           <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
             <CurrencyPoundIcon className="h-4 w-4" />
             Contract Value
@@ -106,7 +106,7 @@ export function SummaryTab({ summary, tender }: Props) {
         </div>
 
         {/* Deadline Card */}
-        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-4 bg-slate-800/50 rounded-lg border-slate-700">
           <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
             <ClockIcon className="h-4 w-4" />
             Submission Deadline
@@ -131,7 +131,7 @@ export function SummaryTab({ summary, tender }: Props) {
         </div>
 
         {/* Region Card */}
-        <div className="p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-4 bg-slate-800/50 rounded-lg border-slate-700">
           <div className="flex items-center gap-2 text-slate-400 text-sm mb-2">
             <MapPinIcon className="h-4 w-4" />
             Region
@@ -147,20 +147,20 @@ export function SummaryTab({ summary, tender }: Props) {
 
       {/* Framework Info (if detected) */}
       {Boolean(framework?.name) && (
-        <div className="p-4 bg-teal-900/30 rounded-lg border border-teal-700">
+        <div className="p-4 bg-blue-950/30 rounded-lg border-blue-700/60">
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-2 py-1 bg-teal-800 text-teal-200 text-xs rounded">
+            <span className="px-2 py-1 bg-blue-800/90 text-blue-300 text-xs rounded">
               FRAMEWORK
             </span>
             <span className="font-medium text-white">{framework?.name as string}</span>
           </div>
           {Boolean(framework?.lot) && (
-            <div className="text-sm text-teal-300">
+            <div className="text-sm text-blue-300">
               Lot: {framework?.lot as string}
             </div>
           )}
           {Boolean(framework?.callOffType) && (
-            <div className="text-sm text-teal-300 mt-1">
+            <div className="text-sm text-blue-300 mt-1">
               Call-off type: {(framework?.callOffType as string)?.replace(/_/g, ' ')}
             </div>
           )}
@@ -169,9 +169,9 @@ export function SummaryTab({ summary, tender }: Props) {
 
       {/* Key Dates Timeline */}
       {keyDates && keyDates.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
-            <CalendarIcon className="h-5 w-5 text-teal-400" />
+            <CalendarIcon className="h-5 w-5 text-blue-400" />
             Key Dates
           </h3>
           <div className="space-y-3">
@@ -186,7 +186,7 @@ export function SummaryTab({ summary, tender }: Props) {
                   className={`w-3 h-3 rounded-full ${
                     dateItem.isPast
                       ? 'bg-slate-600'
-                      : 'bg-teal-500 ring-4 ring-teal-500/20'
+                      : 'bg-blue-950/200 ring-4 ring-teal-500/20'
                   }`}
                 />
                 <div className="flex-1">
@@ -208,9 +208,9 @@ export function SummaryTab({ summary, tender }: Props) {
 
       {/* CPV Classification */}
       {Boolean((classification?.cpvCodes as string[])?.length || tender.cpvCodes?.length) && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
-            <TagIcon className="h-5 w-5 text-teal-400" />
+            <TagIcon className="h-5 w-5 text-blue-400" />
             Classification (CPV Codes)
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -235,9 +235,9 @@ export function SummaryTab({ summary, tender }: Props) {
 
       {/* Buyer Insights */}
       {buyerInsights && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
-            <BuildingOfficeIcon className="h-5 w-5 text-teal-400" />
+            <BuildingOfficeIcon className="h-5 w-5 text-blue-400" />
             Buyer Insights
           </h3>
           {Boolean(buyerInsights.organizationType) && (
@@ -258,7 +258,7 @@ export function SummaryTab({ summary, tender }: Props) {
               <ul className="mt-2 space-y-1">
                 {(buyerInsights.strategicPriorities as string[]).map((priority, index) => (
                   <li key={index} className="text-white flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full" />
+                    <span className="w-1.5 h-1.5 bg-blue-950/200 rounded-full" />
                     {priority}
                   </li>
                 ))}

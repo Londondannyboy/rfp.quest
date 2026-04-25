@@ -109,23 +109,23 @@ export function KeyDates({ dates, timezone = 'UK Time' }: KeyDatesProps) {
               key={keyDate.id}
               className={`
                 p-4 transition-colors
-                ${isNext ? 'bg-teal-500/10 border-l-4 border-teal-500' : ''}
+                ${isNext ? 'bg-blue-950/200/10 border-l-4 border-blue-500/50' : ''}
                 ${isPast ? 'opacity-60' : ''}
-                ${keyDate.isUrgent && !isPast ? 'bg-red-500/5' : ''}
+                ${keyDate.isUrgent && !isPast ? 'bg-red-900/200/5' : ''}
               `}
             >
               <div className="flex items-start gap-4">
                 {/* Date icon */}
                 <div className={`
                   p-3 rounded-xl flex-shrink-0
-                  ${isPast ? 'bg-slate-800' : isNext ? 'bg-teal-500/20' : 'bg-slate-800'}
+                  ${isPast ? 'bg-slate-800' : isNext ? 'bg-blue-950/200/20' : 'bg-slate-800'}
                 `}>
                   {isPast ? (
                     <CheckCircleIcon className="w-5 h-5 text-slate-500" />
                   ) : keyDate.isUrgent ? (
                     <BellAlertIcon className="w-5 h-5 text-red-500" />
                   ) : (
-                    <CalendarDaysIcon className={`w-5 h-5 ${isNext ? 'text-teal-400' : 'text-slate-400'}`} />
+                    <CalendarDaysIcon className={`w-5 h-5 ${isNext ? 'text-blue-400' : 'text-slate-400'}`} />
                   )}
                 </div>
 
@@ -136,12 +136,12 @@ export function KeyDates({ dates, timezone = 'UK Time' }: KeyDatesProps) {
                       {keyDate.label}
                     </h4>
                     {isNext && (
-                      <span className="px-2 py-0.5 text-xs font-medium bg-teal-500/20 text-teal-400 rounded">
+                      <span className="px-2 py-0.5 text-xs font-medium bg-blue-950/200/20 text-blue-400 rounded">
                         Next
                       </span>
                     )}
                     {keyDate.isUrgent && !isPast && (
-                      <span className="px-2 py-0.5 text-xs font-medium bg-red-500/20 text-red-400 rounded">
+                      <span className="px-2 py-0.5 text-xs font-medium bg-red-900/200/20 text-red-400 rounded">
                         Urgent
                       </span>
                     )}

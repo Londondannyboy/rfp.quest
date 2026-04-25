@@ -41,7 +41,7 @@ interface TenderData {
 export function TenderMatchGauge({ score, size = 140 }: { score: number | null; size?: number }) {
   if (score === null) {
     return (
-      <div className="flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border border-slate-700">
+      <div className="flex flex-col items-center justify-center p-6 bg-slate-800/50 rounded-xl border-slate-700">
         <div className="w-32 h-32 rounded-full bg-slate-700 flex items-center justify-center">
           <SparklesIcon className="w-12 h-12 text-slate-500" />
         </div>
@@ -68,7 +68,7 @@ export function TenderMatchGauge({ score, size = 140 }: { score: number | null; 
       />
       <div className="mt-3 text-center">
         <p className={`text-sm font-medium ${
-          score >= 70 ? 'text-teal-400' :
+          score >= 70 ? 'text-blue-400' :
           score >= 40 ? 'text-amber-400' :
           'text-red-400'
         }`}>
@@ -126,7 +126,7 @@ export function TenderSectorChart({ cpvCodes }: { cpvCodes: string[] | null }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
         <TagIcon className="w-5 h-5 text-purple-400" />
@@ -167,7 +167,7 @@ export function TenderValueChart({
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+        className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
       >
         <div className="flex items-center gap-2 mb-4">
           <CurrencyPoundIcon className="w-5 h-5 text-amber-400" />
@@ -184,7 +184,7 @@ export function TenderValueChart({
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
         <CurrencyPoundIcon className="w-5 h-5 text-amber-400" />
@@ -262,7 +262,7 @@ export function TenderStageTimeline({ tender }: { tender: TenderData }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
         <CalendarDaysIcon className="w-5 h-5 text-blue-400" />
@@ -305,10 +305,10 @@ export function TenderActivityMetrics({ tender, matchScore }: { tender: TenderDa
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
-        <ChartBarIcon className="w-5 h-5 text-teal-400" />
+        <ChartBarIcon className="w-5 h-5 text-blue-400" />
         <h3 className="text-sm font-medium text-white">Key Metrics</h3>
       </div>
       <div className="flex items-center justify-center">
@@ -342,7 +342,7 @@ export function MarketActivityChart({ region }: { region?: string | null }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
@@ -371,7 +371,7 @@ export function TenderCompetitionChart({ competitorCount }: { competitorCount: n
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
         <UserGroupIcon className="w-5 h-5 text-red-400" />
@@ -406,10 +406,10 @@ export function MatchBreakdownChart({ matchScore }: { matchScore: number | null 
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-slate-800/50 rounded-xl p-5 border border-slate-700"
+      className="bg-slate-800/50 rounded-xl p-5 border-slate-700"
     >
       <div className="flex items-center gap-2 mb-4">
-        <ChartBarIcon className="w-5 h-5 text-teal-400" />
+        <ChartBarIcon className="w-5 h-5 text-blue-400" />
         <h3 className="text-sm font-medium text-white">Match Breakdown</h3>
       </div>
       <MiniBarChart bars={bars} height={120} />

@@ -63,7 +63,7 @@ export function CTABanner({
     },
     light: {
       primary: 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/25',
-      secondary: 'border-2 border-slate-300 text-slate-700 hover:bg-slate-100 hover:border-blue-400',
+      secondary: 'border-2 border-slate-300 text-slate-700 hover:bg-slate-800/60 hover:border-blue-400',
     },
   };
 
@@ -103,7 +103,7 @@ export function CTABanner({
           <FloatingElement className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full opacity-60" intensity={8} duration={6}>
             <div />
           </FloatingElement>
-          <FloatingElement className="absolute bottom-1/3 left-1/5 w-1.5 h-1.5 bg-slate-300 rounded-full opacity-50" intensity={10} duration={8}>
+          <FloatingElement className="absolute bottom-1/3 left-1/5 w-1.5 h-1.5 bg-slate-600/80 rounded-full opacity-50" intensity={10} duration={8}>
             <div />
           </FloatingElement>
           <FloatingElement className="absolute top-2/3 right-1/5 w-1 h-1 bg-blue-300 rounded-full opacity-70" intensity={6} duration={5}>
@@ -115,7 +115,7 @@ export function CTABanner({
       <div className="relative max-w-5xl mx-auto px-4 text-center">
         {/* Advanced glass morphism content container with animations */}
         <motion.div 
-          className={`${variant === 'gradient' ? 'bg-slate-900/60 backdrop-blur-xl rounded-3xl p-10 md:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border border-slate-800/50' : 'bg-slate-900/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20'}`}
+          className={`${variant === 'gradient' ? 'bg-slate-900/60 backdrop-blur-xl rounded-3xl p-10 md:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border-slate-800/50' : 'bg-slate-900/60 backdrop-blur-sm rounded-3xl p-8 md:p-12 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20'}`}
           initial={{ 
             y: 50, 
             opacity: 0, 

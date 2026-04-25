@@ -159,7 +159,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
             relative border-2 border-dashed rounded-xl p-8 text-center transition-all cursor-pointer
             ${
               isDragging
-                ? 'border-teal-500 bg-teal-500/10'
+                ? 'border-blue-500/50 bg-blue-950/200/10'
                 : 'border-slate-600 hover:border-slate-500 bg-slate-800/30'
             }
           `}
@@ -175,7 +175,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
 
           <CloudArrowUpIcon
             className={`mx-auto h-12 w-12 mb-4 ${
-              isDragging ? 'text-teal-400' : 'text-slate-500'
+              isDragging ? 'text-blue-400' : 'text-slate-500'
             }`}
           />
 
@@ -190,10 +190,10 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
       )}
 
       {status === 'uploading' && (
-        <div className="border border-slate-700 rounded-xl p-6 bg-slate-800/30">
+        <div className="border-slate-700 rounded-xl p-6 bg-slate-800/30">
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-teal-900/50 flex items-center justify-center">
-              <ArrowPathIcon className="h-5 w-5 text-teal-400 animate-spin" />
+            <div className="w-10 h-10 rounded-lg bg-blue-950/50 flex items-center justify-center">
+              <ArrowPathIcon className="h-5 w-5 text-blue-400 animate-spin" />
             </div>
             <div className="flex-1">
               <p className="text-white font-medium">Uploading...</p>
@@ -202,7 +202,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
           </div>
           <div className="h-2 bg-slate-700 rounded-full overflow-hidden">
             <div
-              className="h-full bg-teal-500 transition-all duration-300"
+              className="h-full bg-blue-950/200 transition-all duration-300"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -210,7 +210,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
       )}
 
       {status === 'success' && uploadedFile && (
-        <div className="border border-green-700/50 rounded-xl p-6 bg-green-900/20">
+        <div className="border-green-700/50 rounded-xl p-6 bg-green-900/20">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-green-900/50 flex items-center justify-center flex-shrink-0">
               <CheckCircleIcon className="h-5 w-5 text-green-400" />
@@ -250,7 +250,7 @@ export function RfpUpload({ onUploadComplete, onAnalyze, userId, className = '' 
       )}
 
       {status === 'error' && (
-        <div className="border border-red-700/50 rounded-xl p-6 bg-red-900/20">
+        <div className="border-red-700/50 rounded-xl p-6 bg-red-900/20">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-lg bg-red-900/50 flex items-center justify-center flex-shrink-0">
               <ExclamationCircleIcon className="h-5 w-5 text-red-400" />

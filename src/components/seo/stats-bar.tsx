@@ -47,7 +47,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
         <FloatingElement className="absolute top-1/3 left-1/6 w-4 h-4 bg-blue-400/60 rounded-full blur-sm" intensity={8} duration={6}>
           <div />
         </FloatingElement>
-        <FloatingElement className="absolute bottom-1/4 left-2/3 w-6 h-6 bg-slate-300/40 rounded-full blur-sm" intensity={12} duration={9}>
+        <FloatingElement className="absolute bottom-1/4 left-2/3 w-6 h-6 bg-slate-600/80/40 rounded-full blur-sm" intensity={12} duration={9}>
           <div />
         </FloatingElement>
       </div>
@@ -89,7 +89,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
               >
                 {/* Enhanced glass morphism card */}
                 <motion.div 
-                  className="relative h-full bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 text-center border border-slate-700/50 shadow-2xl shadow-blue-900/20 transition-all duration-500"
+                  className="relative h-full bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 text-center border-slate-700/50 shadow-2xl shadow-blue-900/20 transition-all duration-500"
                   whileHover={{ 
                     backgroundColor: 'rgba(30, 41, 59, 0.6)',
                     boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.3), 0 0 0 1px rgba(59, 130, 246, 0.3)'
@@ -105,7 +105,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
                 <div className="relative z-10">
                   {/* Animated icon circle with shimmer effect */}
                   <motion.div 
-                    className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-blue-600/30 rounded-2xl flex items-center justify-center backdrop-blur-sm border border-blue-500/30 overflow-hidden"
+                    className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500/20 to-blue-600/30 rounded-2xl flex items-center justify-center backdrop-blur-sm border-blue-500/30 overflow-hidden"
                     whileHover={{ 
                       scale: 1.1,
                       rotateY: 15,
@@ -125,7 +125,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.8 }}
                     >
-                      <div className="w-4 h-4 bg-white/90 rounded-sm"></div>
+                      <div className="w-4 h-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/90 rounded-sm"></div>
                     </motion.div>
                   </motion.div>
                   
@@ -176,7 +176,7 @@ export function StatsBar({ stats, variant = 'gradient' }: StatsBarProps) {
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div 
-            className="inline-flex items-center px-6 py-3 bg-slate-900/50 backdrop-blur-sm rounded-full border border-slate-700/50 text-slate-300 text-sm"
+            className="inline-flex items-center px-6 py-3 bg-slate-900/50 backdrop-blur-sm rounded-full border-slate-700/50 text-slate-300 text-sm"
             whileHover={{ scale: 1.05, backgroundColor: 'rgba(30, 41, 59, 0.6)' }}
             transition={{ duration: 0.2 }}
           >

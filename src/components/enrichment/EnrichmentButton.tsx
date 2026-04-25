@@ -132,7 +132,7 @@ export function EnrichmentButton({
           inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all
           ${variant === 'icon' ? 'p-2' : ''}
           ${!hasEnoughCredits() 
-            ? 'bg-gray-100 text-gray-400 cursor-not-allowed' 
+            ? 'bg-slate-900/40 backdrop-blur-xl text-slate-400 cursor-not-allowed' 
             : 'bg-gradient-to-r from-purple-500 to-blue-500 text-white hover:shadow-lg'
           }
           disabled:opacity-50 disabled:cursor-not-allowed
@@ -161,7 +161,7 @@ export function EnrichmentButton({
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-white rounded-xl shadow-2xl p-6 max-w-md w-full mx-4"
+              className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl shadow-2xl p-6 max-w-md w-full mx-4"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center gap-3 mb-4">
@@ -169,10 +169,10 @@ export function EnrichmentButton({
                   <SparklesIcon className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">
+                  <h3 className="text-lg font-semibold text-slate-100">
                     Enrich {referenceType === 'company' ? 'Company' : referenceType === 'tender' ? 'Tender' : 'Competitor'} Data
                   </h3>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-slate-500">
                     Get additional insights and intelligence
                   </p>
                 </div>
@@ -184,7 +184,7 @@ export function EnrichmentButton({
                   className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${
                     enrichmentType === 'company'
                       ? 'border-purple-400 bg-purple-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      : 'border-slate-700/50 hover:border-slate-600/50'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -198,10 +198,10 @@ export function EnrichmentButton({
                     />
                     <div>
                       <div className="flex items-center gap-2">
-                        <BuildingOfficeIcon className="w-4 h-4 text-gray-600" />
-                        <span className="font-medium text-gray-900">Company Data</span>
+                        <BuildingOfficeIcon className="w-4 h-4 text-slate-300" />
+                        <span className="font-medium text-slate-100">Company Data</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-0.5">
+                      <p className="text-xs text-slate-500 mt-0.5">
                         Financial, operational, sustainability, risk intelligence  
                       </p>
                     </div>
@@ -216,7 +216,7 @@ export function EnrichmentButton({
                   className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${
                     enrichmentType === 'linkedin'
                       ? 'border-purple-400 bg-purple-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      : 'border-slate-700/50 hover:border-slate-600/50'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -230,10 +230,10 @@ export function EnrichmentButton({
                     />
                     <div>
                       <div className="flex items-center gap-2">
-                        <UserGroupIcon className="w-4 h-4 text-gray-600" />
-                        <span className="font-medium text-gray-900">Decision Makers</span>
+                        <UserGroupIcon className="w-4 h-4 text-slate-300" />
+                        <span className="font-medium text-slate-100">Decision Makers</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-0.5">
+                      <p className="text-xs text-slate-500 mt-0.5">
                         LinkedIn profiles, recent posts, priorities
                       </p>
                     </div>
@@ -248,7 +248,7 @@ export function EnrichmentButton({
                   className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer transition-all ${
                     enrichmentType === 'full'
                       ? 'border-purple-400 bg-purple-50'
-                      : 'border-gray-200 hover:border-gray-300'
+                      : 'border-slate-700/50 hover:border-slate-600/50'
                   }`}
                 >
                   <div className="flex items-center gap-3">
@@ -262,10 +262,10 @@ export function EnrichmentButton({
                     />
                     <div>
                       <div className="flex items-center gap-2">
-                        <ChartBarIcon className="w-4 h-4 text-gray-600" />
-                        <span className="font-medium text-gray-900">Full Intelligence</span>
+                        <ChartBarIcon className="w-4 h-4 text-slate-300" />
+                        <span className="font-medium text-slate-100">Full Intelligence</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-0.5">
+                      <p className="text-xs text-slate-500 mt-0.5">
                         Complete bid intelligence: financials, strategy, ESG, risks, leadership
                       </p>
                     </div>
@@ -278,23 +278,23 @@ export function EnrichmentButton({
               </div>
 
               {/* Credits Status */}
-              <div className="p-3 bg-gray-50 rounded-lg mb-6">
+              <div className="p-3 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg mb-6">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-gray-600">Your credits:</span>
-                  <span className="font-semibold text-gray-900">
+                  <span className="text-sm text-slate-300">Your credits:</span>
+                  <span className="font-semibold text-slate-100">
                     {credits?.credits_remaining === -1 ? 'Unlimited' : credits?.credits_remaining || 0}
                   </span>
                 </div>
                 <div className="flex items-center justify-between mt-1">
-                  <span className="text-sm text-gray-600">Cost:</span>
+                  <span className="text-sm text-slate-300">Cost:</span>
                   <span className="font-semibold text-purple-600">
                     {creditCosts[enrichmentType]} {creditCosts[enrichmentType] === 1 ? 'credit' : 'credits'}
                   </span>
                 </div>
                 {credits && credits.credits_remaining !== -1 && (
-                  <div className="flex items-center justify-between mt-1 pt-1 border-t border-gray-200">
-                    <span className="text-sm text-gray-600">After enrichment:</span>
-                    <span className="font-semibold text-gray-900">
+                  <div className="flex items-center justify-between mt-1 pt-1 border-t border-slate-700/50">
+                    <span className="text-sm text-slate-300">After enrichment:</span>
+                    <span className="font-semibold text-slate-100">
                       {Math.max(0, credits.credits_remaining - creditCosts[enrichmentType])}
                     </span>
                   </div>
@@ -303,7 +303,7 @@ export function EnrichmentButton({
 
               {/* Error Message */}
               {error && (
-                <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                <div className="mb-4 p-3 bg-red-900/20 border-red-200 rounded-lg">
                   <p className="text-sm text-red-700 flex items-center gap-2">
                     <ExclamationTriangleIcon className="w-4 h-4" />
                     {error}
@@ -313,7 +313,7 @@ export function EnrichmentButton({
 
               {/* Success Message */}
               {result && result.success && (
-                <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+                <div className="mb-4 p-3 bg-green-900/20 border-green-200 rounded-lg">
                   <p className="text-sm text-green-700 flex items-center gap-2">
                     <CheckCircleIcon className="w-4 h-4" />
                     Enrichment successful! {result.cached && '(From cache)'}
@@ -342,14 +342,14 @@ export function EnrichmentButton({
                 </button>
                 <button
                   onClick={() => setShowConfirm(false)}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                  className="px-4 py-2 bg-slate-800/60 text-slate-200 rounded-lg hover:bg-slate-700/70 transition-colors font-medium"
                 >
                   Cancel
                 </button>
               </div>
 
               {!hasEnoughCredits() && (
-                <p className="mt-3 text-xs text-center text-gray-500">
+                <p className="mt-3 text-xs text-center text-slate-500">
                   Need more credits?{' '}
                   <a href="/settings/billing" className="text-purple-600 hover:text-purple-700 font-medium">
                     Upgrade your plan

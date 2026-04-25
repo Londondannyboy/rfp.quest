@@ -140,26 +140,26 @@ We are committed to exceeding your expectations and building a long-term partner
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className="fixed right-0 top-0 h-full w-[540px] bg-white shadow-2xl z-50 flex flex-col"
+      className="fixed right-0 top-0 h-full w-[540px] bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-2xl z-50 flex flex-col"
     >
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-blue-50">
+      <div className="px-6 py-4 border-b border-slate-700/50 bg-gradient-to-r from-purple-50 to-blue-50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <SparklesIcon className="w-6 h-6 text-purple-600" />
-            <h3 className="text-lg font-semibold text-gray-900">AI Response Generator</h3>
+            <h3 className="text-lg font-semibold text-slate-100">AI Response Generator</h3>
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-lg hover:bg-white/50 transition-colors"
+            className="p-1 rounded-lg hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/50 transition-colors"
           >
-            <XMarkIcon className="w-5 h-5 text-gray-500" />
+            <XMarkIcon className="w-5 h-5 text-slate-500" />
           </button>
         </div>
         
         {requirement && (
-          <div className="mt-3 p-3 bg-white rounded-lg border border-purple-200">
-            <p className="text-sm font-medium text-gray-700">
+          <div className="mt-3 p-3 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-purple-200">
+            <p className="text-sm font-medium text-slate-200">
               Generating response for: {requirement.title}
             </p>
           </div>
@@ -167,15 +167,15 @@ We are committed to exceeding your expectations and building a long-term partner
       </div>
       
       {/* Settings */}
-      <div className="p-6 border-b border-gray-200">
-        <h4 className="font-medium text-gray-900 mb-4 flex items-center gap-2">
+      <div className="p-6 border-b border-slate-700/50">
+        <h4 className="font-medium text-slate-100 mb-4 flex items-center gap-2">
           <AdjustmentsHorizontalIcon className="w-5 h-5" />
           Generation Settings
         </h4>
         
         {/* Tone Selection */}
         <div className="mb-4">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Tone</label>
+          <label className="text-sm font-medium text-slate-200 mb-2 block">Tone</label>
           <div className="grid grid-cols-2 gap-2">
             {toneOptions.map((option) => (
               <button
@@ -184,11 +184,11 @@ We are committed to exceeding your expectations and building a long-term partner
                 className={`p-2 rounded-lg border text-left transition-all ${
                   tone === option.value
                     ? 'border-purple-400 bg-purple-50 text-purple-700'
-                    : 'border-gray-200 hover:border-gray-300'
+                    : 'border-slate-700/50 hover:border-slate-600/50'
                 }`}
               >
                 <div className="text-sm font-medium">{option.label}</div>
-                <div className="text-xs text-gray-500">{option.description}</div>
+                <div className="text-xs text-slate-500">{option.description}</div>
               </button>
             ))}
           </div>
@@ -196,7 +196,7 @@ We are committed to exceeding your expectations and building a long-term partner
         
         {/* Length Selection */}
         <div className="mb-4">
-          <label className="text-sm font-medium text-gray-700 mb-2 block">Length</label>
+          <label className="text-sm font-medium text-slate-200 mb-2 block">Length</label>
           <div className="flex gap-2">
             {lengthOptions.map((option) => (
               <button
@@ -205,11 +205,11 @@ We are committed to exceeding your expectations and building a long-term partner
                 className={`flex-1 p-2 rounded-lg border text-center transition-all ${
                   length === option.value
                     ? 'border-purple-400 bg-purple-50 text-purple-700'
-                    : 'border-gray-200 hover:border-gray-300'
+                    : 'border-slate-700/50 hover:border-slate-600/50'
                 }`}
               >
                 <div className="text-sm font-medium">{option.label}</div>
-                <div className="text-xs text-gray-500">{option.words}</div>
+                <div className="text-xs text-slate-500">{option.words}</div>
               </button>
             ))}
           </div>
@@ -222,31 +222,31 @@ We are committed to exceeding your expectations and building a long-term partner
               type="checkbox"
               checked={includeStats}
               onChange={(e) => setIncludeStats(e.target.checked)}
-              className="rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+              className="rounded border-slate-600/50 text-purple-600 focus:ring-purple-500"
             />
-            <span className="text-sm text-gray-700">Include statistics and metrics</span>
+            <span className="text-sm text-slate-200">Include statistics and metrics</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
               type="checkbox"
               checked={includeCaseStudy}
               onChange={(e) => setIncludeCaseStudy(e.target.checked)}
-              className="rounded border-gray-300 text-purple-600 focus:ring-purple-500"
+              className="rounded border-slate-600/50 text-purple-600 focus:ring-purple-500"
             />
-            <span className="text-sm text-gray-700">Include case study example</span>
+            <span className="text-sm text-slate-200">Include case study example</span>
           </label>
         </div>
         
         {/* Custom Instructions */}
         <div className="mt-4">
-          <label className="text-sm font-medium text-gray-700 mb-1 block">
+          <label className="text-sm font-medium text-slate-200 mb-1 block">
             Custom Instructions (optional)
           </label>
           <textarea
             value={customInstructions}
             onChange={(e) => setCustomInstructions(e.target.value)}
             placeholder="Add any specific requirements or focus areas..."
-            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
+            className="w-full px-3 py-2 rounded-lg border-slate-700/50 focus:border-purple-400 focus:ring-2 focus:ring-purple-100 outline-none transition-all text-sm"
             rows={2}
           />
         </div>
@@ -255,7 +255,7 @@ We are committed to exceeding your expectations and building a long-term partner
       {/* Generated Content */}
       <div className="flex-1 overflow-y-auto p-6">
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+          <div className="mb-4 p-3 bg-red-900/20 border-red-200 rounded-lg">
             <p className="text-sm text-red-700 flex items-center gap-2">
               <ExclamationTriangleIcon className="w-4 h-4" />
               {error}
@@ -266,7 +266,7 @@ We are committed to exceeding your expectations and building a long-term partner
         {generatedContent ? (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h4 className="font-medium text-gray-900">Generated Response</h4>
+              <h4 className="font-medium text-slate-100">Generated Response</h4>
               <button
                 onClick={handleGenerate}
                 className="text-sm text-purple-600 hover:text-purple-700 flex items-center gap-1"
@@ -275,12 +275,12 @@ We are committed to exceeding your expectations and building a long-term partner
                 Regenerate
               </button>
             </div>
-            <div className="p-4 bg-gray-50 rounded-lg border border-gray-200">
-              <p className="text-sm text-gray-700 whitespace-pre-wrap">
+            <div className="p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg border-slate-700/50">
+              <p className="text-sm text-slate-200 whitespace-pre-wrap">
                 {generatedContent}
               </p>
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-slate-500">
               Word count: {generatedContent.split(/\s+/).filter(Boolean).length}
             </div>
           </div>
@@ -289,8 +289,8 @@ We are committed to exceeding your expectations and building a long-term partner
             <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4">
               <LightBulbIcon className="w-8 h-8 text-purple-600" />
             </div>
-            <h4 className="font-medium text-gray-900 mb-2">Ready to Generate</h4>
-            <p className="text-sm text-gray-500 max-w-xs">
+            <h4 className="font-medium text-slate-100 mb-2">Ready to Generate</h4>
+            <p className="text-sm text-slate-500 max-w-xs">
               Configure your preferences above and click generate to create an AI-powered response
             </p>
           </div>
@@ -298,7 +298,7 @@ We are committed to exceeding your expectations and building a long-term partner
       </div>
       
       {/* Footer Actions */}
-      <div className="px-6 py-4 border-t border-gray-200 bg-gray-50">
+      <div className="px-6 py-4 border-t border-slate-700/50 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
         <div className="flex items-center gap-3">
           {!generatedContent ? (
             <button
@@ -330,7 +330,7 @@ We are committed to exceeding your expectations and building a long-term partner
               <button
                 onClick={handleGenerate}
                 disabled={generating}
-                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                className="px-4 py-2 bg-slate-800/60 text-slate-200 rounded-lg hover:bg-slate-700/70 transition-colors font-medium"
               >
                 Regenerate
               </button>
@@ -338,7 +338,7 @@ We are committed to exceeding your expectations and building a long-term partner
           )}
           <button
             onClick={onClose}
-            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+            className="px-4 py-2 bg-slate-800/60 text-slate-200 rounded-lg hover:bg-slate-700/70 transition-colors font-medium"
           >
             Cancel
           </button>

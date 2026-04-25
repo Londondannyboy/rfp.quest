@@ -113,7 +113,7 @@ export function TenderTable({
   return (
     <div className="flex flex-col h-full">
       {/* Toolbar */}
-      <div className="flex items-center justify-between gap-4 p-4 border-b border-gray-200 bg-white">
+      <div className="flex items-center justify-between gap-4 p-4 border-b border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50">
         {/* Search */}
         <div className="flex-1 max-w-md">
           <input
@@ -121,14 +121,14 @@ export function TenderTable({
             placeholder="Search tenders..."
             value={globalFilter}
             onChange={(e) => setGlobalFilter(e.target.value)}
-            className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="w-full rounded-md border-slate-600/50 px-3 py-2 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           />
         </div>
 
         {/* Actions */}
         <div className="flex items-center gap-2">
           {selectedCount > 0 && (
-            <span className="text-sm text-gray-500">
+            <span className="text-sm text-slate-500">
               {selectedCount} selected
             </span>
           )}
@@ -137,7 +137,7 @@ export function TenderTable({
           <div className="relative">
             <button
               onClick={() => setShowColumnMenu(!showColumnMenu)}
-              className="inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+              className="inline-flex items-center gap-1.5 rounded-md border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
             >
               <AdjustmentsHorizontalIcon className="h-4 w-4" />
               Columns
@@ -149,18 +149,18 @@ export function TenderTable({
                   className="fixed inset-0 z-10"
                   onClick={() => setShowColumnMenu(false)}
                 />
-                <div className="absolute right-0 z-20 mt-2 w-48 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="absolute right-0 z-20 mt-2 w-48 rounded-md bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="py-1">
                     {table.getAllLeafColumns().map((column) => (
                       <label
                         key={column.id}
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                        className="flex items-center px-4 py-2 text-sm text-slate-200 hover:bg-slate-900/40 backdrop-blur-xl cursor-pointer"
                       >
                         <input
                           type="checkbox"
                           checked={column.getIsVisible()}
                           onChange={column.getToggleVisibilityHandler()}
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                          className="h-4 w-4 rounded border-slate-600/50 text-indigo-600 focus:ring-indigo-500"
                         />
                         <span className="ml-2 capitalize">
                           {column.id.replace(/([A-Z])/g, ' $1').trim()}
@@ -178,7 +178,7 @@ export function TenderTable({
             <button
               onClick={onRefresh}
               disabled={isLoading}
-              className="inline-flex items-center gap-1.5 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 disabled:opacity-50"
+              className="inline-flex items-center gap-1.5 rounded-md border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-3 py-2 text-sm font-medium text-slate-200 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 disabled:opacity-50"
             >
               <ArrowPathIcon className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
               Refresh
@@ -190,7 +190,7 @@ export function TenderTable({
       {/* Table */}
       <div className="flex-1 overflow-auto">
         <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50 sticky top-0 z-10">
+          <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 sticky top-0 z-10">
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {/* Selection checkbox column */}
@@ -199,12 +199,12 @@ export function TenderTable({
                     type="checkbox"
                     checked={table.getIsAllPageRowsSelected()}
                     onChange={table.getToggleAllPageRowsSelectedHandler()}
-                    className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                    className="h-4 w-4 rounded border-slate-600/50 text-indigo-600 focus:ring-indigo-500"
                   />
                 </th>
                 {/* Save column header */}
                 {onToggleSave && (
-                  <th className="w-12 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                  <th className="w-12 px-2 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500">
                     Save
                   </th>
                 )}
@@ -212,7 +212,7 @@ export function TenderTable({
                   <th
                     key={header.id}
                     scope="col"
-                    className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                    className="px-3 py-3 text-left text-xs font-medium uppercase tracking-wider text-slate-500"
                     style={{ width: header.getSize() }}
                   >
                     {header.isPlaceholder ? null : (
@@ -237,17 +237,17 @@ export function TenderTable({
               </tr>
             ))}
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white">
+          <tbody className="divide-y divide-gray-200 bg-slate-900/60 backdrop-blur-xl border-slate-700/50">
             {isLoading && data.length === 0 ? (
               // Loading skeleton
               Array.from({ length: 10 }).map((_, i) => (
                 <tr key={i}>
                   <td className="px-3 py-4">
-                    <div className="h-4 w-4 bg-gray-200 rounded animate-pulse" />
+                    <div className="h-4 w-4 bg-slate-800/60 rounded animate-pulse" />
                   </td>
                   {columns.map((_, j) => (
                     <td key={j} className="px-3 py-4">
-                      <div className="h-4 bg-gray-200 rounded animate-pulse" />
+                      <div className="h-4 bg-slate-800/60 rounded animate-pulse" />
                     </td>
                   ))}
                 </tr>
@@ -256,7 +256,7 @@ export function TenderTable({
               <tr>
                 <td
                   colSpan={columns.length + 1}
-                  className="px-3 py-12 text-center text-sm text-gray-500"
+                  className="px-3 py-12 text-center text-sm text-slate-500"
                 >
                   No tenders found. Try adjusting your search filters.
                 </td>
@@ -269,7 +269,7 @@ export function TenderTable({
                   tabIndex={0}
                   className={`
                     cursor-pointer transition-colors outline-none
-                    ${row.getIsSelected() ? 'bg-indigo-50' : 'hover:bg-gray-50'}
+                    ${row.getIsSelected() ? 'bg-indigo-50' : 'hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'}
                     focus:bg-indigo-50 focus:ring-1 focus:ring-inset focus:ring-indigo-500
                   `}
                   onClick={() => onRowClick?.(row.original)}
@@ -281,7 +281,7 @@ export function TenderTable({
                       type="checkbox"
                       checked={row.getIsSelected()}
                       onChange={row.getToggleSelectedHandler()}
-                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                      className="h-4 w-4 rounded border-slate-600/50 text-indigo-600 focus:ring-indigo-500"
                     />
                   </td>
                   {/* Save button */}
@@ -291,8 +291,8 @@ export function TenderTable({
                         onClick={() => onToggleSave(row.original)}
                         className={`p-1.5 rounded-full transition-colors ${
                           savedTenders?.has(row.original.ocid)
-                            ? 'text-amber-500 hover:text-amber-600 bg-amber-50'
-                            : 'text-gray-400 hover:text-amber-500 hover:bg-amber-50'
+                            ? 'text-amber-500 hover:text-amber-600 bg-amber-900/20'
+                            : 'text-slate-400 hover:text-amber-500 hover:bg-amber-900/20'
                         }`}
                         title={savedTenders?.has(row.original.ocid) ? 'Remove from saved' : 'Save tender'}
                       >
@@ -321,8 +321,8 @@ export function TenderTable({
       </div>
 
       {/* Pagination / Load more */}
-      <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3">
-        <div className="text-sm text-gray-700">
+      <div className="flex items-center justify-between border-t border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-4 py-3">
+        <div className="text-sm text-slate-200">
           Showing{' '}
           <span className="font-medium">
             {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1}
@@ -351,18 +351,18 @@ export function TenderTable({
           <button
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="inline-flex items-center rounded-md border border-gray-300 bg-white p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+            className="inline-flex items-center rounded-md border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 text-sm font-medium text-slate-500 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 disabled:opacity-50"
           >
             <ChevronLeftIcon className="h-5 w-5" />
           </button>
-          <span className="text-sm text-gray-700">
+          <span className="text-sm text-slate-200">
             Page {table.getState().pagination.pageIndex + 1} of{' '}
             {table.getPageCount()}
           </span>
           <button
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="inline-flex items-center rounded-md border border-gray-300 bg-white p-2 text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
+            className="inline-flex items-center rounded-md border-slate-600/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 text-sm font-medium text-slate-500 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 disabled:opacity-50"
           >
             <ChevronRightIcon className="h-5 w-5" />
           </button>

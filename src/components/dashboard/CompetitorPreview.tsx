@@ -33,8 +33,8 @@ export function CompetitorPreview({
   if (loading) {
     return (
       <div className="flex items-center gap-2">
-        <div className="w-4 h-4 border-2 border-gray-300 border-t-teal-500 rounded-full animate-spin" />
-        <span className="text-xs text-gray-400">Researching competitors...</span>
+        <div className="w-4 h-4 border-2 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
+        <span className="text-xs text-slate-400">Researching competitors...</span>
       </div>
     );
   }
@@ -46,7 +46,7 @@ export function CompetitorPreview({
 
   if (!hasCompetitors && !hasIncumbent) {
     return (
-      <div className="flex items-center gap-2 text-gray-400">
+      <div className="flex items-center gap-2 text-slate-400">
         <UserGroupIcon className="w-4 h-4" />
         <span className="text-xs">No competitor data available</span>
       </div>
@@ -58,14 +58,14 @@ export function CompetitorPreview({
       {/* Competitors row */}
       {hasCompetitors && (
         <div className="flex items-center gap-2 flex-wrap">
-          <UserGroupIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
+          <UserGroupIcon className="w-4 h-4 text-slate-400 flex-shrink-0" />
           {displayedCompetitors.map((competitor, index) => (
             <motion.span
               key={competitor.name}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.05 }}
-              className="inline-flex items-center px-2 py-0.5 bg-gray-100 hover:bg-gray-200 rounded-full text-xs text-gray-700 transition-colors cursor-default"
+              className="inline-flex items-center px-2 py-0.5 bg-slate-900/40 backdrop-blur-xl hover:bg-slate-800/60 rounded-full text-xs text-slate-200 transition-colors cursor-default"
               title={
                 competitor.confidence
                   ? `${competitor.confidence}% confidence`
@@ -76,7 +76,7 @@ export function CompetitorPreview({
             </motion.span>
           ))}
           {remainingCount > 0 && (
-            <span className="text-xs text-gray-400">+{remainingCount} more</span>
+            <span className="text-xs text-slate-400">+{remainingCount} more</span>
           )}
         </div>
       )}
@@ -89,7 +89,7 @@ export function CompetitorPreview({
           className="flex items-center gap-2"
         >
           <TrophyIcon className="w-4 h-4 text-amber-500 flex-shrink-0" />
-          <span className="inline-flex items-center px-2 py-0.5 bg-amber-50 border border-amber-200 rounded-full text-xs text-amber-700">
+          <span className="inline-flex items-center px-2 py-0.5 bg-amber-900/20 border-amber-200 rounded-full text-xs text-amber-700">
             <span className="font-medium">{incumbent.name}</span>
             {incumbent.contractPeriod && (
               <span className="ml-1 text-amber-500">
@@ -116,7 +116,7 @@ export function CompetitorBadge({
   return (
     <div className="flex items-center gap-2 text-xs">
       {count > 0 && (
-        <span className="inline-flex items-center gap-1 text-gray-500">
+        <span className="inline-flex items-center gap-1 text-slate-500">
           <UserGroupIcon className="w-3.5 h-3.5" />
           {count} competitor{count !== 1 ? 's' : ''}
         </span>

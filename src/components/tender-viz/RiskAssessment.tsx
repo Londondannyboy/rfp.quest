@@ -24,10 +24,10 @@ interface RiskAssessmentProps {
 }
 
 const riskColors: Record<RiskLevel, { bg: string; text: string; border: string; icon: string }> = {
-  low: { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/30', icon: 'text-green-500' },
+  low: { bg: 'bg-green-900/200/10', text: 'text-green-400', border: 'border-green-500/30', icon: 'text-green-500' },
   medium: { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/30', icon: 'text-yellow-500' },
   high: { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/30', icon: 'text-orange-500' },
-  critical: { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/30', icon: 'text-red-500' },
+  critical: { bg: 'bg-red-900/200/10', text: 'text-red-400', border: 'border-red-500/30', icon: 'text-red-500' },
 };
 
 function RiskIcon({ level }: { level: RiskLevel }) {
@@ -165,8 +165,8 @@ export function RiskAssessment({ risks, overallScore }: RiskAssessmentProps) {
                   <p className="text-sm text-slate-400 mt-1">{risk.description}</p>
 
                   {risk.mitigation && (
-                    <div className="mt-3 p-3 bg-slate-800/50 rounded-lg border border-slate-700">
-                      <div className="text-xs font-medium text-teal-400 mb-1">
+                    <div className="mt-3 p-3 bg-slate-800/50 rounded-lg border-slate-700">
+                      <div className="text-xs font-medium text-blue-400 mb-1">
                         Suggested Mitigation
                       </div>
                       <p className="text-sm text-slate-300">{risk.mitigation}</p>

@@ -102,7 +102,7 @@ export function TenderAIActions({ tender, matchScore, onClose }: TenderAIActions
       id: 'match',
       label: 'Match Analysis',
       icon: CheckBadgeIcon,
-      color: 'text-teal-500 bg-teal-50 hover:bg-teal-100',
+      color: 'text-blue-500 bg-blue-950/20 hover:bg-blue-900/30',
     },
     {
       id: 'strategy',
@@ -114,7 +114,7 @@ export function TenderAIActions({ tender, matchScore, onClose }: TenderAIActions
       id: 'chat',
       label: 'Ask AI',
       icon: ChatBubbleLeftRightIcon,
-      color: 'text-amber-500 bg-amber-50 hover:bg-amber-100',
+      color: 'text-amber-500 bg-amber-900/20 hover:bg-amber-100',
     },
   ];
 
@@ -123,20 +123,20 @@ export function TenderAIActions({ tender, matchScore, onClose }: TenderAIActions
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
-      className="bg-gradient-to-br from-slate-50 to-white border-t border-gray-100 p-3"
+      className="bg-gradient-to-br from-slate-50 to-white border-t border-slate-700/40 p-3"
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <SparklesIcon className="w-4 h-4 text-teal-500" />
-          <span className="text-xs font-medium text-gray-700">AI Actions</span>
+          <SparklesIcon className="w-4 h-4 text-blue-500" />
+          <span className="text-xs font-medium text-slate-200">AI Actions</span>
         </div>
         {onClose && (
           <button
             onClick={onClose}
-            className="p-1 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded-full transition-colors"
           >
-            <XMarkIcon className="w-4 h-4 text-gray-400" />
+            <XMarkIcon className="w-4 h-4 text-slate-400" />
           </button>
         )}
       </div>
@@ -177,18 +177,18 @@ export function TenderAIActions({ tender, matchScore, onClose }: TenderAIActions
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-3 p-3 bg-white rounded-lg border border-gray-200 shadow-sm"
+            className="mt-3 p-3 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50 shadow-sm"
           >
             <div className="flex items-start gap-2">
-              <SparklesIcon className="w-4 h-4 text-teal-500 mt-0.5 flex-shrink-0" />
-              <p className="text-xs text-gray-700 leading-relaxed">{result}</p>
+              <SparklesIcon className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+              <p className="text-xs text-slate-200 leading-relaxed">{result}</p>
             </div>
             <button
               onClick={() => {
                 setResult(null);
                 setActiveAction(null);
               }}
-              className="mt-2 text-[10px] text-gray-400 hover:text-gray-600"
+              className="mt-2 text-[10px] text-slate-400 hover:text-slate-300"
             >
               Dismiss
             </button>

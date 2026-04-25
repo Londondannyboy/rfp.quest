@@ -94,11 +94,11 @@ export default function ISO14001Page() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             ISO 14001 for UK Tenders: Environmental Certification Guide 2026
           </h1>
           
-          <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+          <div className="bg-green-900/20 border-l-4 border-green-500 p-6 mb-8">
             <p className="font-semibold text-green-900 mb-2">🌱 Procurement Act 2023 Impact</p>
             <p className="text-green-800">
               The Most Advantageous Tenders (MAT) framework now formally weights environmental 
@@ -107,8 +107,8 @@ export default function ISO14001Page() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: iso-14001-uk-tenders-uk.jpg - ISO 14001 UK tenders requirements for UK government tenders]
             </p>
           </div>
@@ -231,51 +231,51 @@ export default function ISO14001Page() {
           </p>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Organisation Size</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Year 1 Total Cost</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Breakdown</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Annual Surveillance</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Organisation Size</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Year 1 Total Cost</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Breakdown</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Annual Surveillance</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Small (1-25 staff)</td>
-                  <td className="border border-gray-300 px-4 py-2">£3,000 - £7,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Small (1-25 staff)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£3,000 - £7,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £1,500-£3,500<br/>
                     Certification: £1,300-£2,500<br/>
                     Training: £500-£1,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£1,000 - £1,500</td>
+                  <td className="border-slate-500/50 px-4 py-2">£1,000 - £1,500</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2">Medium (26-100)</td>
-                  <td className="border border-gray-300 px-4 py-2">£7,000 - £12,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2">Medium (26-100)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£7,000 - £12,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £3,500-£6,000<br/>
                     Certification: £2,500-£4,000<br/>
                     Training: £1,000-£2,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£1,500 - £2,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£1,500 - £2,000</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Large (100+)</td>
-                  <td className="border border-gray-300 px-4 py-2">£10,000 - £18,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Large (100+)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£10,000 - £18,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £5,000-£8,000<br/>
                     Certification: £4,000-£7,000<br/>
                     Training: £2,000-£3,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£2,000 - £3,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£2,000 - £3,000</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg my-6">
+          <div className="bg-green-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-2">Cost-Saving Opportunities</h3>
             <ul className="space-y-2">
               <li>• Implement alongside ISO 9001/45001 for 30-40% savings</li>
@@ -299,33 +299,33 @@ export default function ISO14001Page() {
           </p>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISO 14001</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISO 45001</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">ISO 14001</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">ISO 45001</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Focus</td>
-                  <td className="border border-gray-300 px-4 py-2">Environmental impact</td>
-                  <td className="border border-gray-300 px-4 py-2">Worker health & safety</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Focus</td>
+                  <td className="border-slate-500/50 px-4 py-2">Environmental impact</td>
+                  <td className="border-slate-500/50 px-4 py-2">Worker health & safety</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Required for</td>
-                  <td className="border border-gray-300 px-4 py-2">Works, FM, utilities</td>
-                  <td className="border border-gray-300 px-4 py-2">Construction, physical work</td>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Required for</td>
+                  <td className="border-slate-500/50 px-4 py-2">Works, FM, utilities</td>
+                  <td className="border-slate-500/50 px-4 py-2">Construction, physical work</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Timeline</td>
-                  <td className="border border-gray-300 px-4 py-2">2-4 months</td>
-                  <td className="border border-gray-300 px-4 py-2">3-6 months</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Timeline</td>
+                  <td className="border-slate-500/50 px-4 py-2">2-4 months</td>
+                  <td className="border-slate-500/50 px-4 py-2">3-6 months</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Combined implementation</td>
-                  <td className="border border-gray-300 px-4 py-2" colSpan={2}>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Combined implementation</td>
+                  <td className="border-slate-500/50 px-4 py-2" colSpan={2}>
                     4-6 months total (30% time saving)
                   </td>
                 </tr>
@@ -343,7 +343,7 @@ export default function ISO14001Page() {
             ISO 14001 implementation timeline
           </h2>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-slate-600/50 rounded-lg p-6 my-6">
             <h3 className="text-xl font-semibold mb-4">Typical 4-Month Journey</h3>
             
             <div className="space-y-4">
@@ -408,7 +408,7 @@ export default function ISO14001Page() {
               </ul>
             </div>
             
-            <div className="bg-green-50 p-6 rounded-lg">
+            <div className="bg-green-900/20 p-6 rounded-lg">
               <h3 className="font-semibold mb-3">Business Benefits</h3>
               <ul className="space-y-1 text-sm">
                 <li>• Enhanced reputation</li>
@@ -480,13 +480,13 @@ export default function ISO14001Page() {
             </p>
             <Link
               href="/"
-              className="inline-block bg-white text-green-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
+              className="inline-block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-green-600 px-6 py-3 rounded font-semibold hover:bg-slate-800/50 transition"
             >
               Try RFP Platform Quest Free →
             </Link>
           </div>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <ul className="space-y-2">
               <li>
@@ -512,7 +512,7 @@ export default function ISO14001Page() {
             </ul>
           </nav>
 
-          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+          <div className="mt-8 p-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Official Resources</h3>
             <ul className="space-y-2">
               <li>

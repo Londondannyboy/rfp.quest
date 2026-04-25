@@ -95,11 +95,11 @@ export default function CHASUKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             CHAS Certification for UK Tenders: Complete Contractor Guide
           </h1>
           
-          <div className="bg-green-50 border-l-4 border-green-400 p-6 mb-8">
+          <div className="bg-green-900/20 border-l-4 border-green-400 p-6 mb-8">
             <p className="text-lg font-semibold text-green-900 mb-2">
               ✅ Essential for Council & NHS Contracts
             </p>
@@ -108,8 +108,8 @@ export default function CHASUKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: chas-uk-tenders-certification.jpg - CHAS logo and certification process for UK government contractors]
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function CHASUKTendersPage() {
             CHAS has become essential for winning certain types of public sector contracts:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Local Authority Contracts</h3>
             <ul className="space-y-2">
               <li>• 130+ councils specifically require CHAS</li>
@@ -142,7 +142,7 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">NHS & Healthcare</h3>
             <ul className="space-y-2">
               <li>• NHS Property Services frameworks</li>
@@ -153,7 +153,7 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Education Sector</h3>
             <ul className="space-y-2">
               <li>• School maintenance and repairs</li>
@@ -163,7 +163,7 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Housing Associations</h3>
             <ul className="space-y-2">
               <li>• Repairs and maintenance contracts</li>
@@ -179,39 +179,39 @@ export default function CHASUKTendersPage() {
             CHAS offers different certification levels to match contract requirements:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Level</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Coverage</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Cost</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Best For</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Level</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Coverage</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Cost</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Best For</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">CHAS Standard</td>
-                <td className="border border-gray-300 px-4 py-2">Core H&S assessment</td>
-                <td className="border border-gray-300 px-4 py-2">£198 - £750</td>
-                <td className="border border-gray-300 px-4 py-2">Most contractors</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">CHAS Standard</td>
+                <td className="border-slate-500/50 px-4 py-2">Core H&S assessment</td>
+                <td className="border-slate-500/50 px-4 py-2">£198 - £750</td>
+                <td className="border-slate-500/50 px-4 py-2">Most contractors</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">CHAS Plus</td>
-                <td className="border border-gray-300 px-4 py-2">Standard + PAS 91 modules</td>
-                <td className="border border-gray-300 px-4 py-2">£450 - £1,200</td>
-                <td className="border border-gray-300 px-4 py-2">Complex projects</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">CHAS Plus</td>
+                <td className="border-slate-500/50 px-4 py-2">Standard + PAS 91 modules</td>
+                <td className="border-slate-500/50 px-4 py-2">£450 - £1,200</td>
+                <td className="border-slate-500/50 px-4 py-2">Complex projects</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">CHAS Elite</td>
-                <td className="border border-gray-300 px-4 py-2">Plus + Quality/Environmental</td>
-                <td className="border border-gray-300 px-4 py-2">£995 - £1,995</td>
-                <td className="border border-gray-300 px-4 py-2">Major contractors</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">CHAS Elite</td>
+                <td className="border-slate-500/50 px-4 py-2">Plus + Quality/Environmental</td>
+                <td className="border-slate-500/50 px-4 py-2">£995 - £1,995</td>
+                <td className="border-slate-500/50 px-4 py-2">Major contractors</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2 font-semibold">CHAS Premium</td>
-                <td className="border border-gray-300 px-4 py-2">All modules + consultancy</td>
-                <td className="border border-gray-300 px-4 py-2">£1,500 - £3,000</td>
-                <td className="border border-gray-300 px-4 py-2">Strategic suppliers</td>
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">CHAS Premium</td>
+                <td className="border-slate-500/50 px-4 py-2">All modules + consultancy</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,500 - £3,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Strategic suppliers</td>
               </tr>
             </tbody>
           </table>
@@ -222,44 +222,44 @@ export default function CHASUKTendersPage() {
             CHAS pricing is based on company size (employee count):
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Company Size</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Fee</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">3-Year Deal</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Company Size</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Fee</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">3-Year Deal</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">1-4 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£198 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£505 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">1-4 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£198 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£505 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">5-9 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£265 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£675 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">5-9 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£265 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£675 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">10-19 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£350 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£892 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">10-19 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£350 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£892 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">20-49 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£450 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,147 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">20-49 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£450 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,147 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">50-249 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£595 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,517 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">50-249 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£595 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,517 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">250+ employees</td>
-                <td className="border border-gray-300 px-4 py-2">£750 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,912 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">250+ employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£750 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,912 + VAT</td>
               </tr>
             </tbody>
           </table>
@@ -281,9 +281,9 @@ export default function CHASUKTendersPage() {
             Understanding the assessment helps ensure first-time success:
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 1: Application (Days 1-2)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Complete online application form</li>
               <li>• Upload H&S policy (signed and dated)</li>
               <li>• Provide organisation and contact details</li>
@@ -292,9 +292,9 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 2: Document Submission (Days 2-3)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Insurance certificates (PL, EL, Professional)</li>
               <li>• Risk assessments (minimum 2 examples)</li>
               <li>• Method statements (job-specific)</li>
@@ -304,9 +304,9 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 3: Assessment (Days 4-14)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Assessor reviews all documentation</li>
               <li>• Checks policy meets legal requirements</li>
               <li>• Verifies insurance levels adequate</li>
@@ -315,9 +315,9 @@ export default function CHASUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 4: Outcome (Days 14-21)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Pass - certificate issued immediately</li>
               <li>• Remedial action required - specific feedback given</li>
               <li>• Submit improvements within 14 days</li>
@@ -328,7 +328,7 @@ export default function CHASUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common CHAS Failure Points</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Top Reasons for CHAS Rejection
             </p>
@@ -350,45 +350,45 @@ export default function CHASUKTendersPage() {
             Understanding how CHAS compares helps choose the right scheme:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">CHAS</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">SafeContractor</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Constructionline</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">CHAS</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">SafeContractor</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Constructionline</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Owner</td>
-                <td className="border border-gray-300 px-4 py-2">LGA (Government)</td>
-                <td className="border border-gray-300 px-4 py-2">Alcumus (Private)</td>
-                <td className="border border-gray-300 px-4 py-2">Government</td>
+                <td className="border-slate-500/50 px-4 py-2">Owner</td>
+                <td className="border-slate-500/50 px-4 py-2">LGA (Government)</td>
+                <td className="border-slate-500/50 px-4 py-2">Alcumus (Private)</td>
+                <td className="border-slate-500/50 px-4 py-2">Government</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Council acceptance</td>
-                <td className="border border-gray-300 px-4 py-2">130+ councils</td>
-                <td className="border border-gray-300 px-4 py-2">50+ councils</td>
-                <td className="border border-gray-300 px-4 py-2">All UK councils</td>
+                <td className="border-slate-500/50 px-4 py-2">Council acceptance</td>
+                <td className="border-slate-500/50 px-4 py-2">130+ councils</td>
+                <td className="border-slate-500/50 px-4 py-2">50+ councils</td>
+                <td className="border-slate-500/50 px-4 py-2">All UK councils</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Focus</td>
-                <td className="border border-gray-300 px-4 py-2">H&S only</td>
-                <td className="border border-gray-300 px-4 py-2">H&S only</td>
-                <td className="border border-gray-300 px-4 py-2">H&S + PQQ</td>
+                <td className="border-slate-500/50 px-4 py-2">Focus</td>
+                <td className="border-slate-500/50 px-4 py-2">H&S only</td>
+                <td className="border-slate-500/50 px-4 py-2">H&S only</td>
+                <td className="border-slate-500/50 px-4 py-2">H&S + PQQ</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Cost range</td>
-                <td className="border border-gray-300 px-4 py-2">£198 - £750</td>
-                <td className="border border-gray-300 px-4 py-2">£299 - £969</td>
-                <td className="border border-gray-300 px-4 py-2">£185 - £2,190</td>
+                <td className="border-slate-500/50 px-4 py-2">Cost range</td>
+                <td className="border-slate-500/50 px-4 py-2">£198 - £750</td>
+                <td className="border-slate-500/50 px-4 py-2">£299 - £969</td>
+                <td className="border-slate-500/50 px-4 py-2">£185 - £2,190</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Assessment time</td>
-                <td className="border border-gray-300 px-4 py-2">2-3 weeks</td>
-                <td className="border border-gray-300 px-4 py-2">3-4 weeks</td>
-                <td className="border border-gray-300 px-4 py-2">2-3 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">Assessment time</td>
+                <td className="border-slate-500/50 px-4 py-2">2-3 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">3-4 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">2-3 weeks</td>
               </tr>
             </tbody>
           </table>
@@ -409,7 +409,7 @@ export default function CHASUKTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Essential Documents</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Health & Safety Policy (signed, dated within 12 months)</li>
                 <li>• Employers' Liability Insurance (minimum £5M)</li>
                 <li>• Public Liability Insurance (minimum £1M, often £5M-£10M needed)</li>
@@ -420,7 +420,7 @@ export default function CHASUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Supporting Evidence</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Training certificates (H&S, trade-specific)</li>
                 <li>• Accident book/records (3 years)</li>
                 <li>• HSE enforcement notices (if applicable)</li>
@@ -431,7 +431,7 @@ export default function CHASUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Additional for Larger Companies</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• H&S management organisation chart</li>
                 <li>• Employee consultation evidence</li>
                 <li>• Internal audit reports</li>
@@ -456,21 +456,21 @@ export default function CHASUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">CHAS for Different Trades</h2>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Construction Trades</h3>
             <p>
               Electricians, plumbers, roofers, and general builders form CHAS's core membership. Your risk assessments must cover specific trade hazards: working at height, electrical safety, confined spaces, manual handling. Include CSCS cards and trade-specific qualifications.
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Facilities Management</h3>
             <p>
               Cleaning, catering, security, and maintenance contractors need CHAS for most public buildings. Focus on COSHH assessments for cleaning chemicals, lone working procedures, and site-specific inductions. Include BICSc or equivalent training evidence.
             </p>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Professional Services</h3>
             <p>
               Consultants, designers, and surveyors increasingly need CHAS. While office-based work has fewer risks, include DSE assessments, driving for work policies, and site visit procedures. Professional indemnity insurance is essential.
@@ -546,32 +546,32 @@ export default function CHASUKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/safecontractor-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SafeContractor
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Alternative SSIP scheme</p>
+                <p className="text-sm text-slate-300 mt-1">Alternative SSIP scheme</p>
               </div>
               <div>
                 <Link href="/certifications/constructionline-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Constructionline
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">PQQ + H&S combined</p>
+                <p className="text-sm text-slate-300 mt-1">PQQ + H&S combined</p>
               </div>
               <div>
                 <Link href="/certifications/iso-45001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 45001
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">International H&S standard</p>
+                <p className="text-sm text-slate-300 mt-1">International H&S standard</p>
               </div>
               <div>
                 <Link href="/certifications/ssip-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SSIP Overview
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Understanding all SSIP schemes</p>
+                <p className="text-sm text-slate-300 mt-1">Understanding all SSIP schemes</p>
               </div>
             </div>
             

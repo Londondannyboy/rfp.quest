@@ -43,14 +43,14 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
     return (
       <div className="flex flex-wrap gap-2">
         {/* Company Status Badge */}
-        <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-slate-100 text-slate-700">
+        <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-slate-800/60 text-slate-700">
           <Building2 className="w-3 h-3" />
           {intel.profile.companyType.toUpperCase()}
         </span>
 
         {/* Decision Makers Badge */}
         {directors.length > 0 && (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-700">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-blue-600/20 text-blue-400 border border-blue-500/30">
             <Users className="w-3 h-3" />
             {directors.length} Directors
           </span>
@@ -58,7 +58,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
         {/* Sustainability Badge */}
         {hasSustainability && (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-50 text-green-700">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-green-600/20 text-green-400 border border-green-500/30">
             <Leaf className="w-3 h-3" />
             SECR Reported
           </span>
@@ -66,7 +66,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 
         {/* Risk Badge */}
         {hasRiskSignals && (
-          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-amber-50 text-amber-700">
+          <span className="inline-flex items-center gap-1 px-2 py-1 text-xs font-medium rounded-full bg-amber-600/20 text-amber-400 border border-amber-500/30">
             <AlertTriangle className="w-3 h-3" />
             {intel.signals.riskSignals.length} Risk Signal{intel.signals.riskSignals.length > 1 ? 's' : ''}
           </span>
@@ -88,7 +88,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
   }
 
   return (
-    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border border-slate-200">
+    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border-slate-200">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
@@ -135,7 +135,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
           {expandedSection === 'directors' && (
             <div className="mt-2 space-y-2">
               {directors.slice(0, 5).map((dm, i) => (
-                <div key={i} className="flex items-center justify-between text-sm py-1 px-2 bg-white rounded">
+                <div key={i} className="flex items-center justify-between text-sm py-1 px-2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded">
                   <span className="font-medium text-slate-800">{dm.name}</span>
                   <span className="text-slate-500">{formatRole(dm.role)}</span>
                 </div>
@@ -175,7 +175,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
               {intel.sustainability.secrData && (
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   {intel.sustainability.secrData.scope1Tonnes && (
-                    <div className="bg-white p-2 rounded">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded">
                       <p className="text-xs text-slate-500">Scope 1</p>
                       <p className="font-semibold text-slate-800">
                         {intel.sustainability.secrData.scope1Tonnes.toLocaleString()} tCO2e
@@ -183,7 +183,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                     </div>
                   )}
                   {intel.sustainability.secrData.scope2Tonnes && (
-                    <div className="bg-white p-2 rounded">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded">
                       <p className="text-xs text-slate-500">Scope 2</p>
                       <p className="font-semibold text-slate-800">
                         {intel.sustainability.secrData.scope2Tonnes.toLocaleString()} tCO2e
@@ -191,7 +191,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                     </div>
                   )}
                   {intel.sustainability.secrData.netZeroYear && (
-                    <div className="bg-white p-2 rounded col-span-2">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded col-span-2">
                       <p className="text-xs text-slate-500">Net Zero Target</p>
                       <p className="font-semibold text-green-700">
                         {intel.sustainability.secrData.netZeroYear}
@@ -203,14 +203,14 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
               {intel.sustainability.keyFindings && intel.sustainability.keyFindings.length > 0 && (
                 <div className="space-y-1">
                   {intel.sustainability.keyFindings.slice(0, 3).map((finding, i) => (
-                    <p key={i} className="text-xs text-slate-600 bg-white p-2 rounded">
+                    <p key={i} className="text-xs text-slate-600 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded">
                       {finding}
                     </p>
                   ))}
                 </div>
               )}
               {!hasSustainability && (
-                <p className="text-xs text-slate-500 bg-white p-2 rounded">
+                <p className="text-xs text-slate-500 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded">
                   No SECR data found in latest accounts
                 </p>
               )}
@@ -246,8 +246,8 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                   key={i}
                   className={`text-sm p-2 rounded ${
                     risk.severity === 'high'
-                      ? 'bg-red-50 border border-red-200'
-                      : 'bg-amber-50 border border-amber-200'
+                      ? 'bg-red-900/20 border-red-200'
+                      : 'bg-amber-900/20 border-amber-200'
                   }`}
                 >
                   <p className="font-medium text-slate-800">{risk.message}</p>
@@ -280,13 +280,13 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
           {expandedSection === 'insights' && (
             <div className="mt-2 space-y-2">
               {intel.bidInsights.emphasize.map((item, i) => (
-                <div key={i} className="flex items-start gap-2 text-sm bg-green-50 p-2 rounded">
+                <div key={i} className="flex items-start gap-2 text-sm bg-green-900/20 p-2 rounded">
                   <span className="text-green-600 font-medium">+</span>
                   <span className="text-slate-700">{item}</span>
                 </div>
               ))}
               {intel.bidInsights.avoid.map((item, i) => (
-                <div key={i} className="flex items-start gap-2 text-sm bg-red-50 p-2 rounded">
+                <div key={i} className="flex items-start gap-2 text-sm bg-red-900/20 p-2 rounded">
                   <span className="text-red-600 font-medium">!</span>
                   <span className="text-slate-700">{item}</span>
                 </div>
@@ -324,7 +324,7 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
                   href={news.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-sm bg-white p-2 rounded hover:bg-slate-50 transition-colors"
+                  className="block text-sm bg-slate-900/60 backdrop-blur-xl border-slate-700/50 p-2 rounded hover:bg-slate-50 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-2">
                     <p className="font-medium text-slate-800 line-clamp-2">{news.title}</p>
@@ -360,17 +360,17 @@ export function BuyerIntelligencePanel({ intel, compact = false }: BuyerIntellig
 // Loading skeleton
 export function BuyerIntelligenceSkeleton() {
   return (
-    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border border-slate-200 animate-pulse">
+    <div className="space-y-3 p-4 bg-slate-50 rounded-lg border-slate-200 animate-pulse">
       <div className="flex items-center gap-2">
-        <div className="w-5 h-5 bg-slate-200 rounded" />
-        <div className="h-4 w-32 bg-slate-200 rounded" />
+        <div className="w-5 h-5 bg-slate-700/70 rounded" />
+        <div className="h-4 w-32 bg-slate-700/70 rounded" />
       </div>
       <div className="grid grid-cols-2 gap-2">
-        <div className="h-6 bg-slate-200 rounded" />
-        <div className="h-6 bg-slate-200 rounded" />
+        <div className="h-6 bg-slate-700/70 rounded" />
+        <div className="h-6 bg-slate-700/70 rounded" />
       </div>
-      <div className="h-8 bg-slate-200 rounded" />
-      <div className="h-8 bg-slate-200 rounded" />
+      <div className="h-8 bg-slate-700/70 rounded" />
+      <div className="h-8 bg-slate-700/70 rounded" />
     </div>
   );
 }

@@ -276,7 +276,7 @@ export function DynamicHeroViz({ cpvCodes, stage, value, title }: DynamicHeroViz
           {keywords.map((word, i) => (
             <span
               key={i}
-              className="text-xs px-2 py-0.5 bg-white/10 rounded text-white/70"
+              className="text-xs px-2 py-0.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded text-white/70"
             >
               {word}
             </span>

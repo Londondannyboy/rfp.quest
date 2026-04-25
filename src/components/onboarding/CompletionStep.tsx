@@ -36,7 +36,7 @@ export function CompletionStep({ profile, onComplete }: CompletionStepProps) {
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8 text-center"
+        className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border-slate-700/50 p-8 text-center"
       >
         {/* Success Icon */}
         <motion.div
@@ -60,7 +60,7 @@ export function CompletionStep({ profile, onComplete }: CompletionStepProps) {
             You&apos;re All Set!
           </h2>
           <p className="text-slate-300 mb-8">
-            Your profile for <span className="text-teal-400 font-medium">{profile.companyName}</span> is ready.
+            Your profile for <span className="text-blue-400 font-medium">{profile.companyName}</span> is ready.
           </p>
         </motion.div>
 

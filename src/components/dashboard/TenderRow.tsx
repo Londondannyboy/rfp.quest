@@ -239,7 +239,7 @@ export function TenderRow({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
-      className="group bg-white border-b border-gray-200 hover:bg-gradient-to-r hover:from-teal-50/50 hover:to-white transition-all"
+      className="group bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-b border-slate-700/50 hover:bg-gradient-to-r hover:from-teal-50/50 hover:to-white transition-all"
     >
       {/* Main Row Content - Much Taller */}
       <div className="p-4">
@@ -247,7 +247,7 @@ export function TenderRow({
           {/* Left: Image + Match Score */}
           <div className="flex-shrink-0 flex flex-col gap-3">
             {/* Tender Image */}
-            <div className="relative w-32 h-24 rounded-lg overflow-hidden bg-gray-100">
+            <div className="relative w-32 h-24 rounded-lg overflow-hidden bg-slate-900/40 backdrop-blur-xl">
               {imageLoading ? (
                 <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100" />
               ) : (
@@ -262,14 +262,14 @@ export function TenderRow({
               )}
               {/* Stage badge */}
               <div className="absolute top-1 left-1">
-                <span className="px-1.5 py-0.5 bg-white/90 rounded text-[9px] font-medium text-gray-700">
+                <span className="px-1.5 py-0.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/90 rounded text-[9px] font-medium text-slate-200">
                   {tender.stage || 'Active'}
                 </span>
               </div>
               {/* Urgent badge */}
               {isUrgent && (
                 <div className="absolute top-1 right-1">
-                  <span className="px-1.5 py-0.5 bg-red-500 rounded text-[9px] font-bold text-white flex items-center gap-0.5">
+                  <span className="px-1.5 py-0.5 bg-red-900/200 rounded text-[9px] font-bold text-white flex items-center gap-0.5">
                     <BoltIcon className="w-2.5 h-2.5" />
                     {daysUntilDeadline}d
                   </span>
@@ -280,12 +280,12 @@ export function TenderRow({
             {/* Match Score Gauge */}
             <div className="flex justify-center">
               {matchLoading ? (
-                <div className="w-16 h-16 rounded-full bg-gray-100 animate-pulse" />
+                <div className="w-16 h-16 rounded-full bg-slate-900/40 backdrop-blur-xl animate-pulse" />
               ) : matchScore !== null && matchScore !== undefined ? (
                 <RadialGauge value={matchScore} maxValue={100} size={64} thickness={6} label="" />
               ) : (
-                <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center">
-                  <SparklesIcon className="w-6 h-6 text-gray-300" />
+                <div className="w-16 h-16 rounded-full bg-slate-900/40 backdrop-blur-xl flex items-center justify-center">
+                  <SparklesIcon className="w-6 h-6 text-slate-400" />
                 </div>
               )}
             </div>
@@ -297,18 +297,18 @@ export function TenderRow({
             <div className="flex items-start justify-between gap-2 mb-2">
               <div className="min-w-0 flex-1">
                 <Link href={`/tender/${tender.slug}`} className="block group/link">
-                  <h3 className="text-base font-bold text-gray-900 group-hover/link:text-teal-600 transition-colors line-clamp-1">
+                  <h3 className="text-base font-bold text-slate-100 group-hover/link:text-blue-600 transition-colors line-clamp-1">
                     {tender.title}
                   </h3>
                 </Link>
-                <div className="flex items-center gap-3 mt-1 text-sm text-gray-600">
+                <div className="flex items-center gap-3 mt-1 text-sm text-slate-300">
                   <div className="flex items-center gap-1">
-                    <BuildingOfficeIcon className="w-4 h-4 text-gray-400" />
+                    <BuildingOfficeIcon className="w-4 h-4 text-slate-400" />
                     <span className="truncate max-w-[200px]">{tender.buyerName}</span>
                   </div>
                   {tender.region && (
                     <div className="flex items-center gap-1">
-                      <MapPinIcon className="w-4 h-4 text-gray-400" />
+                      <MapPinIcon className="w-4 h-4 text-slate-400" />
                       <span>{tender.region}</span>
                     </div>
                   )}
@@ -327,7 +327,7 @@ export function TenderRow({
                     whileTap={{ scale: 0.95 }}
                     onClick={onSave}
                     className={`p-2 rounded-lg transition-colors ${
-                      isSaved ? 'text-teal-600 bg-teal-50' : 'text-gray-400 hover:text-teal-600 hover:bg-teal-50'
+                      isSaved ? 'text-blue-600 bg-blue-950/20' : 'text-slate-400 hover:text-blue-600 hover:bg-blue-950/20'
                     }`}
                   >
                     {isSaved ? <BookmarkSolid className="w-5 h-5" /> : <BookmarkOutline className="w-5 h-5" />}
@@ -336,7 +336,7 @@ export function TenderRow({
                     <motion.span
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-                      className="p-2 rounded-lg text-gray-400 hover:text-teal-600 hover:bg-teal-50 transition-colors inline-flex"
+                      className="p-2 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-950/20 transition-colors inline-flex"
                     >
                       <EyeIcon className="w-5 h-5" />
                     </motion.span>
@@ -347,7 +347,7 @@ export function TenderRow({
 
             {/* Description */}
             {tender.description && (
-              <p className="text-sm text-gray-500 line-clamp-1 mb-3">{tender.description}</p>
+              <p className="text-sm text-slate-500 line-clamp-1 mb-3">{tender.description}</p>
             )}
 
             {/* Insight Chips */}
@@ -356,10 +356,10 @@ export function TenderRow({
                 <span
                   key={i}
                   className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium ${
-                    insight.type === 'positive' ? 'bg-green-50 text-green-700 border border-green-200' :
-                    insight.type === 'warning' ? 'bg-amber-50 text-amber-700 border border-amber-200' :
-                    insight.type === 'info' ? 'bg-blue-50 text-blue-700 border border-blue-200' :
-                    'bg-purple-50 text-purple-700 border border-purple-200'
+                    insight.type === 'positive' ? 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200' :
+                    insight.type === 'warning' ? 'bg-amber-600/20 text-amber-400 border border-amber-500/30 border-amber-200' :
+                    insight.type === 'info' ? 'bg-blue-600/20 text-blue-400 border border-blue-500/30 border-blue-200' :
+                    'bg-purple-50 text-purple-700 border-purple-200'
                   }`}
                 >
                   {insight.type === 'positive' && <StarIcon className="w-3 h-3" />}
@@ -375,10 +375,10 @@ export function TenderRow({
               <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
                 valueInfo.isEstimate
                   ? 'bg-gradient-to-r from-amber-50 to-white border-amber-200'
-                  : 'bg-gradient-to-r from-teal-50 to-white border-teal-100'
+                  : 'bg-gradient-to-r from-teal-50 to-white border-blue-700/40'
               }`}>
-                <CurrencyPoundIcon className={`w-4 h-4 ${valueInfo.isEstimate ? 'text-amber-500' : 'text-teal-500'}`} />
-                <span className="text-sm font-bold text-gray-800">{valueInfo.display}</span>
+                <CurrencyPoundIcon className={`w-4 h-4 ${valueInfo.isEstimate ? 'text-amber-500' : 'text-blue-500'}`} />
+                <span className="text-sm font-bold text-slate-100">{valueInfo.display}</span>
                 {valueInfo.isEstimate && (
                   <span className="text-[9px] text-amber-600 font-medium px-1 py-0.5 bg-amber-100 rounded">
                     EST
@@ -389,9 +389,9 @@ export function TenderRow({
               {/* Deadline Display */}
               {daysUntilDeadline !== null ? (
                 <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
-                  isExpired ? 'bg-gray-50 border-gray-200 text-gray-500' :
-                  isUrgent ? 'bg-red-50 border-red-200 text-red-700' :
-                  'bg-blue-50 border-blue-100 text-blue-700'
+                  isExpired ? 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 border-slate-700/50 text-slate-500' :
+                  isUrgent ? 'bg-red-900/20 border-red-200 text-red-700' :
+                  'bg-blue-50 border border-slate-700/50 text-blue-700'
                 }`}>
                   <ClockIcon className="w-4 h-4" />
                   <span className="text-sm font-medium">
@@ -399,7 +399,7 @@ export function TenderRow({
                   </span>
                 </div>
               ) : (
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-gray-50 border-gray-200 text-gray-500">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg border bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 border-slate-700/50 text-slate-500">
                   <ClockIcon className="w-4 h-4" />
                   <span className="text-sm font-medium">No deadline</span>
                 </div>
@@ -411,7 +411,7 @@ export function TenderRow({
               </div>
 
               {/* Market Trend */}
-              <div className="hidden md:flex items-center gap-2 px-2 py-1 bg-gray-50 rounded-lg">
+              <div className="hidden md:flex items-center gap-2 px-2 py-1 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
                 <ArrowTrendingUpIcon className="w-3.5 h-3.5 text-green-500" />
                 <Sparkline data={trendData} width={60} height={16} color="#22c55e" />
               </div>
@@ -431,7 +431,7 @@ export function TenderRow({
         {/* Expandable Row - Timeline & More Details */}
         <motion.button
           onClick={() => setExpanded(!expanded)}
-          className="mt-3 w-full flex items-center justify-center gap-1 py-1 text-xs text-gray-400 hover:text-teal-600 transition-colors"
+          className="mt-3 w-full flex items-center justify-center gap-1 py-1 text-xs text-slate-400 hover:text-blue-600 transition-colors"
         >
           {expanded ? 'Hide details' : 'Show timeline & details'}
           {expanded ? <ChevronUpIcon className="w-3 h-3" /> : <ChevronDownIcon className="w-3 h-3" />}
@@ -445,7 +445,7 @@ export function TenderRow({
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="pt-3 mt-3 border-t border-gray-100">
+              <div className="pt-3 mt-3 border-t border-slate-700/40">
                 {/* Why It's a Fit Section */}
                 {companyProfile && (
                   <div className={`mb-4 p-4 rounded-lg border ${
@@ -453,22 +453,22 @@ export function TenderRow({
                       ? 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-200'
                       : profileMatch.overall >= 40
                       ? 'bg-gradient-to-r from-amber-50 to-yellow-50 border-amber-200'
-                      : 'bg-gradient-to-r from-gray-50 to-slate-50 border-gray-200'
+                      : 'bg-gradient-to-r from-gray-50 to-slate-50 border-slate-700/50'
                   }`}>
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className={`text-lg font-bold ${
                           profileMatch.overall >= 70 ? 'text-green-600' :
-                          profileMatch.overall >= 40 ? 'text-amber-600' : 'text-gray-600'
+                          profileMatch.overall >= 40 ? 'text-amber-600' : 'text-slate-300'
                         }`}>
                           {profileMatch.overall}%
                         </span>
-                        <span className="text-sm font-medium text-gray-700">
+                        <span className="text-sm font-medium text-slate-200">
                           {profileMatch.overall >= 70 ? 'Strong Fit' :
                            profileMatch.overall >= 40 ? 'Potential Fit' : 'Low Fit'}
                         </span>
                       </div>
-                      <span className="text-xs text-gray-500">Based on your profile</span>
+                      <span className="text-xs text-slate-500">Based on your profile</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {profileMatch.insights.map((insight, i) => (
@@ -509,7 +509,7 @@ export function TenderRow({
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Timeline */}
                   <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-3 rounded-lg">
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200 mb-2">
                       <CalendarDaysIcon className="w-4 h-4 text-blue-500" />
                       Timeline
                     </div>
@@ -518,14 +518,14 @@ export function TenderRow({
 
                   {/* Match Breakdown - use profile match if available */}
                   <div className="bg-gradient-to-r from-teal-50 to-white p-3 rounded-lg">
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
-                      <SparklesIcon className="w-4 h-4 text-teal-500" />
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200 mb-2">
+                      <SparklesIcon className="w-4 h-4 text-blue-500" />
                       {companyProfile ? 'Profile Match' : 'Match Analysis'}
                     </div>
                     {companyProfile ? (
                       <div className="flex items-center gap-3">
                         <RadialGauge value={profileMatch.overall} maxValue={100} size={50} thickness={5} label="" />
-                        <div className="text-xs text-gray-600">
+                        <div className="text-xs text-slate-300">
                           {profileMatch.matchingCpvs.length > 0 && (
                             <div>Sector: ✓ Match</div>
                           )}
@@ -535,7 +535,7 @@ export function TenderRow({
                         </div>
                       </div>
                     ) : (
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-slate-500">
                         Complete your profile for personalized matching
                       </div>
                     )}
@@ -543,13 +543,13 @@ export function TenderRow({
 
                   {/* Competitors */}
                   <div className="bg-gradient-to-r from-red-50 to-white p-3 rounded-lg">
-                    <div className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
+                    <div className="flex items-center gap-1.5 text-xs font-medium text-slate-200 mb-2">
                       <UserGroupIcon className="w-4 h-4 text-red-500" />
                       Competition
                     </div>
                     <CompetitionMeter level={competitionLevel} count={competitors.length} />
                     {incumbent && (
-                      <div className="mt-2 text-[10px] text-gray-500">
+                      <div className="mt-2 text-[10px] text-slate-500">
                         Incumbent: <span className="font-medium text-amber-600">{incumbent.name}</span>
                       </div>
                     )}
@@ -577,7 +577,7 @@ export function TenderRow({
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={onDismiss}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 text-gray-600 rounded-lg text-xs font-medium hover:bg-red-50 hover:text-red-600 transition-colors"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-300 rounded-lg text-xs font-medium hover:bg-red-900/20 hover:text-red-600 transition-colors"
                     >
                       <XMarkIcon className="w-3.5 h-3.5" />
                       Dismiss
@@ -599,30 +599,30 @@ export function TenderRow({
  */
 export function TenderRowSkeleton() {
   return (
-    <div className="p-4 border-b border-gray-200 animate-pulse">
+    <div className="p-4 border-b border-slate-700/50 animate-pulse">
       <div className="flex gap-4">
         <div className="flex-shrink-0 flex flex-col gap-3">
-          <div className="w-32 h-24 bg-gray-200 rounded-lg" />
-          <div className="w-16 h-16 bg-gray-200 rounded-full mx-auto" />
+          <div className="w-32 h-24 bg-slate-800/60 rounded-lg" />
+          <div className="w-16 h-16 bg-slate-800/60 rounded-full mx-auto" />
         </div>
         <div className="flex-1 space-y-3">
-          <div className="h-5 bg-gray-200 rounded w-3/4" />
-          <div className="h-4 bg-gray-200 rounded w-1/2" />
-          <div className="h-3 bg-gray-200 rounded w-full" />
+          <div className="h-5 bg-slate-800/60 rounded w-3/4" />
+          <div className="h-4 bg-slate-800/60 rounded w-1/2" />
+          <div className="h-3 bg-slate-800/60 rounded w-full" />
           <div className="flex gap-2">
-            <div className="h-6 bg-gray-200 rounded-full w-20" />
-            <div className="h-6 bg-gray-200 rounded-full w-24" />
-            <div className="h-6 bg-gray-200 rounded-full w-16" />
+            <div className="h-6 bg-slate-800/60 rounded-full w-20" />
+            <div className="h-6 bg-slate-800/60 rounded-full w-24" />
+            <div className="h-6 bg-slate-800/60 rounded-full w-16" />
           </div>
           <div className="flex gap-4">
-            <div className="h-8 bg-gray-200 rounded-lg w-24" />
-            <div className="h-8 bg-gray-200 rounded-lg w-20" />
-            <div className="h-8 bg-gray-200 rounded-lg w-28" />
+            <div className="h-8 bg-slate-800/60 rounded-lg w-24" />
+            <div className="h-8 bg-slate-800/60 rounded-lg w-20" />
+            <div className="h-8 bg-slate-800/60 rounded-lg w-28" />
           </div>
         </div>
         <div className="hidden lg:flex flex-col gap-3">
-          <div className="w-[70px] h-[70px] bg-gray-200 rounded-full" />
-          <div className="w-[50px] h-[50px] bg-gray-200 rounded-full mx-auto" />
+          <div className="w-[70px] h-[70px] bg-slate-800/60 rounded-full" />
+          <div className="w-[50px] h-[50px] bg-slate-800/60 rounded-full mx-auto" />
         </div>
       </div>
     </div>
@@ -634,13 +634,13 @@ export function TenderRowSkeleton() {
  */
 export function TenderRowHeader() {
   return (
-    <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border-b border-gray-200 sticky top-0 z-10">
+    <div className="px-4 py-3 bg-gradient-to-r from-gray-50 to-white border-b border-slate-700/50 sticky top-0 z-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-gray-700">Opportunities</span>
-          <span className="text-xs text-gray-400">• Visual Dashboard View</span>
+          <span className="text-sm font-semibold text-slate-200">Opportunities</span>
+          <span className="text-xs text-slate-400">• Visual Dashboard View</span>
         </div>
-        <div className="flex items-center gap-4 text-[10px] font-medium text-gray-500 uppercase tracking-wider">
+        <div className="flex items-center gap-4 text-[10px] font-medium text-slate-500 uppercase tracking-wider">
           <span>Match</span>
           <span>Value</span>
           <span>Deadline</span>

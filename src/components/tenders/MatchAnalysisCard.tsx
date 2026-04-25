@@ -71,8 +71,8 @@ function ScoreGauge({ score }: { score: number }) {
 }
 
 function BreakdownBar({ item }: { item: MatchBreakdown }) {
-  let colorClass = 'bg-red-500';
-  if (item.score >= 70) colorClass = 'bg-green-500';
+  let colorClass = 'bg-red-900/200';
+  if (item.score >= 70) colorClass = 'bg-green-900/200';
   else if (item.score >= 50) colorClass = 'bg-yellow-500';
 
   return (
@@ -119,9 +119,9 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
 
   if (!result) {
     return (
-      <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 p-6">
+      <div className="bg-slate-800/50 rounded-xl border-slate-700/50 p-6">
         <div className="flex items-center gap-3 mb-4">
-          <SparklesIcon className="w-6 h-6 text-teal-400" />
+          <SparklesIcon className="w-6 h-6 text-blue-400" />
           <h3 className="text-lg font-semibold text-white">Company Match Analysis</h3>
         </div>
 
@@ -130,7 +130,7 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
         </p>
 
         {error && (
-          <div className="mb-4 p-3 bg-red-900/30 border border-red-700/50 rounded-lg text-red-300 text-sm">
+          <div className="mb-4 p-3 bg-red-900/30 border-red-700/50 rounded-lg text-red-300 text-sm">
             {error}
           </div>
         )}
@@ -138,7 +138,7 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
         <button
           onClick={handleAnalyze}
           disabled={loading}
-          className="w-full px-4 py-3 bg-teal-600 text-white rounded-lg font-medium hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
+          className="w-full px-4 py-3 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-colors"
         >
           {loading ? (
             <>
@@ -157,7 +157,7 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
   }
 
   return (
-    <div className="bg-slate-800/50 rounded-xl border border-slate-700/50 p-6 space-y-6">
+    <div className="bg-slate-800/50 rounded-xl border-slate-700/50 p-6 space-y-6">
       {/* Header with score */}
       <div className="flex items-start gap-6">
         <ScoreGauge score={result.overallScore} />
@@ -218,7 +218,7 @@ export function MatchAnalysisCard({ ocid }: MatchAnalysisCardProps) {
       {/* Recommendations */}
       {result.recommendations.length > 0 && (
         <div className="space-y-2">
-          <h4 className="text-sm font-medium text-teal-400 flex items-center gap-2">
+          <h4 className="text-sm font-medium text-blue-400 flex items-center gap-2">
             <LightBulbIcon className="w-4 h-4" />
             Recommendations
           </h4>

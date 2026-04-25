@@ -124,7 +124,7 @@ export function DecisionMakerInsights({ companyNumber }: DecisionMakerInsightsPr
           )}
 
           {error && (
-            <div className="flex items-center gap-2 text-sm text-red-600 bg-red-50 p-3 rounded-lg">
+            <div className="flex items-center gap-2 text-sm text-red-600 bg-red-900/20 p-3 rounded-lg">
               <AlertCircle className="w-4 h-4" />
               {error}
             </div>
@@ -178,7 +178,7 @@ function DecisionMakerCard({ profile }: { profile: DecisionMakerProfile }) {
   };
 
   return (
-    <div className="bg-white rounded-lg border border-slate-200 p-3">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-200 p-3">
       <div className="flex items-start justify-between">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
@@ -232,7 +232,7 @@ function DecisionMakerCard({ profile }: { profile: DecisionMakerProfile }) {
                 {profile.recentTopics.map((topic, i) => (
                   <span
                     key={i}
-                    className="px-2 py-0.5 bg-blue-50 text-blue-700 text-xs rounded-full"
+                    className="px-2 py-0.5 bg-blue-600/20 text-blue-400 border border-blue-500/30 text-xs rounded-full"
                   >
                     {topic}
                   </span>
@@ -260,7 +260,7 @@ function DecisionMakerCard({ profile }: { profile: DecisionMakerProfile }) {
               <p className="text-xs font-medium text-slate-500 mb-1">Bid Writing Tips</p>
               <ul className="text-xs text-slate-600 space-y-1">
                 {profile.bidInsights.map((insight, i) => (
-                  <li key={i} className="bg-amber-50 p-2 rounded text-amber-800">
+                  <li key={i} className="bg-amber-900/20 p-2 rounded text-amber-800">
                     {insight}
                   </li>
                 ))}
@@ -290,8 +290,8 @@ export function DecisionMakerInsightsSkeleton() {
   return (
     <div className="border-t border-slate-200 pt-3 animate-pulse">
       <div className="flex items-center gap-2">
-        <div className="w-4 h-4 bg-slate-200 rounded" />
-        <div className="h-4 w-40 bg-slate-200 rounded" />
+        <div className="w-4 h-4 bg-slate-700/70 rounded" />
+        <div className="h-4 w-40 bg-slate-700/70 rounded" />
       </div>
     </div>
   );

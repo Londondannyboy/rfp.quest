@@ -114,21 +114,21 @@ export function SaveViewModal({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="relative bg-white rounded-2xl shadow-xl w-full max-w-md overflow-hidden"
+            className="relative bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-2xl shadow-xl w-full max-w-md overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-700/40">
               <div className="flex items-center gap-2">
-                <BookmarkIcon className="w-5 h-5 text-teal-600" />
-                <h2 className="text-lg font-semibold text-gray-900">
+                <BookmarkIcon className="w-5 h-5 text-blue-600" />
+                <h2 className="text-lg font-semibold text-slate-100">
                   {isEditing ? 'Edit View' : 'Save View'}
                 </h2>
               </div>
               <button
                 onClick={onClose}
-                className="p-1 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded-lg transition-colors"
               >
-                <XMarkIcon className="w-5 h-5 text-gray-500" />
+                <XMarkIcon className="w-5 h-5 text-slate-500" />
               </button>
             </div>
 
@@ -136,8 +136,8 @@ export function SaveViewModal({
             <form onSubmit={handleSubmit} className="p-6 space-y-5">
               {/* Filter Preview */}
               {!isEditing && (
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-600">
+                <div className="p-3 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
+                  <p className="text-sm text-slate-300">
                     Saving <span className="font-medium">{filterCount}</span> filter
                     {filterCount !== 1 ? 's' : ''}
                   </p>
@@ -163,7 +163,7 @@ export function SaveViewModal({
 
               {/* Name Input */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label className="block text-sm font-medium text-slate-200 mb-1.5">
                   View Name
                 </label>
                 <input
@@ -171,14 +171,14 @@ export function SaveViewModal({
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g., NHS Opportunities"
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-4 py-2.5 border-slate-600/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   autoFocus
                 />
               </div>
 
               {/* Icon Picker */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label className="block text-sm font-medium text-slate-200 mb-1.5">
                   Icon (optional)
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -187,11 +187,11 @@ export function SaveViewModal({
                     onClick={() => setIcon(undefined)}
                     className={`w-9 h-9 rounded-lg border-2 flex items-center justify-center text-sm transition-colors ${
                       !icon
-                        ? 'border-teal-500 bg-teal-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500/50 bg-blue-950/20'
+                        : 'border-slate-700/50 hover:border-slate-600/50'
                     }`}
                   >
-                    <span className="text-gray-400">—</span>
+                    <span className="text-slate-400">—</span>
                   </button>
                   {ICONS.map((emoji) => (
                     <button
@@ -200,8 +200,8 @@ export function SaveViewModal({
                       onClick={() => setIcon(emoji)}
                       className={`w-9 h-9 rounded-lg border-2 flex items-center justify-center text-lg transition-colors ${
                         icon === emoji
-                          ? 'border-teal-500 bg-teal-50'
-                          : 'border-gray-200 hover:border-gray-300'
+                          ? 'border-blue-500/50 bg-blue-950/20'
+                          : 'border-slate-700/50 hover:border-slate-600/50'
                       }`}
                     >
                       {emoji}
@@ -212,7 +212,7 @@ export function SaveViewModal({
 
               {/* Color Picker */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                <label className="block text-sm font-medium text-slate-200 mb-1.5">
                   Color
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -223,7 +223,7 @@ export function SaveViewModal({
                       onClick={() => setColor(c.value)}
                       className={`w-9 h-9 rounded-lg border-2 flex items-center justify-center transition-colors ${
                         color === c.value
-                          ? 'border-gray-900'
+                          ? 'border-slate-200/30'
                           : 'border-transparent'
                       }`}
                       title={c.name}
@@ -253,10 +253,10 @@ export function SaveViewModal({
               </div>
 
               {/* Pin Toggle */}
-              <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
                 <div>
-                  <p className="text-sm font-medium text-gray-700">Pin to top</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-sm font-medium text-slate-200">Pin to top</p>
+                  <p className="text-xs text-slate-500">
                     Pinned views appear first in the list
                   </p>
                 </div>
@@ -264,11 +264,11 @@ export function SaveViewModal({
                   type="button"
                   onClick={() => setIsPinned(!isPinned)}
                   className={`relative w-11 h-6 rounded-full transition-colors ${
-                    isPinned ? 'bg-teal-500' : 'bg-gray-300'
+                    isPinned ? 'bg-blue-950/200' : 'bg-slate-700/70'
                   }`}
                 >
                   <motion.div
-                    className="absolute top-0.5 w-5 h-5 bg-white rounded-full shadow-sm"
+                    className="absolute top-0.5 w-5 h-5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full shadow-sm"
                     animate={{ left: isPinned ? 22 : 2 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   />
@@ -280,7 +280,7 @@ export function SaveViewModal({
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="p-3 bg-red-50 border border-red-100 rounded-lg text-red-600 text-sm"
+                  className="p-3 bg-red-900/20 border-red-100 rounded-lg text-red-600 text-sm"
                 >
                   {error}
                 </motion.div>
@@ -291,14 +291,14 @@ export function SaveViewModal({
                 <button
                   type="button"
                   onClick={onClose}
-                  className="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  className="flex-1 px-4 py-2.5 border-slate-600/50 text-slate-200 rounded-lg hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={isCreating || isUpdating}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-teal-500 hover:bg-teal-600 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-950/200 hover:bg-blue-700 text-white rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isCreating || isUpdating ? (
                     <motion.div
@@ -322,7 +322,7 @@ export function SaveViewModal({
 
 function FilterChip({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center px-2 py-0.5 bg-white border border-gray-200 rounded-full text-xs text-gray-600">
+    <span className="inline-flex items-center px-2 py-0.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-slate-700/50 rounded-full text-xs text-slate-300">
       {label}
     </span>
   );

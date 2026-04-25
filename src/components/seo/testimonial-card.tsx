@@ -25,7 +25,7 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
           {[...Array(5)].map((_, i) => (
             <svg
               key={i}
-              className={`w-6 h-6 ${i < stars ? 'text-yellow-400' : 'text-gray-300'}`}
+              className={`w-6 h-6 ${i < stars ? 'text-yellow-400' : 'text-slate-400'}`}
               fill="currentColor"
               viewBox="0 0 20 20"
             >
@@ -35,7 +35,7 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
         </div>
 
         {/* Quote */}
-        <blockquote className="text-xl md:text-2xl text-gray-900 dark:text-white font-medium leading-relaxed mb-8">
+        <blockquote className="text-xl md:text-2xl text-slate-100 dark:text-white font-medium leading-relaxed mb-8">
           &ldquo;{testimonial.quote}&rdquo;
         </blockquote>
 
@@ -50,15 +50,15 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
               className="rounded-full"
             />
           ) : (
-            <div className="w-14 h-14 rounded-full bg-teal-600 flex items-center justify-center text-white text-xl font-bold">
+            <div className="w-14 h-14 rounded-full bg-blue-700 flex items-center justify-center text-white text-xl font-bold">
               {testimonial.author.charAt(0)}
             </div>
           )}
           <div>
-            <div className="font-semibold text-gray-900 dark:text-white">
+            <div className="font-semibold text-slate-100 dark:text-white">
               {testimonial.author}
             </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-sm text-slate-300 dark:text-slate-400">
               {testimonial.role}, {testimonial.company}
             </div>
           </div>
@@ -68,13 +68,13 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
   }
 
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-gray-100 dark:border-slate-700">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 dark:bg-slate-800 rounded-xl p-6 shadow-lg border-slate-700/40 dark:border-slate-700">
       {/* Stars */}
       <div className="flex gap-1 mb-4">
         {[...Array(5)].map((_, i) => (
           <svg
             key={i}
-            className={`w-5 h-5 ${i < stars ? 'text-yellow-400' : 'text-gray-300'}`}
+            className={`w-5 h-5 ${i < stars ? 'text-yellow-400' : 'text-slate-400'}`}
             fill="currentColor"
             viewBox="0 0 20 20"
           >
@@ -84,7 +84,7 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
       </div>
 
       {/* Quote */}
-      <blockquote className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+      <blockquote className="text-slate-200 dark:text-slate-400 mb-6 leading-relaxed">
         &ldquo;{testimonial.quote}&rdquo;
       </blockquote>
 
@@ -99,15 +99,15 @@ export function TestimonialCard({ testimonial, variant = 'card' }: TestimonialCa
             className="rounded-full"
           />
         ) : (
-          <div className="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-semibold">
+          <div className="w-10 h-10 rounded-full bg-blue-700 flex items-center justify-center text-white font-semibold">
             {testimonial.author.charAt(0)}
           </div>
         )}
         <div>
-          <div className="font-medium text-gray-900 dark:text-white text-sm">
+          <div className="font-medium text-slate-100 dark:text-white text-sm">
             {testimonial.author}
           </div>
-          <div className="text-xs text-gray-500 dark:text-gray-400">
+          <div className="text-xs text-slate-500 dark:text-slate-400">
             {testimonial.role}, {testimonial.company}
           </div>
         </div>
@@ -122,13 +122,13 @@ interface TestimonialGridProps {
 
 export function TestimonialGrid({ testimonials }: TestimonialGridProps) {
   return (
-    <section className="py-16 md:py-24 bg-gray-50 dark:bg-slate-900">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 dark:bg-slate-900">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-100 dark:text-white mb-4">
             Trusted by UK Procurement Teams
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-lg text-slate-300 dark:text-slate-400">
             See what our customers say about winning more bids
           </p>
         </div>

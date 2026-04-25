@@ -379,35 +379,35 @@ export function Navbar() {
                     </Link>
                     <Link
                       href="/profile"
-                      className="block w-full text-center px-5 py-2.5 border border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       Company Profile
                     </Link>
                     <Link
                       href="/profile/team"
-                      className="block w-full text-center px-5 py-2.5 border border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       Team Members
                     </Link>
                     <Link
                       href="/library"
-                      className="block w-full text-center px-5 py-2.5 border border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       Content Library
                     </Link>
                     <Link
                       href="/bids"
-                      className="block w-full text-center px-5 py-2.5 border border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       My Bids
                     </Link>
                     <Link
                       href="/past-bids"
-                      className="block w-full text-center px-5 py-2.5 border border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-slate-600 text-slate-300 hover:bg-slate-800/50 font-medium rounded-lg transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       Past Bids
@@ -417,7 +417,7 @@ export function Navbar() {
                         handleSignOut();
                         setMobileOpen(false);
                       }}
-                      className="block w-full text-center px-5 py-2.5 border border-red-600 text-red-400 font-medium rounded-lg hover:bg-red-950/20 transition-colors"
+                      className="block w-full text-center px-5 py-2.5 border-red-600 text-red-400 font-medium rounded-lg hover:bg-red-950/20 transition-colors"
                     >
                       Sign Out
                     </button>

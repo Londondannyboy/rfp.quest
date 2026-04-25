@@ -90,10 +90,10 @@ export function WinPredictionPanel({
   };
 
   const getProbabilityBg = (probability: number) => {
-    if (probability >= 0.7) return 'bg-green-50 border-green-200';
+    if (probability >= 0.7) return 'bg-green-900/20 border-green-200';
     if (probability >= 0.5) return 'bg-yellow-50 border-yellow-200';
     if (probability >= 0.3) return 'bg-orange-50 border-orange-200';
-    return 'bg-red-50 border-red-200';
+    return 'bg-red-900/20 border-red-200';
   };
 
   const getConfidenceIcon = (confidence: string) => {
@@ -111,13 +111,13 @@ export function WinPredictionPanel({
 
   if (loading) {
     return (
-      <div className="bg-white rounded-lg border border-gray-200 p-6">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50 p-6">
         <div className="animate-pulse">
-          <div className="h-6 bg-gray-200 rounded w-32 mb-4"></div>
-          <div className="h-20 bg-gray-100 rounded mb-4"></div>
+          <div className="h-6 bg-slate-800/60 rounded w-32 mb-4"></div>
+          <div className="h-20 bg-slate-900/40 backdrop-blur-xl rounded mb-4"></div>
           <div className="space-y-2">
-            <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-            <div className="h-4 bg-gray-200 rounded w-2/3"></div>
+            <div className="h-4 bg-slate-800/60 rounded w-3/4"></div>
+            <div className="h-4 bg-slate-800/60 rounded w-2/3"></div>
           </div>
         </div>
       </div>
@@ -131,17 +131,17 @@ export function WinPredictionPanel({
   const probability = Math.round(prediction.probability * 100);
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50">
       {/* Header */}
-      <div className="px-6 py-4 border-b border-gray-200">
+      <div className="px-6 py-4 border-b border-slate-700/50">
         <div className="flex items-center justify-between">
-          <h3 className="font-semibold text-gray-900 flex items-center gap-2">
-            <ChartBarIcon className="w-5 h-5 text-gray-500" />
+          <h3 className="font-semibold text-slate-100 flex items-center gap-2">
+            <ChartBarIcon className="w-5 h-5 text-slate-500" />
             Win Prediction Analysis
           </h3>
           <div className="flex items-center gap-2">
             {getConfidenceIcon(prediction.confidence)}
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-slate-300">
               {prediction.confidence} confidence
             </span>
           </div>
@@ -155,12 +155,12 @@ export function WinPredictionPanel({
             <div className={`text-5xl font-bold ${getProbabilityColor(prediction.probability)}`}>
               {probability}%
             </div>
-            <p className="text-gray-600 mt-2">Estimated win probability</p>
+            <p className="text-slate-300 mt-2">Estimated win probability</p>
           </div>
           
           {/* Visual Bar */}
           <div className="mt-6">
-            <div className="w-full bg-gray-200 rounded-full h-4">
+            <div className="w-full bg-slate-800/60 rounded-full h-4">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${probability}%` }}
@@ -173,7 +173,7 @@ export function WinPredictionPanel({
                 }`}
               />
             </div>
-            <div className="flex justify-between text-xs text-gray-500 mt-1">
+            <div className="flex justify-between text-xs text-slate-500 mt-1">
               <span>Low</span>
               <span>Medium</span>
               <span>High</span>
@@ -183,12 +183,12 @@ export function WinPredictionPanel({
 
         {/* Key Factors */}
         <div className="mt-6">
-          <h4 className="font-medium text-gray-900 mb-3">Key Factors</h4>
+          <h4 className="font-medium text-slate-100 mb-3">Key Factors</h4>
           <div className="space-y-2">
             {prediction.factors.map((factor: any, index: number) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-3 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+                className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 hover:bg-slate-900/40 backdrop-blur-xl transition-colors"
               >
                 <div className="flex items-center gap-2">
                   {factor.positive ? (
@@ -196,7 +196,7 @@ export function WinPredictionPanel({
                   ) : (
                     <ArrowTrendingDownIcon className="w-4 h-4 text-red-600" />
                   )}
-                  <span className="text-sm text-gray-700">{factor.name}</span>
+                  <span className="text-sm text-slate-200">{factor.name}</span>
                 </div>
                 <span className={`text-sm font-medium ${
                   factor.positive ? 'text-green-600' : 'text-red-600'
@@ -211,7 +211,7 @@ export function WinPredictionPanel({
         {/* Recommendations */}
         {prediction.recommendations.length > 0 && (
           <div className="mt-6">
-            <h4 className="font-medium text-gray-900 mb-3 flex items-center gap-2">
+            <h4 className="font-medium text-slate-100 mb-3 flex items-center gap-2">
               <LightBulbIcon className="w-5 h-5 text-yellow-500" />
               Recommendations to Improve
             </h4>
@@ -219,7 +219,7 @@ export function WinPredictionPanel({
               {prediction.recommendations.map((rec: string, index: number) => (
                 <div
                   key={index}
-                  className="flex items-start gap-2 p-3 rounded-lg bg-blue-50 border border-blue-200"
+                  className="flex items-start gap-2 p-3 rounded-lg bg-blue-50 border-blue-200"
                 >
                   <SparklesIcon className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                   <p className="text-sm text-blue-900">{rec}</p>
@@ -233,7 +233,7 @@ export function WinPredictionPanel({
         <div className="mt-6 flex items-center gap-3">
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="flex-1 px-4 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-gray-700 text-sm font-medium transition-colors"
+            className="flex-1 px-4 py-2 border-slate-700/50 rounded-lg hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-200 text-sm font-medium transition-colors"
           >
             {showDetails ? 'Hide' : 'Show'} Detailed Analysis
           </button>
@@ -253,16 +253,16 @@ export function WinPredictionPanel({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="mt-6 pt-6 border-t border-gray-200"
+            className="mt-6 pt-6 border-t border-slate-700/50"
           >
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h5 className="text-sm font-medium text-gray-700 mb-2">Strengths</h5>
+                <h5 className="text-sm font-medium text-slate-200 mb-2">Strengths</h5>
                 <ul className="space-y-1">
                   {prediction.factors
                     .filter((f: any) => f.positive)
                     .map((factor: any, index: number) => (
-                      <li key={index} className="text-xs text-gray-600 flex items-center gap-1">
+                      <li key={index} className="text-xs text-slate-300 flex items-center gap-1">
                         <CheckCircleIcon className="w-3 h-3 text-green-500" />
                         {factor.name}
                       </li>
@@ -270,12 +270,12 @@ export function WinPredictionPanel({
                 </ul>
               </div>
               <div>
-                <h5 className="text-sm font-medium text-gray-700 mb-2">Weaknesses</h5>
+                <h5 className="text-sm font-medium text-slate-200 mb-2">Weaknesses</h5>
                 <ul className="space-y-1">
                   {prediction.factors
                     .filter((f: any) => !f.positive)
                     .map((factor: any, index: number) => (
-                      <li key={index} className="text-xs text-gray-600 flex items-center gap-1">
+                      <li key={index} className="text-xs text-slate-300 flex items-center gap-1">
                         <XCircleIcon className="w-3 h-3 text-red-500" />
                         {factor.name}
                       </li>
@@ -284,8 +284,8 @@ export function WinPredictionPanel({
               </div>
             </div>
             
-            <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-              <p className="text-xs text-gray-600">
+            <div className="mt-4 p-3 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
+              <p className="text-xs text-slate-300">
                 <strong>Note:</strong> This prediction is based on historical data and current bid quality.
                 Actual results may vary based on factors not captured in the model.
               </p>

@@ -29,7 +29,7 @@ export function MatchScoreGauge({
   const offset = circumference - (displayScore / 100) * circumference;
 
   // Color based on score
-  let colorClass = 'text-gray-400';
+  let colorClass = 'text-slate-400';
   if (score !== null) {
     if (score >= 75) {
       colorClass = 'text-green-500';
@@ -49,7 +49,7 @@ export function MatchScoreGauge({
         style={{ width: config.width, height: config.width }}
       >
         <motion.div
-          className={`w-full h-full rounded-full border-${config.stroke} border-gray-200 border-t-teal-500`}
+          className={`w-full h-full rounded-full border-${config.stroke} border-slate-700/50 border-t-teal-500`}
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
           style={{ borderWidth: config.stroke }}
@@ -61,10 +61,10 @@ export function MatchScoreGauge({
   if (score === null) {
     return (
       <div
-        className="relative flex items-center justify-center bg-gray-100 rounded-full"
+        className="relative flex items-center justify-center bg-slate-900/40 backdrop-blur-xl rounded-full"
         style={{ width: config.width, height: config.width }}
       >
-        <span className="text-xs text-gray-400">N/A</span>
+        <span className="text-xs text-slate-400">N/A</span>
       </div>
     );
   }
@@ -83,7 +83,7 @@ export function MatchScoreGauge({
           stroke="currentColor"
           strokeWidth={config.stroke}
           fill="none"
-          className="text-gray-200"
+          className="text-slate-300"
         />
         {/* Progress circle */}
         <motion.circle
@@ -128,8 +128,8 @@ export function MatchScoreBadge({
 }) {
   if (loading) {
     return (
-      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 rounded-full text-xs text-gray-400">
-        <span className="w-3 h-3 border-2 border-gray-300 border-t-teal-500 rounded-full animate-spin" />
+      <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-900/40 backdrop-blur-xl rounded-full text-xs text-slate-400">
+        <span className="w-3 h-3 border-2 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
         <span>...</span>
       </span>
     );
@@ -137,13 +137,13 @@ export function MatchScoreBadge({
 
   if (score === null) {
     return (
-      <span className="inline-flex items-center px-2 py-0.5 bg-gray-100 rounded-full text-xs text-gray-400">
+      <span className="inline-flex items-center px-2 py-0.5 bg-slate-900/40 backdrop-blur-xl rounded-full text-xs text-slate-400">
         No score
       </span>
     );
   }
 
-  let bgClass = 'bg-gray-100 text-gray-600';
+  let bgClass = 'bg-slate-900/40 backdrop-blur-xl text-slate-300';
   if (score >= 75) {
     bgClass = 'bg-green-100 text-green-700';
   } else if (score >= 50) {

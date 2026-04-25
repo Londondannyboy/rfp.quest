@@ -247,13 +247,13 @@ export function GraphAnalyticsPanel({
 
   if (loading) {
     return (
-      <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-md rounded-xl p-6 border-white/20">
         <div className="animate-pulse">
-          <div className="h-6 bg-white/20 rounded w-32 mb-4"></div>
+          <div className="h-6 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 rounded w-32 mb-4"></div>
           <div className="space-y-3">
-            <div className="h-4 bg-white/10 rounded w-full"></div>
-            <div className="h-4 bg-white/10 rounded w-3/4"></div>
-            <div className="h-4 bg-white/10 rounded w-2/3"></div>
+            <div className="h-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded w-full"></div>
+            <div className="h-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded w-3/4"></div>
+            <div className="h-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded w-2/3"></div>
           </div>
         </div>
       </div>
@@ -263,7 +263,7 @@ export function GraphAnalyticsPanel({
   if (!analytics) return null;
 
   return (
-    <div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 w-80 max-h-[600px] overflow-hidden">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-md rounded-xl border-white/20 w-80 max-h-[600px] overflow-hidden">
       {/* Tabs */}
       <div className="border-b border-white/20">
         <div className="flex">
@@ -278,8 +278,8 @@ export function GraphAnalyticsPanel({
               onClick={() => setActiveTab(tab.id as any)}
               className={`flex-1 px-3 py-2 text-xs font-medium transition-all flex items-center justify-center gap-1 ${
                 activeTab === tab.id
-                  ? 'text-white bg-white/20'
-                  : 'text-white/70 hover:text-white hover:bg-white/10'
+                  ? 'text-white bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20'
+                  : 'text-white/70 hover:text-white hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10'
               }`}
             >
               <tab.icon className="w-3 h-3" />
@@ -299,13 +299,13 @@ export function GraphAnalyticsPanel({
                 <div>
                   <h4 className="text-white font-medium mb-2">Node Analysis</h4>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-2xl font-bold text-white">
                         {analytics.metrics?.connectionCount || 0}
                       </div>
                       <div className="text-xs text-white/60">Connections</div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-2xl font-bold text-white">
                         {(analytics.metrics?.centralityScore * 100 || 0).toFixed(0)}%
                       </div>
@@ -334,25 +334,25 @@ export function GraphAnalyticsPanel({
                 <div>
                   <h4 className="text-white font-medium mb-2">Network Overview</h4>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-lg font-bold text-white">
                         {graphData.nodes.length}
                       </div>
                       <div className="text-xs text-white/60">Nodes</div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-lg font-bold text-white">
                         {graphData.links.length}
                       </div>
                       <div className="text-xs text-white/60">Connections</div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-lg font-bold text-white">
                         {(analytics.metrics?.networkDensity * 100 || 0).toFixed(1)}%
                       </div>
                       <div className="text-xs text-white/60">Density</div>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                       <div className="text-lg font-bold text-white">
                         £{((analytics.metrics?.totalTenderValue || 0) / 1000000).toFixed(1)}M
                       </div>
@@ -386,10 +386,10 @@ export function GraphAnalyticsPanel({
               <h4 className="text-white font-medium mb-2">Competitive Landscape</h4>
               <div className="space-y-2">
                 {analytics.competitiveAnalysis.competitors.slice(0, 5).map((comp: any, i: number) => (
-                  <div key={i} className="flex items-center justify-between p-2 bg-white/10 rounded">
+                  <div key={i} className="flex items-center justify-between p-2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded">
                     <span className="text-white text-sm">{comp.company.properties.name}</span>
                     <div className="flex items-center gap-2">
-                      <div className="w-12 bg-white/20 rounded-full h-1.5">
+                      <div className="w-12 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 rounded-full h-1.5">
                         <div
                           className="bg-gradient-to-r from-red-400 to-red-600 h-1.5 rounded-full"
                           style={{ width: `${comp.strength * 100}%` }}
@@ -405,13 +405,13 @@ export function GraphAnalyticsPanel({
             </div>
             
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-white/10 rounded-lg p-3">
+              <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                 <div className="text-lg font-bold text-white">
                   {(analytics.competitiveAnalysis.incumbentAdvantage * 100).toFixed(0)}%
                 </div>
                 <div className="text-xs text-white/60">Incumbent Advantage</div>
               </div>
-              <div className="bg-white/10 rounded-lg p-3">
+              <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                 <div className="text-lg font-bold text-white">
                   {(analytics.competitiveAnalysis.marketConcentration * 100).toFixed(0)}%
                 </div>
@@ -433,9 +433,9 @@ export function GraphAnalyticsPanel({
                 transition={{ delay: i * 0.1 }}
                 className={`p-3 rounded-lg border ${
                   insight.type === 'warning' 
-                    ? 'bg-red-500/20 border-red-500/50' 
+                    ? 'bg-red-900/200/20 border-red-500/50' 
                     : insight.type === 'opportunity'
-                    ? 'bg-green-500/20 border-green-500/50'
+                    ? 'bg-green-900/200/20 border-green-500/50'
                     : 'bg-blue-500/20 border-blue-500/50'
                 }`}
               >
@@ -456,7 +456,7 @@ export function GraphAnalyticsPanel({
           <div className="space-y-4">
             <h4 className="text-white font-medium">Network Patterns</h4>
             {analytics.patterns.map((pattern: any, i: number) => (
-              <div key={i} className="bg-white/10 rounded-lg p-3">
+              <div key={i} className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg p-3">
                 <h5 className="text-white font-medium text-sm mb-2">{pattern.title}</h5>
                 <p className="text-white/70 text-xs mb-2">{pattern.description}</p>
                 

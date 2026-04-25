@@ -46,9 +46,9 @@ import type { Tender } from '@/lib/hooks/use-tenders';
 // AI Insight chip component
 function InsightChip({ type, label }: { type: 'positive' | 'warning' | 'info' | 'opportunity'; label: string }) {
   const styles = {
-    positive: 'bg-green-50 text-green-700 border-green-200',
-    warning: 'bg-amber-50 text-amber-700 border-amber-200',
-    info: 'bg-blue-50 text-blue-700 border-blue-200',
+    positive: 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200',
+    warning: 'bg-amber-600/20 text-amber-400 border border-amber-500/30 border-amber-200',
+    info: 'bg-blue-600/20 text-blue-400 border border-blue-500/30 border-blue-200',
     opportunity: 'bg-purple-50 text-purple-700 border-purple-200',
   };
   const icons = {
@@ -74,18 +74,18 @@ function LargeMatchScore({ score, loading }: { score: number | null; loading?: b
   if (loading) {
     return (
       <div className="flex items-center justify-center">
-        <div className="w-24 h-24 rounded-full bg-gray-100 animate-pulse" />
+        <div className="w-24 h-24 rounded-full bg-slate-900/40 backdrop-blur-xl animate-pulse" />
       </div>
     );
   }
 
   if (score === null) {
     return (
-      <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200">
-        <div className="w-20 h-20 rounded-full bg-gray-200 flex items-center justify-center">
-          <SparklesIcon className="w-8 h-8 text-gray-400" />
+      <div className="flex flex-col items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border-slate-700/50">
+        <div className="w-20 h-20 rounded-full bg-slate-800/60 flex items-center justify-center">
+          <SparklesIcon className="w-8 h-8 text-slate-400" />
         </div>
-        <p className="mt-2 text-xs text-gray-500 text-center">Complete profile for match score</p>
+        <p className="mt-2 text-xs text-slate-500 text-center">Complete profile for match score</p>
       </div>
     );
   }
@@ -102,7 +102,7 @@ function LargeMatchScore({ score, loading }: { score: number | null; loading?: b
       />
       <div className="mt-2 flex items-center gap-1">
         {score >= 70 ? (
-          <span className="text-xs font-medium text-teal-600 flex items-center gap-1">
+          <span className="text-xs font-medium text-blue-600 flex items-center gap-1">
             <StarIconSolid className="w-3.5 h-3.5" />
             Strong Match
           </span>
@@ -112,7 +112,7 @@ function LargeMatchScore({ score, loading }: { score: number | null; loading?: b
             Moderate Match
           </span>
         ) : (
-          <span className="text-xs font-medium text-gray-500">Low Match</span>
+          <span className="text-xs font-medium text-slate-500">Low Match</span>
         )}
       </div>
     </div>
@@ -163,8 +163,8 @@ function SectorBreakdown({ cpvCodes }: { cpvCodes: string[] | null }) {
         {segments.slice(0, 3).map((s, i) => (
           <div key={i} className="flex items-center gap-2 text-xs">
             <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: s.color }} />
-            <span className="text-gray-600 truncate">{s.label}</span>
-            <span className="text-gray-400 ml-auto">{Math.round((s.value / segments.reduce((a, b) => a + b.value, 0)) * 100)}%</span>
+            <span className="text-slate-300 truncate">{s.label}</span>
+            <span className="text-slate-400 ml-auto">{Math.round((s.value / segments.reduce((a, b) => a + b.value, 0)) * 100)}%</span>
           </div>
         ))}
       </div>
@@ -187,8 +187,8 @@ function EnhancedMatchBreakdown({ score }: { score: number | null }) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5">
-          <ChartBarIcon className="w-4 h-4 text-teal-500" />
+        <span className="text-sm font-medium text-slate-200 flex items-center gap-1.5">
+          <ChartBarIcon className="w-4 h-4 text-blue-500" />
           Match Breakdown
         </span>
       </div>
@@ -235,7 +235,7 @@ function TenderTimeline({ tender }: { tender: Tender }) {
 
   return (
     <div className="space-y-2">
-      <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700">
+      <div className="flex items-center gap-1.5 text-sm font-medium text-slate-200">
         <CalendarDaysIcon className="w-4 h-4 text-blue-500" />
         Timeline
       </div>
@@ -276,11 +276,11 @@ function MarketTrend() {
   return (
     <div className="space-y-1">
       <div className="flex items-center justify-between">
-        <span className="text-[10px] text-gray-500 flex items-center gap-1">
+        <span className="text-[10px] text-slate-500 flex items-center gap-1">
           <ArrowTrendingUpIcon className="w-3 h-3" />
           Market Activity
         </span>
-        <span className="text-[10px] font-medium text-teal-600">+{Math.floor(Math.random() * 15) + 5}%</span>
+        <span className="text-[10px] font-medium text-blue-600">+{Math.floor(Math.random() * 15) + 5}%</span>
       </div>
       <Sparkline data={data} width={100} height={20} color="#14b8a6" showDots />
     </div>
@@ -406,7 +406,7 @@ export function TenderCard({
       exit={{ opacity: 0, y: -20 }}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.3 }}
-      className="bg-white rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all overflow-hidden"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-2xl border-slate-700/50 shadow-lg hover:shadow-xl transition-all overflow-hidden"
     >
       {/* Hero Image Section - Larger */}
       <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
@@ -435,11 +435,11 @@ export function TenderCard({
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700 shadow-sm">
+            <span className="px-3 py-1 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/90 backdrop-blur-sm rounded-full text-xs font-medium text-slate-200 shadow-sm">
               {tender.stage || 'Active'}
             </span>
             {isUrgent && (
-              <span className="px-2 py-1 bg-red-500 text-white rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
+              <span className="px-2 py-1 bg-red-900/200 text-white rounded-full text-xs font-bold flex items-center gap-1 animate-pulse">
                 <BoltIcon className="w-3 h-3" />
                 {daysUntilDeadline}d left
               </span>
@@ -452,7 +452,7 @@ export function TenderCard({
             whileTap={{ scale: 0.9 }}
             onClick={onSave}
             className={`p-2 rounded-full backdrop-blur-sm shadow-sm transition-colors ${
-              isSaved ? 'bg-teal-500 text-white' : 'bg-white/90 text-gray-600 hover:text-teal-500'
+              isSaved ? 'bg-blue-950/200 text-white' : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50/90 text-slate-300 hover:text-blue-500'
             }`}
           >
             {isSaved ? (
@@ -475,8 +475,8 @@ export function TenderCard({
 
             {/* Value badge */}
             <div className="flex flex-col items-end">
-              <span className="px-3 py-1.5 bg-white/90 backdrop-blur-sm rounded-lg text-sm font-bold text-gray-800 shadow-sm flex items-center gap-1">
-                <CurrencyPoundIcon className="w-4 h-4 text-teal-500" />
+              <span className="px-3 py-1.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/90 backdrop-blur-sm rounded-lg text-sm font-bold text-slate-100 shadow-sm flex items-center gap-1">
+                <CurrencyPoundIcon className="w-4 h-4 text-blue-500" />
                 {valueDisplay}
               </span>
             </div>
@@ -496,19 +496,19 @@ export function TenderCard({
         {/* Title and Buyer */}
         <div className="mb-4">
           <Link href={`/tender/${tender.slug}`} className="block group">
-            <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors line-clamp-2 mb-2">
+            <h3 className="text-xl font-bold text-slate-100 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2">
               {tender.title}
             </h3>
           </Link>
 
-          <div className="flex items-center gap-4 text-sm text-gray-600">
+          <div className="flex items-center gap-4 text-sm text-slate-300">
             <div className="flex items-center gap-1.5">
-              <BuildingOfficeIcon className="w-4 h-4 text-gray-400" />
+              <BuildingOfficeIcon className="w-4 h-4 text-slate-400" />
               <span className="truncate max-w-[200px]">{tender.buyerName}</span>
             </div>
             {tender.region && (
               <div className="flex items-center gap-1.5">
-                <MapPinIcon className="w-4 h-4 text-gray-400" />
+                <MapPinIcon className="w-4 h-4 text-slate-400" />
                 <span>{tender.region}</span>
               </div>
             )}
@@ -517,7 +517,7 @@ export function TenderCard({
 
         {/* Description */}
         {tender.description && (
-          <p className="text-sm text-gray-500 line-clamp-2 mb-4">{tender.description}</p>
+          <p className="text-sm text-slate-500 line-clamp-2 mb-4">{tender.description}</p>
         )}
 
         {/* Insights chips */}
@@ -532,26 +532,26 @@ export function TenderCard({
         {/* Visual Dashboard Grid - 2 columns */}
         <div className="grid grid-cols-2 gap-5 mb-5">
           {/* Left: Match Score */}
-          <div className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-100">
+          <div className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border-slate-700/40">
             <LargeMatchScore score={matchScore ?? null} loading={matchLoading} />
           </div>
 
           {/* Right: Activity Rings & Market Trend */}
-          <div className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border border-gray-100 flex flex-col items-center justify-center gap-3">
+          <div className="bg-gradient-to-br from-gray-50 to-white p-4 rounded-xl border-slate-700/40 flex flex-col items-center justify-center gap-3">
             <TenderActivityRing tender={tender} matchScore={matchScore ?? null} />
             <MarketTrend />
           </div>
         </div>
 
         {/* Timeline Section */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-blue-100/50 mb-5">
+        <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl border border-slate-700/50/50 mb-5">
           <TenderTimeline tender={tender} />
         </div>
 
         {/* Expandable Details Section */}
         <motion.button
           onClick={() => setShowDetails(!showDetails)}
-          className="w-full flex items-center justify-center gap-2 py-2 text-sm text-gray-500 hover:text-teal-600 transition-colors"
+          className="w-full flex items-center justify-center gap-2 py-2 text-sm text-slate-500 hover:text-blue-600 transition-colors"
         >
           <EyeIcon className="w-4 h-4" />
           {showDetails ? 'Hide Details' : 'Show More Details'}
@@ -574,14 +574,14 @@ export function TenderCard({
               <div className="pt-4 space-y-5">
                 {/* Match Breakdown */}
                 {matchScore !== null && matchScore !== undefined && (
-                  <div className="bg-gradient-to-br from-teal-50 to-white p-4 rounded-xl border border-teal-100/50">
+                  <div className="bg-gradient-to-br from-teal-50 to-white p-4 rounded-xl border-blue-700/40/50">
                     <EnhancedMatchBreakdown score={matchScore ?? null} />
                   </div>
                 )}
 
                 {/* Sector Breakdown */}
-                <div className="bg-gradient-to-br from-purple-50 to-white p-4 rounded-xl border border-purple-100/50">
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700 mb-3">
+                <div className="bg-gradient-to-br from-purple-50 to-white p-4 rounded-xl border-purple-100/50">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-slate-200 mb-3">
                     <TagIcon className="w-4 h-4 text-purple-500" />
                     Sector Breakdown
                   </div>
@@ -590,8 +590,8 @@ export function TenderCard({
 
                 {/* Value Comparison */}
                 {tender.valueMax && (
-                  <div className="bg-gradient-to-br from-amber-50 to-white p-4 rounded-xl border border-amber-100/50">
-                    <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700 mb-3">
+                  <div className="bg-gradient-to-br from-amber-50 to-white p-4 rounded-xl border border-slate-700/50/50">
+                    <div className="flex items-center gap-1.5 text-sm font-medium text-slate-200 mb-3">
                       <CurrencyPoundIcon className="w-4 h-4 text-amber-500" />
                       Value Comparison
                     </div>
@@ -605,8 +605,8 @@ export function TenderCard({
                 )}
 
                 {/* Competition Analysis */}
-                <div className="bg-gradient-to-br from-red-50 to-white p-4 rounded-xl border border-red-100/50">
-                  <div className="flex items-center gap-1.5 text-sm font-medium text-gray-700 mb-3">
+                <div className="bg-gradient-to-br from-red-50 to-white p-4 rounded-xl border-red-100/50">
+                  <div className="flex items-center gap-1.5 text-sm font-medium text-slate-200 mb-3">
                     <UserGroupIcon className="w-4 h-4 text-red-500" />
                     Competition Level
                   </div>
@@ -619,14 +619,14 @@ export function TenderCard({
       </div>
 
       {/* Competitor Section */}
-      <div className="px-5 py-4 border-t border-gray-100 bg-gradient-to-r from-gray-50 to-white">
+      <div className="px-5 py-4 border-t border-slate-700/40 bg-gradient-to-r from-gray-50 to-white">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5">
-            <UserGroupIcon className="w-4 h-4 text-gray-500" />
+          <span className="text-sm font-medium text-slate-200 flex items-center gap-1.5">
+            <UserGroupIcon className="w-4 h-4 text-slate-500" />
             Competitor Intelligence
           </span>
           {incumbent && (
-            <span className="text-[10px] text-amber-600 bg-amber-50 px-2 py-0.5 rounded-full">
+            <span className="text-[10px] text-amber-600 bg-amber-900/20 px-2 py-0.5 rounded-full">
               Incumbent: {incumbent.name}
             </span>
           )}
@@ -639,12 +639,12 @@ export function TenderCard({
       </div>
 
       {/* Buyer Intelligence Section */}
-      <div className="px-5 py-4 border-t border-gray-100 bg-gradient-to-r from-blue-50/50 to-white">
+      <div className="px-5 py-4 border-t border-slate-700/40 bg-gradient-to-r from-blue-50/50 to-white">
         <button
           onClick={() => setShowBuyerIntel(!showBuyerIntel)}
           className="w-full flex items-center justify-between mb-3 group"
         >
-          <span className="text-sm font-medium text-gray-700 flex items-center gap-1.5">
+          <span className="text-sm font-medium text-slate-200 flex items-center gap-1.5">
             <BuildingOfficeIcon className="w-4 h-4 text-blue-500" />
             Buyer Intelligence
             {buyerIntel && (
@@ -677,7 +677,7 @@ export function TenderCard({
               ) : buyerIntel ? (
                 <BuyerIntelligencePanel intel={buyerIntel} />
               ) : (
-                <p className="text-sm text-gray-500 text-center py-4">
+                <p className="text-sm text-slate-500 text-center py-4">
                   No buyer intelligence available for this organization
                 </p>
               )}
@@ -691,7 +691,7 @@ export function TenderCard({
         <div
           className={`px-5 py-3 flex items-center justify-between ${
             isExpired
-              ? 'bg-gray-100 text-gray-500'
+              ? 'bg-slate-900/40 backdrop-blur-xl text-slate-500'
               : isUrgent
               ? 'bg-gradient-to-r from-red-500 to-orange-500 text-white'
               : 'bg-gradient-to-r from-teal-500 to-blue-500 text-white'
@@ -724,7 +724,7 @@ export function TenderCard({
       )}
 
       {/* Action Buttons */}
-      <div className="px-5 py-4 border-t border-gray-100 flex items-center justify-between bg-white">
+      <div className="px-5 py-4 border-t border-slate-700/40 flex items-center justify-between bg-slate-900/60 backdrop-blur-xl border-slate-700/50">
         <QuickActionButtons
           slug={tender.slug}
           isSaved={isSaved}
@@ -738,8 +738,8 @@ export function TenderCard({
       </div>
 
       {/* Published date footer */}
-      <div className="px-5 py-2 bg-gray-50 border-t border-gray-100">
-        <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+      <div className="px-5 py-2 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 border-t border-slate-700/40">
+        <p className="text-[10px] text-slate-400 text-center flex items-center justify-center gap-1">
           <DocumentTextIcon className="w-3 h-3" />
           Published {new Date(tender.publishedDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
           {tender.ocid && <span className="mx-1">•</span>}
@@ -755,60 +755,60 @@ export function TenderCard({
  */
 export function TenderCardSkeleton() {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-lg overflow-hidden animate-pulse">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-2xl border-slate-700/50 shadow-lg overflow-hidden animate-pulse">
       {/* Image skeleton */}
       <div className="relative h-48 bg-gradient-to-br from-gray-200 to-gray-300">
-        <div className="absolute top-3 left-3 w-20 h-6 bg-gray-300 rounded-full" />
-        <div className="absolute top-3 right-3 w-8 h-8 bg-gray-300 rounded-full" />
-        <div className="absolute bottom-3 left-3 w-24 h-7 bg-gray-300 rounded-lg" />
-        <div className="absolute bottom-3 right-3 w-20 h-7 bg-gray-300 rounded-lg" />
+        <div className="absolute top-3 left-3 w-20 h-6 bg-slate-700/70 rounded-full" />
+        <div className="absolute top-3 right-3 w-8 h-8 bg-slate-700/70 rounded-full" />
+        <div className="absolute bottom-3 left-3 w-24 h-7 bg-slate-700/70 rounded-lg" />
+        <div className="absolute bottom-3 right-3 w-20 h-7 bg-slate-700/70 rounded-lg" />
       </div>
 
       {/* Content */}
       <div className="p-5 space-y-4">
-        <div className="h-7 bg-gray-200 rounded w-4/5" />
+        <div className="h-7 bg-slate-800/60 rounded w-4/5" />
         <div className="flex gap-4">
-          <div className="h-4 bg-gray-200 rounded w-32" />
-          <div className="h-4 bg-gray-200 rounded w-20" />
+          <div className="h-4 bg-slate-800/60 rounded w-32" />
+          <div className="h-4 bg-slate-800/60 rounded w-20" />
         </div>
-        <div className="h-4 bg-gray-200 rounded w-full" />
-        <div className="h-4 bg-gray-200 rounded w-2/3" />
+        <div className="h-4 bg-slate-800/60 rounded w-full" />
+        <div className="h-4 bg-slate-800/60 rounded w-2/3" />
 
         {/* Insight chips skeleton */}
         <div className="flex gap-2">
-          <div className="h-6 bg-gray-200 rounded-full w-24" />
-          <div className="h-6 bg-gray-200 rounded-full w-28" />
-          <div className="h-6 bg-gray-200 rounded-full w-20" />
+          <div className="h-6 bg-slate-800/60 rounded-full w-24" />
+          <div className="h-6 bg-slate-800/60 rounded-full w-28" />
+          <div className="h-6 bg-slate-800/60 rounded-full w-20" />
         </div>
 
         {/* Charts grid skeleton */}
         <div className="grid grid-cols-2 gap-5">
-          <div className="h-36 bg-gray-100 rounded-xl" />
-          <div className="h-36 bg-gray-100 rounded-xl" />
+          <div className="h-36 bg-slate-900/40 backdrop-blur-xl rounded-xl" />
+          <div className="h-36 bg-slate-900/40 backdrop-blur-xl rounded-xl" />
         </div>
 
         {/* Timeline skeleton */}
-        <div className="h-16 bg-gray-100 rounded-xl" />
+        <div className="h-16 bg-slate-900/40 backdrop-blur-xl rounded-xl" />
       </div>
 
       {/* Competitor section skeleton */}
-      <div className="px-5 py-4 border-t border-gray-100 bg-gray-50">
-        <div className="h-4 bg-gray-200 rounded w-36 mb-3" />
+      <div className="px-5 py-4 border-t border-slate-700/40 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        <div className="h-4 bg-slate-800/60 rounded w-36 mb-3" />
         <div className="flex gap-2">
-          <div className="h-6 bg-gray-200 rounded-full w-24" />
-          <div className="h-6 bg-gray-200 rounded-full w-24" />
+          <div className="h-6 bg-slate-800/60 rounded-full w-24" />
+          <div className="h-6 bg-slate-800/60 rounded-full w-24" />
         </div>
       </div>
 
       {/* Deadline bar skeleton */}
-      <div className="h-12 bg-gray-200" />
+      <div className="h-12 bg-slate-800/60" />
 
       {/* Actions skeleton */}
-      <div className="px-5 py-4 border-t border-gray-100 flex gap-3">
-        <div className="h-9 bg-gray-200 rounded-lg w-20" />
-        <div className="h-9 bg-gray-200 rounded-lg w-20" />
-        <div className="h-9 bg-gray-200 rounded-lg w-24" />
-        <div className="h-9 bg-gray-200 rounded-lg w-24 ml-auto" />
+      <div className="px-5 py-4 border-t border-slate-700/40 flex gap-3">
+        <div className="h-9 bg-slate-800/60 rounded-lg w-20" />
+        <div className="h-9 bg-slate-800/60 rounded-lg w-20" />
+        <div className="h-9 bg-slate-800/60 rounded-lg w-24" />
+        <div className="h-9 bg-slate-800/60 rounded-lg w-24 ml-auto" />
       </div>
     </div>
   );

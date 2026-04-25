@@ -94,7 +94,7 @@ export function TenderTableView({
                 setSelectedRows(new Set());
               }
             }}
-            className="rounded border-gray-300"
+            className="rounded border-slate-600/50"
             style={{ opacity: table.getIsSomePageRowsSelected() && !table.getIsAllPageRowsSelected() ? 0.5 : 1 }}
           />
         ),
@@ -111,7 +111,7 @@ export function TenderTableView({
               }
               setSelectedRows(new Set(selectedRows));
             }}
-            className="rounded border-gray-300"
+            className="rounded border-slate-600/50"
           />
         ),
         size: 40,
@@ -122,7 +122,7 @@ export function TenderTableView({
         cell: ({ row }) => (
           <button
             onClick={() => row.toggleExpanded()}
-            className="p-1 hover:bg-gray-100 rounded"
+            className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded"
           >
             {row.getIsExpanded() ? (
               <MinusIcon className="w-4 h-4" />
@@ -154,18 +154,18 @@ export function TenderTableView({
                       setEditingCell(null);
                     }
                   }}
-                  className="flex-1 px-2 py-1 border border-blue-400 rounded outline-none text-sm"
+                  className="flex-1 px-2 py-1 border-blue-400 rounded outline-none text-sm"
                   autoFocus
                 />
                 <button
                   onClick={() => handleCellEdit(row.original.id, 'title', editValue)}
-                  className="p-1 text-green-600 hover:bg-green-50 rounded"
+                  className="p-1 text-green-600 hover:bg-green-900/20 rounded"
                 >
                   <CheckIcon className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setEditingCell(null)}
-                  className="p-1 text-red-600 hover:bg-red-50 rounded"
+                  className="p-1 text-red-600 hover:bg-red-900/20 rounded"
                 >
                   <XMarkIcon className="w-4 h-4" />
                 </button>
@@ -175,11 +175,11 @@ export function TenderTableView({
           
           return (
             <div
-              className="cursor-pointer hover:bg-gray-50 px-2 py-1 rounded group flex items-center justify-between"
+              className="cursor-pointer hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 px-2 py-1 rounded group flex items-center justify-between"
               onClick={() => startEditing(row.original.id, 'title', value)}
             >
               <span className="truncate">{value}</span>
-              <PencilIcon className="w-3 h-3 text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <PencilIcon className="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           );
         },
@@ -249,7 +249,7 @@ export function TenderTableView({
               <div className={`text-xs ${
                 daysLeft < 7 ? 'text-red-600' : 
                 daysLeft < 14 ? 'text-yellow-600' : 
-                'text-gray-500'
+                'text-slate-500'
               }`}>
                 {daysLeft > 0 ? `${daysLeft} days` : 'Expired'}
               </div>
@@ -263,16 +263,16 @@ export function TenderTableView({
         header: 'Match',
         cell: ({ getValue }) => {
           const score = getValue() as number | null;
-          if (!score) return <span className="text-gray-400">-</span>;
+          if (!score) return <span className="text-slate-400">-</span>;
           
           return (
             <div className="flex items-center gap-2">
-              <div className="w-16 bg-gray-200 rounded-full h-2">
+              <div className="w-16 bg-slate-800/60 rounded-full h-2">
                 <div
                   className={`h-2 rounded-full ${
-                    score >= 80 ? 'bg-green-500' :
+                    score >= 80 ? 'bg-green-900/200' :
                     score >= 60 ? 'bg-yellow-500' :
-                    'bg-red-500'
+                    'bg-red-900/200'
                   }`}
                   style={{ width: `${score}%` }}
                 />
@@ -299,7 +299,7 @@ export function TenderTableView({
                 </span>
               ))}
               {codes?.length > 2 && (
-                <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-600 text-xs">
+                <span className="px-2 py-1 rounded-full bg-slate-900/40 backdrop-blur-xl text-slate-300 text-xs">
                   +{codes.length - 2}
                 </span>
               )}
@@ -323,7 +323,7 @@ export function TenderTableView({
                   handleCellEdit(row.original.id, 'status', e.target.value);
                 }}
                 onBlur={() => setEditingCell(null)}
-                className="px-2 py-1 border border-blue-400 rounded outline-none text-sm"
+                className="px-2 py-1 border-blue-400 rounded outline-none text-sm"
                 autoFocus
               >
                 <option value="new">New</option>
@@ -340,7 +340,7 @@ export function TenderTableView({
             new: 'bg-blue-100 text-blue-700',
             reviewing: 'bg-yellow-100 text-yellow-700',
             writing: 'bg-purple-100 text-purple-700',
-            submitted: 'bg-gray-100 text-gray-700',
+            submitted: 'bg-slate-900/40 backdrop-blur-xl text-slate-200',
             won: 'bg-green-100 text-green-700',
             lost: 'bg-red-100 text-red-700',
           };
@@ -349,7 +349,7 @@ export function TenderTableView({
             <span
               onClick={() => startEditing(row.original.id, 'status', value)}
               className={`px-2 py-1 rounded-full text-xs font-medium cursor-pointer ${
-                statusColors[value as keyof typeof statusColors] || 'bg-gray-100 text-gray-700'
+                statusColors[value as keyof typeof statusColors] || 'bg-slate-900/40 backdrop-blur-xl text-slate-200'
               }`}
             >
               {value}
@@ -371,7 +371,7 @@ export function TenderTableView({
               <SparklesIcon className="w-4 h-4" />
             </button>
             <button
-              className="p-1 hover:bg-gray-100 rounded text-gray-600"
+              className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded text-slate-300"
               title="Duplicate"
             >
               <DocumentDuplicateIcon className="w-4 h-4" />
@@ -418,9 +418,9 @@ export function TenderTableView({
   };
 
   return (
-    <div className="bg-white rounded-lg border border-gray-200">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50">
       {/* Toolbar */}
-      <div className="px-4 py-3 border-b border-gray-200">
+      <div className="px-4 py-3 border-b border-slate-700/50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             {/* Quick filter */}
@@ -431,30 +431,30 @@ export function TenderTableView({
                 onChange={(e) => {
                   table.setGlobalFilter(e.target.value);
                 }}
-                className="pl-8 pr-3 py-1.5 border border-gray-200 rounded-lg text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
+                className="pl-8 pr-3 py-1.5 border-slate-700/50 rounded-lg text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none"
               />
-              <FunnelIcon className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <FunnelIcon className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
             </div>
             
             {/* Column visibility */}
             <div className="relative group">
-              <button className="px-3 py-1.5 border border-gray-200 rounded-lg text-sm hover:bg-gray-50">
+              <button className="px-3 py-1.5 border-slate-700/50 rounded-lg text-sm hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <EyeIcon className="w-4 h-4 inline mr-1" />
                 Columns
               </button>
-              <div className="absolute top-full left-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 p-2 hidden group-hover:block z-10">
+              <div className="absolute top-full left-0 mt-1 w-48 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg shadow-lg border-slate-700/50 p-2 hidden group-hover:block z-10">
                 {table.getAllLeafColumns().map((column) => {
                   if (column.id === 'select' || column.id === 'expander' || column.id === 'actions') return null;
                   return (
                     <label
                       key={column.id}
-                      className="flex items-center gap-2 px-2 py-1 hover:bg-gray-50 rounded cursor-pointer"
+                      className="flex items-center gap-2 px-2 py-1 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded cursor-pointer"
                     >
                       <input
                         type="checkbox"
                         checked={column.getIsVisible()}
                         onChange={(e) => column.toggleVisibility(!!e.target.checked)}
-                        className="rounded border-gray-300"
+                        className="rounded border-slate-600/50"
                       />
                       <span className="text-sm">{column.id}</span>
                     </label>
@@ -464,7 +464,7 @@ export function TenderTableView({
             </div>
             
             {selectedRows.size > 0 && (
-              <span className="text-sm text-gray-600">
+              <span className="text-sm text-slate-300">
                 {selectedRows.size} selected
               </span>
             )}
@@ -489,11 +489,11 @@ export function TenderTableView({
         <table className="w-full">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id} className="border-b border-gray-200">
+              <tr key={headerGroup.id} className="border-b border-slate-700/50">
                 {headerGroup.headers.map((header) => (
                   <th
                     key={header.id}
-                    className="text-left px-4 py-3 font-medium text-gray-700 text-sm"
+                    className="text-left px-4 py-3 font-medium text-slate-200 text-sm"
                     style={{ width: header.getSize() }}
                   >
                     {header.isPlaceholder
@@ -509,7 +509,7 @@ export function TenderTableView({
               <>
                 <tr
                   key={row.id}
-                  className={`border-b border-gray-100 hover:bg-gray-50 group ${
+                  className={`border-b border-slate-700/40 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 group ${
                     row.getIsSelected() ? 'bg-blue-50' : ''
                   }`}
                 >
@@ -525,16 +525,16 @@ export function TenderTableView({
                 </tr>
                 {row.getIsExpanded() && (
                   <tr key={`${row.id}-expanded`}>
-                    <td colSpan={columns.length} className="p-4 bg-gray-50">
+                    <td colSpan={columns.length} className="p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                       <div className="space-y-2">
-                        <p className="text-sm text-gray-700">
+                        <p className="text-sm text-slate-200">
                           <strong>Description:</strong> {row.original.description}
                         </p>
                         {(row.original as any).analysis && (
                           <div className="grid grid-cols-3 gap-4 mt-3">
                             <div>
                               <strong className="text-sm">Requirements:</strong>
-                              <ul className="mt-1 text-xs text-gray-600">
+                              <ul className="mt-1 text-xs text-slate-300">
                                 {(row.original as any).analysis.requirements?.slice(0, 3).map((req: any, i: number) => (
                                   <li key={i}>• {req.title}</li>
                                 ))}
@@ -542,7 +542,7 @@ export function TenderTableView({
                             </div>
                             <div>
                               <strong className="text-sm">Key Dates:</strong>
-                              <ul className="mt-1 text-xs text-gray-600">
+                              <ul className="mt-1 text-xs text-slate-300">
                                 <li>Published: {new Date(row.original.publishedDate).toLocaleDateString()}</li>
                                 <li>Deadline: {row.original.tenderEndDate ? new Date(row.original.tenderEndDate).toLocaleDateString() : 'Not specified'}</li>
                               </ul>
@@ -553,7 +553,7 @@ export function TenderTableView({
                                 <button className="px-3 py-1 bg-blue-600 text-white rounded text-xs">
                                   Write Bid
                                 </button>
-                                <button className="px-3 py-1 bg-gray-200 text-gray-700 rounded text-xs">
+                                <button className="px-3 py-1 bg-slate-800/60 text-slate-200 rounded text-xs">
                                   View Details
                                 </button>
                               </div>
@@ -571,33 +571,33 @@ export function TenderTableView({
       </div>
       
       {/* Pagination */}
-      <div className="px-4 py-3 border-t border-gray-200">
+      <div className="px-4 py-3 border-t border-slate-700/50">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <button
               onClick={() => table.previousPage()}
               disabled={!table.getCanPreviousPage()}
-              className="px-3 py-1 border border-gray-200 rounded text-sm disabled:opacity-50 hover:bg-gray-50"
+              className="px-3 py-1 border-slate-700/50 rounded text-sm disabled:opacity-50 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
             >
               Previous
             </button>
             <button
               onClick={() => table.nextPage()}
               disabled={!table.getCanNextPage()}
-              className="px-3 py-1 border border-gray-200 rounded text-sm disabled:opacity-50 hover:bg-gray-50"
+              className="px-3 py-1 border-slate-700/50 rounded text-sm disabled:opacity-50 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
             >
               Next
             </button>
           </div>
           
           <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-slate-300">
               Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
             </span>
             <select
               value={table.getState().pagination.pageSize}
               onChange={(e) => table.setPageSize(Number(e.target.value))}
-              className="px-2 py-1 border border-gray-200 rounded text-sm"
+              className="px-2 py-1 border-slate-700/50 rounded text-sm"
             >
               {[10, 25, 50, 100].map((pageSize) => (
                 <option key={pageSize} value={pageSize}>

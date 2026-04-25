@@ -167,12 +167,12 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="bg-slate-900 rounded-xl border border-slate-700 w-full max-w-4xl max-h-[90vh] flex flex-col">
+      <div className="bg-slate-900 rounded-xl border-slate-700 w-full max-w-4xl max-h-[90vh] flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-slate-700">
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-teal-400 font-mono text-sm">{requirement.number}</span>
+              <span className="text-blue-400 font-mono text-sm">{requirement.number}</span>
               <span className={`px-2 py-0.5 rounded text-xs font-medium ${
                 requirement.type === 'mandatory'
                   ? 'bg-red-900/50 text-red-300'
@@ -183,7 +183,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
                 {requirement.type}
               </span>
               {requirement.weighting && (
-                <span className="px-2 py-0.5 bg-teal-900/50 text-teal-300 text-xs rounded">
+                <span className="px-2 py-0.5 bg-blue-950/50 text-blue-300 text-xs rounded">
                   {requirement.weighting}%
                 </span>
               )}
@@ -258,7 +258,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
                 </button>
 
                 {showRefinements && (
-                  <div className="absolute top-full left-0 mt-1 w-48 bg-slate-800 rounded-lg border border-slate-700 shadow-xl z-10">
+                  <div className="absolute top-full left-0 mt-1 w-48 bg-slate-800 rounded-lg border-slate-700 shadow-xl z-10">
                     {REFINEMENT_OPTIONS.map((option) => (
                       <button
                         key={option.id}
@@ -305,7 +305,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
 
           {/* Error Message */}
           {error && (
-            <div className="mb-3 p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300 text-sm flex items-center gap-2">
+            <div className="mb-3 p-3 bg-red-900/30 border-red-700 rounded-lg text-red-300 text-sm flex items-center gap-2">
               <ExclamationTriangleIcon className="w-5 h-5 flex-shrink-0" />
               {error}
             </div>
@@ -318,7 +318,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
               value={response}
               onChange={(e) => setResponse(e.target.value)}
               placeholder="Start typing your response, or click 'Generate with AI' to create a draft..."
-              className="w-full h-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full h-full p-4 bg-slate-800 border-slate-700 rounded-lg text-white placeholder-slate-500 resize-none focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
               disabled={isGenerating || isRefining}
             />
           </div>
@@ -345,7 +345,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
               <div className="w-32 h-2 bg-slate-700 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all ${
-                    isOverLimit ? 'bg-red-500' : wordLimitPercentage > 80 ? 'bg-amber-500' : 'bg-teal-500'
+                    isOverLimit ? 'bg-red-900/200' : wordLimitPercentage > 80 ? 'bg-amber-900/200' : 'bg-blue-950/200'
                   }`}
                   style={{ width: `${Math.min(wordLimitPercentage, 100)}%` }}
                 />
@@ -365,7 +365,7 @@ export function ResponseEditor({ requirement, initialResponse, onSave, onClose }
           <button
             onClick={handleSave}
             disabled={isSaving || !response}
-            className="px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 disabled:opacity-50 transition-colors"
+            className="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 disabled:opacity-50 transition-colors"
           >
             {isSaving ? 'Saving...' : 'Save Response'}
           </button>

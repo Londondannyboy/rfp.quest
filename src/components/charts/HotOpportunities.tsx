@@ -37,16 +37,16 @@ function getUrgencyBadge(days: number) {
 export function HotOpportunities({ opportunities, loading }: HotOpportunitiesProps) {
   if (loading) {
     return (
-      <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
+      <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-orange-100">
         <div className="flex items-center gap-2 mb-4">
           <div className="w-6 h-6 bg-orange-200 rounded animate-pulse" />
           <div className="h-6 bg-orange-200 rounded w-40 animate-pulse" />
         </div>
         <div className="space-y-3">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="bg-white rounded-lg p-4 animate-pulse">
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-2" />
-              <div className="h-3 bg-gray-200 rounded w-1/2" />
+            <div key={i} className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-4 animate-pulse">
+              <div className="h-4 bg-slate-800/60 rounded w-3/4 mb-2" />
+              <div className="h-3 bg-slate-800/60 rounded w-1/2" />
             </div>
           ))}
         </div>
@@ -56,12 +56,12 @@ export function HotOpportunities({ opportunities, loading }: HotOpportunitiesPro
 
   if (!opportunities || opportunities.length === 0) {
     return (
-      <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100">
+      <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-orange-100">
         <div className="flex items-center gap-2 mb-4">
           <FireIcon className="w-6 h-6 text-orange-500" />
-          <h3 className="text-lg font-semibold text-gray-900">Hot Opportunities</h3>
+          <h3 className="text-lg font-semibold text-slate-100">Hot Opportunities</h3>
         </div>
-        <p className="text-gray-500 text-sm">No urgent opportunities right now</p>
+        <p className="text-slate-500 text-sm">No urgent opportunities right now</p>
       </div>
     );
   }
@@ -71,12 +71,12 @@ export function HotOpportunities({ opportunities, loading }: HotOpportunitiesPro
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-100"
+      className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border-orange-100"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <FireIcon className="w-6 h-6 text-orange-500" />
-          <h3 className="text-lg font-semibold text-gray-900">Hot Opportunities</h3>
+          <h3 className="text-lg font-semibold text-slate-100">Hot Opportunities</h3>
         </div>
         <span className="text-xs text-orange-600 font-medium bg-orange-100 px-2 py-1 rounded-full">
           Closing Soon
@@ -95,14 +95,14 @@ export function HotOpportunities({ opportunities, loading }: HotOpportunitiesPro
             >
               <Link
                 href={`/tender/${opp.slug}`}
-                className="block bg-white rounded-lg p-4 hover:shadow-md transition-all group border border-transparent hover:border-orange-200"
+                className="block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-4 hover:shadow-md transition-all group border-transparent hover:border-orange-200"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
-                    <h4 className="font-medium text-gray-900 text-sm truncate group-hover:text-orange-600 transition-colors">
+                    <h4 className="font-medium text-slate-100 text-sm truncate group-hover:text-orange-600 transition-colors">
                       {opp.title}
                     </h4>
-                    <p className="text-xs text-gray-500 mt-1 truncate">
+                    <p className="text-xs text-slate-500 mt-1 truncate">
                       {opp.buyerName || 'Government Buyer'}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export function HotOpportunities({ opportunities, loading }: HotOpportunitiesPro
                       {urgency.text}
                     </span>
                     {opp.valueMax && (
-                      <span className="text-xs font-medium text-gray-700">
+                      <span className="text-xs font-medium text-slate-200">
                         {formatValue(opp.valueMax)}
                       </span>
                     )}

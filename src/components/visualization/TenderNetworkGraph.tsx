@@ -402,7 +402,7 @@ export function TenderNetworkGraph({
   return (
     <div className="relative w-full h-full bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Controls Panel */}
-      <div className="absolute top-4 left-4 z-10 bg-white/10 backdrop-blur-md rounded-xl p-4 w-80 border border-white/20">
+      <div className="absolute top-4 left-4 z-10 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-md rounded-xl p-4 w-80 border-white/20">
         <h3 className="text-white font-semibold mb-3 flex items-center gap-2">
           <AdjustmentsHorizontalIcon className="w-5 h-5" />
           Network Controls
@@ -416,7 +416,7 @@ export function TenderNetworkGraph({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search nodes..."
-            className="w-full pl-10 pr-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/40"
+            className="w-full pl-10 pr-3 py-2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 border-white/20 rounded-lg text-white placeholder-white/40 text-sm focus:outline-none focus:border-white/40"
           />
         </div>
         
@@ -431,7 +431,7 @@ export function TenderNetworkGraph({
                 className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                   viewMode === mode
                     ? 'bg-blue-500 text-white'
-                    : 'bg-white/10 text-white/70 hover:bg-white/20'
+                    : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 text-white/70 hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20'
                 }`}
               >
                 {mode.charAt(0).toUpperCase() + mode.slice(1)}
@@ -455,7 +455,7 @@ export function TenderNetworkGraph({
                 type="checkbox"
                 checked={filters[key as keyof typeof filters] as boolean}
                 onChange={(e) => setFilters({ ...filters, [key]: e.target.checked })}
-                className="rounded border-white/30 bg-white/10 text-blue-500 focus:ring-blue-500"
+                className="rounded border-white/30 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 text-blue-500 focus:ring-blue-500"
               />
               <span>{label}</span>
             </label>
@@ -468,7 +468,7 @@ export function TenderNetworkGraph({
           <select
             value={nodeSize}
             onChange={(e) => setNodeSize(e.target.value)}
-            className="w-full px-3 py-1.5 bg-white/10 border border-white/20 rounded-lg text-white text-sm"
+            className="w-full px-3 py-1.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 border-white/20 rounded-lg text-white text-sm"
           >
             <option value="uniform">Uniform</option>
             <option value="value">By Value</option>
@@ -480,13 +480,13 @@ export function TenderNetworkGraph({
         <div className="flex gap-2">
           <button
             onClick={fitToScreen}
-            className="flex-1 px-3 py-1.5 bg-blue-500/20 hover:bg-blue-500/30 border border-blue-500/50 rounded-lg text-blue-300 text-xs font-medium transition-colors"
+            className="flex-1 px-3 py-1.5 bg-blue-500/20 hover:bg-blue-500/30 border-blue-500/50 rounded-lg text-blue-300 text-xs font-medium transition-colors"
           >
             Fit View
           </button>
           <button
             onClick={resetPhysics}
-            className="flex-1 px-3 py-1.5 bg-purple-500/20 hover:bg-purple-500/30 border border-purple-500/50 rounded-lg text-purple-300 text-xs font-medium transition-colors"
+            className="flex-1 px-3 py-1.5 bg-purple-500/20 hover:bg-purple-500/30 border-purple-500/50 rounded-lg text-purple-300 text-xs font-medium transition-colors"
           >
             Reset Physics
           </button>
@@ -494,7 +494,7 @@ export function TenderNetworkGraph({
       </div>
       
       {/* Stats Panel */}
-      <div className="absolute top-4 right-4 z-10 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+      <div className="absolute top-4 right-4 z-10 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-md rounded-xl p-4 border-white/20">
         <div className="grid grid-cols-2 gap-4 text-white">
           <div>
             <div className="text-2xl font-bold">{graphData.nodes.length}</div>
@@ -514,7 +514,7 @@ export function TenderNetworkGraph({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 20 }}
-            className="absolute bottom-4 left-4 right-4 z-10 bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 max-w-2xl mx-auto"
+            className="absolute bottom-4 left-4 right-4 z-10 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-md rounded-xl p-4 border-white/20 max-w-2xl mx-auto"
           >
             <div className="flex items-start justify-between">
               <div>

@@ -147,7 +147,7 @@ export function UnifiedDashboard({
   }));
 
   return (
-    <div className={`h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-white' : ''}`}>
+    <div className={`h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50' : ''}`}>
       {/* Bid Writing Workspace Overlay */}
       <AnimatePresence>
         {showBidWriter && selectedTender && (
@@ -155,7 +155,7 @@ export function UnifiedDashboard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-white"
+            className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50"
           >
             <BidWritingWorkspace
               tender={selectedTender}
@@ -165,7 +165,7 @@ export function UnifiedDashboard({
             />
             <button
               onClick={() => setShowBidWriter(false)}
-              className="fixed top-4 right-4 p-2 bg-gray-200 hover:bg-gray-300 rounded-lg z-10"
+              className="fixed top-4 right-4 p-2 bg-slate-800/60 hover:bg-slate-700/70 rounded-lg z-10"
             >
               ✕
             </button>
@@ -175,11 +175,11 @@ export function UnifiedDashboard({
 
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="border-b border-gray-200 bg-white px-6 py-4">
+        <div className="border-b border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-6 py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">RFP Dashboard</h1>
-              <p className="text-gray-600">
+              <h1 className="text-2xl font-bold text-slate-100">RFP Dashboard</h1>
+              <p className="text-slate-300">
                 {filteredTenders.length} of {tenders.length} opportunities
                 {searchQuery && ` matching "${searchQuery}"`}
               </p>
@@ -194,7 +194,7 @@ export function UnifiedDashboard({
               
               <button
                 onClick={() => setIsFullscreen(!isFullscreen)}
-                className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                className="p-2 text-slate-500 hover:text-slate-200 hover:bg-slate-900/40 backdrop-blur-xl rounded-lg transition-colors"
               >
                 <ArrowsPointingOutIcon className="w-5 h-5" />
               </button>
@@ -204,17 +204,17 @@ export function UnifiedDashboard({
           {/* Search and Filters */}
           <div className="mt-4 flex items-center gap-4">
             <div className="flex-1 relative">
-              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search tenders..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none"
+                className="w-full pl-10 pr-4 py-2 border-slate-600/50 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none"
               />
             </div>
             
-            <button className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+            <button className="flex items-center gap-2 px-4 py-2 border-slate-600/50 rounded-lg hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors">
               <AdjustmentsHorizontalIcon className="w-4 h-4" />
               Filters
             </button>
@@ -279,7 +279,7 @@ export function UnifiedDashboard({
                   onNodeClick={handleNodeClick}
                 />
                 */}
-                <div className="flex items-center justify-center h-full text-gray-500">
+                <div className="flex items-center justify-center h-full text-slate-500">
                   <p>Network visualization temporarily disabled</p>
                 </div>
                 
@@ -307,61 +307,61 @@ export function UnifiedDashboard({
                 <div className="max-w-7xl mx-auto space-y-6">
                   {/* Overview Stats */}
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
                           <DocumentTextIcon className="w-6 h-6 text-blue-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-gray-900">
+                          <div className="text-2xl font-bold text-slate-100">
                             {filteredTenders.length}
                           </div>
-                          <div className="text-sm text-gray-600">Active Opportunities</div>
+                          <div className="text-sm text-slate-300">Active Opportunities</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
                           <SparklesIcon className="w-6 h-6 text-green-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-gray-900">
+                          <div className="text-2xl font-bold text-slate-100">
                             £{(filteredTenders.reduce((sum, t) => sum + (t.valueAmount || 0), 0) / 1000000).toFixed(1)}M
                           </div>
-                          <div className="text-sm text-gray-600">Total Value</div>
+                          <div className="text-sm text-slate-300">Total Value</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center">
                           <SparklesIcon className="w-6 h-6 text-purple-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-gray-900">
+                          <div className="text-2xl font-bold text-slate-100">
                             {Math.round(filteredTenders.reduce((sum, t) => sum + ((t as any).match_score || 0), 0) / Math.max(filteredTenders.length, 1))}%
                           </div>
-                          <div className="text-sm text-gray-600">Avg Match Score</div>
+                          <div className="text-sm text-slate-300">Avg Match Score</div>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <div className="flex items-center gap-4">
                         <div className="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center">
                           <SparklesIcon className="w-6 h-6 text-orange-600" />
                         </div>
                         <div>
-                          <div className="text-2xl font-bold text-gray-900">
+                          <div className="text-2xl font-bold text-slate-100">
                             {filteredTenders.filter(t => {
                               const days = t.tenderEndDate ? Math.ceil((new Date(t.tenderEndDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24)) : Infinity;
                               return days <= 14;
                             }).length}
                           </div>
-                          <div className="text-sm text-gray-600">Closing Soon</div>
+                          <div className="text-sm text-slate-300">Closing Soon</div>
                         </div>
                       </div>
                     </div>
@@ -378,16 +378,16 @@ export function UnifiedDashboard({
 
                   {/* Placeholder for additional analytics */}
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <h3 className="text-lg font-semibold mb-4">Sector Distribution</h3>
                       {/* Sector chart would go here */}
-                      <div className="text-gray-500">Chart component coming soon...</div>
+                      <div className="text-slate-500">Chart component coming soon...</div>
                     </div>
                     
-                    <div className="bg-white rounded-xl border border-gray-200 p-6">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-6">
                       <h3 className="text-lg font-semibold mb-4">Timeline Forecast</h3>
                       {/* Timeline chart would go here */}
-                      <div className="text-gray-500">Timeline component coming soon...</div>
+                      <div className="text-slate-500">Timeline component coming soon...</div>
                     </div>
                   </div>
                 </div>

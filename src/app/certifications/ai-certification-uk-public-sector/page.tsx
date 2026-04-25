@@ -95,13 +95,13 @@ export default function AICertificationUKPublicSectorPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+          <div className="bg-red-900/20 border-l-4 border-red-500 p-4 mb-6">
             <p className="text-sm text-red-800 font-medium">
               ⏰ Critical Deadline: EU AI Act enforcement begins August 2026
             </p>
           </div>
           
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             AI Certification for UK Public Sector: Preparing for ISO 42001 & the EU AI Act
           </h1>
           
@@ -114,8 +114,8 @@ export default function AICertificationUKPublicSectorPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: ai-certification-iso-42001-uk.jpg - ISO 42001 AI management system certification framework for UK public sector]
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">The Regulatory Timeline: Why August 2026 Matters</h2>
           
-          <div className="bg-white border-2 border-gray-200 rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-2 border-slate-600/50 rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Key Dates for AI Compliance</h3>
             <table className="min-w-full">
               <tbody>
@@ -156,7 +156,7 @@ export default function AICertificationUKPublicSectorPage() {
                   <td className="py-3 font-semibold text-purple-600">August 2025</td>
                   <td className="py-3">Codes of practice and governance (12 months)</td>
                 </tr>
-                <tr className="border-b bg-red-50">
+                <tr className="border-b bg-red-900/20">
                   <td className="py-3 font-semibold text-red-600">August 2026</td>
                   <td className="py-3 font-semibold">Full AI Act application - all systems must comply (24 months)</td>
                 </tr>
@@ -204,7 +204,7 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">UK Public Sector AI Requirements</h2>
           
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Current Government AI Initiatives</h3>
             <ul className="space-y-3">
               <li>
@@ -231,7 +231,7 @@ export default function AICertificationUKPublicSectorPage() {
             Under EU AI Act definitions (likely to influence UK regulation), these public sector uses are high-risk:
           </p>
 
-          <div className="bg-red-50 rounded-lg p-6 my-6">
+          <div className="bg-red-900/20 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Critical Infrastructure</h3>
             <ul className="space-y-1">
               <li>• Energy grid management</li>
@@ -273,7 +273,7 @@ export default function AICertificationUKPublicSectorPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Months 1-2: Gap Assessment</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <ul className="text-sm text-slate-300 space-y-1">
                     <li>• Current AI inventory and risk assessment</li>
                     <li>• ISO 42001 requirements mapping</li>
                     <li>• Resource and budget planning</li>
@@ -288,7 +288,7 @@ export default function AICertificationUKPublicSectorPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Months 3-5: Framework Development</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <ul className="text-sm text-slate-300 space-y-1">
                     <li>• AI management system design</li>
                     <li>• Policy and procedure creation</li>
                     <li>• Risk management framework</li>
@@ -303,7 +303,7 @@ export default function AICertificationUKPublicSectorPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Months 6-8: Implementation</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <ul className="text-sm text-slate-300 space-y-1">
                     <li>• Process deployment</li>
                     <li>• Training programmes</li>
                     <li>• Technical controls implementation</li>
@@ -318,7 +318,7 @@ export default function AICertificationUKPublicSectorPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Months 9-10: Testing & Validation</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <ul className="text-sm text-slate-300 space-y-1">
                     <li>• Internal audit</li>
                     <li>• Management review</li>
                     <li>• Corrective actions</li>
@@ -333,7 +333,7 @@ export default function AICertificationUKPublicSectorPage() {
                 </div>
                 <div>
                   <h4 className="font-semibold mb-1">Months 11-12: Certification</h4>
-                  <ul className="text-sm text-gray-700 space-y-1">
+                  <ul className="text-sm text-slate-300 space-y-1">
                     <li>• Stage 1 audit (documentation)</li>
                     <li>• Stage 2 audit (implementation)</li>
                     <li>• Certification decision</li>
@@ -346,45 +346,45 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Cost Analysis: ISO 42001 Investment</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Organisation Size</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Year 1 Costs</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Maintenance</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Organisation Size</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Year 1 Costs</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Maintenance</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border-slate-500/50 px-4 py-2">
                   <strong>SME AI Vendor</strong><br/>
-                  <span className="text-sm text-gray-600">(10-50 employees)</span>
+                  <span className="text-sm text-slate-300">(10-50 employees)</span>
                 </td>
-                <td className="border border-gray-300 px-4 py-2">£55,000 - £85,000</td>
-                <td className="border border-gray-300 px-4 py-2">£15,000 - £25,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£55,000 - £85,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£15,000 - £25,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border-slate-500/50 px-4 py-2">
                   <strong>Mid-size AI Company</strong><br/>
-                  <span className="text-sm text-gray-600">(50-250 employees)</span>
+                  <span className="text-sm text-slate-300">(50-250 employees)</span>
                 </td>
-                <td className="border border-gray-300 px-4 py-2">£85,000 - £150,000</td>
-                <td className="border border-gray-300 px-4 py-2">£25,000 - £45,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£85,000 - £150,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£25,000 - £45,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border-slate-500/50 px-4 py-2">
                   <strong>Enterprise AI Provider</strong><br/>
-                  <span className="text-sm text-gray-600">(250+ employees)</span>
+                  <span className="text-sm text-slate-300">(250+ employees)</span>
                 </td>
-                <td className="border border-gray-300 px-4 py-2">£150,000 - £300,000</td>
-                <td className="border border-gray-300 px-4 py-2">£45,000 - £80,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£150,000 - £300,000</td>
+                <td className="border-slate-500/50 px-4 py-2">£45,000 - £80,000</td>
               </tr>
             </tbody>
           </table>
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Competitive Advantage Through Early Adoption</h2>
           
-          <div className="bg-green-50 border-l-4 border-green-400 p-6 my-8">
+          <div className="bg-green-900/20 border-l-4 border-green-400 p-6 my-8">
             <p className="font-semibold text-green-900 mb-2">
               ✅ Benefits of ISO 42001 Certification Now
             </p>
@@ -400,7 +400,7 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Practical Steps for Public Sector AI Suppliers</h2>
           
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-4">Immediate Actions (Q1 2025)</h3>
             <ol className="space-y-3">
               <li>
@@ -421,7 +421,7 @@ export default function AICertificationUKPublicSectorPage() {
             </ol>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-4">Strategic Preparations (2025-2026)</h3>
             <ol className="space-y-3">
               <li>
@@ -471,7 +471,7 @@ export default function AICertificationUKPublicSectorPage() {
           <div className="space-y-6">
             <div>
               <h3 className="font-semibold text-lg mb-2">NHS and Healthcare</h3>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-2 text-slate-300">
                 <li>• MHRA Software as Medical Device regulations</li>
                 <li>• NHS AI Lab algorithmic impact assessments</li>
                 <li>• Clinical safety standards (DCB0129/DCB0160)</li>
@@ -482,7 +482,7 @@ export default function AICertificationUKPublicSectorPage() {
 
             <div>
               <h3 className="font-semibold text-lg mb-2">Law Enforcement</h3>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-2 text-slate-300">
                 <li>• Home Office biometric strategy compliance</li>
                 <li>• Surveillance camera code of practice</li>
                 <li>• RIPA and investigatory powers framework</li>
@@ -493,7 +493,7 @@ export default function AICertificationUKPublicSectorPage() {
 
             <div>
               <h3 className="font-semibold text-lg mb-2">Central Government</h3>
-              <ul className="space-y-2 text-gray-700">
+              <ul className="space-y-2 text-slate-300">
                 <li>• GDS Service Standard requirements</li>
                 <li>• Algorithmic transparency standard</li>
                 <li>• Green Book appraisal guidance</li>
@@ -535,7 +535,7 @@ export default function AICertificationUKPublicSectorPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common Certification Challenges</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Implementation Pitfalls to Avoid
             </p>
@@ -594,7 +594,7 @@ export default function AICertificationUKPublicSectorPage() {
             <p className="text-lg mb-6">
               With less than 18 months until the EU AI Act deadline and UK regulations imminent, now is the time to act. Early certification provides competitive advantage and ensures compliance readiness.
             </p>
-            <div className="bg-white rounded-lg p-6">
+            <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg p-6">
               <h3 className="font-semibold mb-3">Next Steps:</h3>
               <ol className="space-y-2">
                 <li>1. Download ISO 42001:2023 standard (£198 from BSI)</li>
@@ -641,32 +641,32 @@ export default function AICertificationUKPublicSectorPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/iso-27001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 27001 Information Security
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Foundation for AI data governance</p>
+                <p className="text-sm text-slate-300 mt-1">Foundation for AI data governance</p>
               </div>
               <div>
                 <Link href="/certifications/cyber-essentials-plus-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Cyber Essentials Plus
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Security baseline for AI systems</p>
+                <p className="text-sm text-slate-300 mt-1">Security baseline for AI systems</p>
               </div>
               <div>
                 <Link href="/certifications/iso-9001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 9001 Quality Management
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Quality framework for AI development</p>
+                <p className="text-sm text-slate-300 mt-1">Quality framework for AI development</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Procurement Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

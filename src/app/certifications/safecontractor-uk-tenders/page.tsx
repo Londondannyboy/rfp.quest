@@ -95,7 +95,7 @@ export default function SafeContractorUKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             SafeContractor for UK Government Contracts: Complete SSIP Guide
           </h1>
           
@@ -108,8 +108,8 @@ export default function SafeContractorUKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: safecontractor-uk-certification.jpg - SafeContractor logo and SSIP accreditation for UK contractors]
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function SafeContractorUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Who Requires SafeContractor?</h2>
           
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Utilities Sector (Primary)</h3>
             <ul className="space-y-2">
               <li>• <strong>National Grid:</strong> Mandatory for all contractors</li>
@@ -139,7 +139,7 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Facilities Management</h3>
             <ul className="space-y-2">
               <li>• Major FM companies (Mitie, Serco, Sodexo)</li>
@@ -150,7 +150,7 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Transport & Infrastructure</h3>
             <ul className="space-y-2">
               <li>• Network Rail supply chain</li>
@@ -161,7 +161,7 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Public Sector (Growing)</h3>
             <ul className="space-y-2">
               <li>• NHS Property Services</li>
@@ -178,45 +178,45 @@ export default function SafeContractorUKTendersPage() {
             Pricing is based on number of employees:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Company Size</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Cost</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">3-Year Deal</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Fast-Track</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Company Size</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Cost</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">3-Year Deal</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Fast-Track</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">1-9 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£299 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£807 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£549 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">1-9 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£299 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£807 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£549 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">10-19 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£449 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,212 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£699 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">10-19 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£449 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,212 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£699 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">20-49 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£599 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,617 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£849 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">20-49 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£599 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,617 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£849 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">50-99 employees</td>
-                <td className="border border-gray-300 px-4 py-2">£799 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,157 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,049 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">50-99 employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£799 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,157 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,049 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">100+ employees</td>
-                <td className="border border-gray-300 px-4 py-2">£969 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,616 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,219 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">100+ employees</td>
+                <td className="border-slate-500/50 px-4 py-2">£969 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,616 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,219 + VAT</td>
               </tr>
             </tbody>
           </table>
@@ -236,9 +236,9 @@ export default function SafeContractorUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">The SafeContractor Assessment Process</h2>
           
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 1: Registration & Application</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Create online account</li>
               <li>• Complete company details questionnaire</li>
               <li>• Select relevant trade categories</li>
@@ -247,9 +247,9 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 2: Document Upload</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Health & Safety Policy (signed/dated)</li>
               <li>• Insurance certificates (EL, PL, PI)</li>
               <li>• Risk assessments (minimum 3)</li>
@@ -260,9 +260,9 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 3: Assessment Review</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Expert assessor reviews documentation</li>
               <li>• Legal compliance check</li>
               <li>• Risk assessment quality evaluation</li>
@@ -272,9 +272,9 @@ export default function SafeContractorUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Stage 4: Certification Decision</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Pass: Certificate issued immediately</li>
               <li>• Remedial action: Specific improvements required</li>
               <li>• 14-day window for corrections</li>
@@ -312,7 +312,7 @@ export default function SafeContractorUKTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Utilities Specific</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Permit to work procedures</li>
                 <li>• Confined space entry protocols</li>
                 <li>• Excavation and reinstatement methods</li>
@@ -324,7 +324,7 @@ export default function SafeContractorUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">FM & Cleaning Specific</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• COSHH assessments for all chemicals</li>
                 <li>• Lone working procedures</li>
                 <li>• Key holding and security protocols</li>
@@ -336,7 +336,7 @@ export default function SafeContractorUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Construction Specific</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• CDM 2015 compliance evidence</li>
                 <li>• Asbestos awareness training</li>
                 <li>• Working at height procedures</li>
@@ -349,51 +349,51 @@ export default function SafeContractorUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">SafeContractor vs Other SSIP Schemes</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Feature</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">SafeContractor</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">CHAS</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">SMAS</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Feature</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">SafeContractor</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">CHAS</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">SMAS</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Ownership</td>
-                <td className="border border-gray-300 px-4 py-2">Alcumus (Private)</td>
-                <td className="border border-gray-300 px-4 py-2">LGA (Government)</td>
-                <td className="border border-gray-300 px-4 py-2">SSIP Ltd</td>
+                <td className="border-slate-500/50 px-4 py-2">Ownership</td>
+                <td className="border-slate-500/50 px-4 py-2">Alcumus (Private)</td>
+                <td className="border-slate-500/50 px-4 py-2">LGA (Government)</td>
+                <td className="border-slate-500/50 px-4 py-2">SSIP Ltd</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Primary sectors</td>
-                <td className="border border-gray-300 px-4 py-2">Utilities, FM, Retail</td>
-                <td className="border border-gray-300 px-4 py-2">Local authorities</td>
-                <td className="border border-gray-300 px-4 py-2">General construction</td>
+                <td className="border-slate-500/50 px-4 py-2">Primary sectors</td>
+                <td className="border-slate-500/50 px-4 py-2">Utilities, FM, Retail</td>
+                <td className="border-slate-500/50 px-4 py-2">Local authorities</td>
+                <td className="border-slate-500/50 px-4 py-2">General construction</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Site visits available</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                <td className="border border-gray-300 px-4 py-2">❌ No</td>
-                <td className="border border-gray-300 px-4 py-2">❌ No</td>
+                <td className="border-slate-500/50 px-4 py-2">Site visits available</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ No</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ No</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Client customisation</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Extensive</td>
-                <td className="border border-gray-300 px-4 py-2">Limited</td>
-                <td className="border border-gray-300 px-4 py-2">Basic</td>
+                <td className="border-slate-500/50 px-4 py-2">Client customisation</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Extensive</td>
+                <td className="border-slate-500/50 px-4 py-2">Limited</td>
+                <td className="border-slate-500/50 px-4 py-2">Basic</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Number of clients</td>
-                <td className="border border-gray-300 px-4 py-2">850+</td>
-                <td className="border border-gray-300 px-4 py-2">130+ councils</td>
-                <td className="border border-gray-300 px-4 py-2">400+</td>
+                <td className="border-slate-500/50 px-4 py-2">Number of clients</td>
+                <td className="border-slate-500/50 px-4 py-2">850+</td>
+                <td className="border-slate-500/50 px-4 py-2">130+ councils</td>
+                <td className="border-slate-500/50 px-4 py-2">400+</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">SSIP recognition</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Full member</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Full member</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Full member</td>
+                <td className="border-slate-500/50 px-4 py-2">SSIP recognition</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Full member</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Full member</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Full member</td>
               </tr>
             </tbody>
           </table>
@@ -413,7 +413,7 @@ export default function SafeContractorUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common Failure Points</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Top Reasons for SafeContractor Rejection
             </p>
@@ -516,32 +516,32 @@ export default function SafeContractorUKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/chas-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   CHAS Certification
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Government-owned alternative</p>
+                <p className="text-sm text-slate-300 mt-1">Government-owned alternative</p>
               </div>
               <div>
                 <Link href="/certifications/ssip-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SSIP Overview
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Understanding all schemes</p>
+                <p className="text-sm text-slate-300 mt-1">Understanding all schemes</p>
               </div>
               <div>
                 <Link href="/certifications/constructionline-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Constructionline Gold
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Combined PQQ + SSIP</p>
+                <p className="text-sm text-slate-300 mt-1">Combined PQQ + SSIP</p>
               </div>
               <div>
                 <Link href="/certifications/iso-45001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 45001
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">International H&S standard</p>
+                <p className="text-sm text-slate-300 mt-1">International H&S standard</p>
               </div>
             </div>
             

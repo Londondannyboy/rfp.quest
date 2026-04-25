@@ -164,7 +164,7 @@ export function WizardContainer() {
         className="mb-8"
       >
         <span className="text-2xl font-bold text-white">
-          <span className="text-teal-400">RFP</span> Quest
+          <span className="text-blue-400">RFP</span> Quest
         </span>
       </motion.div>
 
@@ -179,7 +179,7 @@ export function WizardContainer() {
           <div key={step} className="flex items-center">
             <motion.div
               className={`w-3 h-3 rounded-full ${
-                step <= state.step ? 'bg-teal-400' : 'bg-slate-600'
+                step <= state.step ? 'bg-blue-500/80' : 'bg-slate-600'
               }`}
               animate={{
                 scale: step === state.step ? [1, 1.2, 1] : 1,
@@ -192,7 +192,7 @@ export function WizardContainer() {
             {step < 4 && (
               <div
                 className={`w-8 h-0.5 ${
-                  step < state.step ? 'bg-teal-400' : 'bg-slate-600'
+                  step < state.step ? 'bg-blue-500/80' : 'bg-slate-600'
                 }`}
               />
             )}

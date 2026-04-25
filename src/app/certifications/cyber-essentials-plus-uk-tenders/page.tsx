@@ -95,11 +95,11 @@ export default function CyberEssentialsPlusUKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             Cyber Essentials Plus for UK Government Contracts: Complete Guide
           </h1>
           
-          <div className="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+          <div className="bg-red-900/20 border-l-4 border-red-400 p-6 mb-8">
             <p className="text-lg font-semibold text-red-900 mb-2">
               🔒 Mandatory for High-Risk Government Contracts
             </p>
@@ -108,8 +108,8 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: cyber-essentials-plus-uk-contracts.jpg - Cyber Essentials Plus certification badge and technical audit process]
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
             CE Plus has become mandatory for specific high-risk government contracts:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Ministry of Defence (MOD)</h3>
             <ul className="space-y-2">
               <li>• All direct MOD contractors - mandatory under DEFSTAN 05-138</li>
@@ -141,7 +141,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">NHS & Healthcare</h3>
             <ul className="space-y-2">
               <li>• NHS digital service providers</li>
@@ -152,7 +152,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Central Government High-Risk Contracts</h3>
             <ul className="space-y-2">
               <li>• Contracts handling 500,000+ citizen records</li>
@@ -169,44 +169,44 @@ export default function CyberEssentialsPlusUKTendersPage() {
             Understanding the key differences helps determine which certification you need:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Cyber Essentials</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Cyber Essentials Plus</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Cyber Essentials</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Cyber Essentials Plus</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Assessment Type</td>
-                <td className="border border-gray-300 px-4 py-2">Self-assessment questionnaire</td>
-                <td className="border border-gray-300 px-4 py-2">Questionnaire + technical audit</td>
+                <td className="border-slate-500/50 px-4 py-2">Assessment Type</td>
+                <td className="border-slate-500/50 px-4 py-2">Self-assessment questionnaire</td>
+                <td className="border-slate-500/50 px-4 py-2">Questionnaire + technical audit</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Verification</td>
-                <td className="border border-gray-300 px-4 py-2">Declaration-based</td>
-                <td className="border border-gray-300 px-4 py-2">Hands-on system testing</td>
+                <td className="border-slate-500/50 px-4 py-2">Verification</td>
+                <td className="border-slate-500/50 px-4 py-2">Declaration-based</td>
+                <td className="border-slate-500/50 px-4 py-2">Hands-on system testing</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Cost Range</td>
-                <td className="border border-gray-300 px-4 py-2">£320 - £600+VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,695 - £3,495+VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Cost Range</td>
+                <td className="border-slate-500/50 px-4 py-2">£320 - £600+VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,695 - £3,495+VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Timeline</td>
-                <td className="border border-gray-300 px-4 py-2">1-2 weeks</td>
-                <td className="border border-gray-300 px-4 py-2">2-6 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">Timeline</td>
+                <td className="border-slate-500/50 px-4 py-2">1-2 weeks</td>
+                <td className="border-slate-500/50 px-4 py-2">2-6 weeks</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Testing Included</td>
-                <td className="border border-gray-300 px-4 py-2">None</td>
-                <td className="border border-gray-300 px-4 py-2">Vulnerability scans, config review</td>
+                <td className="border-slate-500/50 px-4 py-2">Testing Included</td>
+                <td className="border-slate-500/50 px-4 py-2">None</td>
+                <td className="border-slate-500/50 px-4 py-2">Vulnerability scans, config review</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Assurance Level</td>
-                <td className="border border-gray-300 px-4 py-2">Basic</td>
-                <td className="border border-gray-300 px-4 py-2">High</td>
+                <td className="border-slate-500/50 px-4 py-2">Assurance Level</td>
+                <td className="border-slate-500/50 px-4 py-2">Basic</td>
+                <td className="border-slate-500/50 px-4 py-2">High</td>
               </tr>
             </tbody>
           </table>
@@ -217,9 +217,9 @@ export default function CyberEssentialsPlusUKTendersPage() {
             The CE Plus technical audit involves comprehensive testing of your systems:
           </p>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">1. External Vulnerability Scanning</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• All external IP addresses scanned</li>
               <li>• Open ports and services identified</li>
               <li>• Known vulnerabilities checked</li>
@@ -227,9 +227,9 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">2. Internal System Testing</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Sample of user devices tested (laptops, desktops, mobiles)</li>
               <li>• Patch status verification</li>
               <li>• Anti-malware effectiveness</li>
@@ -237,9 +237,9 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">3. Configuration Review</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Administrator account audit</li>
               <li>• Password policy testing</li>
               <li>• Software inventory verification</li>
@@ -247,9 +247,9 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">4. Build Standard Assessment</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Standard build configuration checked</li>
               <li>• Unnecessary services disabled</li>
               <li>• Auto-run disabled verification</li>
@@ -263,34 +263,34 @@ export default function CyberEssentialsPlusUKTendersPage() {
             Official IASME pricing for CE Plus (2024-2025):
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Company Size</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">CE Plus Cost</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Additional Costs</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Company Size</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">CE Plus Cost</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Additional Costs</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Micro (1-9 employees)</td>
-                <td className="border border-gray-300 px-4 py-2">£1,695 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">IT support: £500-£1,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Micro (1-9 employees)</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,695 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">IT support: £500-£1,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Small (10-49)</td>
-                <td className="border border-gray-300 px-4 py-2">£1,995 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Remediation: £1,000-£3,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Small (10-49)</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,995 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Remediation: £1,000-£3,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Medium (50-249)</td>
-                <td className="border border-gray-300 px-4 py-2">£2,745 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Consultant: £2,000-£5,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Medium (50-249)</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,745 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Consultant: £2,000-£5,000</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Large (250+)</td>
-                <td className="border border-gray-300 px-4 py-2">£3,495 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">Full prep: £3,000-£10,000</td>
+                <td className="border-slate-500/50 px-4 py-2">Large (250+)</td>
+                <td className="border-slate-500/50 px-4 py-2">£3,495 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Full prep: £3,000-£10,000</td>
               </tr>
             </tbody>
           </table>
@@ -312,7 +312,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
             The technical audit often identifies these issues causing failure:
           </p>
 
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Top Reasons for CE Plus Failure
             </p>
@@ -336,7 +336,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">2-4 Weeks Before</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Complete internal vulnerability scan</li>
                 <li>• Update all systems and software</li>
                 <li>• Review and strengthen password policies</li>
@@ -347,7 +347,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">1 Week Before</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Final patching sweep</li>
                 <li>• Test backup systems</li>
                 <li>• Verify anti-malware on all devices</li>
@@ -358,7 +358,7 @@ export default function CyberEssentialsPlusUKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Day of Assessment</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• IT team available for questions</li>
                 <li>• Admin access ready for assessor</li>
                 <li>• Network diagrams available</li>
@@ -502,32 +502,32 @@ export default function CyberEssentialsPlusUKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/cyber-essentials-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Cyber Essentials (Basic)
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Foundation level certification</p>
+                <p className="text-sm text-slate-300 mt-1">Foundation level certification</p>
               </div>
               <div>
                 <Link href="/certifications/iso-27001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 27001 Information Security
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Comprehensive ISMS standard</p>
+                <p className="text-sm text-slate-300 mt-1">Comprehensive ISMS standard</p>
               </div>
               <div>
                 <Link href="/certifications/dsp-toolkit-nhs-tenders" className="text-blue-600 hover:underline font-medium">
                   DSP Toolkit
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">NHS data security requirements</p>
+                <p className="text-sm text-slate-300 mt-1">NHS data security requirements</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

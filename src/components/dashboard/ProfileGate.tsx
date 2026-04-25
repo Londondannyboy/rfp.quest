@@ -35,7 +35,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <motion.div
-          className="w-8 h-8 border-3 border-teal-500/30 border-t-teal-500 rounded-full"
+          className="w-8 h-8 border-3 border-blue-500/50/30 border-t-teal-500 rounded-full"
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
         />
@@ -63,15 +63,15 @@ export function ProfileGate({ children }: ProfileGateProps) {
         className="max-w-lg w-full"
       >
         {/* Header Card */}
-        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8 text-center">
+        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 backdrop-blur-sm rounded-2xl border-slate-700/50 p-8 text-center">
           {/* Icon */}
           <motion.div
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.1, type: 'spring' }}
-            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border border-teal-500/30 flex items-center justify-center"
+            className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-teal-500/20 to-cyan-500/20 border-blue-500/50/30 flex items-center justify-center"
           >
-            <UserCircleIcon className="w-10 h-10 text-teal-400" />
+            <UserCircleIcon className="w-10 h-10 text-blue-400" />
           </motion.div>
 
           {/* Title */}
@@ -87,7 +87,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
           <div className="mb-6">
             <div className="flex justify-between text-sm mb-2">
               <span className="text-slate-400">Profile Completion</span>
-              <span className="text-teal-400 font-medium">
+              <span className="text-blue-400 font-medium">
                 {completionPercentage}%
               </span>
             </div>
@@ -102,7 +102,7 @@ export function ProfileGate({ children }: ProfileGateProps) {
           </div>
 
           {/* Missing Fields Checklist */}
-          <div className="bg-slate-900/50 rounded-xl border border-slate-700/50 p-4 mb-6 text-left">
+          <div className="bg-slate-900/50 rounded-xl border-slate-700/50 p-4 mb-6 text-left">
             <p className="text-sm font-medium text-slate-300 mb-3">
               Required to continue:
             </p>
@@ -186,18 +186,18 @@ function CheckItem({
     <div
       className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors ${
         completed
-          ? 'bg-teal-500/10 text-teal-300'
+          ? 'bg-blue-950/200/10 text-blue-300'
           : 'bg-slate-800/50 text-slate-400'
       }`}
     >
       {completed ? (
-        <CheckCircleIcon className="w-5 h-5 text-teal-400" />
+        <CheckCircleIcon className="w-5 h-5 text-blue-400" />
       ) : (
         <Icon className="w-5 h-5" />
       )}
       <span className="text-sm">{label}</span>
       {completed && (
-        <span className="ml-auto text-xs text-teal-500">Done</span>
+        <span className="ml-auto text-xs text-blue-500">Done</span>
       )}
     </div>
   );
@@ -213,7 +213,7 @@ function FeatureTeaser({
   description: string;
 }) {
   return (
-    <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 p-3 text-center group hover:border-slate-600/50 transition-colors">
+    <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl border-slate-700/50 p-3 text-center group hover:border-slate-600/50 transition-colors">
       <div className="text-2xl mb-1 group-hover:scale-110 transition-transform">
         {emoji}
       </div>

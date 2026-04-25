@@ -40,12 +40,12 @@ function StageBadge({ stage }: { stage: string }) {
     tender: 'bg-green-100 text-green-800',
     planning: 'bg-blue-100 text-blue-800',
     award: 'bg-purple-100 text-purple-800',
-    contract: 'bg-gray-100 text-gray-800',
+    contract: 'bg-slate-900/40 backdrop-blur-xl text-slate-100',
   };
 
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[stage] || 'bg-gray-100 text-gray-600'}`}
+      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[stage] || 'bg-slate-900/40 backdrop-blur-xl text-slate-300'}`}
     >
       {stage.charAt(0).toUpperCase() + stage.slice(1)}
     </span>
@@ -54,16 +54,16 @@ function StageBadge({ stage }: { stage: string }) {
 
 function DeadlineBadge({ deadline }: { deadline: string | null }) {
   if (!deadline) {
-    return <span className="text-gray-400">Not specified</span>;
+    return <span className="text-slate-400">Not specified</span>;
   }
 
   const date = new Date(deadline);
   const now = new Date();
   const diffDays = Math.ceil((date.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
-  let colorClass = 'text-gray-900';
+  let colorClass = 'text-slate-100';
   if (diffDays < 0) {
-    colorClass = 'text-gray-400';
+    colorClass = 'text-slate-400';
   } else if (diffDays <= 3) {
     colorClass = 'text-red-600 font-medium';
   } else if (diffDays <= 7) {
@@ -75,7 +75,7 @@ function DeadlineBadge({ deadline }: { deadline: string | null }) {
 
 function CPVBadges({ codes }: { codes: string[] }) {
   if (!codes || !codes.length) {
-    return <span className="text-gray-400">-</span>;
+    return <span className="text-slate-400">-</span>;
   }
 
   const displayCodes = codes.slice(0, 2);
@@ -86,14 +86,14 @@ function CPVBadges({ codes }: { codes: string[] }) {
       {displayCodes.map((code) => (
         <span
           key={code}
-          className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-600"
+          className="inline-flex items-center rounded bg-slate-900/40 backdrop-blur-xl px-2 py-0.5 text-xs font-medium text-slate-300"
           title={code}
         >
           {code.slice(0, 8)}
         </span>
       ))}
       {remaining > 0 && (
-        <span className="inline-flex items-center rounded bg-gray-100 px-2 py-0.5 text-xs text-gray-500">
+        <span className="inline-flex items-center rounded bg-slate-900/40 backdrop-blur-xl px-2 py-0.5 text-xs text-slate-500">
           +{remaining}
         </span>
       )}
@@ -104,7 +104,7 @@ function CPVBadges({ codes }: { codes: string[] }) {
 function SustainabilityBadge() {
   return (
     <span
-      className="inline-flex items-center gap-1 rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700"
+      className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-2 py-0.5 text-xs font-medium text-green-700"
       title="Sustainability-related tender"
     >
       🌿 Sustainability
@@ -118,13 +118,13 @@ export const columns = [
     cell: (info) => (
       <div className="max-w-md">
         <div className="flex items-center gap-2">
-          <span className="font-medium text-gray-900 truncate" title={info.getValue()}>
+          <span className="font-medium text-slate-100 truncate" title={info.getValue()}>
             {info.getValue()}
           </span>
           {info.row.original.isSustainability && <SustainabilityBadge />}
         </div>
         {info.row.original.description && (
-          <div className="text-sm text-gray-500 truncate" title={info.row.original.description}>
+          <div className="text-sm text-slate-500 truncate" title={info.row.original.description}>
             {info.row.original.description.slice(0, 100)}...
           </div>
         )}
@@ -136,7 +136,7 @@ export const columns = [
   columnHelper.accessor('buyerName', {
     header: 'Buyer',
     cell: (info) => (
-      <div className="text-sm text-gray-900 truncate max-w-48" title={info.getValue()}>
+      <div className="text-sm text-slate-100 truncate max-w-48" title={info.getValue()}>
         {info.getValue()}
       </div>
     ),
@@ -147,7 +147,7 @@ export const columns = [
     id: 'value',
     header: 'Value',
     cell: (info) => (
-      <div className="text-sm text-gray-900 whitespace-nowrap">
+      <div className="text-sm text-slate-100 whitespace-nowrap">
         {info.getValue()}
       </div>
     ),
@@ -176,7 +176,7 @@ export const columns = [
   columnHelper.accessor('region', {
     header: 'Region',
     cell: (info) => (
-      <span className="text-sm text-gray-600">
+      <span className="text-sm text-slate-300">
         {info.getValue() || '-'}
       </span>
     ),
@@ -186,7 +186,7 @@ export const columns = [
   columnHelper.accessor('publishedDate', {
     header: 'Published',
     cell: (info) => (
-      <span className="text-sm text-gray-500">
+      <span className="text-sm text-slate-500">
         {formatDate(info.getValue())}
       </span>
     ),

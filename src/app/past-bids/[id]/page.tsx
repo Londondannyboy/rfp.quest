@@ -175,7 +175,7 @@ export default function PastBidDetailPage({
   if (isLoading) {
     return (
       <div className="min-h-screen bg-slate-950 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500" />
       </div>
     );
   }
@@ -232,13 +232,13 @@ export default function PastBidDetailPage({
         {/* Bid Details Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {bid.contractValue && (
-            <div className="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-lg p-4 border-slate-800">
               <p className="text-xs text-slate-500 mb-1">Contract Value</p>
               <p className="text-lg font-semibold text-white">{formatCurrency(bid.contractValue)}</p>
             </div>
           )}
           {bid.submissionDate && (
-            <div className="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-lg p-4 border-slate-800">
               <p className="text-xs text-slate-500 mb-1">Submitted</p>
               <p className="text-lg font-semibold text-white">
                 {new Date(bid.submissionDate).toLocaleDateString('en-GB', {
@@ -250,7 +250,7 @@ export default function PastBidDetailPage({
             </div>
           )}
           {bid.awardDate && (
-            <div className="bg-slate-900 rounded-lg p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-lg p-4 border-slate-800">
               <p className="text-xs text-slate-500 mb-1">Award Date</p>
               <p className="text-lg font-semibold text-white">
                 {new Date(bid.awardDate).toLocaleDateString('en-GB', {
@@ -261,7 +261,7 @@ export default function PastBidDetailPage({
               </p>
             </div>
           )}
-          <div className="bg-slate-900 rounded-lg p-4 border border-slate-800">
+          <div className="bg-slate-900 rounded-lg p-4 border-slate-800">
             <p className="text-xs text-slate-500 mb-1">Responses</p>
             <p className="text-lg font-semibold text-white">{responses.length}</p>
           </div>
@@ -269,7 +269,7 @@ export default function PastBidDetailPage({
 
         {/* Win Themes */}
         {bid.winThemes && bid.winThemes.length > 0 && (
-          <div className="bg-slate-900 rounded-lg p-4 border border-slate-800 mb-8">
+          <div className="bg-slate-900 rounded-lg p-4 border-slate-800 mb-8">
             <h3 className="text-sm font-medium text-slate-400 mb-2 flex items-center gap-2">
               <TagIcon className="w-4 h-4" />
               Win Themes
@@ -278,7 +278,7 @@ export default function PastBidDetailPage({
               {bid.winThemes.map((theme, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1 bg-teal-900/30 text-teal-400 rounded-full text-sm"
+                  className="px-3 py-1 bg-blue-950/30 text-blue-400 rounded-full text-sm"
                 >
                   {theme}
                 </span>
@@ -289,7 +289,7 @@ export default function PastBidDetailPage({
 
         {/* Lessons Learned */}
         {bid.lessonsLearned && (
-          <div className="bg-slate-900 rounded-lg p-4 border border-slate-800 mb-8">
+          <div className="bg-slate-900 rounded-lg p-4 border-slate-800 mb-8">
             <h3 className="text-sm font-medium text-slate-400 mb-2 flex items-center gap-2">
               <ChartBarIcon className="w-4 h-4" />
               Lessons Learned
@@ -307,7 +307,7 @@ export default function PastBidDetailPage({
                 resetForm();
                 setIsAddingResponse(true);
               }}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-4 h-4" />
               Add Response
@@ -316,7 +316,7 @@ export default function PastBidDetailPage({
 
           {/* Add/Edit Response Form */}
           {isAddingResponse && (
-            <div className="bg-slate-900 rounded-lg p-6 border border-slate-800 mb-6">
+            <div className="bg-slate-900 rounded-lg p-6 border-slate-800 mb-6">
               <h3 className="text-lg font-medium text-white mb-4">
                 {editingResponse ? 'Edit Response' : 'Add New Response'}
               </h3>
@@ -328,7 +328,7 @@ export default function PastBidDetailPage({
                       type="number"
                       value={formData.questionNumber}
                       onChange={(e) => setFormData({ ...formData, questionNumber: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                      className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                       placeholder="e.g., 1"
                     />
                   </div>
@@ -339,7 +339,7 @@ export default function PastBidDetailPage({
                       step="0.1"
                       value={formData.scoreReceived}
                       onChange={(e) => setFormData({ ...formData, scoreReceived: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                      className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                       placeholder="e.g., 8"
                     />
                   </div>
@@ -350,7 +350,7 @@ export default function PastBidDetailPage({
                       step="0.1"
                       value={formData.maxScore}
                       onChange={(e) => setFormData({ ...formData, maxScore: e.target.value })}
-                      className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                      className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                       placeholder="e.g., 10"
                     />
                   </div>
@@ -363,7 +363,7 @@ export default function PastBidDetailPage({
                     onChange={(e) => setFormData({ ...formData, questionText: e.target.value })}
                     required
                     rows={2}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none resize-none"
+                    className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-none"
                     placeholder="Enter the question that was asked..."
                   />
                 </div>
@@ -375,7 +375,7 @@ export default function PastBidDetailPage({
                     onChange={(e) => setFormData({ ...formData, responseText: e.target.value })}
                     required
                     rows={6}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none resize-none"
+                    className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-none"
                     placeholder="Enter your bid response..."
                   />
                   <p className="text-xs text-slate-500 mt-1">
@@ -389,7 +389,7 @@ export default function PastBidDetailPage({
                     value={formData.evaluatorFeedback}
                     onChange={(e) => setFormData({ ...formData, evaluatorFeedback: e.target.value })}
                     rows={2}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none resize-none"
+                    className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-none"
                     placeholder="Any feedback received from evaluators..."
                   />
                 </div>
@@ -400,7 +400,7 @@ export default function PastBidDetailPage({
                     type="text"
                     value={formData.tags}
                     onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-teal-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-slate-800 border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
                     placeholder="e.g., methodology, case study, pricing"
                   />
                 </div>
@@ -408,7 +408,7 @@ export default function PastBidDetailPage({
                 <div className="flex gap-3 pt-2">
                   <button
                     type="submit"
-                    className="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+                    className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     {editingResponse ? 'Save Changes' : 'Add Response'}
                   </button>
@@ -429,7 +429,7 @@ export default function PastBidDetailPage({
 
           {/* Responses List */}
           {responses.length === 0 ? (
-            <div className="bg-slate-900 rounded-lg p-8 border border-slate-800 text-center">
+            <div className="bg-slate-900 rounded-lg p-8 border-slate-800 text-center">
               <DocumentTextIcon className="w-12 h-12 text-slate-600 mx-auto mb-3" />
               <p className="text-slate-400 mb-2">No responses added yet</p>
               <p className="text-sm text-slate-500">
@@ -441,7 +441,7 @@ export default function PastBidDetailPage({
               {responses.map((response) => (
                 <div
                   key={response.id}
-                  className="bg-slate-900 rounded-lg p-5 border border-slate-800"
+                  className="bg-slate-900 rounded-lg p-5 border-slate-800"
                 >
                   <div className="flex items-start justify-between gap-4 mb-3">
                     <div className="flex-1">

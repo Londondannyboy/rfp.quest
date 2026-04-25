@@ -168,14 +168,14 @@ export function BidWritingWorkspace({
   const progress = calculateProgress();
 
   return (
-    <div className={`flex h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-white' : ''}`}>
+    <div className={`flex h-full ${isFullscreen ? 'fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50' : ''}`}>
       {/* Left Panel - Tender Requirements */}
-      <div className="w-1/2 border-r border-gray-200 flex flex-col">
-        <div className="px-6 py-4 border-b border-gray-200 bg-gray-50">
+      <div className="w-1/2 border-r border-slate-700/50 flex flex-col">
+        <div className="px-6 py-4 border-b border-slate-700/50 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
           <div className="flex items-center justify-between">
             <div>
-              <h2 className="text-lg font-semibold text-gray-900">Tender Requirements</h2>
-              <p className="text-sm text-gray-600 mt-1">
+              <h2 className="text-lg font-semibold text-slate-100">Tender Requirements</h2>
+              <p className="text-sm text-slate-300 mt-1">
                 {tender.title}
               </p>
             </div>
@@ -185,7 +185,7 @@ export function BidWritingWorkspace({
                 className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                   showCompliance
                     ? 'bg-blue-100 text-blue-700'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-slate-900/40 backdrop-blur-xl text-slate-200 hover:bg-slate-800/60'
                 }`}
               >
                 <ShieldCheckIcon className="w-4 h-4 inline mr-1" />
@@ -193,12 +193,12 @@ export function BidWritingWorkspace({
               </button>
               <button
                 onClick={() => setIsFullscreen(!isFullscreen)}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                className="p-2 rounded-lg hover:bg-slate-900/40 backdrop-blur-xl transition-colors"
               >
                 {isFullscreen ? (
-                  <ArrowsPointingInIcon className="w-5 h-5 text-gray-600" />
+                  <ArrowsPointingInIcon className="w-5 h-5 text-slate-300" />
                 ) : (
-                  <ArrowsPointingOutIcon className="w-5 h-5 text-gray-600" />
+                  <ArrowsPointingOutIcon className="w-5 h-5 text-slate-300" />
                 )}
               </button>
             </div>
@@ -207,10 +207,10 @@ export function BidWritingWorkspace({
           {/* Progress Bar */}
           <div className="mt-4">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-sm text-gray-600">Progress</span>
-              <span className="text-sm font-medium text-gray-900">{Math.round(progress)}%</span>
+              <span className="text-sm text-slate-300">Progress</span>
+              <span className="text-sm font-medium text-slate-100">{Math.round(progress)}%</span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-slate-800/60 rounded-full h-2">
               <motion.div
                 className="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full"
                 initial={{ width: 0 }}
@@ -227,17 +227,17 @@ export function BidWritingWorkspace({
             {(tender as any).analysis?.requirements?.map((req: any, index: number) => (
               <div
                 key={req.id || index}
-                className="bg-white rounded-lg border border-gray-200 p-4 hover:shadow-sm transition-shadow"
+                className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50 p-4 hover:shadow-sm transition-shadow"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="font-medium text-gray-900">{req.title || `Section ${index + 1}`}</h3>
+                  <h3 className="font-medium text-slate-100">{req.title || `Section ${index + 1}`}</h3>
                   {sections.find(s => s.requirement_ref === req.id)?.content && (
                     <CheckCircleSolid className="w-5 h-5 text-green-500" />
                   )}
                 </div>
-                <p className="text-sm text-gray-700 leading-relaxed">{req.description}</p>
+                <p className="text-sm text-slate-200 leading-relaxed">{req.description}</p>
                 {req.mandatory && (
-                  <span className="inline-flex items-center gap-1 px-2 py-1 mt-3 rounded-full bg-red-50 text-red-700 text-xs font-medium">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 mt-3 rounded-full bg-red-900/20 text-red-700 text-xs font-medium">
                     <ExclamationTriangleIcon className="w-3 h-3" />
                     Mandatory
                   </span>
@@ -249,7 +249,7 @@ export function BidWritingWorkspace({
         
         {/* Compliance Panel */}
         {showCompliance && (
-          <div className="border-t border-gray-200 p-4 bg-gray-50">
+          <div className="border-t border-slate-700/50 p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             <ComplianceChecker
               sections={sections}
               requirements={(tender as any).analysis?.requirements || []}
@@ -261,18 +261,18 @@ export function BidWritingWorkspace({
       
       {/* Right Panel - Bid Writing */}
       <div className="w-1/2 flex flex-col">
-        <div className="px-6 py-4 border-b border-gray-200 bg-white">
+        <div className="px-6 py-4 border-b border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <h2 className="text-lg font-semibold text-gray-900">Your Response</h2>
+              <h2 className="text-lg font-semibold text-slate-100">Your Response</h2>
               {isSaving && (
-                <span className="flex items-center gap-1 text-sm text-gray-500">
+                <span className="flex items-center gap-1 text-sm text-slate-500">
                   <CloudArrowUpIcon className="w-4 h-4 animate-pulse" />
                   Saving...
                 </span>
               )}
               {!isSaving && lastSaved && (
-                <span className="text-sm text-gray-500">
+                <span className="text-sm text-slate-500">
                   Last saved {new Date(lastSaved).toLocaleTimeString()}
                 </span>
               )}
@@ -281,7 +281,7 @@ export function BidWritingWorkspace({
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setShowResponseLibrary(!showResponseLibrary)}
-                className="px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium transition-colors"
+                className="px-3 py-1.5 rounded-lg bg-slate-900/40 backdrop-blur-xl hover:bg-slate-800/60 text-slate-200 text-sm font-medium transition-colors"
               >
                 <BookmarkIcon className="w-4 h-4 inline mr-1" />
                 Library
@@ -305,15 +305,15 @@ export function BidWritingWorkspace({
           {/* Win Probability */}
           {winProbability !== null && (
             <div className="mt-3 flex items-center gap-3">
-              <ChartBarIcon className="w-5 h-5 text-gray-400" />
+              <ChartBarIcon className="w-5 h-5 text-slate-400" />
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm text-gray-600">Win Probability</span>
-                  <span className="text-sm font-semibold text-gray-900">
+                  <span className="text-sm text-slate-300">Win Probability</span>
+                  <span className="text-sm font-semibold text-slate-100">
                     {Math.round(winProbability * 100)}%
                   </span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-1.5">
+                <div className="w-full bg-slate-800/60 rounded-full h-1.5">
                   <div
                     className="bg-gradient-to-r from-orange-500 to-green-500 h-1.5 rounded-full"
                     style={{ width: `${winProbability * 100}%` }}
@@ -333,16 +333,16 @@ export function BidWritingWorkspace({
                 className={`border rounded-lg transition-all ${
                   selectedSection === section.id
                     ? 'border-blue-400 ring-2 ring-blue-100'
-                    : 'border-gray-200 hover:border-gray-300'
+                    : 'border-slate-700/50 hover:border-slate-600/50'
                 }`}
               >
-                <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
+                <div className="px-4 py-3 border-b border-slate-700/50 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-medium text-gray-900">
+                    <h3 className="font-medium text-slate-100">
                       {section.title}
                     </h3>
                     <div className="flex items-center gap-3">
-                      <span className="text-sm text-gray-500">
+                      <span className="text-sm text-slate-500">
                         {section.word_count || 0} words
                       </span>
                       {section.compliance_status && (

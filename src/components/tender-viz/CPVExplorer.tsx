@@ -19,19 +19,19 @@ interface CPVExplorerProps {
 
 // CPV division colors for visual distinction
 const divisionColors: Record<string, { bg: string; text: string; border: string }> = {
-  '03': { bg: 'bg-green-500/10', text: 'text-green-400', border: 'border-green-500/30' },
+  '03': { bg: 'bg-green-900/200/10', text: 'text-green-400', border: 'border-green-500/30' },
   '09': { bg: 'bg-yellow-500/10', text: 'text-yellow-400', border: 'border-yellow-500/30' },
   '14': { bg: 'bg-orange-500/10', text: 'text-orange-400', border: 'border-orange-500/30' },
-  '15': { bg: 'bg-red-500/10', text: 'text-red-400', border: 'border-red-500/30' },
+  '15': { bg: 'bg-red-900/200/10', text: 'text-red-400', border: 'border-red-500/30' },
   '18': { bg: 'bg-pink-500/10', text: 'text-pink-400', border: 'border-pink-500/30' },
   '22': { bg: 'bg-purple-500/10', text: 'text-purple-400', border: 'border-purple-500/30' },
   '30': { bg: 'bg-blue-500/10', text: 'text-blue-400', border: 'border-blue-500/30' },
   '31': { bg: 'bg-indigo-500/10', text: 'text-indigo-400', border: 'border-indigo-500/30' },
   '32': { bg: 'bg-cyan-500/10', text: 'text-cyan-400', border: 'border-cyan-500/30' },
-  '33': { bg: 'bg-teal-500/10', text: 'text-teal-400', border: 'border-teal-500/30' },
+  '33': { bg: 'bg-blue-950/200/10', text: 'text-blue-400', border: 'border-blue-500/50/30' },
   '34': { bg: 'bg-emerald-500/10', text: 'text-emerald-400', border: 'border-emerald-500/30' },
   '35': { bg: 'bg-lime-500/10', text: 'text-lime-400', border: 'border-lime-500/30' },
-  '38': { bg: 'bg-amber-500/10', text: 'text-amber-400', border: 'border-amber-500/30' },
+  '38': { bg: 'bg-amber-900/200/10', text: 'text-amber-400', border: 'border-amber-500/30' },
   '39': { bg: 'bg-rose-500/10', text: 'text-rose-400', border: 'border-rose-500/30' },
   '42': { bg: 'bg-violet-500/10', text: 'text-violet-400', border: 'border-violet-500/30' },
   '44': { bg: 'bg-fuchsia-500/10', text: 'text-fuchsia-400', border: 'border-fuchsia-500/30' },
@@ -45,7 +45,7 @@ const divisionColors: Record<string, { bg: string; text: string; border: string 
   '65': { bg: 'bg-purple-600/10', text: 'text-purple-300', border: 'border-purple-600/30' },
   '66': { bg: 'bg-indigo-600/10', text: 'text-indigo-300', border: 'border-indigo-600/30' },
   '70': { bg: 'bg-cyan-600/10', text: 'text-cyan-300', border: 'border-cyan-600/30' },
-  '71': { bg: 'bg-teal-600/10', text: 'text-teal-300', border: 'border-teal-600/30' },
+  '71': { bg: 'bg-blue-700/10', text: 'text-blue-300', border: 'border-blue-600/50/30' },
   '72': { bg: 'bg-emerald-600/10', text: 'text-emerald-300', border: 'border-emerald-600/30' },
   '73': { bg: 'bg-lime-600/10', text: 'text-lime-300', border: 'border-lime-600/30' },
   '75': { bg: 'bg-amber-600/10', text: 'text-amber-300', border: 'border-amber-600/30' },
@@ -82,7 +82,7 @@ function CPVCodeBadge({ code, isPrimary }: { code: CPVCode; isPrimary?: boolean 
               {code.code}
             </span>
             {isPrimary && (
-              <span className="px-1.5 py-0.5 text-xs font-medium bg-teal-500/20 text-teal-400 rounded">
+              <span className="px-1.5 py-0.5 text-xs font-medium bg-blue-950/200/20 text-blue-400 rounded">
                 Primary
               </span>
             )}
@@ -129,7 +129,7 @@ function CPVHierarchy({ codes, primaryCode }: { codes: CPVCode[]; primaryCode?: 
           className={`
             w-full flex items-center gap-2 p-2 rounded-lg text-left transition-all
             hover:bg-slate-800/50
-            ${isPrimary ? 'bg-teal-500/10 ring-1 ring-teal-500/30' : ''}
+            ${isPrimary ? 'bg-blue-950/200/10 ring-1 ring-teal-500/30' : ''}
           `}
           onClick={() => hasChildren && toggleExpand(code.code)}
         >
@@ -145,7 +145,7 @@ function CPVHierarchy({ codes, primaryCode }: { codes: CPVCode[]; primaryCode?: 
           <span className="text-sm text-slate-300 flex-1 truncate">{code.description}</span>
 
           {isPrimary && (
-            <span className="px-1.5 py-0.5 text-xs font-medium bg-teal-500/20 text-teal-400 rounded">
+            <span className="px-1.5 py-0.5 text-xs font-medium bg-blue-950/200/20 text-blue-400 rounded">
               Primary
             </span>
           )}
@@ -217,7 +217,7 @@ export function CPVExplorer({ codes, primaryCode, showHierarchy = false }: CPVEx
             placeholder="Search CPV codes..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50"
+            className="w-full pl-10 pr-4 py-2 bg-slate-800 border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-teal-500/50"
           />
         </div>
       </div>

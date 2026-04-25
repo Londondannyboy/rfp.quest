@@ -214,9 +214,9 @@ export function RequirementsList(props: Props) {
 
   if (isLoading) {
     return (
-      <div className="bg-slate-900 rounded-xl p-8 border border-slate-800">
+      <div className="bg-slate-900 rounded-xl p-8 border-slate-800">
         <div className="flex items-center justify-center gap-3">
-          <ArrowPathIcon className="w-6 h-6 text-teal-400 animate-spin" />
+          <ArrowPathIcon className="w-6 h-6 text-blue-400 animate-spin" />
           <span className="text-slate-300">Loading requirements...</span>
         </div>
       </div>
@@ -225,7 +225,7 @@ export function RequirementsList(props: Props) {
 
   if (error) {
     return (
-      <div className="bg-slate-900 rounded-xl p-8 border border-slate-800">
+      <div className="bg-slate-900 rounded-xl p-8 border-slate-800">
         <div className="text-center">
           <p className="text-red-400 mb-4">{error}</p>
           <button
@@ -246,7 +246,7 @@ export function RequirementsList(props: Props) {
     <div className="space-y-6">
       {/* Analysis Summary - only for document-based */}
       {!isTenderBased && analysis && (
-        <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
+        <div className="bg-slate-900 rounded-xl p-6 border-slate-800">
           <h3 className="text-lg font-semibold text-white mb-4">Document Summary</h3>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
@@ -290,7 +290,7 @@ export function RequirementsList(props: Props) {
                 {Object.entries(analysis.scoringWeights).map(([key, value]) => (
                   <span
                     key={key}
-                    className="px-3 py-1 bg-teal-900/30 text-teal-300 text-sm rounded-full border border-teal-700"
+                    className="px-3 py-1 bg-blue-950/30 text-blue-300 text-sm rounded-full border-blue-700/60"
                   >
                     {key}: {value}%
                   </span>
@@ -302,10 +302,10 @@ export function RequirementsList(props: Props) {
       )}
 
       {/* Requirements Header */}
-      <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
+      <div className="bg-slate-900 rounded-xl p-6 border-slate-800">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <ClipboardDocumentListIcon className="w-6 h-6 text-teal-400" />
+            <ClipboardDocumentListIcon className="w-6 h-6 text-blue-400" />
             <div>
               <h3 className="text-lg font-semibold text-white">Requirements Checklist</h3>
               <p className="text-sm text-slate-400">
@@ -339,7 +339,7 @@ export function RequirementsList(props: Props) {
             onClick={() => setFilter('all')}
             className={`p-3 rounded-lg text-center transition-colors ${
               filter === 'all'
-                ? 'bg-teal-600 text-white'
+                ? 'bg-blue-700 text-white'
                 : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
             }`}
           >

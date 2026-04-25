@@ -119,11 +119,11 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p className="text-slate-300 leading-relaxed mt-4">
               To exercise these rights, please contact us at{' '}
-              <a href="mailto:privacy@rfp.quest" className="text-teal-400 hover:text-teal-300">
+              <a href="mailto:privacy@rfp.quest" className="text-blue-400 hover:text-blue-300">
                 privacy@rfp.quest
               </a>
               {' '}or use the account deletion feature in your{' '}
-              <Link href="/dashboard/settings" className="text-teal-400 hover:text-teal-300">
+              <Link href="/dashboard/settings" className="text-blue-400 hover:text-blue-300">
                 account settings
               </Link>
               .
@@ -165,13 +165,13 @@ export default function PrivacyPolicyPage() {
             <ul className="list-none text-slate-300 space-y-2 mt-4">
               <li>
                 Email:{' '}
-                <a href="mailto:privacy@rfp.quest" className="text-teal-400 hover:text-teal-300">
+                <a href="mailto:privacy@rfp.quest" className="text-blue-400 hover:text-blue-300">
                   privacy@rfp.quest
                 </a>
               </li>
               <li>
                 Website:{' '}
-                <a href="https://rfp.quest" className="text-teal-400 hover:text-teal-300">
+                <a href="https://rfp.quest" className="text-blue-400 hover:text-blue-300">
                   rfp.quest
                 </a>
               </li>
@@ -182,7 +182,7 @@ export default function PrivacyPolicyPage() {
         <div className="mt-12 pt-8 border-t border-slate-800">
           <Link
             href="/"
-            className="text-teal-400 hover:text-teal-300 transition-colors"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
           >
             &larr; Back to RFP Software Quest
           </Link>

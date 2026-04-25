@@ -22,24 +22,24 @@ import {
 export const SECTOR_INFO: Record<string, { label: string; color: string; icon: React.ComponentType<{ className?: string }> }> = {
   '45': { label: 'Construction', color: 'bg-orange-100 text-orange-700 border-orange-200', icon: BuildingOfficeIcon },
   '48': { label: 'Software', color: 'bg-blue-100 text-blue-700 border-blue-200', icon: ComputerDesktopIcon },
-  '50': { label: 'Maintenance', color: 'bg-gray-100 text-gray-700 border-gray-200', icon: WrenchScrewdriverIcon },
+  '50': { label: 'Maintenance', color: 'bg-slate-900/40 backdrop-blur-xl text-slate-200 border-slate-700/50', icon: WrenchScrewdriverIcon },
   '55': { label: 'Hospitality', color: 'bg-pink-100 text-pink-700 border-pink-200', icon: HomeIcon },
   '60': { label: 'Transport', color: 'bg-indigo-100 text-indigo-700 border-indigo-200', icon: TruckIcon },
   '64': { label: 'Telecom', color: 'bg-cyan-100 text-cyan-700 border-cyan-200', icon: GlobeAltIcon },
   '65': { label: 'Utilities', color: 'bg-yellow-100 text-yellow-700 border-yellow-200', icon: LightBulbIcon },
   '66': { label: 'Finance', color: 'bg-emerald-100 text-emerald-700 border-emerald-200', icon: BuildingLibraryIcon },
   '70': { label: 'Real Estate', color: 'bg-stone-100 text-stone-700 border-stone-200', icon: HomeIcon },
-  '71': { label: 'Engineering', color: 'bg-slate-100 text-slate-700 border-slate-200', icon: BeakerIcon },
+  '71': { label: 'Engineering', color: 'bg-slate-800/60 text-slate-700 border-slate-200', icon: BeakerIcon },
   '72': { label: 'IT Services', color: 'bg-violet-100 text-violet-700 border-violet-200', icon: ComputerDesktopIcon },
   '73': { label: 'R&D', color: 'bg-purple-100 text-purple-700 border-purple-200', icon: BeakerIcon },
   '75': { label: 'Government', color: 'bg-red-100 text-red-700 border-red-200', icon: BuildingLibraryIcon },
   '77': { label: 'Agriculture', color: 'bg-lime-100 text-lime-700 border-lime-200', icon: SparklesIcon },
-  '79': { label: 'Business', color: 'bg-teal-100 text-teal-700 border-teal-200', icon: BriefcaseIcon },
+  '79': { label: 'Business', color: 'bg-blue-900/30 text-blue-400 border-blue-700/50', icon: BriefcaseIcon },
   '80': { label: 'Education', color: 'bg-amber-100 text-amber-700 border-amber-200', icon: AcademicCapIcon },
   '85': { label: 'Healthcare', color: 'bg-rose-100 text-rose-700 border-rose-200', icon: HeartIcon },
   '90': { label: 'Environment', color: 'bg-green-100 text-green-700 border-green-200', icon: SparklesIcon },
   '92': { label: 'Culture', color: 'bg-fuchsia-100 text-fuchsia-700 border-fuchsia-200', icon: PaintBrushIcon },
-  '98': { label: 'Other', color: 'bg-gray-100 text-gray-700 border-gray-200', icon: BriefcaseIcon },
+  '98': { label: 'Other', color: 'bg-slate-900/40 backdrop-blur-xl text-slate-200 border-slate-700/50', icon: BriefcaseIcon },
 };
 
 interface SectorIndicatorProps {
@@ -68,7 +68,7 @@ export function SectorIndicator({
   const division = primaryCpv?.substring(0, 2) || '';
   const sectorInfo = SECTOR_INFO[division] || {
     label: division ? `CPV ${division}` : 'Unknown',
-    color: 'bg-gray-100 text-gray-700 border-gray-200',
+    color: 'bg-slate-900/40 backdrop-blur-xl text-slate-200 border-slate-700/50',
     icon: BriefcaseIcon,
   };
 
@@ -130,7 +130,7 @@ export function SectorBadges({
       {displayDivisions.map((division) => {
         const sectorInfo = SECTOR_INFO[division] || {
           label: `CPV ${division}`,
-          color: 'bg-gray-100 text-gray-700 border-gray-200',
+          color: 'bg-slate-900/40 backdrop-blur-xl text-slate-200 border-slate-700/50',
           icon: BriefcaseIcon,
         };
         const Icon = sectorInfo.icon;
@@ -152,7 +152,7 @@ export function SectorBadges({
         );
       })}
       {remainingCount > 0 && (
-        <span className="text-xs text-gray-400">+{remainingCount}</span>
+        <span className="text-xs text-slate-400">+{remainingCount}</span>
       )}
     </div>
   );

@@ -44,7 +44,7 @@ function AnimatedBackground() {
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-teal-400 rounded-full"
+          className="absolute w-1 h-1 bg-blue-500/80 rounded-full"
           style={{
             left: `${Math.random() * 100}%`,
             top: `${Math.random() * 100}%`,
@@ -71,7 +71,7 @@ function LoadingSkeleton() {
       {/* Hero banner skeleton */}
       <div className="relative rounded-2xl overflow-hidden h-64 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-24 h-24 rounded-full border-4 border-teal-500/30 border-t-teal-500 animate-spin" />
+          <div className="w-24 h-24 rounded-full border-4 border-blue-500/50/30 border-t-teal-500 animate-spin" />
         </div>
       </div>
 
@@ -80,11 +80,11 @@ function LoadingSkeleton() {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 animate-pulse"
+            className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 animate-pulse"
           >
-            <div className="w-12 h-12 bg-gray-200 rounded-lg mb-4" />
-            <div className="h-8 bg-gray-200 rounded w-24 mb-2" />
-            <div className="h-4 bg-gray-200 rounded w-32" />
+            <div className="w-12 h-12 bg-slate-800/60 rounded-lg mb-4" />
+            <div className="h-8 bg-slate-800/60 rounded w-24 mb-2" />
+            <div className="h-4 bg-slate-800/60 rounded w-32" />
           </div>
         ))}
       </div>
@@ -94,10 +94,10 @@ function LoadingSkeleton() {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 animate-pulse"
+            className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 animate-pulse"
           >
-            <div className="h-6 bg-gray-200 rounded w-40 mb-4" />
-            <div className="h-60 bg-gray-200 rounded" />
+            <div className="h-6 bg-slate-800/60 rounded w-40 mb-4" />
+            <div className="h-60 bg-slate-800/60 rounded" />
           </div>
         ))}
       </div>
@@ -140,7 +140,7 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
 
   if (error || !stats) {
     return (
-      <div className="bg-red-50 border border-red-200 rounded-xl p-6 mb-8">
+      <div className="bg-red-900/20 border-red-200 rounded-xl p-6 mb-8">
         <p className="text-red-600">Failed to load dashboard stats: {error}</p>
       </div>
     );
@@ -180,8 +180,8 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
               transition={{ delay: 0.2 }}
             >
               <div className="flex items-center gap-2 mb-3">
-                <SparklesIcon className="w-5 h-5 text-teal-400" />
-                <span className="text-teal-400 text-sm font-medium uppercase tracking-wide">
+                <SparklesIcon className="w-5 h-5 text-blue-400" />
+                <span className="text-blue-400 text-sm font-medium uppercase tracking-wide">
                   Live Market Pulse
                 </span>
               </div>
@@ -190,7 +190,7 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
               </h1>
               <p className="text-slate-300 text-lg mb-6">
                 Worth an estimated{' '}
-                <span className="text-teal-400 font-semibold">
+                <span className="text-blue-400 font-semibold">
                   {formatValue(estimatedMarketValue)}
                 </span>
                 {' '}in government contracts
@@ -208,7 +208,7 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onUrgentClick}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 hover:border-white/20 transition-colors text-left cursor-pointer"
+                className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-sm rounded-xl p-4 border-white/10 hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 hover:border-white/20 transition-colors text-left cursor-pointer"
                 title="Click to filter tenders closing this week"
               >
                 <div className="flex items-center gap-2 mb-1">
@@ -221,7 +221,7 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
                 <p className="text-xs text-slate-400">Closing This Week</p>
               </motion.button>
 
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10">
+              <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-sm rounded-xl p-4 border-white/10">
                 <div className="flex items-center gap-2 mb-1">
                   <ArrowTrendingUpIcon className="w-4 h-4 text-green-400" />
                   <span className="text-xs text-slate-400 uppercase">Avg Value</span>
@@ -236,7 +236,7 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => stats.topSector && onTopSectorClick?.(stats.topSector.division, stats.topSector.name)}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:bg-white/20 hover:border-white/20 transition-colors text-left cursor-pointer"
+                className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 backdrop-blur-sm rounded-xl p-4 border-white/10 hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 hover:border-white/20 transition-colors text-left cursor-pointer"
                 title={`Click to filter ${stats.topSector?.name || 'top sector'} tenders`}
               >
                 <div className="flex items-center gap-2 mb-1">
@@ -259,14 +259,14 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
             >
               <Link
                 href="/auth/sign-up"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-950/200 hover:bg-blue-500/80 text-white font-medium rounded-lg transition-colors"
               >
                 <SparklesIcon className="w-4 h-4" />
                 Get Personalized Matches
               </Link>
               <Link
                 href="#opportunities"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-colors border border-white/20"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 text-white font-medium rounded-lg transition-colors border-white/20"
               >
                 <MagnifyingGlassIcon className="w-4 h-4" />
                 Browse All Tenders
@@ -336,12 +336,12 @@ export function DashboardHero({ onSectorClick, onValueClick, onUrgentClick, onTo
         className="flex items-center justify-between"
       >
         <div>
-          <h2 className="text-xl font-bold text-gray-900">Market Insights</h2>
-          <p className="text-gray-500 text-sm">
+          <h2 className="text-xl font-bold text-slate-100">Market Insights</h2>
+          <p className="text-slate-500 text-sm">
             Where the opportunities are
           </p>
         </div>
-        <p className="text-xs text-gray-400">
+        <p className="text-xs text-slate-400">
           Updated {new Date(stats.lastUpdated).toLocaleTimeString()}
         </p>
       </motion.div>

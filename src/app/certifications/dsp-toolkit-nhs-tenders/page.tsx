@@ -95,7 +95,7 @@ export default function DSPToolkitNHSTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             DSP Toolkit for NHS Contracts: Complete Compliance Guide
           </h1>
           
@@ -108,8 +108,8 @@ export default function DSPToolkitNHSTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: dsp-toolkit-nhs-compliance.jpg - DSP Toolkit dashboard showing Standards Met status for NHS suppliers]
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function DSPToolkitNHSTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Who Must Complete DSP Toolkit?</h2>
           
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Healthcare Providers</h3>
             <ul className="space-y-2">
               <li>• GP practices and primary care networks</li>
@@ -138,7 +138,7 @@ export default function DSPToolkitNHSTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Digital Health Suppliers</h3>
             <ul className="space-y-2">
               <li>• Clinical system vendors (EPR, PAS, LIMS)</li>
@@ -150,7 +150,7 @@ export default function DSPToolkitNHSTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Support Services</h3>
             <ul className="space-y-2">
               <li>• IT service providers and MSPs</li>
@@ -169,43 +169,43 @@ export default function DSPToolkitNHSTendersPage() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">1. Personal Confidential Data</h3>
               <p className="text-sm">Staff understand responsibilities through annual training</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">2. Staff Responsibilities</h3>
               <p className="text-sm">Staff understand and follow procedures</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">3. Training</h3>
               <p className="text-sm">All staff complete appropriate annual training</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">4. Managing Access</h3>
               <p className="text-sm">Personal data is only accessible to authorised staff</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">5. Process Reviews</h3>
               <p className="text-sm">Processes are reviewed against standards</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">6. Responding to Incidents</h3>
               <p className="text-sm">Systems to respond to data incidents</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">7. Continuity Planning</h3>
               <p className="text-sm">Ensure availability of data and systems</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">8. Unsupported Systems</h3>
               <p className="text-sm">No unsupported systems in use</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">9. IT Protection</h3>
               <p className="text-sm">Cyber attack protection deployed</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4">
+            <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
               <h3 className="font-semibold mb-2">10. Accountable Suppliers</h3>
               <p className="text-sm">Suppliers are held accountable</p>
             </div>
@@ -217,39 +217,39 @@ export default function DSPToolkitNHSTendersPage() {
             Different organisation types have different requirements:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Organisation Type</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Assertions</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Key Requirements</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Organisation Type</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Assertions</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Key Requirements</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">GP Practice</td>
-                <td className="border border-gray-300 px-4 py-2">~40</td>
-                <td className="border border-gray-300 px-4 py-2">Clinical safety, access controls</td>
+                <td className="border-slate-500/50 px-4 py-2">GP Practice</td>
+                <td className="border-slate-500/50 px-4 py-2">~40</td>
+                <td className="border-slate-500/50 px-4 py-2">Clinical safety, access controls</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">NHS Trust</td>
-                <td className="border border-gray-300 px-4 py-2">~100</td>
-                <td className="border border-gray-300 px-4 py-2">Full compliance, board oversight</td>
+                <td className="border-slate-500/50 px-4 py-2">NHS Trust</td>
+                <td className="border-slate-500/50 px-4 py-2">~100</td>
+                <td className="border-slate-500/50 px-4 py-2">Full compliance, board oversight</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Digital Supplier</td>
-                <td className="border border-gray-300 px-4 py-2">~110</td>
-                <td className="border border-gray-300 px-4 py-2">ISO 27001, pen testing, BCM</td>
+                <td className="border-slate-500/50 px-4 py-2">Digital Supplier</td>
+                <td className="border-slate-500/50 px-4 py-2">~110</td>
+                <td className="border-slate-500/50 px-4 py-2">ISO 27001, pen testing, BCM</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Community Pharmacy</td>
-                <td className="border border-gray-300 px-4 py-2">~35</td>
-                <td className="border border-gray-300 px-4 py-2">Basic security, training</td>
+                <td className="border-slate-500/50 px-4 py-2">Community Pharmacy</td>
+                <td className="border-slate-500/50 px-4 py-2">~35</td>
+                <td className="border-slate-500/50 px-4 py-2">Basic security, training</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Social Care</td>
-                <td className="border border-gray-300 px-4 py-2">~40</td>
-                <td className="border border-gray-300 px-4 py-2">Safeguarding, access controls</td>
+                <td className="border-slate-500/50 px-4 py-2">Social Care</td>
+                <td className="border-slate-500/50 px-4 py-2">~40</td>
+                <td className="border-slate-500/50 px-4 py-2">Safeguarding, access controls</td>
               </tr>
             </tbody>
           </table>
@@ -263,7 +263,7 @@ export default function DSPToolkitNHSTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Policies & Procedures</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Data Protection/GDPR policy</li>
                 <li>• Information Security policy</li>
                 <li>• Incident Management procedure</li>
@@ -276,7 +276,7 @@ export default function DSPToolkitNHSTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Technical Evidence</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Network diagram and asset register</li>
                 <li>• Penetration test reports (annual)</li>
                 <li>• Vulnerability scan results</li>
@@ -289,7 +289,7 @@ export default function DSPToolkitNHSTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Compliance Documentation</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Data Protection Officer details</li>
                 <li>• ICO registration</li>
                 <li>• Data flow mapping</li>
@@ -303,9 +303,9 @@ export default function DSPToolkitNHSTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">DSP Toolkit Timeline & Process</h2>
           
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Annual Cycle</h3>
-            <ul className="space-y-2 text-gray-700">
+            <ul className="space-y-2 text-slate-300">
               <li><strong>April 1st:</strong> New toolkit version opens</li>
               <li><strong>April-May:</strong> Complete baseline assessment</li>
               <li><strong>May-June:</strong> Implement improvements</li>
@@ -315,7 +315,7 @@ export default function DSPToolkitNHSTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               ⚠️ Critical Deadline: June 30th
             </p>
@@ -326,51 +326,51 @@ export default function DSPToolkitNHSTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Achieving Standards Met vs Standards Exceeded</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Standards Met</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Standards Exceeded</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Standards Met</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Standards Exceeded</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Requirements</td>
-                <td className="border border-gray-300 px-4 py-2">All mandatory assertions</td>
-                <td className="border border-gray-300 px-4 py-2">Mandatory + excellence criteria</td>
+                <td className="border-slate-500/50 px-4 py-2">Requirements</td>
+                <td className="border-slate-500/50 px-4 py-2">All mandatory assertions</td>
+                <td className="border-slate-500/50 px-4 py-2">Mandatory + excellence criteria</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">ISO 27001</td>
-                <td className="border border-gray-300 px-4 py-2">Not required</td>
-                <td className="border border-gray-300 px-4 py-2">Required</td>
+                <td className="border-slate-500/50 px-4 py-2">ISO 27001</td>
+                <td className="border-slate-500/50 px-4 py-2">Not required</td>
+                <td className="border-slate-500/50 px-4 py-2">Required</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Cyber Essentials</td>
-                <td className="border border-gray-300 px-4 py-2">Basic recommended</td>
-                <td className="border border-gray-300 px-4 py-2">CE Plus required</td>
+                <td className="border-slate-500/50 px-4 py-2">Cyber Essentials</td>
+                <td className="border-slate-500/50 px-4 py-2">Basic recommended</td>
+                <td className="border-slate-500/50 px-4 py-2">CE Plus required</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Testing</td>
-                <td className="border border-gray-300 px-4 py-2">Annual pen test</td>
-                <td className="border border-gray-300 px-4 py-2">Continuous testing</td>
+                <td className="border-slate-500/50 px-4 py-2">Testing</td>
+                <td className="border-slate-500/50 px-4 py-2">Annual pen test</td>
+                <td className="border-slate-500/50 px-4 py-2">Continuous testing</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Training</td>
-                <td className="border border-gray-300 px-4 py-2">95% completion</td>
-                <td className="border border-gray-300 px-4 py-2">100% + role-specific</td>
+                <td className="border-slate-500/50 px-4 py-2">Training</td>
+                <td className="border-slate-500/50 px-4 py-2">95% completion</td>
+                <td className="border-slate-500/50 px-4 py-2">100% + role-specific</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Audit</td>
-                <td className="border border-gray-300 px-4 py-2">Self-assessment</td>
-                <td className="border border-gray-300 px-4 py-2">Independent audit</td>
+                <td className="border-slate-500/50 px-4 py-2">Audit</td>
+                <td className="border-slate-500/50 px-4 py-2">Self-assessment</td>
+                <td className="border-slate-500/50 px-4 py-2">Independent audit</td>
               </tr>
             </tbody>
           </table>
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common DSP Toolkit Challenges</h2>
           
-          <div className="bg-red-50 border-l-4 border-red-400 p-6 my-8">
+          <div className="bg-red-900/20 border-l-4 border-red-400 p-6 my-8">
             <p className="font-semibold text-red-900 mb-2">
               🚫 Top Reasons for Failure
             </p>
@@ -392,7 +392,7 @@ export default function DSPToolkitNHSTendersPage() {
             While the toolkit is free, achieving compliance requires investment:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Typical First-Year Costs</h3>
             <table className="min-w-full">
               <tbody>
@@ -538,32 +538,32 @@ export default function DSPToolkitNHSTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/iso-27001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 27001 Information Security
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Supports DSP compliance</p>
+                <p className="text-sm text-slate-300 mt-1">Supports DSP compliance</p>
               </div>
               <div>
                 <Link href="/certifications/cyber-essentials-plus-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Cyber Essentials Plus
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Technical security validation</p>
+                <p className="text-sm text-slate-300 mt-1">Technical security validation</p>
               </div>
               <div>
                 <Link href="/certifications/iso-9001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 9001 Quality
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Clinical quality systems</p>
+                <p className="text-sm text-slate-300 mt-1">Clinical quality systems</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

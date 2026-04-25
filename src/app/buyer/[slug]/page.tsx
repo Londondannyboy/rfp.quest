@@ -116,7 +116,7 @@ export default async function BuyerPage({ params }: Props) {
           <p className="text-slate-400">The requested organization could not be found.</p>
           <a
             href="/dashboard"
-            className="inline-block mt-4 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700"
+            className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
           >
             Browse All Tenders
           </a>

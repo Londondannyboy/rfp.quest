@@ -101,29 +101,29 @@ export function ComplianceChecker({
       case 'non-compliant':
         return <XCircleIcon className="w-5 h-5 text-red-500" />;
       default:
-        return <InformationCircleIcon className="w-5 h-5 text-gray-400" />;
+        return <InformationCircleIcon className="w-5 h-5 text-slate-400" />;
     }
   };
 
   const getStatusColor = (level: string) => {
     switch (level) {
       case 'compliant':
-        return 'bg-green-50 border-green-200';
+        return 'bg-green-900/20 border-green-200';
       case 'partial':
         return 'bg-yellow-50 border-yellow-200';
       case 'non-compliant':
-        return 'bg-red-50 border-red-200';
+        return 'bg-red-900/20 border-red-200';
       default:
-        return 'bg-gray-50 border-gray-200';
+        return 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 border-slate-700/50';
     }
   };
 
   return (
     <div className="space-y-4">
       {/* Overall Score */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-700/50 p-4">
         <div className="flex items-center justify-between mb-3">
-          <h4 className="font-medium text-gray-900">Compliance Score</h4>
+          <h4 className="font-medium text-slate-100">Compliance Score</h4>
           <span className={`text-2xl font-bold ${
             complianceStatus.score >= 80 ? 'text-green-600' :
             complianceStatus.score >= 60 ? 'text-yellow-600' :
@@ -134,12 +134,12 @@ export function ComplianceChecker({
         </div>
         
         {/* Progress Bar */}
-        <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+        <div className="w-full bg-slate-800/60 rounded-full h-2 mb-3">
           <div
             className={`h-2 rounded-full transition-all ${
-              complianceStatus.score >= 80 ? 'bg-green-500' :
+              complianceStatus.score >= 80 ? 'bg-green-900/200' :
               complianceStatus.score >= 60 ? 'bg-yellow-500' :
-              'bg-red-500'
+              'bg-red-900/200'
             }`}
             style={{ width: `${complianceStatus.score}%` }}
           />
@@ -147,7 +147,7 @@ export function ComplianceChecker({
         
         {/* Summary Stats */}
         <div className="grid grid-cols-3 gap-2 text-center">
-          <div className="bg-green-50 rounded-lg p-2">
+          <div className="bg-green-900/20 rounded-lg p-2">
             <div className="text-lg font-semibold text-green-700">
               {complianceStatus.summary.compliant}
             </div>
@@ -159,7 +159,7 @@ export function ComplianceChecker({
             </div>
             <div className="text-xs text-yellow-600">Partial</div>
           </div>
-          <div className="bg-red-50 rounded-lg p-2">
+          <div className="bg-red-900/20 rounded-lg p-2">
             <div className="text-lg font-semibold text-red-700">
               {complianceStatus.summary.nonCompliant}
             </div>
@@ -168,7 +168,7 @@ export function ComplianceChecker({
         </div>
         
         {!complianceStatus.mandatoryComplete && (
-          <div className="mt-3 p-2 bg-red-50 border border-red-200 rounded-lg">
+          <div className="mt-3 p-2 bg-red-900/20 border-red-200 rounded-lg">
             <p className="text-sm text-red-700 font-medium">
               ⚠️ Missing mandatory requirements
             </p>
@@ -187,7 +187,7 @@ export function ComplianceChecker({
               <div className="flex items-start gap-2 flex-1">
                 {getStatusIcon(item.complianceLevel)}
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-gray-900">
+                  <p className="text-sm font-medium text-slate-100">
                     {item.requirement.title || `Section ${index + 1}`}
                     {item.mandatory && (
                       <span className="ml-2 px-1.5 py-0.5 rounded-full bg-red-100 text-red-700 text-xs font-medium">
@@ -196,7 +196,7 @@ export function ComplianceChecker({
                     )}
                   </p>
                   {item.issues.length > 0 && (
-                    <ul className="mt-1 text-xs text-gray-600">
+                    <ul className="mt-1 text-xs text-slate-300">
                       {item.issues.map((issue, i) => (
                         <li key={i}>• {issue}</li>
                       ))}
@@ -205,7 +205,7 @@ export function ComplianceChecker({
                 </div>
               </div>
               {item.section?.word_count !== undefined && (
-                <span className="text-xs text-gray-500 ml-2">
+                <span className="text-xs text-slate-500 ml-2">
                   {item.section.word_count} words
                 </span>
               )}

@@ -93,7 +93,7 @@ export function ScoringMatrix({ criteria, totalWeight = 100, priceWeight }: Scor
 
   // Colors for donut
   const colors = [
-    'text-teal-500',
+    'text-blue-500',
     'text-cyan-500',
     'text-blue-500',
     'text-indigo-500',
@@ -153,10 +153,10 @@ export function ScoringMatrix({ criteria, totalWeight = 100, priceWeight }: Scor
 
         {/* Your overall score */}
         {overallPercentage !== null && (
-          <div className="mt-4 p-4 bg-teal-500/10 border border-teal-500/30 rounded-lg">
+          <div className="mt-4 p-4 bg-blue-950/200/10 border-blue-500/50/30 rounded-lg">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-teal-400">Your Projected Score</span>
-              <span className="text-2xl font-bold text-teal-400">{overallPercentage}%</span>
+              <span className="text-sm text-blue-400">Your Projected Score</span>
+              <span className="text-2xl font-bold text-blue-400">{overallPercentage}%</span>
             </div>
           </div>
         )}

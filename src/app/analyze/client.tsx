@@ -94,8 +94,8 @@ export function AnalyzePageClient() {
           />
 
           {isStartingAnalysis && (
-            <div className="mt-4 p-4 bg-teal-900/30 border border-teal-700 rounded-lg text-center">
-              <p className="text-teal-300">
+            <div className="mt-4 p-4 bg-blue-950/30 border-blue-700/60 rounded-lg text-center">
+              <p className="text-blue-300">
                 Starting analysis... You&apos;ll be redirected shortly.
               </p>
             </div>
@@ -118,11 +118,11 @@ export function AnalyzePageClient() {
         <div className="grid gap-6 md:grid-cols-2">
           <Link
             href="/dashboard"
-            className="p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-teal-600 transition-colors group"
+            className="p-6 bg-slate-800/50 rounded-xl border-slate-700 hover:border-blue-600/50 transition-colors group"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center group-hover:bg-teal-900/50 transition-colors">
-                <MagnifyingGlassIcon className="h-6 w-6 text-slate-400 group-hover:text-teal-400" />
+              <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center group-hover:bg-blue-950/50 transition-colors">
+                <MagnifyingGlassIcon className="h-6 w-6 text-slate-400 group-hover:text-blue-400" />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-white mb-1">
@@ -137,11 +137,11 @@ export function AnalyzePageClient() {
 
           <Link
             href="/dashboard?stage=tender"
-            className="p-6 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-teal-600 transition-colors group"
+            className="p-6 bg-slate-800/50 rounded-xl border-slate-700 hover:border-blue-600/50 transition-colors group"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center group-hover:bg-teal-900/50 transition-colors">
-                <DocumentTextIcon className="h-6 w-6 text-slate-400 group-hover:text-teal-400" />
+              <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center group-hover:bg-blue-950/50 transition-colors">
+                <DocumentTextIcon className="h-6 w-6 text-slate-400 group-hover:text-blue-400" />
               </div>
               <div>
                 <h3 className="text-lg font-medium text-white mb-1">
@@ -161,21 +161,21 @@ export function AnalyzePageClient() {
             What You&apos;ll Get
           </h2>
           <div className="grid gap-6 md:grid-cols-3">
-            <div className="p-6 bg-slate-800/30 rounded-xl border border-slate-700">
+            <div className="p-6 bg-slate-800/30 rounded-xl border-slate-700">
               <div className="text-3xl mb-4">📊</div>
               <h3 className="font-medium text-white mb-2">Summary</h3>
               <p className="text-sm text-slate-400">
                 Key dates, buyer information, contract details, and framework detection
               </p>
             </div>
-            <div className="p-6 bg-slate-800/30 rounded-xl border border-slate-700">
+            <div className="p-6 bg-slate-800/30 rounded-xl border-slate-700">
               <div className="text-3xl mb-4">✅</div>
               <h3 className="font-medium text-white mb-2">Compliance Checklist</h3>
               <p className="text-sm text-slate-400">
                 Mandatory requirements, certifications needed, and social value criteria
               </p>
             </div>
-            <div className="p-6 bg-slate-800/30 rounded-xl border border-slate-700">
+            <div className="p-6 bg-slate-800/30 rounded-xl border-slate-700">
               <div className="text-3xl mb-4">📈</div>
               <h3 className="font-medium text-white mb-2">Gap Analysis</h3>
               <p className="text-sm text-slate-400">

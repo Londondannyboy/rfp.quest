@@ -95,21 +95,21 @@ export default function PAS91UKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             PAS 91 for UK Construction: Complete PQQ Standardisation Guide
           </h1>
           
-          <div className="bg-teal-50 border-l-4 border-teal-400 p-6 mb-8">
-            <p className="text-lg font-semibold text-teal-900 mb-2">
+          <div className="bg-blue-500/10 border-l-4 border-blue-500/60 p-6 mb-8">
+            <p className="text-lg font-semibold text-blue-200 mb-2">
               📋 One PQQ to Rule Them All
             </p>
-            <p className="text-teal-800">
+            <p className="text-blue-300">
               PAS 91 standardises construction pre-qualification questionnaires across the UK public sector. Complete once, use many times - saving thousands in tender costs while ensuring consistent, proportionate assessment.
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: pas-91-construction-pqq.jpg - PAS 91 standardised questionnaire framework for UK construction tenders]
             </p>
           </div>
@@ -130,12 +130,12 @@ export default function PAS91UKTendersPage() {
             The standard is structured in modules - core questions everyone must answer, plus optional modules for specific requirements:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Core Modules (Mandatory)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <h4 className="font-medium mb-2">Company Information</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Legal status and ownership</li>
                   <li>• Contact details and key personnel</li>
                   <li>• Company registration numbers</li>
@@ -144,7 +144,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Financial Information</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Annual accounts (3 years)</li>
                   <li>• Turnover breakdown</li>
                   <li>• Banking references</li>
@@ -153,7 +153,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Insurance</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Employers' liability</li>
                   <li>• Public liability</li>
                   <li>• Professional indemnity</li>
@@ -162,7 +162,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Health & Safety</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• H&S policy</li>
                   <li>• SSIP certification</li>
                   <li>• Accident statistics</li>
@@ -172,12 +172,12 @@ export default function PAS91UKTendersPage() {
             </div>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Optional Modules (Select as Required)</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <h4 className="font-medium mb-2">Technical Capability</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Relevant experience</li>
                   <li>• Case studies</li>
                   <li>• References</li>
@@ -186,7 +186,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">CDM Compliance</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Principal contractor capability</li>
                   <li>• Designer competence</li>
                   <li>• CDM procedures</li>
@@ -195,7 +195,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Environmental</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• ISO 14001 certification</li>
                   <li>• Environmental policy</li>
                   <li>• Sustainability measures</li>
@@ -204,7 +204,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Quality Management</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• ISO 9001 certification</li>
                   <li>• Quality procedures</li>
                   <li>• Defects management</li>
@@ -213,7 +213,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">BIM Capability</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• BIM Level 2 compliance</li>
                   <li>• Software capabilities</li>
                   <li>• Information management</li>
@@ -222,7 +222,7 @@ export default function PAS91UKTendersPage() {
               </div>
               <div>
                 <h4 className="font-medium mb-2">Modern Standards</h4>
-                <ul className="text-sm space-y-1 text-gray-700">
+                <ul className="text-sm space-y-1 text-slate-300">
                   <li>• Modern slavery statement</li>
                   <li>• Anti-bribery policy</li>
                   <li>• Equality & diversity</li>
@@ -235,7 +235,7 @@ export default function PAS91UKTendersPage() {
           <h2 className="text-2xl font-bold mt-10 mb-4">Benefits of PAS 91 Standardisation</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-green-50 rounded-lg p-6">
+            <div className="bg-green-900/20 rounded-lg p-6">
               <h3 className="font-semibold mb-3">For Contractors</h3>
               <ul className="space-y-2">
                 <li>✅ Complete PQQ once, use multiple times</li>
@@ -263,7 +263,7 @@ export default function PAS91UKTendersPage() {
           <div className="space-y-4">
             <div>
               <h3 className="font-semibold mb-2">Government Frameworks</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Crown Commercial Service construction frameworks</li>
                 <li>• NHS ProCure23 and ProCure2020</li>
                 <li>• Homes England delivery partners</li>
@@ -275,7 +275,7 @@ export default function PAS91UKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Local Authorities</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• SCAPE framework members</li>
                 <li>• Pagabo framework users</li>
                 <li>• YORbuild participants</li>
@@ -286,7 +286,7 @@ export default function PAS91UKTendersPage() {
 
             <div>
               <h3 className="font-semibold mb-2">Private Sector (Growing Adoption)</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Major contractors for supply chain</li>
                 <li>• Property developers</li>
                 <li>• Registered providers (housing associations)</li>
@@ -301,46 +301,46 @@ export default function PAS91UKTendersPage() {
             PAS 91 includes proportionality - requirements scale with contract value:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Contract Value</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Typical Requirements</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Modules Used</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Contract Value</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Typical Requirements</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Modules Used</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Under £100k</td>
-                <td className="border border-gray-300 px-4 py-2">Minimal PQQ</td>
-                <td className="border border-gray-300 px-4 py-2">Core only, simplified</td>
+                <td className="border-slate-500/50 px-4 py-2">Under £100k</td>
+                <td className="border-slate-500/50 px-4 py-2">Minimal PQQ</td>
+                <td className="border-slate-500/50 px-4 py-2">Core only, simplified</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£100k - £1M</td>
-                <td className="border border-gray-300 px-4 py-2">Standard PQQ</td>
-                <td className="border border-gray-300 px-4 py-2">Core + relevant optional</td>
+                <td className="border-slate-500/50 px-4 py-2">£100k - £1M</td>
+                <td className="border-slate-500/50 px-4 py-2">Standard PQQ</td>
+                <td className="border-slate-500/50 px-4 py-2">Core + relevant optional</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£1M - £10M</td>
-                <td className="border border-gray-300 px-4 py-2">Comprehensive PQQ</td>
-                <td className="border border-gray-300 px-4 py-2">Most modules required</td>
+                <td className="border-slate-500/50 px-4 py-2">£1M - £10M</td>
+                <td className="border-slate-500/50 px-4 py-2">Comprehensive PQQ</td>
+                <td className="border-slate-500/50 px-4 py-2">Most modules required</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Over £10M</td>
-                <td className="border border-gray-300 px-4 py-2">Full assessment</td>
-                <td className="border border-gray-300 px-4 py-2">All relevant modules</td>
+                <td className="border-slate-500/50 px-4 py-2">Over £10M</td>
+                <td className="border-slate-500/50 px-4 py-2">Full assessment</td>
+                <td className="border-slate-500/50 px-4 py-2">All relevant modules</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">OJEU threshold+</td>
-                <td className="border border-gray-300 px-4 py-2">Selection questionnaire</td>
-                <td className="border border-gray-300 px-4 py-2">PAS 91 + ESPD</td>
+                <td className="border-slate-500/50 px-4 py-2">OJEU threshold+</td>
+                <td className="border-slate-500/50 px-4 py-2">Selection questionnaire</td>
+                <td className="border-slate-500/50 px-4 py-2">PAS 91 + ESPD</td>
               </tr>
             </tbody>
           </table>
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Completing PAS 91 Efficiently</h2>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               💡 Pro Tip: Use Constructionline
             </p>
@@ -372,7 +372,7 @@ export default function PAS91UKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Common PAS 91 Pitfalls</h2>
           
-          <div className="bg-red-50 border-l-4 border-red-400 p-6 my-8">
+          <div className="bg-red-900/20 border-l-4 border-red-400 p-6 my-8">
             <p className="font-semibold text-red-900 mb-2">
               ⚠️ Avoid These Mistakes
             </p>
@@ -394,39 +394,39 @@ export default function PAS91UKTendersPage() {
             Despite PAS 91's adoption, some buyers still use bespoke PQQs:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">PAS 91</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Bespoke PQQ</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">PAS 91</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Bespoke PQQ</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Standardisation</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Industry standard</td>
-                <td className="border border-gray-300 px-4 py-2">❌ Unique each time</td>
+                <td className="border-slate-500/50 px-4 py-2">Standardisation</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Industry standard</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ Unique each time</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Completion time</td>
-                <td className="border border-gray-300 px-4 py-2">✅ 2-4 hours (if prepared)</td>
-                <td className="border border-gray-300 px-4 py-2">❌ 20-40 hours</td>
+                <td className="border-slate-500/50 px-4 py-2">Completion time</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ 2-4 hours (if prepared)</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ 20-40 hours</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Reusability</td>
-                <td className="border border-gray-300 px-4 py-2">✅ High</td>
-                <td className="border border-gray-300 px-4 py-2">❌ Low</td>
+                <td className="border-slate-500/50 px-4 py-2">Reusability</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ High</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ Low</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Legal compliance</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Built-in</td>
-                <td className="border border-gray-300 px-4 py-2">Variable</td>
+                <td className="border-slate-500/50 px-4 py-2">Legal compliance</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Built-in</td>
+                <td className="border-slate-500/50 px-4 py-2">Variable</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Cost to industry</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Lower</td>
-                <td className="border border-gray-300 px-4 py-2">❌ Higher</td>
+                <td className="border-slate-500/50 px-4 py-2">Cost to industry</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Lower</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ Higher</td>
               </tr>
             </tbody>
           </table>
@@ -455,7 +455,7 @@ export default function PAS91UKTendersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <h3 className="font-medium mb-2">Essential</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• SSIP certification (CHAS, SafeContractor)</li>
                 <li>• Adequate insurance levels</li>
                 <li>• Company accounts filed</li>
@@ -463,7 +463,7 @@ export default function PAS91UKTendersPage() {
             </div>
             <div>
               <h3 className="font-medium mb-2">Advantageous</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• ISO 9001 (quality)</li>
                 <li>• ISO 14001 (environmental)</li>
                 <li>• ISO 45001 (H&S management)</li>
@@ -541,32 +541,32 @@ export default function PAS91UKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/constructionline-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   Constructionline
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">PAS 91 validation platform</p>
+                <p className="text-sm text-slate-300 mt-1">PAS 91 validation platform</p>
               </div>
               <div>
                 <Link href="/certifications/ssip-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SSIP Schemes
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">H&S module requirement</p>
+                <p className="text-sm text-slate-300 mt-1">H&S module requirement</p>
               </div>
               <div>
                 <Link href="/certifications/iso-9001-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   ISO 9001
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Quality module support</p>
+                <p className="text-sm text-slate-300 mt-1">Quality module support</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All UK Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

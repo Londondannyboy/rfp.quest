@@ -31,7 +31,7 @@ export function ImageSection({
   };
 
   const overlayClasses = {
-    light: 'bg-white/80 dark:bg-slate-900/80',
+    light: 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50/80 dark:bg-slate-900/80',
     dark: 'bg-black/60',
     gradient: 'bg-gradient-to-r from-teal-900/90 via-teal-800/70 to-transparent',
   };
@@ -71,7 +71,7 @@ export function ImageSection({
           {ctaText && ctaLink && (
             <Link
               href={ctaLink}
-              className="inline-block px-8 py-4 bg-white text-teal-700 font-semibold rounded-lg hover:bg-teal-50 transition-colors shadow-lg hover:shadow-xl"
+              className="inline-block px-8 py-4 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-blue-400 font-semibold rounded-lg hover:bg-blue-950/20 transition-colors shadow-lg hover:shadow-xl"
             >
               {ctaText}
             </Link>

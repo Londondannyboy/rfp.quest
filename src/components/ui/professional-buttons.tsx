@@ -129,7 +129,7 @@ export function ProfessionalButton({
       {/* Ripple effect */}
       {isPressed && (
         <motion.div
-          className="absolute inset-0 bg-white/20 rounded-2xl"
+          className="absolute inset-0 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 rounded-2xl"
           initial={{ scale: 0, opacity: 1 }}
           animate={{ scale: 2, opacity: 0 }}
           transition={{ duration: 0.6 }}
@@ -167,7 +167,7 @@ export function ProfessionalButton({
       {isHovered && !disabled && (
         <>
           <motion.div
-            className="absolute w-1 h-1 bg-white rounded-full"
+            className="absolute w-1 h-1 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full"
             style={{
               top: '20%',
               left: '20%',
@@ -183,7 +183,7 @@ export function ProfessionalButton({
             }}
           />
           <motion.div
-            className="absolute w-0.5 h-0.5 bg-white rounded-full"
+            className="absolute w-0.5 h-0.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full"
             style={{
               top: '70%',
               right: '30%',
@@ -344,7 +344,7 @@ export function IconButton({
     >
       {/* Ripple effect */}
       <motion.div
-        className="absolute inset-0 bg-white/10 rounded-xl"
+        className="absolute inset-0 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-xl"
         initial={{ scale: 0, opacity: 0 }}
         animate={{
           scale: isHovered ? 1 : 0,

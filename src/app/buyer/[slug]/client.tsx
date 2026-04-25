@@ -98,9 +98,9 @@ function formatValue(value: number): string {
 
 const stageColors: Record<string, string> = {
   planning: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
-  tender: 'bg-green-500/20 text-green-300 border-green-500/30',
+  tender: 'bg-green-900/200/20 text-green-300 border-green-500/30',
   award: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
-  contract: 'bg-gray-500/20 text-gray-300 border-gray-500/30',
+  contract: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/20 text-slate-400 border-slate-400/50/30',
 };
 
 // Spending Trend Chart Component
@@ -111,9 +111,9 @@ function SpendingTrendChart({ data }: { data: YearlyData[] }) {
   const maxCount = Math.max(...data.map((d) => d.count), 1);
 
   return (
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+    <div className="bg-slate-800/50 rounded-xl p-6 border-slate-700">
       <div className="flex items-center gap-2 mb-4">
-        <ArrowTrendingUpIcon className="w-5 h-5 text-teal-400" />
+        <ArrowTrendingUpIcon className="w-5 h-5 text-blue-400" />
         <h3 className="text-lg font-semibold text-white">Procurement Trends</h3>
       </div>
 
@@ -146,7 +146,7 @@ function SpendingTrendChart({ data }: { data: YearlyData[] }) {
 
       <div className="flex items-center justify-center gap-6 mt-4 text-xs">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded bg-teal-500" />
+          <div className="w-3 h-3 rounded bg-blue-500/100" />
           <span className="text-slate-400">Contract Value</span>
         </div>
         <div className="flex items-center gap-2">
@@ -171,7 +171,7 @@ function SectorDonutChart({ sectors }: { sectors: Sector[] }) {
   let currentAngle = 0;
 
   return (
-    <div className="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+    <div className="bg-slate-800/50 rounded-xl p-6 border-slate-700">
       <div className="flex items-center gap-2 mb-4">
         <ChartBarIcon className="w-5 h-5 text-purple-400" />
         <h3 className="text-lg font-semibold text-white">Sector Breakdown</h3>
@@ -324,8 +324,8 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 mb-2">
-              <BuildingOfficeIcon className="w-5 h-5 text-teal-400" />
-              <span className="text-teal-400 text-sm font-medium">UK Government Organization</span>
+              <BuildingOfficeIcon className="w-5 h-5 text-blue-400" />
+              <span className="text-blue-400 text-sm font-medium">UK Government Organization</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {buyer.name}
@@ -343,28 +343,28 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Stats cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+          <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <DocumentTextIcon className="w-4 h-4" />
               Total Tenders
             </div>
             <div className="text-2xl font-bold text-white">{buyer.totalTenders}</div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+          <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <CalendarIcon className="w-4 h-4" />
               Active Now
             </div>
             <div className="text-2xl font-bold text-green-400">{buyer.activeTenders}</div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+          <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <CurrencyPoundIcon className="w-4 h-4" />
               Total Value
             </div>
             <div className="text-2xl font-bold text-white">{formatValue(buyer.totalValue)}</div>
           </div>
-          <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+          <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
             <div className="flex items-center gap-2 text-slate-400 text-sm mb-1">
               <ChartBarIcon className="w-4 h-4" />
               Avg Value
@@ -389,7 +389,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
             </div>
 
             {/* Tenders list */}
-            <div className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+            <div className="bg-slate-900 rounded-xl border-slate-800 overflow-hidden">
               <div className="p-4 border-b border-slate-800 flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-white">
                   Procurement History
@@ -401,7 +401,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
                       onClick={() => setFilter(f)}
                       className={`px-3 py-1 text-sm rounded-lg transition-colors ${
                         filter === f
-                          ? 'bg-teal-600 text-white'
+                          ? 'bg-blue-600 text-white'
                           : 'bg-slate-800 text-slate-400 hover:text-white'
                       }`}
                     >
@@ -420,7 +420,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-white font-medium truncate hover:text-teal-400">
+                        <h3 className="text-white font-medium truncate hover:text-blue-400">
                           {tender.title}
                         </h3>
                         <div className="flex items-center gap-3 mt-1 text-sm text-slate-400">
@@ -455,7 +455,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
         ) : null}
 
         {/* CTA */}
-        <div className="mt-12 bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border border-teal-500/20">
+        <div className="mt-12 bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-2xl p-8 border-blue-500/20">
           <h2 className="text-2xl font-bold text-white mb-3">
             Win contracts from <strong>{buyer.name}</strong>
           </h2>
@@ -463,7 +463,7 @@ function BuyerContent({ buyer, initialData }: { buyer: Buyer; initialData: Buyer
             Use RFP.quest to analyze requirements, identify gaps, and craft winning proposals for this buyer.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/" className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-medium rounded-lg transition-colors">
+            <Link href="/" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors">
               Try RFP.quest Free
             </Link>
             <Link href="/dashboard?stage=tender" className="px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg transition-colors">

@@ -84,7 +84,7 @@ export function RequirementItem({ requirement, onStartResponse }: Props) {
       {/* Header */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center gap-4 p-4 text-left hover:bg-white/5 transition-colors"
+        className="w-full flex items-center gap-4 p-4 text-left hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/5 transition-colors"
       >
         {/* Type Badge */}
         <span className={`flex items-center gap-1 px-2 py-0.5 rounded text-xs font-medium ${typeStyle.text}`}>
@@ -93,14 +93,14 @@ export function RequirementItem({ requirement, onStartResponse }: Props) {
         </span>
 
         {/* Requirement Number */}
-        <span className="text-teal-400 font-mono text-sm">{requirement.number}</span>
+        <span className="text-blue-400 font-mono text-sm">{requirement.number}</span>
 
         {/* Title */}
         <span className="flex-1 text-white font-medium truncate">{requirement.title}</span>
 
         {/* Weighting */}
         {requirement.weighting && (
-          <span className="px-2 py-0.5 bg-teal-900/50 text-teal-300 text-xs rounded">
+          <span className="px-2 py-0.5 bg-blue-950/50 text-blue-300 text-xs rounded">
             {requirement.weighting}%
           </span>
         )}
@@ -174,7 +174,7 @@ export function RequirementItem({ requirement, onStartResponse }: Props) {
           <div className="mt-4 flex justify-end">
             <button
               onClick={() => onStartResponse?.(requirement.id)}
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-colors"
             >
               <PencilSquareIcon className="w-4 h-4" />
               {requirement.responseStatus === 'not_started' ? 'Write Response' : 'Edit Response'}

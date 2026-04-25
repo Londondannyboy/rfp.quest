@@ -95,11 +95,11 @@ export default function ISO27001Page() {
       <article className="max-w-4xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             ISO 27001 for UK Tenders: Information Security Certification Guide
           </h1>
           
-          <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-8">
+          <div className="bg-red-900/20 border-l-4 border-red-500 p-6 mb-8">
             <p className="font-semibold text-red-900 mb-2">⚠️ Critical Notice</p>
             <p className="text-red-800">
               ISO 27001 does NOT replace Cyber Essentials. The UK Cabinet Office (PPN 014) 
@@ -109,8 +109,8 @@ export default function ISO27001Page() {
           </div>
 
           {/* TODO: Add hero image */}
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: iso-27001-uk-tenders-uk.jpg - ISO 27001 UK tenders requirements for UK government tenders]
             </p>
           </div>
@@ -228,44 +228,44 @@ export default function ISO27001Page() {
           </div>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISO 27001</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Cyber Essentials</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">ISO 27001</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Cyber Essentials</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Scope</td>
-                  <td className="border border-gray-300 px-4 py-2">Comprehensive ISMS</td>
-                  <td className="border border-gray-300 px-4 py-2">5 technical controls</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Scope</td>
+                  <td className="border-slate-500/50 px-4 py-2">Comprehensive ISMS</td>
+                  <td className="border-slate-500/50 px-4 py-2">5 technical controls</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Controls</td>
-                  <td className="border border-gray-300 px-4 py-2">93 controls (4 themes)</td>
-                  <td className="border border-gray-300 px-4 py-2">Firewalls, config, access, malware, patches</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Assessment</td>
-                  <td className="border border-gray-300 px-4 py-2">Full audit over multiple days</td>
-                  <td className="border border-gray-300 px-4 py-2">Self-assessment or basic audit</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Cost</td>
-                  <td className="border border-gray-300 px-4 py-2">£5,000-£40,000+</td>
-                  <td className="border border-gray-300 px-4 py-2">£320-£600</td>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Controls</td>
+                  <td className="border-slate-500/50 px-4 py-2">93 controls (4 themes)</td>
+                  <td className="border-slate-500/50 px-4 py-2">Firewalls, config, access, malware, patches</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Timeline</td>
-                  <td className="border border-gray-300 px-4 py-2">6-12 months</td>
-                  <td className="border border-gray-300 px-4 py-2">1-4 weeks</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Assessment</td>
+                  <td className="border-slate-500/50 px-4 py-2">Full audit over multiple days</td>
+                  <td className="border-slate-500/50 px-4 py-2">Self-assessment or basic audit</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Renewal</td>
-                  <td className="border border-gray-300 px-4 py-2">3 years (annual surveillance)</td>
-                  <td className="border border-gray-300 px-4 py-2">Annual</td>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Cost</td>
+                  <td className="border-slate-500/50 px-4 py-2">£5,000-£40,000+</td>
+                  <td className="border-slate-500/50 px-4 py-2">£320-£600</td>
+                </tr>
+                <tr>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Timeline</td>
+                  <td className="border-slate-500/50 px-4 py-2">6-12 months</td>
+                  <td className="border-slate-500/50 px-4 py-2">1-4 weeks</td>
+                </tr>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Renewal</td>
+                  <td className="border-slate-500/50 px-4 py-2">3 years (annual surveillance)</td>
+                  <td className="border-slate-500/50 px-4 py-2">Annual</td>
                 </tr>
               </tbody>
             </table>
@@ -286,51 +286,51 @@ export default function ISO27001Page() {
           </p>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Organisation Size</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Year 1 Total</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Breakdown</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Annual Surveillance</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Organisation Size</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Year 1 Total</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Breakdown</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Annual Surveillance</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Small (1-50 staff)</td>
-                  <td className="border border-gray-300 px-4 py-2">£5,000 - £15,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Small (1-50 staff)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£5,000 - £15,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £3,000-£8,000<br/>
                     Certification: £2,000-£4,000<br/>
                     Tools/Training: £1,000-£3,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£1,500 - £3,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£1,500 - £3,000</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2">Medium (51-250)</td>
-                  <td className="border border-gray-300 px-4 py-2">£15,000 - £40,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2">Medium (51-250)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£15,000 - £40,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £8,000-£20,000<br/>
                     Certification: £4,000-£8,000<br/>
                     Tools/Training: £3,000-£12,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£2,000 - £5,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£2,000 - £5,000</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Large (250+)</td>
-                  <td className="border border-gray-300 px-4 py-2">£35,000 - £75,000+</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Large (250+)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£35,000 - £75,000+</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £15,000-£30,000<br/>
                     Certification: £8,000-£15,000<br/>
                     Tools/Training: £12,000-£30,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£5,000 - £10,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£5,000 - £10,000</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="bg-gray-50 p-6 rounded-lg my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-2">Additional Cost Factors</h3>
             <ul className="space-y-2">
               <li><strong>Scope complexity:</strong> More locations, systems, and data types increase costs</li>
@@ -355,7 +355,7 @@ export default function ISO27001Page() {
             majority of time. Here's a realistic timeline:
           </p>
 
-          <div className="bg-white border border-gray-200 rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-slate-600/50 rounded-lg p-6 my-6">
             <h3 className="text-xl font-semibold mb-4">Typical 9-Month Timeline</h3>
             
             <div className="space-y-4">
@@ -481,7 +481,7 @@ export default function ISO27001Page() {
             Toolkit assertions but doesn't replace it. You'll likely need both:
           </p>
 
-          <div className="bg-green-50 p-6 rounded-lg my-6">
+          <div className="bg-green-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-3">How ISO 27001 Supports DSP Toolkit</h3>
             <ul className="space-y-2">
               <li>✓ Provides evidence for multiple DSP assertions</li>
@@ -571,14 +571,14 @@ export default function ISO27001Page() {
             </p>
             <Link
               href="/"
-              className="inline-block bg-white text-blue-600 px-6 py-3 rounded font-semibold hover:bg-gray-100 transition"
+              className="inline-block bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-blue-600 px-6 py-3 rounded font-semibold hover:bg-slate-800/50 transition"
             >
               Try RFP Platform Quest Free →
             </Link>
           </div>
 
           {/* Internal Links */}
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <ul className="space-y-2">
               <li>
@@ -610,7 +610,7 @@ export default function ISO27001Page() {
           </nav>
 
           {/* External Links */}
-          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+          <div className="mt-8 p-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Official Resources</h3>
             <ul className="space-y-2">
               <li>

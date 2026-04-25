@@ -239,7 +239,7 @@ export default function SettingsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600/50"></div>
       </div>
     );
   }
@@ -247,21 +247,21 @@ export default function SettingsPage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-8">
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-gray-900">Company Profile</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <h1 className="text-2xl font-bold text-slate-100">Company Profile</h1>
+        <p className="mt-1 text-sm text-slate-400">
           Set up your company profile to get personalized tender matches and recommendations.
         </p>
       </div>
 
       {/* Status messages */}
       {error && (
-        <div className="mb-6 flex items-center gap-2 rounded-md bg-red-50 px-4 py-3 text-sm text-red-700">
+        <div className="mb-6 flex items-center gap-2 rounded-md bg-red-900/20 px-4 py-3 text-sm text-red-700">
           <ExclamationCircleIcon className="h-5 w-5" />
           {error}
         </div>
       )}
       {success && (
-        <div className="mb-6 flex items-center gap-2 rounded-md bg-green-50 px-4 py-3 text-sm text-green-700">
+        <div className="mb-6 flex items-center gap-2 rounded-md bg-green-900/20 px-4 py-3 text-sm text-green-700">
           <CheckIcon className="h-5 w-5" />
           Profile saved successfully!
         </div>
@@ -269,15 +269,15 @@ export default function SettingsPage() {
 
       <div className="space-y-8">
         {/* Basic Info */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <BuildingOfficeIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Basic Information</h2>
+            <BuildingOfficeIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Basic Information</h2>
           </div>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Company Name *
               </label>
               <input
@@ -285,28 +285,28 @@ export default function SettingsPage() {
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 placeholder="Your company name"
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Website
               </label>
               <div className="flex items-center">
-                <GlobeAltIcon className="h-5 w-5 text-gray-400 mr-2" />
+                <GlobeAltIcon className="h-5 w-5 text-slate-400 mr-2" />
                 <input
                   type="url"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
                   placeholder="https://example.com"
-                  className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                  className="flex-1 rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Description
               </label>
               <textarea
@@ -314,17 +314,17 @@ export default function SettingsPage() {
                 onChange={(e) => setDescription(e.target.value)}
                 rows={3}
                 placeholder="Brief description of your company and what you do..."
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
           </div>
         </section>
 
         {/* Products & Services */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <TagIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Products & Services</h2>
+            <TagIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Products & Services</h2>
           </div>
 
           <div className="space-y-4">
@@ -335,11 +335,11 @@ export default function SettingsPage() {
                 onChange={(e) => setNewProduct(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addProduct())}
                 placeholder="Add a product or service..."
-                className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="flex-1 rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
               <button
                 onClick={addProduct}
-                className="px-4 py-2 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-700"
+                className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700"
               >
                 Add
               </button>
@@ -350,12 +350,12 @@ export default function SettingsPage() {
                 {productsServices.map((product) => (
                   <span
                     key={product}
-                    className="inline-flex items-center gap-1 rounded-full bg-teal-50 px-3 py-1 text-sm text-teal-700"
+                    className="inline-flex items-center gap-1 rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-300"
                   >
                     {product}
                     <button
                       onClick={() => removeProduct(product)}
-                      className="text-teal-500 hover:text-teal-700"
+                      className="text-blue-500 hover:text-blue-300"
                     >
                       &times;
                     </button>
@@ -367,12 +367,12 @@ export default function SettingsPage() {
         </section>
 
         {/* Expertise Areas (CPV Sectors) */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <SparklesIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Expertise Areas</h2>
+            <SparklesIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Expertise Areas</h2>
           </div>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-slate-400 mb-4">
             Select the sectors where you have expertise. These map to CPV codes used in government tenders.
           </p>
 
@@ -383,8 +383,8 @@ export default function SettingsPage() {
                 onClick={() => toggleExpertise(div.label)}
                 className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors ${
                   expertiseAreas.includes(div.label)
-                    ? 'border-teal-500 bg-teal-50 text-teal-700'
-                    : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                    ? 'border-blue-500 bg-blue-500/10 text-blue-300'
+                    : 'border-slate-600/50 text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'
                 }`}
               >
                 {expertiseAreas.includes(div.label) && (
@@ -397,12 +397,12 @@ export default function SettingsPage() {
         </section>
 
         {/* Target CPV Divisions */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <TagIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Target Tender Categories</h2>
+            <TagIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Target Tender Categories</h2>
           </div>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-slate-400 mb-4">
             Select the tender categories you want to focus on. We'll prioritize these in your feed.
           </p>
 
@@ -413,8 +413,8 @@ export default function SettingsPage() {
                 onClick={() => toggleCpvDivision(div.code)}
                 className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors ${
                   targetCpvDivisions.includes(div.code)
-                    ? 'border-teal-500 bg-teal-50 text-teal-700'
-                    : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                    ? 'border-blue-500 bg-blue-500/10 text-blue-300'
+                    : 'border-slate-600/50 text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'
                 }`}
               >
                 {targetCpvDivisions.includes(div.code) && (
@@ -427,10 +427,10 @@ export default function SettingsPage() {
         </section>
 
         {/* Target Regions */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <MapPinIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Target Regions</h2>
+            <MapPinIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Target Regions</h2>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -440,8 +440,8 @@ export default function SettingsPage() {
                 onClick={() => toggleRegion(region)}
                 className={`flex items-center gap-2 rounded-md border px-4 py-2 text-sm transition-colors ${
                   targetRegions.includes(region)
-                    ? 'border-teal-500 bg-teal-50 text-teal-700'
-                    : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                    ? 'border-blue-500 bg-blue-500/10 text-blue-300'
+                    : 'border-slate-600/50 text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'
                 }`}
               >
                 {targetRegions.includes(region) && (
@@ -454,47 +454,47 @@ export default function SettingsPage() {
         </section>
 
         {/* Contract Value Range */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <CurrencyPoundIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Contract Value Range</h2>
+            <CurrencyPoundIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Contract Value Range</h2>
           </div>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-slate-400 mb-4">
             Set your preferred contract value range to filter out opportunities that don't match.
           </p>
 
           <div className="flex items-center gap-4">
             <div className="flex-1">
-              <label className="block text-sm text-gray-600 mb-1">Minimum (GBP)</label>
+              <label className="block text-sm text-slate-300 mb-1">Minimum (GBP)</label>
               <input
                 type="number"
                 value={minContractValue}
                 onChange={(e) => setMinContractValue(e.target.value)}
                 placeholder="0"
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
-            <span className="text-gray-400 pt-6">to</span>
+            <span className="text-slate-400 pt-6">to</span>
             <div className="flex-1">
-              <label className="block text-sm text-gray-600 mb-1">Maximum (GBP)</label>
+              <label className="block text-sm text-slate-300 mb-1">Maximum (GBP)</label>
               <input
                 type="number"
                 value={maxContractValue}
                 onChange={(e) => setMaxContractValue(e.target.value)}
                 placeholder="No limit"
-                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                className="w-full rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
             </div>
           </div>
         </section>
 
         {/* Certifications */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center gap-2 mb-4">
-            <CheckIcon className="h-5 w-5 text-gray-400" />
-            <h2 className="text-lg font-semibold text-gray-900">Certifications</h2>
+            <CheckIcon className="h-5 w-5 text-slate-400" />
+            <h2 className="text-lg font-semibold text-slate-100">Certifications</h2>
           </div>
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-slate-400 mb-4">
             Select certifications your company holds. This helps match you with tenders that require them.
           </p>
 
@@ -505,8 +505,8 @@ export default function SettingsPage() {
                 onClick={() => toggleCertification(cert)}
                 className={`flex items-center gap-2 rounded-md border px-3 py-2 text-sm transition-colors ${
                   certifications.includes(cert)
-                    ? 'border-teal-500 bg-teal-50 text-teal-700'
-                    : 'border-gray-200 text-gray-700 hover:bg-gray-50'
+                    ? 'border-blue-500 bg-blue-500/10 text-blue-300'
+                    : 'border-slate-600/50 text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950'
                 }`}
               >
                 {certifications.includes(cert) && (
@@ -519,35 +519,35 @@ export default function SettingsPage() {
         </section>
 
         {/* Sustainability Focus */}
-        <section className="bg-white rounded-lg border border-gray-200 p-6">
+        <section className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg border-slate-600/50 p-6">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <span className="text-xl">🌿</span>
-              <h2 className="text-lg font-semibold text-gray-900">Sustainability Focus</h2>
+              <h2 className="text-lg font-semibold text-slate-100">Sustainability Focus</h2>
             </div>
             <button
               onClick={() => setSustainabilityFocus(!sustainabilityFocus)}
               className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                sustainabilityFocus ? 'bg-green-500' : 'bg-gray-300'
+                sustainabilityFocus ? 'bg-green-900/200' : 'bg-slate-700/70'
               }`}
             >
               <span
-                className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                className={`inline-block h-4 w-4 transform rounded-full bg-slate-900/60 backdrop-blur-xl border-slate-700/50 transition-transform ${
                   sustainabilityFocus ? 'translate-x-6' : 'translate-x-1'
                 }`}
               />
             </button>
           </div>
 
-          <p className="text-sm text-gray-500 mb-4">
+          <p className="text-sm text-slate-400 mb-4">
             Enable this if your company focuses on sustainability, carbon reduction, or environmental services.
             We'll highlight relevant opportunities for you.
           </p>
 
           {sustainabilityFocus && (
-            <div className="space-y-4 border-t border-gray-200 pt-4">
+            <div className="space-y-4 border-t border-slate-600/50 pt-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-slate-300 mb-2">
                   Sustainability Keywords
                 </label>
                 <div className="flex gap-2">
@@ -557,7 +557,7 @@ export default function SettingsPage() {
                     onChange={(e) => setNewSustainabilityKeyword(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), addSustainabilityKeyword())}
                     placeholder="e.g., carbon reduction, net zero..."
-                    className="flex-1 rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
+                    className="flex-1 rounded-md border-slate-500/50 px-3 py-2 text-sm focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500"
                   />
                   <button
                     onClick={addSustainabilityKeyword}
@@ -573,7 +573,7 @@ export default function SettingsPage() {
                   {sustainabilityKeywords.map((keyword) => (
                     <span
                       key={keyword}
-                      className="inline-flex items-center gap-1 rounded-full bg-green-50 px-3 py-1 text-sm text-green-700"
+                      className="inline-flex items-center gap-1 rounded-full bg-green-900/20 px-3 py-1 text-sm text-green-700"
                     >
                       {keyword}
                       <button
@@ -595,14 +595,14 @@ export default function SettingsPage() {
           <button
             onClick={handleSave}
             disabled={saving}
-            className="px-6 py-3 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {saving ? 'Saving...' : 'Save Profile'}
           </button>
         </div>
 
         {/* Danger Zone */}
-        <section className="bg-red-50 rounded-lg border border-red-200 p-6 mt-12">
+        <section className="bg-red-900/20 rounded-lg border-red-200 p-6 mt-12">
           <div className="flex items-center gap-2 mb-4">
             <ExclamationTriangleIcon className="h-5 w-5 text-red-500" />
             <h2 className="text-lg font-semibold text-red-700">Danger Zone</h2>
@@ -623,32 +623,32 @@ export default function SettingsPage() {
       {/* Delete Account Modal */}
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg max-w-md w-full p-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-lg max-w-md w-full p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="p-2 bg-red-100 rounded-full">
                 <ExclamationTriangleIcon className="h-6 w-6 text-red-600" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900">Delete Account</h3>
+              <h3 className="text-lg font-semibold text-slate-100">Delete Account</h3>
             </div>
 
-            <p className="text-sm text-gray-600 mb-4">
+            <p className="text-sm text-slate-300 mb-4">
               Are you sure you want to delete your account? This will permanently remove:
             </p>
-            <ul className="text-sm text-gray-600 mb-4 list-disc list-inside">
+            <ul className="text-sm text-slate-300 mb-4 list-disc list-inside">
               <li>Your user account</li>
               <li>Your company profile</li>
               <li>All saved preferences</li>
             </ul>
 
-            <p className="text-sm text-gray-700 font-medium mb-2">
-              Type <span className="font-mono bg-gray-100 px-1">DELETE</span> to confirm:
+            <p className="text-sm text-slate-300 font-medium mb-2">
+              Type <span className="font-mono bg-slate-800/50 px-1">DELETE</span> to confirm:
             </p>
             <input
               type="text"
               value={deleteConfirmation}
               onChange={(e) => setDeleteConfirmation(e.target.value)}
               placeholder="Type DELETE"
-              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm mb-4 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
+              className="w-full rounded-md border-slate-500/50 px-3 py-2 text-sm mb-4 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500"
             />
 
             <div className="flex gap-3">
@@ -658,7 +658,7 @@ export default function SettingsPage() {
                   setDeleteConfirmation('');
                 }}
                 disabled={deleting}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm font-medium hover:bg-gray-50 disabled:opacity-50"
+                className="flex-1 px-4 py-2 border-slate-500/50 text-slate-300 rounded-md text-sm font-medium hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 disabled:opacity-50"
               >
                 Cancel
               </button>

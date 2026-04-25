@@ -58,7 +58,7 @@ export function InteractiveCard({
       ref={cardRef}
       className={`
         relative overflow-hidden rounded-3xl bg-slate-900/60 backdrop-blur-xl 
-        border border-slate-700/50 shadow-2xl shadow-blue-900/20
+        border-slate-700/50 shadow-2xl shadow-blue-900/20
         transition-all duration-300 ease-out cursor-pointer
         ${className}
       `}
@@ -197,7 +197,7 @@ export function NavigationCard({
     >
       {/* Icon */}
       <motion.div
-        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm border border-blue-500/30"
+        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/30 backdrop-blur-sm border-blue-500/30"
         whileHover={{ 
           scale: 1.1, 
           rotate: 5,
@@ -266,7 +266,7 @@ export function FeatureCard({
     >
       {/* Highlight badge */}
       <motion.div
-        className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-300 text-xs font-semibold rounded-full border border-emerald-500/30"
+        className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-emerald-500/20 to-emerald-600/20 text-emerald-300 text-xs font-semibold rounded-full border-emerald-500/30"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
@@ -275,7 +275,7 @@ export function FeatureCard({
 
       {/* Icon */}
       <motion.div
-        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 backdrop-blur-sm border border-emerald-500/30"
+        className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/30 backdrop-blur-sm border-emerald-500/30"
         whileHover={{ 
           scale: 1.1, 
           rotate: -5,

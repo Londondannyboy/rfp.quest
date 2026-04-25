@@ -67,10 +67,10 @@ export function SavedViewsPanel({
     return (
       <button
         onClick={onToggleCollapse}
-        className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+        className="p-2 hover:bg-slate-900/40 backdrop-blur-xl rounded-lg transition-colors"
         title="Saved Views"
       >
-        <BookmarkIcon className="w-5 h-5 text-gray-500" />
+        <BookmarkIcon className="w-5 h-5 text-slate-500" />
       </button>
     );
   }
@@ -84,14 +84,14 @@ export function SavedViewsPanel({
     return (
       <>
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+          <span className="text-xs font-medium text-slate-500 uppercase tracking-wide">
             Quick Views:
           </span>
 
           {isLoading ? (
             <div className="flex gap-2">
               {[1, 2, 3].map((i) => (
-                <div key={i} className="h-7 w-20 bg-gray-100 rounded-full animate-pulse" />
+                <div key={i} className="h-7 w-20 bg-slate-900/40 backdrop-blur-xl rounded-full animate-pulse" />
               ))}
             </div>
           ) : (
@@ -103,7 +103,7 @@ export function SavedViewsPanel({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => onApplyView(view.filters)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-teal-50 border border-teal-200 text-teal-700 rounded-full text-sm font-medium hover:bg-teal-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-950/20 border-blue-700/50 text-blue-400 rounded-full text-sm font-medium hover:bg-blue-900/30 transition-colors"
                 >
                   {view.icon && <span>{view.icon}</span>}
                   <StarSolidIcon className="w-3 h-3 text-amber-500" />
@@ -118,7 +118,7 @@ export function SavedViewsPanel({
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => onApplyView(view.filters)}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gray-50 border border-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 border-slate-700/50 text-slate-200 rounded-full text-sm font-medium hover:bg-slate-900/40 backdrop-blur-xl transition-colors"
                 >
                   {view.icon && <span>{view.icon}</span>}
                   {view.name}
@@ -127,7 +127,7 @@ export function SavedViewsPanel({
 
               {/* Show more count if many views */}
               {otherViews.length > 5 && (
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-slate-400">
                   +{otherViews.length - 5} more
                 </span>
               )}
@@ -140,7 +140,7 @@ export function SavedViewsPanel({
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowSaveModal(true)}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-white border border-dashed border-gray-300 text-gray-500 rounded-full text-sm hover:border-teal-400 hover:text-teal-600 transition-colors"
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-dashed border-slate-600/50 text-slate-500 rounded-full text-sm hover:border-blue-500/60 hover:text-blue-600 transition-colors"
             >
               <PlusIcon className="w-3.5 h-3.5" />
               Save View
@@ -165,18 +165,18 @@ export function SavedViewsPanel({
   // Vertical layout (default - sidebar)
   return (
     <>
-      <div className="bg-white rounded-xl border border-gray-200 overflow-hidden">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700/40">
           <div className="flex items-center gap-2">
-            <BookmarkIcon className="w-5 h-5 text-teal-600" />
-            <h3 className="font-semibold text-gray-900">Saved Views</h3>
+            <BookmarkIcon className="w-5 h-5 text-blue-600" />
+            <h3 className="font-semibold text-slate-100">Saved Views</h3>
           </div>
           <div className="flex items-center gap-1">
             {hasActiveFilters && (
               <button
                 onClick={() => setShowSaveModal(true)}
-                className="p-1.5 hover:bg-teal-50 rounded-lg text-teal-600 transition-colors"
+                className="p-1.5 hover:bg-blue-950/20 rounded-lg text-blue-600 transition-colors"
                 title="Save current filters"
               >
                 <PlusIcon className="w-4 h-4" />
@@ -185,7 +185,7 @@ export function SavedViewsPanel({
             {onToggleCollapse && (
               <button
                 onClick={onToggleCollapse}
-                className="p-1.5 hover:bg-gray-100 rounded-lg text-gray-400 transition-colors"
+                className="p-1.5 hover:bg-slate-900/40 backdrop-blur-xl rounded-lg text-slate-400 transition-colors"
               >
                 <ChevronRightIcon className="w-4 h-4" />
               </button>
@@ -200,18 +200,18 @@ export function SavedViewsPanel({
               {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="h-10 bg-gray-100 rounded-lg animate-pulse"
+                  className="h-10 bg-slate-900/40 backdrop-blur-xl rounded-lg animate-pulse"
                 />
               ))}
             </div>
           ) : views.length === 0 ? (
-            <div className="py-6 text-center text-gray-500">
-              <FunnelIcon className="w-8 h-8 mx-auto mb-2 text-gray-300" />
+            <div className="py-6 text-center text-slate-500">
+              <FunnelIcon className="w-8 h-8 mx-auto mb-2 text-slate-400" />
               <p className="text-sm">No saved views yet</p>
               {hasActiveFilters && (
                 <button
                   onClick={() => setShowSaveModal(true)}
-                  className="mt-2 text-xs text-teal-600 hover:text-teal-700"
+                  className="mt-2 text-xs text-blue-600 hover:text-blue-400"
                 >
                   Save current filters
                 </button>
@@ -222,7 +222,7 @@ export function SavedViewsPanel({
               {/* Pinned Views */}
               {pinnedViews.length > 0 && (
                 <div className="space-y-1">
-                  <p className="text-xs text-gray-400 px-2 pt-1">Pinned</p>
+                  <p className="text-xs text-slate-400 px-2 pt-1">Pinned</p>
                   <AnimatePresence>
                     {pinnedViews.map((view) => (
                       <ViewItem
@@ -243,7 +243,7 @@ export function SavedViewsPanel({
               {otherViews.length > 0 && (
                 <div className="space-y-1">
                   {pinnedViews.length > 0 && (
-                    <p className="text-xs text-gray-400 px-2 pt-2">Other</p>
+                    <p className="text-xs text-slate-400 px-2 pt-2">Other</p>
                   )}
                   <AnimatePresence>
                     {otherViews.map((view) => (
@@ -312,15 +312,15 @@ function ViewItem({
     >
       <button
         onClick={onApply}
-        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors text-left"
+        className="w-full flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 transition-colors text-left"
       >
         {view.icon ? (
           <span className="text-sm">{view.icon}</span>
         ) : (
-          <FunnelIcon className="w-4 h-4 text-gray-400" />
+          <FunnelIcon className="w-4 h-4 text-slate-400" />
         )}
-        <span className="flex-1 truncate text-sm text-gray-700">{view.name}</span>
-        <span className="text-xs text-gray-400">{filterCount}</span>
+        <span className="flex-1 truncate text-sm text-slate-200">{view.name}</span>
+        <span className="text-xs text-slate-400">{filterCount}</span>
       </button>
 
       {/* Hover Actions */}
@@ -330,14 +330,14 @@ function ViewItem({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center gap-0.5 bg-white shadow-sm rounded-lg border border-gray-100 p-0.5"
+            className="absolute right-1 top-1/2 -translate-y-1/2 flex items-center gap-0.5 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 shadow-sm rounded-lg border-slate-700/40 p-0.5"
           >
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 onTogglePin();
               }}
-              className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-amber-500 transition-colors"
+              className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded text-slate-400 hover:text-amber-500 transition-colors"
               title={view.isPinned ? 'Unpin' : 'Pin'}
             >
               {view.isPinned ? (
@@ -351,7 +351,7 @@ function ViewItem({
                 e.stopPropagation();
                 onEdit();
               }}
-              className="p-1 hover:bg-gray-100 rounded text-gray-400 hover:text-gray-600 transition-colors"
+              className="p-1 hover:bg-slate-900/40 backdrop-blur-xl rounded text-slate-400 hover:text-slate-300 transition-colors"
               title="Edit"
             >
               <PencilIcon className="w-3.5 h-3.5" />
@@ -362,7 +362,7 @@ function ViewItem({
                 onDelete();
               }}
               disabled={isDeleting}
-              className="p-1 hover:bg-red-50 rounded text-gray-400 hover:text-red-500 transition-colors disabled:opacity-50"
+              className="p-1 hover:bg-red-900/20 rounded text-slate-400 hover:text-red-500 transition-colors disabled:opacity-50"
               title="Delete"
             >
               <TrashIcon className="w-3.5 h-3.5" />

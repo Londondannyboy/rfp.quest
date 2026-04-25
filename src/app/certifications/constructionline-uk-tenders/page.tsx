@@ -95,7 +95,7 @@ export default function ConstructionlineUKTendersPage() {
       
       <article className="max-w-4xl mx-auto px-4 py-12">
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             Constructionline for UK Government Contracts: Complete Certification Guide
           </h1>
           
@@ -108,8 +108,8 @@ export default function ConstructionlineUKTendersPage() {
             </p>
           </div>
 
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: constructionline-uk-certification.jpg - Constructionline Gold and Silver certification badges for UK contractors]
             </p>
           </div>
@@ -130,53 +130,53 @@ export default function ConstructionlineUKTendersPage() {
             Understanding the three membership levels helps choose the right one:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Level</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">What's Included</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Best For</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Cost Range</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Level</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">What's Included</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Best For</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Cost Range</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="bg-gray-50">
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Silver</td>
-                <td className="border border-gray-300 px-4 py-2">
+              <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Silver</td>
+                <td className="border-slate-500/50 px-4 py-2">
                   • PQQ verification<br/>
                   • Financial checks<br/>
                   • Insurance validation<br/>
                   • Company information
                 </td>
-                <td className="border border-gray-300 px-4 py-2">Consultants, low-risk services</td>
-                <td className="border border-gray-300 px-4 py-2">£185 - £1,470</td>
+                <td className="border-slate-500/50 px-4 py-2">Consultants, low-risk services</td>
+                <td className="border-slate-500/50 px-4 py-2">£185 - £1,470</td>
               </tr>
               <tr className="bg-yellow-50">
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Gold ⭐</td>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Gold ⭐</td>
+                <td className="border-slate-500/50 px-4 py-2">
                   • Everything in Silver<br/>
                   • SSIP H&S assessment<br/>
                   • CDM compliance<br/>
                   • Risk assessments review
                 </td>
-                <td className="border border-gray-300 px-4 py-2">Most contractors (recommended)</td>
-                <td className="border border-gray-300 px-4 py-2">£285 - £2,190</td>
+                <td className="border-slate-500/50 px-4 py-2">Most contractors (recommended)</td>
+                <td className="border-slate-500/50 px-4 py-2">£285 - £2,190</td>
               </tr>
               <tr className="bg-purple-50">
-                <td className="border border-gray-300 px-4 py-2 font-semibold">Platinum</td>
-                <td className="border border-gray-300 px-4 py-2">
+                <td className="border-slate-500/50 px-4 py-2 font-semibold">Platinum</td>
+                <td className="border-slate-500/50 px-4 py-2">
                   • Everything in Gold<br/>
                   • Live tender alerts<br/>
                   • Buyer search tools<br/>
                   • Enhanced profile
                 </td>
-                <td className="border border-gray-300 px-4 py-2">Active bidders, main contractors</td>
-                <td className="border border-gray-300 px-4 py-2">£2,190 - £4,500</td>
+                <td className="border-slate-500/50 px-4 py-2">Active bidders, main contractors</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,190 - £4,500</td>
               </tr>
             </tbody>
           </table>
 
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 my-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 my-8">
             <p className="font-semibold text-amber-900 mb-2">
               💡 Important: Most Contracts Require Gold
             </p>
@@ -191,57 +191,57 @@ export default function ConstructionlineUKTendersPage() {
             Constructionline pricing is based on company turnover:
           </p>
 
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Annual Turnover</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Silver</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Gold</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Platinum</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Annual Turnover</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Silver</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Gold</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Platinum</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Under £200k</td>
-                <td className="border border-gray-300 px-4 py-2">£185 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£285 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,190 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Under £200k</td>
+                <td className="border-slate-500/50 px-4 py-2">£185 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£285 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,190 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£200k - £650k</td>
-                <td className="border border-gray-300 px-4 py-2">£340 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£440 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,345 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£200k - £650k</td>
+                <td className="border-slate-500/50 px-4 py-2">£340 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£440 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,345 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£650k - £1.5M</td>
-                <td className="border border-gray-300 px-4 py-2">£475 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£650 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,555 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£650k - £1.5M</td>
+                <td className="border-slate-500/50 px-4 py-2">£475 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£650 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,555 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£1.5M - £3M</td>
-                <td className="border border-gray-300 px-4 py-2">£615 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£885 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,790 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1.5M - £3M</td>
+                <td className="border-slate-500/50 px-4 py-2">£615 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£885 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,790 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£3M - £6.5M</td>
-                <td className="border border-gray-300 px-4 py-2">£790 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,170 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£3,075 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£3M - £6.5M</td>
+                <td className="border-slate-500/50 px-4 py-2">£790 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,170 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£3,075 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">£6.5M - £25M</td>
-                <td className="border border-gray-300 px-4 py-2">£1,090 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£1,610 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£3,515 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£6.5M - £25M</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,090 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,610 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£3,515 + VAT</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Over £25M</td>
-                <td className="border border-gray-300 px-4 py-2">£1,470 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£2,190 + VAT</td>
-                <td className="border border-gray-300 px-4 py-2">£4,500 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">Over £25M</td>
+                <td className="border-slate-500/50 px-4 py-2">£1,470 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£2,190 + VAT</td>
+                <td className="border-slate-500/50 px-4 py-2">£4,500 + VAT</td>
               </tr>
             </tbody>
           </table>
@@ -265,7 +265,7 @@ export default function ConstructionlineUKTendersPage() {
             Major buyers requiring Constructionline include:
           </p>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Government Frameworks</h3>
             <ul className="space-y-2">
               <li>• Crown Commercial Service (all construction frameworks)</li>
@@ -278,7 +278,7 @@ export default function ConstructionlineUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Local Authorities</h3>
             <ul className="space-y-2">
               <li>• All UK councils use Constructionline</li>
@@ -289,7 +289,7 @@ export default function ConstructionlineUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-white border rounded-lg p-6 my-6">
+          <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border rounded-lg p-6 my-6">
             <h3 className="text-lg font-semibold mb-4">Major Contractors</h3>
             <ul className="space-y-2">
               <li>• Tier 1 contractors (Balfour Beatty, Kier, Morgan Sindall)</li>
@@ -301,9 +301,9 @@ export default function ConstructionlineUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">The Assessment Process</h2>
           
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Step 1: Online Application</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Create account and choose membership level</li>
               <li>• Complete company information sections</li>
               <li>• Declare work categories (up to 20 included)</li>
@@ -312,9 +312,9 @@ export default function ConstructionlineUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Step 2: Document Verification (Silver)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Insurance certificates checked (PL, EL, PI)</li>
               <li>• Financial accounts verified via credit check</li>
               <li>• Company registration confirmed</li>
@@ -323,9 +323,9 @@ export default function ConstructionlineUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Step 3: H&S Assessment (Gold only)</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• H&S policy review (signed within 12 months)</li>
               <li>• Risk assessments evaluation</li>
               <li>• Method statements checked</li>
@@ -335,9 +335,9 @@ export default function ConstructionlineUKTendersPage() {
             </ul>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 my-6">
+          <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-6 my-6">
             <h3 className="font-semibold mb-3">Step 4: Certification</h3>
-            <ul className="space-y-1 text-gray-700">
+            <ul className="space-y-1 text-slate-300">
               <li>• Assessment complete notification</li>
               <li>• Certificate and logo provided</li>
               <li>• Profile visible to all buyers</li>
@@ -351,7 +351,7 @@ export default function ConstructionlineUKTendersPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-semibold mb-2">For All Levels:</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Company registration certificate</li>
                 <li>• VAT certificate (if registered)</li>
                 <li>• Employers' Liability Insurance</li>
@@ -363,7 +363,7 @@ export default function ConstructionlineUKTendersPage() {
             
             <div>
               <h3 className="font-semibold mb-2">Additional for Gold:</h3>
-              <ul className="space-y-1 text-gray-700">
+              <ul className="space-y-1 text-slate-300">
                 <li>• Health & Safety Policy</li>
                 <li>• Risk assessments (2+ examples)</li>
                 <li>• Method statements</li>
@@ -411,45 +411,45 @@ export default function ConstructionlineUKTendersPage() {
 
           <h2 className="text-2xl font-bold mt-10 mb-4">Constructionline vs Alternatives</h2>
           
-          <table className="min-w-full border border-gray-300 my-6">
-            <thead className="bg-gray-100">
+          <table className="min-w-full border-slate-500/50 my-6">
+            <thead className="bg-slate-800/50">
               <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">Feature</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Constructionline</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">CHAS/SafeContractor</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Achilles BuildingConfidence</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Feature</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Constructionline</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">CHAS/SafeContractor</th>
+                <th className="border-slate-500/50 px-4 py-2 text-left">Achilles BuildingConfidence</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">PQQ included</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                <td className="border border-gray-300 px-4 py-2">❌ No (H&S only)</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">PQQ included</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ No (H&S only)</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">SSIP H&S</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Gold level</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">SSIP H&S</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Gold level</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Government owned</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
-                <td className="border border-gray-300 px-4 py-2">✅/❌ Mixed</td>
-                <td className="border border-gray-300 px-4 py-2">❌ Private</td>
+                <td className="border-slate-500/50 px-4 py-2">Government owned</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">✅/❌ Mixed</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ Private</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Buyer numbers</td>
-                <td className="border border-gray-300 px-4 py-2">8,000+</td>
-                <td className="border border-gray-300 px-4 py-2">500+</td>
-                <td className="border border-gray-300 px-4 py-2">300+</td>
+                <td className="border-slate-500/50 px-4 py-2">Buyer numbers</td>
+                <td className="border-slate-500/50 px-4 py-2">8,000+</td>
+                <td className="border-slate-500/50 px-4 py-2">500+</td>
+                <td className="border-slate-500/50 px-4 py-2">300+</td>
               </tr>
               <tr>
-                <td className="border border-gray-300 px-4 py-2">Tender alerts</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Platinum</td>
-                <td className="border border-gray-300 px-4 py-2">❌ No</td>
-                <td className="border border-gray-300 px-4 py-2">✅ Yes</td>
+                <td className="border-slate-500/50 px-4 py-2">Tender alerts</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Platinum</td>
+                <td className="border-slate-500/50 px-4 py-2">❌ No</td>
+                <td className="border-slate-500/50 px-4 py-2">✅ Yes</td>
               </tr>
             </tbody>
           </table>
@@ -523,32 +523,32 @@ export default function ConstructionlineUKTendersPage() {
             </li>
           </ul>
 
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <Link href="/certifications/chas-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   CHAS Certification
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">H&S pre-qualification only</p>
+                <p className="text-sm text-slate-300 mt-1">H&S pre-qualification only</p>
               </div>
               <div>
                 <Link href="/certifications/pas-91-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   PAS 91
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Standard PQQ question set</p>
+                <p className="text-sm text-slate-300 mt-1">Standard PQQ question set</p>
               </div>
               <div>
                 <Link href="/certifications/ssip-uk-tenders" className="text-blue-600 hover:underline font-medium">
                   SSIP Overview
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Understanding all H&S schemes</p>
+                <p className="text-sm text-slate-300 mt-1">Understanding all H&S schemes</p>
               </div>
               <div>
                 <Link href="/certifications/" className="text-blue-600 hover:underline font-medium">
                   All Certifications
                 </Link>
-                <p className="text-sm text-gray-600 mt-1">Complete certification guide</p>
+                <p className="text-sm text-slate-300 mt-1">Complete certification guide</p>
               </div>
             </div>
           </nav>

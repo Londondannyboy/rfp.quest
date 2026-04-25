@@ -75,7 +75,7 @@ function StatCard({ stat, compact }: { stat: StatItem; compact?: boolean }) {
     <div className="bg-slate-800/50 rounded-xl p-4 hover:bg-slate-800/70 transition-colors">
       <div className="flex items-start justify-between">
         <div className="p-2 bg-slate-700/50 rounded-lg">
-          <Icon className="w-5 h-5 text-teal-400" />
+          <Icon className="w-5 h-5 text-blue-400" />
         </div>
         {stat.trend && <TrendIndicator trend={stat.trend} value={stat.trendValue} />}
       </div>

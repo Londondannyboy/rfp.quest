@@ -117,16 +117,16 @@ export function SectorPieChart({ data, loading, onSectorClick }: SectorPieChartP
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
-        <div className="animate-pulse w-48 h-48 bg-gray-200 rounded-full" />
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
+        <div className="animate-pulse w-48 h-48 bg-slate-800/60 rounded-full" />
       </div>
     );
   }
 
   if (!data || data.length === 0) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 h-80 flex items-center justify-center">
-        <p className="text-gray-500">No sector data available</p>
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40 h-80 flex items-center justify-center">
+        <p className="text-slate-500">No sector data available</p>
       </div>
     );
   }
@@ -136,9 +136,9 @@ export function SectorPieChart({ data, loading, onSectorClick }: SectorPieChartP
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl p-6 shadow-sm border-slate-700/40"
     >
-      <h3 className="text-lg font-semibold text-gray-900 mb-4">
+      <h3 className="text-lg font-semibold text-slate-100 mb-4">
         Sector Distribution
       </h3>
       <div className="h-72" style={{ minWidth: 300, minHeight: 288 }}>
@@ -173,9 +173,9 @@ export function SectorPieChart({ data, loading, onSectorClick }: SectorPieChartP
                 if (active && payload && payload.length) {
                   const item = payload[0].payload as SectorData;
                   return (
-                    <div className="bg-white px-3 py-2 shadow-lg rounded-lg border border-gray-100">
-                      <p className="font-medium text-gray-900">{item.sector}</p>
-                      <p className="text-sm text-gray-500">
+                    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-3 py-2 shadow-lg rounded-lg border-slate-700/40">
+                      <p className="font-medium text-slate-100">{item.sector}</p>
+                      <p className="text-sm text-slate-500">
                         {item.count} tenders ({item.percentage}%)
                       </p>
                     </div>
@@ -190,7 +190,7 @@ export function SectorPieChart({ data, loading, onSectorClick }: SectorPieChartP
               align="center"
               wrapperStyle={{ paddingTop: '20px' }}
               formatter={(value) => (
-                <span className="text-xs text-gray-600">{value}</span>
+                <span className="text-xs text-slate-300">{value}</span>
               )}
             />
           </PieChart>

@@ -196,7 +196,7 @@ Join hundreds of UK organizations already using RFP Platform Quest to win more c
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Glass morphism content container */}
-          <div className="bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 lg:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border border-slate-800/50">
+          <div className="bg-slate-900/60 backdrop-blur-xl rounded-3xl p-8 md:p-12 lg:p-16 ring-1 ring-slate-700/50 shadow-2xl shadow-blue-900/20 border-slate-800/50">
             <article className="prose prose-lg md:prose-xl max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-white prose-h1:bg-gradient-to-r prose-h1:from-white prose-h1:via-blue-100 prose-h1:to-white prose-h1:bg-clip-text prose-h1:text-transparent prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:bg-gradient-to-r prose-h2:from-white prose-h2:via-blue-100 prose-h2:to-white prose-h2:bg-clip-text prose-h2:text-transparent prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-h3:text-white prose-p:leading-relaxed prose-p:mb-6 prose-p:text-slate-300 prose-li:my-2 prose-li:text-slate-300 prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline hover:prose-a:text-blue-300 prose-a:font-medium prose-a:transition-colors prose-strong:text-white prose-ul:text-slate-300">
               <Markdown>{page.body_content}</Markdown>
             </article>

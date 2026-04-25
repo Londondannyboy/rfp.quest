@@ -69,7 +69,7 @@ export function ComplianceTab({ compliance }: Props) {
   return (
     <div className="space-y-6">
       {/* Overall Status Header */}
-      <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+      <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
         <div className="flex items-center justify-between mb-4">
           <div>
             <h3 className="text-lg font-medium text-white">Compliance Status</h3>
@@ -90,12 +90,12 @@ export function ComplianceTab({ compliance }: Props) {
             <div
               className={`h-full rounded-full transition-all ${
                 complianceScore >= 80
-                  ? 'bg-green-500'
+                  ? 'bg-green-900/200'
                   : complianceScore >= 60
                   ? 'bg-yellow-500'
                   : complianceScore >= 40
                   ? 'bg-orange-500'
-                  : 'bg-red-500'
+                  : 'bg-red-900/200'
               }`}
               style={{ width: `${complianceScore}%` }}
             />
@@ -105,7 +105,7 @@ export function ComplianceTab({ compliance }: Props) {
 
       {/* Mandatory Requirements (Showstoppers) */}
       {mandatoryRequirements && mandatoryRequirements.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <ExclamationTriangleIcon className="h-5 w-5 text-red-400" />
             Mandatory Requirements
@@ -116,9 +116,9 @@ export function ComplianceTab({ compliance }: Props) {
                 key={index}
                 className={`flex items-start gap-3 p-3 rounded-lg ${
                   req.status === 'fail'
-                    ? 'bg-red-900/20 border border-red-800'
+                    ? 'bg-red-900/20 border-red-800'
                     : req.status === 'pass'
-                    ? 'bg-green-900/20 border border-green-800'
+                    ? 'bg-green-900/20 border-green-800'
                     : 'bg-slate-700/50'
                 }`}
               >
@@ -145,7 +145,7 @@ export function ComplianceTab({ compliance }: Props) {
           {categories.map((category, catIndex) => (
             <details
               key={catIndex}
-              className="group p-4 bg-slate-800/50 rounded-lg border border-slate-700"
+              className="group p-4 bg-slate-800/50 rounded-lg border-slate-700"
               open={catIndex === 0}
             >
               <summary className="flex items-center justify-between cursor-pointer list-none">
@@ -207,7 +207,7 @@ export function ComplianceTab({ compliance }: Props) {
 
       {/* Action Items */}
       {actionItems && actionItems.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4">Action Items</h3>
           <div className="space-y-3">
             {actionItems.map((item, index) => (
@@ -241,7 +241,7 @@ export function ComplianceTab({ compliance }: Props) {
 
       {/* Risk Factors */}
       {riskFactors && riskFactors.length > 0 && (
-        <div className="p-6 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="p-6 bg-slate-800/50 rounded-lg border-slate-700">
           <h3 className="text-lg font-medium text-white mb-4 flex items-center gap-2">
             <ExclamationTriangleIcon className="h-5 w-5 text-yellow-400" />
             Risk Factors

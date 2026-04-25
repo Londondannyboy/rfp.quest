@@ -26,15 +26,15 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
       {/* Sidebar */}
       <div className="hidden md:flex md:w-64 md:flex-col">
-        <div className="flex min-h-0 flex-1 flex-col border-r border-gray-200 bg-white">
+        <div className="flex min-h-0 flex-1 flex-col border-r border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50">
           {/* Logo */}
-          <div className="flex h-16 shrink-0 items-center px-4 border-b border-gray-200">
+          <div className="flex h-16 shrink-0 items-center px-4 border-b border-slate-700/50">
             <Link href="/" className="flex items-center gap-1">
-              <span className="text-xl font-bold text-teal-600">RFP</span>
-              <span className="text-xl font-medium text-gray-900">Quest</span>
+              <span className="text-xl font-bold text-blue-600">RFP</span>
+              <span className="text-xl font-medium text-slate-100">Quest</span>
             </Link>
           </div>
 
@@ -51,16 +51,16 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
                   href={item.href}
                   className={classNames(
                     isActive
-                      ? 'bg-teal-50 text-teal-600'
-                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+                      ? 'bg-blue-950/20 text-blue-600'
+                      : 'text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 hover:text-slate-100',
                     'group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors'
                   )}
                 >
                   <item.icon
                     className={classNames(
                       isActive
-                        ? 'text-teal-600'
-                        : 'text-gray-400 group-hover:text-gray-500',
+                        ? 'text-blue-600'
+                        : 'text-slate-400 group-hover:text-slate-500',
                       'h-5 w-5 shrink-0'
                     )}
                   />
@@ -71,12 +71,12 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
           </nav>
 
           {/* Back to site */}
-          <div className="shrink-0 border-t border-gray-200 p-4">
+          <div className="shrink-0 border-t border-slate-700/50 p-4">
             <Link
               href="/"
-              className="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors"
+              className="group flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium text-slate-300 hover:bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 hover:text-slate-100 transition-colors"
             >
-              <ArrowLeftEndOnRectangleIcon className="h-5 w-5 text-gray-400 group-hover:text-gray-500" />
+              <ArrowLeftEndOnRectangleIcon className="h-5 w-5 text-slate-400 group-hover:text-slate-500" />
               Back to site
             </Link>
           </div>
@@ -86,10 +86,10 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
       {/* Main content */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile header */}
-        <div className="md:hidden flex h-16 shrink-0 items-center justify-between border-b border-gray-200 bg-white px-4">
+        <div className="md:hidden flex h-16 shrink-0 items-center justify-between border-b border-slate-700/50 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-4">
           <Link href="/" className="flex items-center gap-1">
-            <span className="text-xl font-bold text-teal-600">RFP</span>
-            <span className="text-xl font-medium text-gray-900">Quest</span>
+            <span className="text-xl font-bold text-blue-600">RFP</span>
+            <span className="text-xl font-medium text-slate-100">Quest</span>
           </Link>
         </div>
 

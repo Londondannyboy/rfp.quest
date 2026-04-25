@@ -95,11 +95,11 @@ export default function ISO42001Page() {
       <article className="max-w-4xl mx-auto px-4 py-12">
         {/* Hero Section */}
         <header className="mb-12">
-          <h1 className="text-4xl font-bold mb-6 text-gray-900">
+          <h1 className="text-4xl font-bold mb-6 text-slate-100">
             ISO 42001 for UK Tenders: AI Certification Requirements in 2026
           </h1>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 mb-8">
+          <div className="bg-amber-900/20 border-l-4 border-amber-400 p-6 mb-8">
             <p className="font-semibold text-amber-900 mb-2">⚠️ Time-Sensitive Alert</p>
             <p className="text-amber-800">
               The EU AI Act's enforcement deadline for high-risk AI systems is August 2026. 
@@ -110,8 +110,8 @@ export default function ISO42001Page() {
           </div>
 
           {/* TODO: Add hero image */}
-          <div className="bg-gray-100 h-64 flex items-center justify-center mb-8 rounded-lg">
-            <p className="text-gray-500">
+          <div className="bg-slate-800/50 h-64 flex items-center justify-center mb-8 rounded-lg">
+            <p className="text-slate-400">
               [Image: iso-42001-uk-tenders-uk.jpg - ISO 42001 UK tenders requirements for UK government tenders]
             </p>
           </div>
@@ -253,45 +253,45 @@ export default function ISO42001Page() {
           </p>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Organisation Size</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Year 1 Total Cost</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Breakdown</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Annual Maintenance</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Organisation Size</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Year 1 Total Cost</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Breakdown</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Annual Maintenance</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Small (1-50 employees)</td>
-                  <td className="border border-gray-300 px-4 py-2">£8,000 - £20,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Small (1-50 employees)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£8,000 - £20,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £5,000-£12,000<br/>
                     Certification: £3,000-£5,000<br/>
                     Training: £1,000-£3,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£2,000 - £4,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£2,000 - £4,000</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2">Medium (51-250 employees)</td>
-                  <td className="border border-gray-300 px-4 py-2">£20,000 - £35,000</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2">Medium (51-250 employees)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£20,000 - £35,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £12,000-£20,000<br/>
                     Certification: £5,000-£8,000<br/>
                     Training: £3,000-£5,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£4,000 - £7,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£4,000 - £7,000</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2">Large (250+ employees)</td>
-                  <td className="border border-gray-300 px-4 py-2">£35,000 - £50,000+</td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="border-slate-500/50 px-4 py-2">Large (250+ employees)</td>
+                  <td className="border-slate-500/50 px-4 py-2">£35,000 - £50,000+</td>
+                  <td className="border-slate-500/50 px-4 py-2">
                     Consultancy: £20,000-£30,000<br/>
                     Certification: £8,000-£12,000<br/>
                     Training: £5,000-£8,000
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">£7,000 - £12,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£7,000 - £12,000</td>
                 </tr>
               </tbody>
             </table>
@@ -360,45 +360,45 @@ export default function ISO42001Page() {
           </p>
 
           <div className="overflow-x-auto my-8">
-            <table className="min-w-full border-collapse border border-gray-300">
-              <thead className="bg-gray-50">
+            <table className="min-w-full border-collapse border-slate-500/50">
+              <thead className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
                 <tr>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Aspect</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISO 27001</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISO 42001</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">Aspect</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">ISO 27001</th>
+                  <th className="border-slate-500/50 px-4 py-2 text-left">ISO 42001</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Focus</td>
-                  <td className="border border-gray-300 px-4 py-2">Information security</td>
-                  <td className="border border-gray-300 px-4 py-2">AI governance and ethics</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Focus</td>
+                  <td className="border-slate-500/50 px-4 py-2">Information security</td>
+                  <td className="border-slate-500/50 px-4 py-2">AI governance and ethics</td>
                 </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Key Controls</td>
-                  <td className="border border-gray-300 px-4 py-2">Access control, encryption, incident response</td>
-                  <td className="border border-gray-300 px-4 py-2">Bias assessment, explainability, human oversight</td>
-                </tr>
-                <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Risk Focus</td>
-                  <td className="border border-gray-300 px-4 py-2">Data breaches, cyber attacks</td>
-                  <td className="border border-gray-300 px-4 py-2">AI bias, unfair outcomes, lack of transparency</td>
-                </tr>
-                <tr className="bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Required For</td>
-                  <td className="border border-gray-300 px-4 py-2">All data-handling contracts</td>
-                  <td className="border border-gray-300 px-4 py-2">AI system development/deployment</td>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Key Controls</td>
+                  <td className="border-slate-500/50 px-4 py-2">Access control, encryption, incident response</td>
+                  <td className="border-slate-500/50 px-4 py-2">Bias assessment, explainability, human oversight</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-300 px-4 py-2 font-semibold">Typical Cost</td>
-                  <td className="border border-gray-300 px-4 py-2">£5,000 - £40,000</td>
-                  <td className="border border-gray-300 px-4 py-2">£8,000 - £50,000</td>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Risk Focus</td>
+                  <td className="border-slate-500/50 px-4 py-2">Data breaches, cyber attacks</td>
+                  <td className="border-slate-500/50 px-4 py-2">AI bias, unfair outcomes, lack of transparency</td>
+                </tr>
+                <tr className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Required For</td>
+                  <td className="border-slate-500/50 px-4 py-2">All data-handling contracts</td>
+                  <td className="border-slate-500/50 px-4 py-2">AI system development/deployment</td>
+                </tr>
+                <tr>
+                  <td className="border-slate-500/50 px-4 py-2 font-semibold">Typical Cost</td>
+                  <td className="border-slate-500/50 px-4 py-2">£5,000 - £40,000</td>
+                  <td className="border-slate-500/50 px-4 py-2">£8,000 - £50,000</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-lg my-6">
+          <div className="bg-green-900/20 p-6 rounded-lg my-6">
             <h3 className="text-lg font-semibold mb-2">Integration Benefits</h3>
             <p>
               If you already have ISO 27001, adding ISO 42001 is more efficient. The standards 
@@ -576,12 +576,12 @@ export default function ISO42001Page() {
               <input
                 type="email"
                 placeholder="Your email address"
-                className="flex-1 px-4 py-2 rounded text-gray-900"
+                className="flex-1 px-4 py-2 rounded text-slate-100"
                 required
               />
               <button
                 type="submit"
-                className="bg-white text-blue-600 px-6 py-2 rounded font-semibold hover:bg-gray-100 transition"
+                className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 text-blue-600 px-6 py-2 rounded font-semibold hover:bg-slate-800/50 transition"
               >
                 Get Free Report →
               </button>
@@ -592,7 +592,7 @@ export default function ISO42001Page() {
           </div>
 
           {/* Internal Links */}
-          <nav className="mt-12 pt-8 border-t border-gray-200">
+          <nav className="mt-12 pt-8 border-t border-slate-600/50">
             <h3 className="text-lg font-semibold mb-4">Related Certification Guides</h3>
             <ul className="space-y-2">
               <li>
@@ -619,7 +619,7 @@ export default function ISO42001Page() {
           </nav>
 
           {/* External Links */}
-          <div className="mt-8 p-6 bg-gray-50 rounded-lg">
+          <div className="mt-8 p-6 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Official Resources</h3>
             <ul className="space-y-2">
               <li>

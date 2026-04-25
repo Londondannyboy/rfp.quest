@@ -111,14 +111,14 @@ export default function MyBidsPage() {
               </Link>
               <span className="text-slate-600">/</span>
               <h1 className="text-xl font-semibold text-white flex items-center gap-2">
-                <DocumentTextIcon className="w-6 h-6 text-teal-400" />
+                <DocumentTextIcon className="w-6 h-6 text-blue-400" />
                 My Bids
               </h1>
             </div>
 
             <Link
               href="/dashboard"
-              className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-5 h-5" />
               New Bid
@@ -131,23 +131,23 @@ export default function MyBidsPage() {
         {/* Stats Cards */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-white">{stats.totalBids}</div>
               <div className="text-sm text-slate-400">Total Bids</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-amber-400">{stats.inProgress}</div>
               <div className="text-sm text-slate-400">In Progress</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-green-400">{stats.completed}</div>
               <div className="text-sm text-slate-400">Completed</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-slate-800">
+            <div className="bg-slate-900 rounded-xl p-4 border-slate-800">
               <div className="text-2xl font-bold text-slate-400">{stats.notStarted}</div>
               <div className="text-sm text-slate-400">Not Started</div>
             </div>
-            <div className="bg-slate-900 rounded-xl p-4 border border-red-900/50">
+            <div className="bg-slate-900 rounded-xl p-4 border-red-900/50">
               <div className="text-2xl font-bold text-red-400">{stats.upcomingDeadlines}</div>
               <div className="text-sm text-slate-400">Due This Week</div>
             </div>
@@ -167,7 +167,7 @@ export default function MyBidsPage() {
               onClick={() => setFilter(f.id as typeof filter)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 filter === f.id
-                  ? 'bg-teal-600 text-white'
+                  ? 'bg-blue-600 text-white'
                   : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
               }`}
             >
@@ -179,7 +179,7 @@ export default function MyBidsPage() {
         {/* Bids List */}
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
-            <ArrowPathIcon className="w-8 h-8 text-teal-400 animate-spin" />
+            <ArrowPathIcon className="w-8 h-8 text-blue-400 animate-spin" />
           </div>
         ) : filteredBids.length > 0 ? (
           <div className="space-y-4">
@@ -191,7 +191,7 @@ export default function MyBidsPage() {
                 <Link
                   key={bid.documentId}
                   href={`/tender/${bid.tenderOcid}/analysis`}
-                  className="block bg-slate-900 rounded-xl border border-slate-800 p-6 hover:border-slate-700 transition-colors"
+                  className="block bg-slate-900 rounded-xl border-slate-800 p-6 hover:border-slate-700 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-6">
                     {/* Left: Title and Info */}
@@ -267,7 +267,7 @@ export default function MyBidsPage() {
             })}
           </div>
         ) : (
-          <div className="bg-slate-900 rounded-xl border border-slate-800 p-12 text-center">
+          <div className="bg-slate-900 rounded-xl border-slate-800 p-12 text-center">
             <DocumentTextIcon className="w-12 h-12 text-slate-600 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-white mb-2">No Bids Yet</h3>
             <p className="text-slate-400 text-sm mb-6 max-w-md mx-auto">
@@ -275,7 +275,7 @@ export default function MyBidsPage() {
             </p>
             <Link
               href="/dashboard"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
             >
               <PlusIcon className="w-5 h-5" />
               Find Tenders

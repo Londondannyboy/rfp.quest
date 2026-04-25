@@ -234,7 +234,7 @@ export function SectorBubbleChart({ region }: SectorBubbleChartProps) {
 
       {/* Selected/Hovered sector details */}
       {(hoveredSector || selectedSector) && (
-        <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700">
+        <div className="mt-4 p-4 bg-slate-800/50 rounded-lg border-slate-700">
           {sortedSectors
             .filter((s) => s.division === (hoveredSector || selectedSector))
             .map((sector) => {
@@ -250,7 +250,7 @@ export function SectorBubbleChart({ region }: SectorBubbleChartProps) {
                       </p>
                     </div>
                     <div className="ml-auto text-right">
-                      <div className="text-teal-400 font-medium">{sector.activeTenders} active</div>
+                      <div className="text-blue-400 font-medium">{sector.activeTenders} active</div>
                       <div className="text-slate-500 text-xs">Avg: {formatValue(sector.avgValue)}</div>
                     </div>
                   </div>
@@ -273,7 +273,7 @@ export function SectorBubbleChart({ region }: SectorBubbleChartProps) {
 
                   <Link
                     href={`/dashboard?cpv=${sector.division}000000`}
-                    className="mt-4 inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300"
+                    className="mt-4 inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300"
                   >
                     View all {meta.label} tenders →
                   </Link>

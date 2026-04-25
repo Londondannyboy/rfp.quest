@@ -247,13 +247,13 @@ We are fully committed to delivering this contract to the highest standards, on 
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="bg-slate-900 rounded-2xl border border-slate-700 overflow-hidden"
+      className="bg-slate-900 rounded-2xl border-slate-700 overflow-hidden"
     >
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-900/50 to-teal-900/50 p-4 border-b border-slate-700">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-white/10 rounded-lg">
+            <div className="p-2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg">
               <SparklesIcon className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -264,7 +264,7 @@ We are fully committed to delivering this contract to the highest standards, on 
           {onClose && (
             <button
               onClick={onClose}
-              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="p-2 hover:bg-slate-900/60 backdrop-blur-xl border-slate-700/50/10 rounded-lg transition-colors"
             >
               <XMarkIcon className="w-5 h-5 text-slate-400" />
             </button>
@@ -290,10 +290,10 @@ We are fully committed to delivering this contract to the highest standards, on 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setActiveMode(mode.id as 'chat' | 'outline' | 'draft' | 'review')}
-              className="p-4 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-slate-600 transition-all text-left group"
+              className="p-4 bg-slate-800/50 rounded-xl border-slate-700 hover:border-slate-600 transition-all text-left group"
             >
               <mode.icon className={`w-6 h-6 mb-2 text-${mode.color}-400`} />
-              <h3 className="text-sm font-medium text-white group-hover:text-teal-400 transition-colors">
+              <h3 className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors">
                 {mode.title}
               </h3>
               <p className="text-xs text-slate-500 mt-1">{mode.description}</p>
@@ -317,7 +317,7 @@ We are fully committed to delivering this contract to the highest standards, on 
           {activeMode === 'chat' && (
             <div className="space-y-4">
               <div className="flex items-center gap-2 mb-4">
-                <ChatBubbleLeftRightIcon className="w-5 h-5 text-teal-400" />
+                <ChatBubbleLeftRightIcon className="w-5 h-5 text-blue-400" />
                 <h3 className="text-sm font-medium text-white">Ask About This Tender</h3>
               </div>
               <div className="space-y-2">
@@ -332,7 +332,7 @@ We are fully committed to delivering this contract to the highest standards, on 
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.1 }}
-                    className="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-teal-500/50 transition-all text-left text-sm text-slate-300 hover:text-white flex items-center justify-between group"
+                    className="w-full p-3 bg-slate-800/50 rounded-lg border-slate-700 hover:border-blue-500/50/50 transition-all text-left text-sm text-slate-300 hover:text-white flex items-center justify-between group"
                   >
                     <span>{question}</span>
                     <ArrowRightIcon className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -358,12 +358,12 @@ We are fully committed to delivering this contract to the highest standards, on 
                   <p className="text-sm text-slate-400 mt-3">Generating outline...</p>
                 </div>
               ) : generatedContent ? (
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                <div className="bg-slate-800/50 rounded-lg p-4 border-slate-700">
                   <pre className="text-xs text-slate-300 whitespace-pre-wrap font-mono overflow-auto max-h-64">
                     {generatedContent}
                   </pre>
                   <div className="flex gap-2 mt-4">
-                    <button className="text-xs text-teal-400 hover:text-teal-300">Copy to clipboard</button>
+                    <button className="text-xs text-blue-400 hover:text-blue-300">Copy to clipboard</button>
                     <button className="text-xs text-slate-400 hover:text-white">Regenerate</button>
                   </div>
                 </div>
@@ -394,12 +394,12 @@ We are fully committed to delivering this contract to the highest standards, on 
                   <p className="text-sm text-slate-400 mt-3">Drafting executive summary...</p>
                 </div>
               ) : generatedContent ? (
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                <div className="bg-slate-800/50 rounded-lg p-4 border-slate-700">
                   <pre className="text-xs text-slate-300 whitespace-pre-wrap font-mono overflow-auto max-h-64">
                     {generatedContent}
                   </pre>
                   <div className="flex gap-2 mt-4">
-                    <button className="text-xs text-teal-400 hover:text-teal-300">Copy to clipboard</button>
+                    <button className="text-xs text-blue-400 hover:text-blue-300">Copy to clipboard</button>
                     <button className="text-xs text-slate-400 hover:text-white">Regenerate</button>
                   </div>
                 </div>
@@ -416,7 +416,7 @@ We are fully committed to delivering this contract to the highest standards, on 
                       whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.99 }}
                       onClick={() => setIsGenerating(true)}
-                      className="w-full p-3 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-purple-500/50 transition-all text-left"
+                      className="w-full p-3 bg-slate-800/50 rounded-lg border-slate-700 hover:border-purple-500/50 transition-all text-left"
                     >
                       <div className="text-sm font-medium text-white">{item.label}</div>
                       <div className="text-xs text-slate-500">{item.desc}</div>
@@ -440,7 +440,7 @@ We are fully committed to delivering this contract to the highest standards, on 
                   <p className="text-sm text-slate-400 mt-3">Analyzing your response...</p>
                 </div>
               ) : generatedContent ? (
-                <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                <div className="bg-slate-800/50 rounded-lg p-4 border-slate-700">
                   <pre className="text-xs text-slate-300 whitespace-pre-wrap font-mono overflow-auto max-h-64">
                     {generatedContent}
                   </pre>

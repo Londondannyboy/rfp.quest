@@ -42,8 +42,8 @@ export function TeamMatchBadge({
   if (isLoading) {
     return (
       <div className="animate-pulse flex items-center gap-2">
-        <div className="w-6 h-6 bg-gray-200 rounded-full" />
-        <div className="w-20 h-4 bg-gray-200 rounded" />
+        <div className="w-6 h-6 bg-slate-800/60 rounded-full" />
+        <div className="w-20 h-4 bg-slate-800/60 rounded" />
       </div>
     );
   }
@@ -80,7 +80,7 @@ function CompactTeamBadge({ matches }: { matches: TeamMemberMatch[] }) {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="inline-flex items-center gap-2 px-2 py-1 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border border-indigo-100"
+      className="inline-flex items-center gap-2 px-2 py-1 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg border-indigo-100"
     >
       {/* Avatar */}
       <div className="relative">
@@ -89,7 +89,7 @@ function CompactTeamBadge({ matches }: { matches: TeamMemberMatch[] }) {
         </div>
         {/* Score indicator */}
         <div
-          className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border border-white text-[8px] font-bold flex items-center justify-center"
+          className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full border-white text-[8px] font-bold flex items-center justify-center"
           style={{
             backgroundColor: topMatch.score >= 70 ? '#10b981' : topMatch.score >= 40 ? '#f59e0b' : '#ef4444',
             color: 'white',
@@ -101,17 +101,17 @@ function CompactTeamBadge({ matches }: { matches: TeamMemberMatch[] }) {
 
       {/* Name + Role */}
       <div className="flex flex-col">
-        <span className="text-xs font-medium text-gray-900 leading-tight">
+        <span className="text-xs font-medium text-slate-100 leading-tight">
           {topMatch.member.name.split(' ')[0]}
         </span>
-        <span className="text-[10px] text-gray-500 leading-tight">
+        <span className="text-[10px] text-slate-500 leading-tight">
           {topMatch.suggestedRole}
         </span>
       </div>
 
       {/* Additional members indicator */}
       {matches.length > 1 && (
-        <span className="text-[10px] text-gray-400 ml-1">
+        <span className="text-[10px] text-slate-400 ml-1">
           +{matches.length - 1}
         </span>
       )}
@@ -145,7 +145,7 @@ function TeamMemberCard({
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: index * 0.1 }}
-      className="bg-white rounded-xl border border-gray-200 p-3 shadow-sm hover:shadow-md transition-shadow"
+      className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 p-3 shadow-sm hover:shadow-md transition-shadow"
     >
       <div className="flex items-start gap-3">
         {/* Avatar with score ring */}
@@ -187,7 +187,7 @@ function TeamMemberCard({
           )}
 
           {/* Score label */}
-          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-white px-1.5 py-0.5 rounded-full border border-gray-200 shadow-sm">
+          <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-slate-900/60 backdrop-blur-xl border-slate-700/50 px-1.5 py-0.5 rounded-full border-slate-700/50 shadow-sm">
             <span className={`text-[10px] font-bold ${
               score >= 70 ? 'text-emerald-600' : score >= 40 ? 'text-amber-600' : 'text-red-600'
             }`}>
@@ -200,10 +200,10 @@ function TeamMemberCard({
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between">
             <div>
-              <h4 className="text-sm font-semibold text-gray-900 truncate">
+              <h4 className="text-sm font-semibold text-slate-100 truncate">
                 {member.name}
               </h4>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-slate-500">
                 {member.role || suggestedRole}
               </p>
             </div>
@@ -222,7 +222,7 @@ function TeamMemberCard({
                   <svg className="w-3 h-3 text-emerald-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
-                  <span className="text-[11px] text-gray-600">{reason}</span>
+                  <span className="text-[11px] text-slate-300">{reason}</span>
                 </div>
               ))}
             </div>
@@ -234,13 +234,13 @@ function TeamMemberCard({
               {matchingSkills.slice(0, 4).map((skill, i) => (
                 <span
                   key={i}
-                  className="inline-flex px-1.5 py-0.5 rounded text-[10px] bg-teal-50 text-teal-700 border border-teal-100"
+                  className="inline-flex px-1.5 py-0.5 rounded text-[10px] bg-blue-950/20 text-blue-400 border-blue-700/40"
                 >
                   {skill}
                 </span>
               ))}
               {matchingSkills.length > 4 && (
-                <span className="text-[10px] text-gray-400 px-1">
+                <span className="text-[10px] text-slate-400 px-1">
                   +{matchingSkills.length - 4} more
                 </span>
               )}
@@ -250,7 +250,7 @@ function TeamMemberCard({
           {/* Experience + LinkedIn */}
           <div className="mt-2 flex items-center gap-3">
             {member.yearsExperience && (
-              <span className="text-[10px] text-gray-400">
+              <span className="text-[10px] text-slate-400">
                 {member.yearsExperience}+ years
               </span>
             )}
@@ -302,12 +302,12 @@ export function TeamMatchSection({
 
   if (isLoading) {
     return (
-      <div className="p-4 bg-gray-50 rounded-lg">
+      <div className="p-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg">
         <div className="animate-pulse space-y-3">
-          <div className="h-4 w-32 bg-gray-200 rounded" />
+          <div className="h-4 w-32 bg-slate-800/60 rounded" />
           <div className="flex gap-3">
             {[1, 2, 3].map(i => (
-              <div key={i} className="flex-1 h-24 bg-gray-200 rounded-lg" />
+              <div key={i} className="flex-1 h-24 bg-slate-800/60 rounded-lg" />
             ))}
           </div>
         </div>
@@ -317,15 +317,15 @@ export function TeamMatchSection({
 
   if (!data?.members || data.members.length === 0) {
     return (
-      <div className="p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg border border-gray-200">
+      <div className="p-4 bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg border-slate-700/50">
         <div className="text-center py-4">
-          <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-gray-200 flex items-center justify-center">
-            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-slate-800/60 flex items-center justify-center">
+            <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
           </div>
-          <p className="text-sm text-gray-600 font-medium">No team members yet</p>
-          <p className="text-xs text-gray-500 mt-1">Add team members to see who&apos;s best suited for this bid</p>
+          <p className="text-sm text-slate-300 font-medium">No team members yet</p>
+          <p className="text-xs text-slate-500 mt-1">Add team members to see who&apos;s best suited for this bid</p>
         </div>
       </div>
     );
@@ -333,7 +333,7 @@ export function TeamMatchSection({
 
   if (matches.length === 0) {
     return (
-      <div className="p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+      <div className="p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border-amber-200">
         <div className="flex items-center gap-2">
           <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -347,13 +347,13 @@ export function TeamMatchSection({
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between">
-        <h4 className="text-sm font-semibold text-gray-900 flex items-center gap-2">
+        <h4 className="text-sm font-semibold text-slate-100 flex items-center gap-2">
           <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
           Recommended Team
         </h4>
-        <span className="text-xs text-gray-500">{matches.length} matches</span>
+        <span className="text-xs text-slate-500">{matches.length} matches</span>
       </div>
 
       {/* Top match highlighted */}
@@ -368,14 +368,14 @@ export function TeamMatchSection({
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: (i + 1) * 0.1 }}
-              className="inline-flex items-center gap-2 px-2 py-1.5 bg-gray-50 rounded-lg border border-gray-200"
+              className="inline-flex items-center gap-2 px-2 py-1.5 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg border-slate-700/50"
             >
               <div className="w-7 h-7 rounded-full bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white text-xs font-bold">
                 {match.member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
               </div>
               <div className="flex flex-col">
-                <span className="text-xs font-medium text-gray-900">{match.member.name.split(' ')[0]}</span>
-                <span className="text-[10px] text-gray-500">{match.score}% match</span>
+                <span className="text-xs font-medium text-slate-100">{match.member.name.split(' ')[0]}</span>
+                <span className="text-[10px] text-slate-500">{match.score}% match</span>
               </div>
             </motion.div>
           ))}

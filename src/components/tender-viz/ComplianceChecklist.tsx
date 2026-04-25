@@ -34,8 +34,8 @@ interface ComplianceChecklistProps {
 }
 
 const statusConfig: Record<ComplianceStatus, { icon: typeof CheckCircleIcon; color: string; bg: string; label: string }> = {
-  compliant: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-green-500/10', label: 'Compliant' },
-  'non-compliant': { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-500/10', label: 'Non-Compliant' },
+  compliant: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-green-900/200/10', label: 'Compliant' },
+  'non-compliant': { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-900/200/10', label: 'Non-Compliant' },
   partial: { icon: ExclamationTriangleIcon, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial' },
   'not-assessed': { icon: ClipboardDocumentCheckIcon, color: 'text-slate-400', bg: 'bg-slate-500/10', label: 'Not Assessed' },
 };
@@ -57,7 +57,7 @@ function ComplianceItemRow({ item }: { item: ComplianceItem }) {
   const CategoryIcon = category.icon;
 
   return (
-    <div className={`border-b border-slate-800 last:border-b-0 ${item.mandatory && item.status === 'non-compliant' ? 'bg-red-500/5' : ''}`}>
+    <div className={`border-b border-slate-800 last:border-b-0 ${item.mandatory && item.status === 'non-compliant' ? 'bg-red-900/200/5' : ''}`}>
       <button
         className="w-full p-4 text-left hover:bg-slate-800/30 transition-colors"
         onClick={() => setIsExpanded(!isExpanded)}
@@ -78,7 +78,7 @@ function ComplianceItemRow({ item }: { item: ComplianceItem }) {
                 </span>
               </div>
               {item.mandatory && (
-                <span className="px-1.5 py-0.5 text-xs font-medium bg-red-500/20 text-red-400 rounded">
+                <span className="px-1.5 py-0.5 text-xs font-medium bg-red-900/200/20 text-red-400 rounded">
                   Mandatory
                 </span>
               )}
@@ -111,7 +111,7 @@ function ComplianceItemRow({ item }: { item: ComplianceItem }) {
           )}
 
           {item.evidence && (
-            <div className="p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+            <div className="p-3 bg-green-900/200/10 border-green-500/30 rounded-lg">
               <div className="text-xs font-medium text-green-400 mb-1">Evidence Provided</div>
               <p className="text-sm text-slate-300">{item.evidence}</p>
             </div>
@@ -208,7 +208,7 @@ export function ComplianceChecklist({ items, overallStatus, lastAssessed }: Comp
 
         {/* Warning for mandatory failures */}
         {stats.mandatoryFailed > 0 && (
-          <div className="mt-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+          <div className="mt-4 p-3 bg-red-900/200/10 border-red-500/30 rounded-lg">
             <p className="text-sm text-red-400">
               ⚠️ {stats.mandatoryFailed} mandatory compliance requirement{stats.mandatoryFailed > 1 ? 's' : ''} not met.
               This will likely disqualify your bid at the selection stage.
@@ -221,7 +221,7 @@ export function ComplianceChecklist({ items, overallStatus, lastAssessed }: Comp
           <button
             onClick={() => setFilterCategory('all')}
             className={`px-3 py-1.5 text-sm rounded-lg transition-colors ${
-              filterCategory === 'all' ? 'bg-teal-500 text-white' : 'bg-slate-800 text-slate-400 hover:text-white'
+              filterCategory === 'all' ? 'bg-blue-950/200 text-white' : 'bg-slate-800 text-slate-400 hover:text-white'
             }`}
           >
             All

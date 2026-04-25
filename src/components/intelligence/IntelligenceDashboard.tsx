@@ -90,7 +90,7 @@ export function IntelligenceDashboard({
 
   if (error || !intelligence) {
     return (
-      <div className="bg-white rounded-xl border border-red-200 p-6">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-red-200 p-6">
         <div className="flex items-center gap-3 text-red-600">
           <ExclamationTriangleIcon className="w-6 h-6" />
           <div>
@@ -116,8 +116,8 @@ export function IntelligenceDashboard({
       <IntelligenceHeader intelligence={intelligence} />
       
       {/* Navigation Tabs */}
-      <div className="bg-white rounded-xl border border-gray-200">
-        <div className="border-b border-gray-200">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50">
+        <div className="border-b border-slate-700/50">
           <nav className="flex space-x-8 px-6">
             {[
               { id: 'overview', label: 'Overview', icon: ChartBarIcon },
@@ -132,7 +132,7 @@ export function IntelligenceDashboard({
                 className={`flex items-center gap-2 py-4 px-1 text-sm font-medium border-b-2 transition-colors ${
                   activeTab === tab.id
                     ? 'border-blue-500 text-blue-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    : 'border-transparent text-slate-500 hover:text-slate-200 hover:border-slate-600/50'
                 }`}
               >
                 <tab.icon className="w-4 h-4" />
@@ -204,7 +204,7 @@ function ScoreCard({
   const colorClasses = {
     emerald: 'text-emerald-200 bg-emerald-500/20',
     orange: 'text-orange-200 bg-orange-500/20', 
-    green: 'text-green-200 bg-green-500/20',
+    green: 'text-green-200 bg-green-900/200/20',
   };
 
   return (
@@ -213,9 +213,9 @@ function ScoreCard({
         <span className="text-sm opacity-90">{title}</span>
         <span className="text-2xl font-bold">{score}</span>
       </div>
-      <div className="w-full bg-white/20 rounded-full h-1.5">
+      <div className="w-full bg-slate-900/60 backdrop-blur-xl border-slate-700/50/20 rounded-full h-1.5">
         <div 
-          className="bg-white rounded-full h-1.5 transition-all duration-1000"
+          className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-full h-1.5 transition-all duration-1000"
           style={{ width: `${score}%` }}
         />
       </div>
@@ -226,9 +226,9 @@ function ScoreCard({
 
 function ThreatLevelCard({ intelligence }: { intelligence: IntelligenceData }) {
   const threatColors = {
-    High: 'text-red-200 bg-red-500/20',
+    High: 'text-red-200 bg-red-900/200/20',
     Medium: 'text-yellow-200 bg-yellow-500/20',
-    Low: 'text-green-200 bg-green-500/20',
+    Low: 'text-green-200 bg-green-900/200/20',
     Minimal: 'text-blue-200 bg-blue-500/20',
   };
 
@@ -307,11 +307,11 @@ function FinancialTab({ intelligence }: { intelligence: IntelligenceData }) {
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 mb-3">Revenue Analysis</h4>
+        <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
+          <h4 className="font-semibold text-slate-100 mb-3">Revenue Analysis</h4>
           <div className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-gray-600">Annual Revenue:</span>
+              <span className="text-slate-300">Annual Revenue:</span>
               <span className="font-semibold">
                 {intelligence.annual_revenue 
                   ? `£${(intelligence.annual_revenue / 1000000).toFixed(1)}M`
@@ -320,7 +320,7 @@ function FinancialTab({ intelligence }: { intelligence: IntelligenceData }) {
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Growth Rate:</span>
+              <span className="text-slate-300">Growth Rate:</span>
               <div className="flex items-center gap-1">
                 {intelligence.revenue_growth_yoy !== undefined && (
                   <>
@@ -339,7 +339,7 @@ function FinancialTab({ intelligence }: { intelligence: IntelligenceData }) {
               </div>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Profit Margin:</span>
+              <span className="text-slate-300">Profit Margin:</span>
               <span className="font-semibold">
                 {intelligence.profit_margin ? `${intelligence.profit_margin.toFixed(1)}%` : 'N/A'}
               </span>
@@ -347,23 +347,23 @@ function FinancialTab({ intelligence }: { intelligence: IntelligenceData }) {
           </div>
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-4">
-          <h4 className="font-semibold text-gray-900 mb-3">Liquidity & Stability</h4>
+        <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
+          <h4 className="font-semibold text-slate-100 mb-3">Liquidity & Stability</h4>
           <div className="space-y-3">
             <div className="flex justify-between">
-              <span className="text-gray-600">Current Ratio:</span>
+              <span className="text-slate-300">Current Ratio:</span>
               <span className="font-semibold">
                 {intelligence.current_ratio ? intelligence.current_ratio.toFixed(2) : 'N/A'}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Employee Count:</span>
+              <span className="text-slate-300">Employee Count:</span>
               <span className="font-semibold">
                 {intelligence.employee_count?.toLocaleString() || 'N/A'}
               </span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-600">Health Rating:</span>
+              <span className="text-slate-300">Health Rating:</span>
               <span className={`font-semibold ${
                 intelligence.financial_health_score >= 70 ? 'text-green-600' :
                 intelligence.financial_health_score >= 50 ? 'text-yellow-600' :
@@ -384,9 +384,9 @@ function RiskTab({ intelligence }: { intelligence: IntelligenceData }) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">Risk Assessment</h4>
+          <h4 className="font-semibold text-slate-100">Risk Assessment</h4>
           
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             {intelligence.going_concern_issues ? (
               <ExclamationTriangleIcon className="w-5 h-5 text-red-500" />
             ) : (
@@ -394,7 +394,7 @@ function RiskTab({ intelligence }: { intelligence: IntelligenceData }) {
             )}
             <div>
               <span className="font-medium">Going Concern</span>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-300">
                 {intelligence.going_concern_issues 
                   ? 'Material uncertainties identified'
                   : 'No concerns identified'
@@ -403,31 +403,31 @@ function RiskTab({ intelligence }: { intelligence: IntelligenceData }) {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-gray-50">
+          <div className="p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             <div className="flex items-center justify-between mb-2">
               <span className="font-medium">Overall Risk Score</span>
-              <span className="text-2xl font-bold text-gray-900">
+              <span className="text-2xl font-bold text-slate-100">
                 {intelligence.risk_score}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-slate-800/60 rounded-full h-2">
               <div 
                 className={`rounded-full h-2 ${
-                  intelligence.risk_score >= 70 ? 'bg-green-500' :
+                  intelligence.risk_score >= 70 ? 'bg-green-900/200' :
                   intelligence.risk_score >= 50 ? 'bg-yellow-500' :
-                  'bg-red-500'
+                  'bg-red-900/200'
                 }`}
                 style={{ width: `${intelligence.risk_score}%` }}
               />
             </div>
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-slate-300 mt-1">
               {getRiskRating(intelligence.risk_score)}
             </p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">Risk Recommendations</h4>
+          <h4 className="font-semibold text-slate-100">Risk Recommendations</h4>
           <div className="space-y-2">
             {getRiskRecommendations(intelligence).map((rec, index) => (
               <div key={index} className="flex items-start gap-2 p-2 rounded bg-blue-50">
@@ -447,9 +447,9 @@ function ESGTab({ intelligence }: { intelligence: IntelligenceData }) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">ESG Compliance</h4>
+          <h4 className="font-semibold text-slate-100">ESG Compliance</h4>
           
-          <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             {intelligence.secr_compliant ? (
               <CheckCircleIcon className="w-5 h-5 text-green-500" />
             ) : (
@@ -457,7 +457,7 @@ function ESGTab({ intelligence }: { intelligence: IntelligenceData }) {
             )}
             <div>
               <span className="font-medium">SECR Compliance</span>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-slate-300">
                 {intelligence.secr_compliant 
                   ? 'Compliant with energy reporting'
                   : 'Status unknown or non-compliant'
@@ -466,29 +466,29 @@ function ESGTab({ intelligence }: { intelligence: IntelligenceData }) {
             </div>
           </div>
 
-          <div className="p-3 rounded-lg bg-gray-50">
+          <div className="p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             <div className="flex items-center justify-between mb-2">
               <span className="font-medium">ESG Score</span>
-              <span className="text-2xl font-bold text-gray-900">
+              <span className="text-2xl font-bold text-slate-100">
                 {intelligence.esg_score}
               </span>
             </div>
-            <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="w-full bg-slate-800/60 rounded-full h-2">
               <div 
-                className="bg-green-500 rounded-full h-2"
+                className="bg-green-900/200 rounded-full h-2"
                 style={{ width: `${intelligence.esg_score}%` }}
               />
             </div>
-            <p className="text-xs text-gray-600 mt-1">
+            <p className="text-xs text-slate-300 mt-1">
               {getESGRating(intelligence.esg_score)}
             </p>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">Public Sector Readiness</h4>
+          <h4 className="font-semibold text-slate-100">Public Sector Readiness</h4>
           <div className="space-y-2">
-            <div className="flex items-center justify-between p-2 rounded bg-gray-50">
+            <div className="flex items-center justify-between p-2 rounded bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
               <span className="text-sm">SECR Compliant</span>
               {intelligence.secr_compliant ? (
                 <CheckCircleIcon className="w-4 h-4 text-green-500" />
@@ -496,7 +496,7 @@ function ESGTab({ intelligence }: { intelligence: IntelligenceData }) {
                 <ExclamationTriangleIcon className="w-4 h-4 text-yellow-500" />
               )}
             </div>
-            <div className="text-xs text-gray-600 mt-2">
+            <div className="text-xs text-slate-300 mt-2">
               {intelligence.secr_compliant 
                 ? 'Ready for public sector bids requiring sustainability reporting'
                 : 'May face challenges in sustainability-focused public sector bids'
@@ -514,9 +514,9 @@ function CompetitiveTab({ intelligence }: { intelligence: IntelligenceData }) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">Competitive Assessment</h4>
+          <h4 className="font-semibold text-slate-100">Competitive Assessment</h4>
           
-          <div className="p-4 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200">
+          <div className="p-4 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 border-purple-200">
             <div className="flex items-center justify-between mb-2">
               <span className="font-medium text-purple-900">Threat Level</span>
               <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
@@ -533,12 +533,12 @@ function CompetitiveTab({ intelligence }: { intelligence: IntelligenceData }) {
             </p>
           </div>
 
-          <div className="p-3 rounded-lg bg-gray-50">
+          <div className="p-3 rounded-lg bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
             <div className="flex items-center gap-2 mb-2">
-              <UserGroupIcon className="w-4 h-4 text-gray-600" />
+              <UserGroupIcon className="w-4 h-4 text-slate-300" />
               <span className="font-medium">Partnership Potential</span>
             </div>
-            <p className="text-sm text-gray-700">
+            <p className="text-sm text-slate-200">
               {intelligence.recommended_for_partnership 
                 ? 'Recommended for strategic partnerships and collaborations'
                 : 'Approach partnerships with caution due to risk factors'
@@ -548,7 +548,7 @@ function CompetitiveTab({ intelligence }: { intelligence: IntelligenceData }) {
         </div>
 
         <div className="space-y-4">
-          <h4 className="font-semibold text-gray-900">Bidding Strategy</h4>
+          <h4 className="font-semibold text-slate-100">Bidding Strategy</h4>
           <div className="space-y-2">
             {getBiddingRecommendations(intelligence).map((rec, index) => (
               <div key={index} className="flex items-start gap-2 p-3 rounded bg-blue-50">
@@ -574,9 +574,9 @@ function MetricCard({
   trend?: number; 
 }) {
   return (
-    <div className="bg-gray-50 rounded-lg p-4">
+    <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-sm text-gray-600">{title}</span>
+        <span className="text-sm text-slate-300">{title}</span>
         {trend !== undefined && (
           <div className="flex items-center gap-1">
             {trend > 0 ? (
@@ -587,14 +587,14 @@ function MetricCard({
             <span className={`text-xs ${
               trend > 0 ? 'text-green-600' : 
               trend < 0 ? 'text-red-600' : 
-              'text-gray-500'
+              'text-slate-500'
             }`}>
               {trend > 0 ? '+' : ''}{trend?.toFixed(1)}%
             </span>
           </div>
         )}
       </div>
-      <span className="text-2xl font-bold text-gray-900">{value}</span>
+      <span className="text-2xl font-bold text-slate-100">{value}</span>
     </div>
   );
 }
@@ -619,13 +619,13 @@ function QuickInsights({ intelligence }: { intelligence: IntelligenceData }) {
   ];
 
   return (
-    <div className="bg-gray-50 rounded-lg p-4">
-      <h4 className="font-semibold text-gray-900 mb-3">Quick Insights</h4>
+    <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 rounded-lg p-4">
+      <h4 className="font-semibold text-slate-100 mb-3">Quick Insights</h4>
       <div className="space-y-2">
         {insights.map((insight, index) => (
           <div key={index} className="flex items-center gap-2">
             <insight.icon className={`w-4 h-4 ${insight.color}`} />
-            <span className="text-sm text-gray-700">{insight.text}</span>
+            <span className="text-sm text-slate-200">{insight.text}</span>
           </div>
         ))}
       </div>
@@ -637,7 +637,7 @@ function ActionRecommendations({ intelligence }: { intelligence: IntelligenceDat
   const actions = getActionRecommendations(intelligence);
 
   return (
-    <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
+    <div className="bg-blue-50 rounded-lg p-4 border-blue-200">
       <h4 className="font-semibold text-blue-900 mb-3">Recommended Actions</h4>
       <div className="space-y-2">
         {actions.map((action, index) => (
@@ -654,8 +654,8 @@ function ActionRecommendations({ intelligence }: { intelligence: IntelligenceDat
 function IntelligenceLoadingSkeleton() {
   return (
     <div className="space-y-6 animate-pulse">
-      <div className="bg-gray-200 rounded-xl h-48"></div>
-      <div className="bg-gray-200 rounded-xl h-64"></div>
+      <div className="bg-slate-800/60 rounded-xl h-48"></div>
+      <div className="bg-slate-800/60 rounded-xl h-64"></div>
     </div>
   );
 }

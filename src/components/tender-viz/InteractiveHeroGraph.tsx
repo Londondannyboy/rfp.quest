@@ -325,7 +325,7 @@ export function InteractiveHeroGraph({
       {/* Hover tooltip */}
       {hoveredNode && (
         <div
-          className="absolute pointer-events-none bg-slate-800/95 backdrop-blur-sm border border-slate-600 rounded-lg px-3 py-2 text-sm shadow-xl z-10"
+          className="absolute pointer-events-none bg-slate-800/95 backdrop-blur-sm border-slate-600 rounded-lg px-3 py-2 text-sm shadow-xl z-10"
           style={{
             left: Math.min(mousePos.x + 10, 200),
             top: Math.min(mousePos.y + 10, 180),

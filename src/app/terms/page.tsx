@@ -140,7 +140,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-semibold text-white mb-4">10. Account Deletion</h2>
             <p className="text-slate-300 leading-relaxed">
               You may delete your account at any time through your{' '}
-              <Link href="/dashboard/settings" className="text-teal-400 hover:text-teal-300">
+              <Link href="/dashboard/settings" className="text-blue-400 hover:text-blue-300">
                 account settings
               </Link>
               . Upon deletion:
@@ -190,13 +190,13 @@ export default function TermsOfServicePage() {
             <ul className="list-none text-slate-300 space-y-2 mt-4">
               <li>
                 Email:{' '}
-                <a href="mailto:legal@rfp.quest" className="text-teal-400 hover:text-teal-300">
+                <a href="mailto:legal@rfp.quest" className="text-blue-400 hover:text-blue-300">
                   legal@rfp.quest
                 </a>
               </li>
               <li>
                 Website:{' '}
-                <a href="https://rfp.quest" className="text-teal-400 hover:text-teal-300">
+                <a href="https://rfp.quest" className="text-blue-400 hover:text-blue-300">
                   rfp.quest
                 </a>
               </li>
@@ -207,13 +207,13 @@ export default function TermsOfServicePage() {
         <div className="mt-12 pt-8 border-t border-slate-800 flex gap-6">
           <Link
             href="/"
-            className="text-teal-400 hover:text-teal-300 transition-colors"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
           >
             &larr; Back to RFP Software Quest
           </Link>
           <Link
             href="/privacy"
-            className="text-teal-400 hover:text-teal-300 transition-colors"
+            className="text-blue-400 hover:text-blue-300 transition-colors"
           >
             Privacy Policy
           </Link>

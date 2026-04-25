@@ -194,7 +194,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
       case 'completed':
         return <CheckCircleIcon className="w-5 h-5 text-green-400" />;
       case 'processing':
-        return <ArrowPathIcon className="w-5 h-5 text-teal-400 animate-spin" />;
+        return <ArrowPathIcon className="w-5 h-5 text-blue-400 animate-spin" />;
       case 'failed':
         return <XCircleIcon className="w-5 h-5 text-red-400" />;
       default:
@@ -203,16 +203,16 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
   };
 
   return (
-    <div className="bg-slate-900 rounded-xl p-6 border border-slate-800">
+    <div className="bg-slate-900 rounded-xl p-6 border-slate-800">
       <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-        <DocumentArrowUpIcon className="w-5 h-5 text-teal-400" />
+        <DocumentArrowUpIcon className="w-5 h-5 text-blue-400" />
         Tender Documents
       </h3>
 
       {/* Loading existing documents */}
       {isLoadingExisting ? (
         <div className="flex items-center justify-center py-8">
-          <ArrowPathIcon className="w-6 h-6 text-teal-400 animate-spin mr-2" />
+          <ArrowPathIcon className="w-6 h-6 text-blue-400 animate-spin mr-2" />
           <span className="text-slate-400">Loading documents...</span>
         </div>
       ) : (
@@ -224,7 +224,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
           className={`
             relative border-2 border-dashed rounded-lg p-8 text-center transition-colors
             ${isDragging
-              ? 'border-teal-500 bg-teal-500/10'
+              ? 'border-blue-500/50 bg-blue-950/200/10'
               : 'border-slate-700 hover:border-slate-600'
             }
             ${isUploading ? 'opacity-50 pointer-events-none' : ''}
@@ -240,7 +240,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
 
           {isUploading ? (
             <div className="flex flex-col items-center gap-2">
-              <ArrowPathIcon className="w-10 h-10 text-teal-400 animate-spin" />
+              <ArrowPathIcon className="w-10 h-10 text-blue-400 animate-spin" />
               <p className="text-slate-300">Uploading and extracting text...</p>
             </div>
           ) : (
@@ -259,7 +259,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
 
       {/* Error Message */}
       {error && (
-        <div className="mt-4 p-3 bg-red-900/30 border border-red-700 rounded-lg text-red-300 text-sm">
+        <div className="mt-4 p-3 bg-red-900/30 border-red-700 rounded-lg text-red-300 text-sm">
           {error}
         </div>
       )}
@@ -271,7 +271,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
           {documents.map((doc) => (
             <div
               key={doc.id}
-              className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg border border-slate-700"
+              className="flex items-center gap-4 p-4 bg-slate-800/50 rounded-lg border-slate-700"
             >
               {getStatusIcon(doc.analysisStatus)}
 
@@ -288,7 +288,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
                 {doc.analysisStatus === 'pending' && (
                   <button
                     onClick={() => analyzeDocument(doc.id)}
-                    className="px-3 py-1.5 bg-teal-600 text-white text-sm rounded-lg hover:bg-teal-700 transition-colors"
+                    className="px-3 py-1.5 bg-blue-700 text-white text-sm rounded-lg hover:bg-blue-800 transition-colors"
                   >
                     Analyze
                   </button>
@@ -305,7 +305,7 @@ export function DocumentUpload({ ocid, onDocumentAnalyzed }: Props) {
                   <span className="text-sm text-green-400">Analyzed</span>
                 )}
                 {doc.analysisStatus === 'processing' && (
-                  <span className="text-sm text-teal-400">Analyzing...</span>
+                  <span className="text-sm text-blue-400">Analyzing...</span>
                 )}
               </div>
             </div>

@@ -60,7 +60,7 @@ export function TrustBadges({
         <FloatingElement className="absolute top-1/5 left-2/3 w-6 h-6 bg-blue-400/50 rounded-full blur-sm" intensity={10} duration={7}>
           <div />
         </FloatingElement>
-        <FloatingElement className="absolute bottom-1/3 left-1/4 w-4 h-4 bg-slate-300/40 rounded-full blur-sm" intensity={8} duration={6}>
+        <FloatingElement className="absolute bottom-1/3 left-1/4 w-4 h-4 bg-slate-600/80/40 rounded-full blur-sm" intensity={8} duration={6}>
           <div />
         </FloatingElement>
       </div>
@@ -107,7 +107,7 @@ export function TrustBadges({
                 >
                   {/* Enhanced glass morphism card */}
                   <motion.div 
-                    className="relative h-full min-h-[120px] bg-slate-900/60 backdrop-blur-xl rounded-3xl p-6 lg:p-8 flex items-center justify-center border border-slate-700/50 shadow-2xl shadow-blue-900/20 transition-all duration-500"
+                    className="relative h-full min-h-[120px] bg-slate-900/60 backdrop-blur-xl rounded-3xl p-6 lg:p-8 flex items-center justify-center border-slate-700/50 shadow-2xl shadow-blue-900/20 transition-all duration-500"
                     whileHover={{ 
                       backgroundColor: 'rgba(30, 41, 59, 0.7)',
                       boxShadow: '0 25px 50px -12px rgba(59, 130, 246, 0.4), 0 0 0 1px rgba(59, 130, 246, 0.4)',
@@ -274,7 +274,7 @@ export function TrustBadges({
           transition={{ duration: 0.8, delay: 0.6 }}
         >
           <motion.div 
-            className="inline-flex items-center px-6 py-3 bg-slate-900/50 backdrop-blur-sm rounded-full border border-slate-700/50 text-slate-300 text-sm"
+            className="inline-flex items-center px-6 py-3 bg-slate-900/50 backdrop-blur-sm rounded-full border-slate-700/50 text-slate-300 text-sm"
             whileHover={{ 
               scale: 1.05, 
               backgroundColor: 'rgba(30, 41, 59, 0.6)',

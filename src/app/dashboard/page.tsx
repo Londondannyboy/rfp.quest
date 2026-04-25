@@ -231,9 +231,22 @@ function DashboardContent() {
   ].filter(Boolean).length;
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 relative">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-10" />
+      </div>
       {/* Hero Section with KPIs and Charts */}
-      <div className="bg-gradient-to-b from-gray-50 to-white px-6 py-6 border-b border-gray-200 overflow-auto">
+      <div className="bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 px-6 py-6 border-b border-slate-700/50 overflow-auto relative">
+        {/* Advanced decorative background elements */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {/* Animated grid pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-20" />
+          
+          {/* Floating glass orbs */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-500/15 to-slate-900/15 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-gradient-to-tr from-blue-600/15 to-slate-800/15 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+        </div>
         <DashboardHero
           onSectorClick={(division) => {
             // Filter by sector when clicking pie chart
@@ -289,17 +302,18 @@ function DashboardContent() {
 
       {/* Personalization Banner */}
       {profile && filtersInitialized && (
-        <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border-b border-teal-200 px-4 py-2.5 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded-full bg-teal-100 flex items-center justify-center">
-              <svg className="w-4 h-4 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="bg-gradient-to-r from-slate-900/60 to-blue-900/60 backdrop-blur-xl border-b border-slate-700/50 px-4 py-2.5 flex items-center justify-between relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-transparent to-slate-500/10 rounded-sm pointer-events-none" />
+          <div className="relative flex items-center gap-3">
+            <div className="w-6 h-6 rounded-full bg-blue-500/20 border-blue-400/30 backdrop-blur-sm flex items-center justify-center">
+              <svg className="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
             <div>
-              <p className="text-sm text-teal-800">
+              <p className="text-sm text-slate-100">
                 <span className="font-semibold">Personalized for {profile.companyName}</span>
-                <span className="text-teal-600 ml-2">
+                <span className="text-blue-300 ml-2">
                   {profile.targetCpvDivisions?.length || 0} sectors, {profile.targetRegions?.length || 0} regions
                   {profile.sustainabilityFocus && ', sustainability focus'}
                 </span>
@@ -311,7 +325,7 @@ function DashboardContent() {
               setFilters({ limit: 50, stage: 'tender' });
               setFiltersInitialized(true);
             }}
-            className="text-sm text-teal-700 hover:text-teal-900 font-medium px-3 py-1 hover:bg-teal-100 rounded-lg transition-colors"
+            className="relative text-sm text-blue-300 hover:text-blue-200 font-medium px-3 py-1 hover:bg-slate-800/50 rounded-lg transition-colors border-slate-600/30 hover:border-blue-500/30 backdrop-blur-sm"
           >
             Show all tenders
           </button>
@@ -337,13 +351,14 @@ function DashboardContent() {
 
       {/* Saved Only Banner */}
       {showSavedOnly && (
-        <div className="bg-amber-50 border-b border-amber-200 px-4 py-2 flex items-center justify-between">
-          <p className="text-sm text-amber-800">
-            Showing <span className="font-medium">{savedCount}</span> saved tenders
+        <div className="bg-gradient-to-r from-slate-900/60 to-amber-900/60 backdrop-blur-xl border-b border-slate-700/50 px-4 py-2 flex items-center justify-between relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 via-transparent to-slate-500/10 rounded-sm pointer-events-none" />
+          <p className="relative text-sm text-slate-100">
+            Showing <span className="font-medium text-amber-300">{savedCount}</span> saved tenders
           </p>
           <button
             onClick={() => setShowSavedOnly(false)}
-            className="text-sm text-amber-700 hover:text-amber-900 font-medium"
+            className="relative text-sm text-amber-300 hover:text-amber-200 font-medium px-3 py-1 hover:bg-slate-800/50 rounded-lg transition-colors border-slate-600/30 hover:border-amber-500/30 backdrop-blur-sm"
           >
             Show all
           </button>
@@ -359,8 +374,8 @@ function DashboardContent() {
       )}
 
       {/* Main Content */}
-      <div id="opportunities" className="flex-1 min-h-0 overflow-y-auto">
-        <div className="p-4 space-y-4">
+      <div id="opportunities" className="relative flex-1 min-h-0 overflow-y-auto bg-slate-900/20 backdrop-blur-sm">
+        <div className="relative p-4 space-y-4">
           {/* Saved Views - Horizontal Pills */}
           <SavedViewsPanel
             currentFilters={{

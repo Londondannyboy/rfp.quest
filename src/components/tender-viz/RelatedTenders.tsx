@@ -28,9 +28,9 @@ interface RelatedTendersProps {
 
 const stageColors: Record<string, string> = {
   planning: 'bg-blue-500/20 text-blue-300',
-  tender: 'bg-green-500/20 text-green-300',
+  tender: 'bg-green-900/200/20 text-green-300',
   award: 'bg-purple-500/20 text-purple-300',
-  contract: 'bg-gray-500/20 text-gray-300',
+  contract: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-9500/20 text-slate-400',
 };
 
 function formatValue(value: number | null): string {
@@ -98,8 +98,8 @@ export function RelatedTenders({ currentOcid, buyerName, region }: RelatedTender
         {byBuyer.length > 0 && (
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <BuildingOfficeIcon className="w-4 h-4 text-teal-400" />
-              <h3 className="text-sm font-medium text-teal-400">
+              <BuildingOfficeIcon className="w-4 h-4 text-blue-400" />
+              <h3 className="text-sm font-medium text-blue-400">
                 More from <strong>{buyerName}</strong>
               </h3>
             </div>
@@ -150,7 +150,7 @@ export function RelatedTenders({ currentOcid, buyerName, region }: RelatedTender
       <div className="mt-6 pt-4 border-t border-slate-800">
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-2 text-sm text-teal-400 hover:text-teal-300 transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
         >
           Browse all <strong>UK tenders</strong>
           <ArrowRightIcon className="w-4 h-4" />
@@ -166,7 +166,7 @@ function TenderCard({ tender }: { tender: RelatedTender }) {
   return (
     <Link
       href={`/tender/${tender.slug}`}
-      className="group block bg-slate-800/50 hover:bg-slate-800 rounded-lg p-4 border border-slate-700/50 hover:border-slate-600 transition-all"
+      className="group block bg-slate-800/50 hover:bg-slate-800 rounded-lg p-4 border-slate-700/50 hover:border-slate-600 transition-all"
     >
       <div className="flex items-start justify-between gap-2 mb-2">
         <span className={`px-2 py-0.5 text-xs rounded-full ${stageColors[tender.stage] || stageColors.contract}`}>
@@ -176,7 +176,7 @@ function TenderCard({ tender }: { tender: RelatedTender }) {
           <span className="text-xs text-slate-400">{value}</span>
         )}
       </div>
-      <h4 className="text-sm font-medium text-white group-hover:text-teal-400 line-clamp-2 mb-2 transition-colors">
+      <h4 className="text-sm font-medium text-white group-hover:text-blue-400 line-clamp-2 mb-2 transition-colors">
         {tender.title}
       </h4>
       <p className="text-xs text-slate-500 truncate">{tender.buyerName}</p>

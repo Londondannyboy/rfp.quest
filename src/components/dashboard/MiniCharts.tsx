@@ -11,7 +11,7 @@ export function MiniMatchGauge({ score, size = 32 }: { score: number | null; siz
   if (score === null) {
     return (
       <div
-        className="flex items-center justify-center bg-gray-100 rounded-full text-[10px] text-gray-400"
+        className="flex items-center justify-center bg-slate-900/40 backdrop-blur-xl rounded-full text-[10px] text-slate-400"
         style={{ width: size, height: size }}
       >
         —
@@ -63,7 +63,7 @@ export function MiniMatchGauge({ score, size = 32 }: { score: number | null; siz
 // Deadline countdown bar
 export function DeadlineBar({ daysLeft }: { daysLeft: number | null }) {
   if (daysLeft === null) {
-    return <span className="text-xs text-gray-400">No deadline</span>;
+    return <span className="text-xs text-slate-400">No deadline</span>;
   }
 
   const isExpired = daysLeft < 0;
@@ -74,13 +74,13 @@ export function DeadlineBar({ daysLeft }: { daysLeft: number | null }) {
   const maxDays = 30;
   const percentage = Math.max(0, Math.min(100, (daysLeft / maxDays) * 100));
 
-  let barColor = 'bg-green-500';
-  let textColor = 'text-gray-600';
+  let barColor = 'bg-green-900/200';
+  let textColor = 'text-slate-300';
   if (isExpired) {
-    barColor = 'bg-gray-300';
-    textColor = 'text-gray-400';
+    barColor = 'bg-slate-700/70';
+    textColor = 'text-slate-400';
   } else if (isUrgent) {
-    barColor = 'bg-red-500';
+    barColor = 'bg-red-900/200';
     textColor = 'text-red-600 font-semibold';
   } else if (isNear) {
     barColor = 'bg-yellow-500';
@@ -89,7 +89,7 @@ export function DeadlineBar({ daysLeft }: { daysLeft: number | null }) {
 
   return (
     <div className="flex items-center gap-2 min-w-[100px]">
-      <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+      <div className="flex-1 h-1.5 bg-slate-800/60 rounded-full overflow-hidden">
         <motion.div
           className={`h-full ${barColor} rounded-full`}
           initial={{ width: 0 }}
@@ -115,7 +115,7 @@ export function ValueIndicator({
   showComparison?: boolean;
 }) {
   if (value === null) {
-    return <span className="text-xs text-gray-400">TBC</span>;
+    return <span className="text-xs text-slate-400">TBC</span>;
   }
 
   const formatValue = (v: number) => {
@@ -137,7 +137,7 @@ export function ValueIndicator({
 
   return (
     <div className="flex items-center gap-1">
-      <span className="text-sm font-medium text-gray-900">{formatValue(value)}</span>
+      <span className="text-sm font-medium text-slate-100">{formatValue(value)}</span>
       {comparison && (
         <span className={`text-[10px] ${comparison.color}`} title={comparison.label}>
           {comparison.icon}
@@ -160,7 +160,7 @@ export function CompetitorBadge({
   if (loading) {
     return (
       <div className="flex items-center gap-1">
-        <div className="w-3 h-3 border border-gray-300 border-t-teal-500 rounded-full animate-spin" />
+        <div className="w-3 h-3 border-slate-600/50 border-t-teal-500 rounded-full animate-spin" />
       </div>
     );
   }
@@ -168,17 +168,17 @@ export function CompetitorBadge({
   return (
     <div className="flex items-center gap-2">
       {count > 0 && (
-        <span className="inline-flex items-center px-1.5 py-0.5 bg-gray-100 rounded text-[10px] text-gray-600">
+        <span className="inline-flex items-center px-1.5 py-0.5 bg-slate-900/40 backdrop-blur-xl rounded text-[10px] text-slate-300">
           {count} bidder{count !== 1 ? 's' : ''}
         </span>
       )}
       {incumbentName && (
-        <span className="inline-flex items-center px-1.5 py-0.5 bg-amber-50 border border-amber-200 rounded text-[10px] text-amber-700">
+        <span className="inline-flex items-center px-1.5 py-0.5 bg-amber-900/20 border-amber-200 rounded text-[10px] text-amber-700">
           ★ {incumbentName}
         </span>
       )}
       {count === 0 && !incumbentName && (
-        <span className="text-[10px] text-gray-400">—</span>
+        <span className="text-[10px] text-slate-400">—</span>
       )}
     </div>
   );
@@ -193,9 +193,9 @@ export function InsightChip({
   label: string;
 }) {
   const styles = {
-    positive: 'bg-green-50 text-green-700 border-green-200',
-    warning: 'bg-red-50 text-red-700 border-red-200',
-    neutral: 'bg-gray-50 text-gray-600 border-gray-200',
+    positive: 'bg-green-600/20 text-green-400 border border-green-500/30 border-green-200',
+    warning: 'bg-red-900/20 text-red-700 border-red-200',
+    neutral: 'bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-slate-300 border-slate-700/50',
     opportunity: 'bg-purple-50 text-purple-700 border-purple-200',
   };
 

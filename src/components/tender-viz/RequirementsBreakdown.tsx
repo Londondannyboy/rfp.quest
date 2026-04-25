@@ -28,9 +28,9 @@ interface RequirementsBreakdownProps {
 }
 
 const statusConfig: Record<RequirementStatus, { icon: typeof CheckCircleIcon; color: string; bg: string; label: string }> = {
-  met: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-green-500/10', label: 'Met' },
+  met: { icon: CheckCircleIcon, color: 'text-green-500', bg: 'bg-green-900/200/10', label: 'Met' },
   partial: { icon: QuestionMarkCircleIcon, color: 'text-yellow-500', bg: 'bg-yellow-500/10', label: 'Partial' },
-  gap: { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-500/10', label: 'Gap' },
+  gap: { icon: XCircleIcon, color: 'text-red-500', bg: 'bg-red-900/200/10', label: 'Gap' },
   unknown: { icon: QuestionMarkCircleIcon, color: 'text-slate-400', bg: 'bg-slate-500/10', label: 'Unknown' },
 };
 
@@ -76,7 +76,7 @@ function RequirementRow({
           <div className="flex items-center gap-2">
             <h4 className="text-white font-medium">{requirement.title}</h4>
             {requirement.mandatory && (
-              <span className="px-1.5 py-0.5 text-xs font-medium bg-red-500/20 text-red-400 rounded">
+              <span className="px-1.5 py-0.5 text-xs font-medium bg-red-900/200/20 text-red-400 rounded">
                 Mandatory
               </span>
             )}
@@ -143,7 +143,7 @@ export function RequirementsBreakdown({ requirements, companyName }: Requirement
 
           {/* Readiness score */}
           <div className="text-right">
-            <div className="text-3xl font-bold text-teal-400">{readinessScore}%</div>
+            <div className="text-3xl font-bold text-blue-400">{readinessScore}%</div>
             <div className="text-xs text-slate-400">Readiness Score</div>
           </div>
         </div>
@@ -162,7 +162,7 @@ export function RequirementsBreakdown({ requirements, companyName }: Requirement
 
         {/* Warning for mandatory gaps */}
         {stats.mandatoryGaps > 0 && (
-          <div className="mt-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+          <div className="mt-4 p-3 bg-red-900/200/10 border-red-500/30 rounded-lg">
             <p className="text-sm text-red-400">
               ⚠️ {stats.mandatoryGaps} mandatory requirement{stats.mandatoryGaps > 1 ? 's' : ''} not met.
               This may disqualify your bid.

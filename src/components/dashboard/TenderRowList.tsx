@@ -63,7 +63,7 @@ export function TenderRowList({
 
   if (loading && tenders.length === 0) {
     return (
-      <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 shadow-sm overflow-hidden">
         <TenderRowHeader />
         <div className="divide-y divide-gray-100">
           {Array.from({ length: 8 }).map((_, i) => (
@@ -79,11 +79,11 @@ export function TenderRowList({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-white rounded-xl border border-gray-200 shadow-sm p-12 text-center"
+        className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 shadow-sm p-12 text-center"
       >
         <div className="text-5xl mb-4">📋</div>
-        <h3 className="text-lg font-semibold text-gray-900 mb-2">No opportunities found</h3>
-        <p className="text-gray-500 max-w-md mx-auto">
+        <h3 className="text-lg font-semibold text-slate-100 mb-2">No opportunities found</h3>
+        <p className="text-slate-500 max-w-md mx-auto">
           Adjust your filters or check back later for new tenders matching your criteria.
         </p>
       </motion.div>
@@ -91,7 +91,7 @@ export function TenderRowList({
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="bg-slate-900/60 backdrop-blur-xl border-slate-700/50 rounded-xl border-slate-700/50 shadow-sm overflow-hidden">
       <TenderRowHeader />
       <div
         ref={containerRef}
@@ -134,7 +134,7 @@ export function TenderRowList({
 
         {/* End of list indicator */}
         {!hasMore && tenders.length > 0 && (
-          <div className="py-6 text-center text-sm text-gray-400">
+          <div className="py-6 text-center text-sm text-slate-400">
             Showing all {tenders.length} opportunities
           </div>
         )}
@@ -233,14 +233,14 @@ export function TenderListStats({
       className="flex items-center gap-6 px-4 py-2 bg-gradient-to-r from-teal-50 to-transparent rounded-lg mb-4"
     >
       <div className="flex items-center gap-2">
-        <span className="text-2xl font-bold text-teal-600">{total}</span>
-        <span className="text-sm text-gray-600">opportunities</span>
+        <span className="text-2xl font-bold text-blue-600">{total}</span>
+        <span className="text-sm text-slate-300">opportunities</span>
       </div>
 
       {avgMatchScore !== undefined && (
         <div className="flex items-center gap-1.5 text-sm">
-          <span className="font-semibold text-gray-900">{avgMatchScore}%</span>
-          <span className="text-gray-500">avg match</span>
+          <span className="font-semibold text-slate-100">{avgMatchScore}%</span>
+          <span className="text-slate-500">avg match</span>
         </div>
       )}
 
@@ -249,7 +249,7 @@ export function TenderListStats({
           <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600 text-xs font-bold">
             {urgentCount}
           </span>
-          <span className="text-gray-500">urgent</span>
+          <span className="text-slate-500">urgent</span>
         </div>
       )}
 
@@ -258,7 +258,7 @@ export function TenderListStats({
           <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-100 text-green-600 text-xs font-bold">
             {sustainableCount}
           </span>
-          <span className="text-gray-500">green</span>
+          <span className="text-slate-500">green</span>
         </div>
       )}
     </motion.div>

@@ -131,14 +131,14 @@ export function ExportBidButton({ documentId, tenderOcid, disabled }: Props) {
 
       {/* Error Message */}
       {error && (
-        <div className="absolute top-full left-0 mt-2 p-3 bg-red-900/90 border border-red-700 rounded-lg text-red-200 text-sm whitespace-nowrap z-10">
+        <div className="absolute top-full left-0 mt-2 p-3 bg-red-900/90 border-red-700 rounded-lg text-red-200 text-sm whitespace-nowrap z-10">
           {error}
         </div>
       )}
 
       {/* Options Dropdown */}
       {showOptions && (
-        <div className="absolute top-full right-0 mt-2 w-72 bg-slate-800 border border-slate-700 rounded-lg shadow-xl z-10">
+        <div className="absolute top-full right-0 mt-2 w-72 bg-slate-800 border-slate-700 rounded-lg shadow-xl z-10">
           <div className="p-4 space-y-4">
             <h3 className="text-sm font-medium text-white">Export Options</h3>
 
@@ -152,7 +152,7 @@ export function ExportBidButton({ documentId, tenderOcid, disabled }: Props) {
                 value={options.companyName}
                 onChange={(e) => setOptions({ ...options, companyName: e.target.value })}
                 placeholder="Leave blank to use profile name"
-                className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-slate-700 border-slate-600 rounded-lg text-white text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 

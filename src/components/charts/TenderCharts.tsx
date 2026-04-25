@@ -17,7 +17,7 @@ export function MiniPieChart({ segments, size = 80, showLabels = false }: MiniPi
   if (!segments || segments.length === 0) {
     return (
       <div className="flex items-center justify-center" style={{ width: size, height: size }}>
-        <div className="text-xs text-gray-400">No data</div>
+        <div className="text-xs text-slate-400">No data</div>
       </div>
     );
   }
@@ -27,7 +27,7 @@ export function MiniPieChart({ segments, size = 80, showLabels = false }: MiniPi
   if (total === 0) {
     return (
       <div className="flex items-center justify-center" style={{ width: size, height: size }}>
-        <div className="text-xs text-gray-400">No data</div>
+        <div className="text-xs text-slate-400">No data</div>
       </div>
     );
   }
@@ -80,7 +80,7 @@ export function MiniPieChart({ segments, size = 80, showLabels = false }: MiniPi
           {segments.slice(0, 3).map((s, i) => (
             <div key={i} className="flex items-center gap-1 text-[9px]">
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: s.color }} />
-              <span className="text-gray-600 truncate max-w-[60px]">{s.label}</span>
+              <span className="text-slate-300 truncate max-w-[60px]">{s.label}</span>
             </div>
           ))}
         </div>
@@ -108,8 +108,8 @@ export function MiniBarChart({ bars, height = 60 }: MiniBarChartProps) {
 
         return (
           <div key={i} className="flex items-center gap-2">
-            <span className="text-[9px] text-gray-500 w-12 truncate">{bar.label}</span>
-            <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+            <span className="text-[9px] text-slate-500 w-12 truncate">{bar.label}</span>
+            <div className="flex-1 h-2 bg-slate-900/40 backdrop-blur-xl rounded-full overflow-hidden">
               <motion.div
                 className="h-full rounded-full"
                 style={{ backgroundColor: color }}
@@ -118,7 +118,7 @@ export function MiniBarChart({ bars, height = 60 }: MiniBarChartProps) {
                 transition={{ delay: i * 0.1, duration: 0.5, ease: 'easeOut' }}
               />
             </div>
-            <span className="text-[9px] font-medium text-gray-700 w-8 text-right">
+            <span className="text-[9px] font-medium text-slate-200 w-8 text-right">
               {bar.value}%
             </span>
           </div>
@@ -140,7 +140,7 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
   // Guard against empty events
   if (!events || events.length === 0) {
     return (
-      <div className="text-xs text-gray-400 text-center py-2">
+      <div className="text-xs text-slate-400 text-center py-2">
         No timeline data available
       </div>
     );
@@ -161,15 +161,15 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
             <div
               className={`absolute -left-3 w-2.5 h-2.5 rounded-full border-2 ${
                 event.isActive
-                  ? 'bg-teal-500 border-teal-500 ring-2 ring-teal-200'
+                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-teal-200'
                   : event.isPast
-                  ? 'bg-gray-300 border-gray-300'
-                  : 'bg-white border-teal-400'
+                  ? 'bg-slate-700/70 border-slate-600/50'
+                  : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-blue-500/60'
               }`}
             />
             <div className="ml-2">
-              <p className="text-[10px] text-gray-400">{event.date}</p>
-              <p className={`text-xs ${event.isActive ? 'text-teal-600 font-medium' : 'text-gray-600'}`}>
+              <p className="text-[10px] text-slate-400">{event.date}</p>
+              <p className={`text-xs ${event.isActive ? 'text-blue-600 font-medium' : 'text-slate-300'}`}>
                 {event.label}
               </p>
             </div>
@@ -194,15 +194,15 @@ export function MiniTimeline({ events, orientation = 'horizontal' }: TimelinePro
             <div
               className={`w-3 h-3 rounded-full border-2 z-10 ${
                 event.isActive
-                  ? 'bg-teal-500 border-teal-500 ring-2 ring-teal-200'
+                  ? 'bg-blue-950/200 border-blue-500/50 ring-2 ring-teal-200'
                   : event.isPast
-                  ? 'bg-gray-300 border-gray-300'
-                  : 'bg-white border-blue-400'
+                  ? 'bg-slate-700/70 border-slate-600/50'
+                  : 'bg-slate-900/60 backdrop-blur-xl border-slate-700/50 border-blue-400'
               }`}
             />
             <div className="mt-2 text-center">
-              <p className="text-[8px] text-gray-400">{event.date}</p>
-              <p className={`text-[9px] ${event.isActive ? 'text-teal-600 font-medium' : 'text-gray-500'}`}>
+              <p className="text-[8px] text-slate-400">{event.date}</p>
+              <p className={`text-[9px] ${event.isActive ? 'text-blue-600 font-medium' : 'text-slate-500'}`}>
                 {event.label}
               </p>
             </div>
@@ -274,8 +274,8 @@ export function RadialGauge({
         <span className="text-xl font-bold" style={{ color: gaugeColor }}>
           {Math.round(value)}
         </span>
-        {label && <span className="text-[9px] text-gray-500">{label}</span>}
-        {sublabel && <span className="text-[8px] text-gray-400">{sublabel}</span>}
+        {label && <span className="text-[9px] text-slate-500">{label}</span>}
+        {sublabel && <span className="text-[8px] text-slate-400">{sublabel}</span>}
       </div>
     </div>
   );
@@ -376,7 +376,7 @@ export function ActivityRing({ rings, size = 80 }: ActivityRingProps) {
   if (!rings || rings.length === 0) {
     return (
       <div className="flex items-center justify-center" style={{ width: size, height: size }}>
-        <div className="text-xs text-gray-400">No data</div>
+        <div className="text-xs text-slate-400">No data</div>
       </div>
     );
   }
@@ -426,8 +426,8 @@ export function ActivityRing({ rings, size = 80 }: ActivityRingProps) {
       {/* Center label */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-center">
-          <span className="text-lg font-bold text-gray-800">{rings[0]?.value || 0}</span>
-          <span className="text-[8px] text-gray-500 block">{rings[0]?.label}</span>
+          <span className="text-lg font-bold text-slate-100">{rings[0]?.value || 0}</span>
+          <span className="text-[8px] text-slate-500 block">{rings[0]?.label}</span>
         </div>
       </div>
     </div>
@@ -466,7 +466,7 @@ export function CompetitionMeter({ level, count }: CompetitionMeterProps) {
       </div>
       <div className="text-[10px]">
         <span className="font-medium" style={{ color: colors[level] }}>{labels[level]}</span>
-        {count !== undefined && <span className="text-gray-400 ml-1">({count} bidders)</span>}
+        {count !== undefined && <span className="text-slate-400 ml-1">({count} bidders)</span>}
       </div>
     </div>
   );
@@ -495,19 +495,19 @@ export function ValueComparison({ value, avgValue, minValue, maxValue }: ValueCo
 
   return (
     <div className="space-y-1">
-      <div className="flex justify-between text-[9px] text-gray-400">
+      <div className="flex justify-between text-[9px] text-slate-400">
         <span>{formatValue(minValue || 0)}</span>
         <span>{formatValue(maxValue || value * 1.5)}</span>
       </div>
       <div className="relative h-3 bg-gradient-to-r from-green-100 via-yellow-100 to-red-100 rounded-full">
         {/* Average marker */}
         <div
-          className="absolute top-0 bottom-0 w-0.5 bg-gray-400"
+          className="absolute top-0 bottom-0 w-0.5 bg-slate-800/70"
           style={{ left: `${avgPosition}%` }}
         />
         {/* Value marker */}
         <motion.div
-          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-teal-500 rounded-full border-2 border-white shadow-sm"
+          className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-blue-950/200 rounded-full border-2 border-white shadow-sm"
           style={{ left: `${valuePosition}%` }}
           initial={{ scale: 0, left: '0%' }}
           animate={{ scale: 1, left: `${valuePosition}%` }}
@@ -515,8 +515,8 @@ export function ValueComparison({ value, avgValue, minValue, maxValue }: ValueCo
         />
       </div>
       <div className="flex justify-between text-[9px]">
-        <span className="text-teal-600 font-medium">{formatValue(value)}</span>
-        <span className="text-gray-400">Avg: {formatValue(avgValue)}</span>
+        <span className="text-blue-600 font-medium">{formatValue(value)}</span>
+        <span className="text-slate-400">Avg: {formatValue(avgValue)}</span>
       </div>
     </div>
   );

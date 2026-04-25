@@ -183,7 +183,7 @@ function PhaseCard({ phase }: { phase: ParsedSection }) {
 // Requirements chips
 function RequirementChips({ requirements }: { requirements: string[] }) {
   return (
-    <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+    <div className="bg-slate-800/50 rounded-xl p-4 border-slate-700">
       <div className="flex items-center gap-2 mb-3">
         <ClipboardDocumentListIcon className="w-5 h-5 text-amber-400" />
         <h3 className="font-semibold text-white">Key Requirements</h3>
@@ -192,7 +192,7 @@ function RequirementChips({ requirements }: { requirements: string[] }) {
         {requirements.map((req, i) => (
           <span
             key={i}
-            className="px-3 py-1.5 bg-amber-500/10 border border-amber-500/30 rounded-lg text-sm text-amber-200"
+            className="px-3 py-1.5 bg-amber-900/200/10 border-amber-500/30 rounded-lg text-sm text-amber-200"
           >
             {req.length > 60 ? req.substring(0, 60) + '...' : req}
           </span>
@@ -205,16 +205,16 @@ function RequirementChips({ requirements }: { requirements: string[] }) {
 // Capabilities badges
 function CapabilityBadges({ capabilities }: { capabilities: string[] }) {
   return (
-    <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-700">
+    <div className="bg-slate-800/50 rounded-xl p-4 border-slate-700">
       <div className="flex items-center gap-2 mb-3">
-        <LightBulbIcon className="w-5 h-5 text-teal-400" />
+        <LightBulbIcon className="w-5 h-5 text-blue-400" />
         <h3 className="font-semibold text-white">Required Capabilities</h3>
       </div>
       <div className="flex flex-wrap gap-2">
         {capabilities.map((cap, i) => (
           <span
             key={i}
-            className="px-3 py-1.5 bg-teal-500/10 border border-teal-500/30 rounded-lg text-sm text-teal-200"
+            className="px-3 py-1.5 bg-blue-950/200/10 border-blue-500/50/30 rounded-lg text-sm text-blue-300"
           >
             {cap}
           </span>
@@ -229,7 +229,7 @@ function AISummary({ summary }: { summary: string | null }) {
   if (!summary) return null;
 
   return (
-    <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-4 border border-purple-500/30">
+    <div className="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl p-4 border-purple-500/30">
       <div className="flex items-center gap-2 mb-3">
         <SparklesIcon className="w-5 h-5 text-purple-400" />
         <h3 className="font-semibold text-purple-300">AI Analysis</h3>
@@ -257,7 +257,7 @@ function TextSection({ section }: { section: ParsedSection }) {
   };
 
   return (
-    <div className="bg-slate-800/30 rounded-xl p-4 border border-slate-700/50">
+    <div className="bg-slate-800/30 rounded-xl p-4 border-slate-700/50">
       {section.title && (
         <div className="flex items-center gap-2 mb-3">
           <Icon className={`w-5 h-5 ${colors[section.type]}`} />
@@ -330,7 +330,7 @@ export function ScopeOfWork({ description, title }: ScopeOfWorkProps) {
     <div className="bg-slate-900 rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <DocumentTextIcon className="w-5 h-5 text-teal-400" />
+          <DocumentTextIcon className="w-5 h-5 text-blue-400" />
           <h2 className="text-lg font-semibold text-white">
             <strong>{title}</strong> - Scope of Work
           </h2>

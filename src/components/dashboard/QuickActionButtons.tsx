@@ -61,7 +61,7 @@ export function QuickActionButtons({
           className={`
             ${buttonBase}
             ${buttonSize}
-            bg-teal-500 hover:bg-teal-600 text-white
+            bg-blue-950/200 hover:bg-blue-700 text-white
           `}
           title="View tender details"
         >
@@ -81,7 +81,7 @@ export function QuickActionButtons({
             ${buttonSize}
             ${isSaved
               ? 'bg-amber-100 hover:bg-amber-200 text-amber-700'
-              : 'bg-gray-100 hover:bg-gray-200 text-gray-700'}
+              : 'bg-slate-900/40 backdrop-blur-xl hover:bg-slate-800/60 text-slate-200'}
           `}
           title={isSaved ? 'Remove from saved' : 'Save for later'}
         >
@@ -123,7 +123,7 @@ export function QuickActionButtons({
           className={`
             ${buttonBase}
             ${buttonSize}
-            bg-gray-100 hover:bg-red-100 text-gray-500 hover:text-red-600
+            bg-slate-900/40 backdrop-blur-xl hover:bg-red-100 text-slate-500 hover:text-red-600
           `}
           title="Dismiss this tender"
         >
@@ -151,7 +151,7 @@ export function QuickActionRow({
     <div className="flex items-center gap-2">
       <Link
         href={`/tender/${slug}`}
-        className="inline-flex items-center gap-1 text-xs text-teal-600 hover:text-teal-700 font-medium"
+        className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-400 font-medium"
       >
         View details
         <ArrowTopRightOnSquareIcon className="w-3 h-3" />
@@ -162,7 +162,7 @@ export function QuickActionRow({
           className={`p-1 rounded transition-colors ${
             isSaved
               ? 'text-amber-500 hover:text-amber-600'
-              : 'text-gray-400 hover:text-gray-600'
+              : 'text-slate-400 hover:text-slate-300'
           }`}
           title={isSaved ? 'Remove from saved' : 'Save'}
         >
