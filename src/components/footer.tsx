@@ -56,6 +56,7 @@ const certificationLinks = [
 ];
 
 const partnerLinks = [
+  { href: 'https://gtm.quest/top-gtm-consultant-best-gtm-consultants-gtm-consultancy-gtm-consulting', label: 'GTM Consultancy', external: true },
   { href: 'https://uksrs.org.uk', label: 'UK Sustainability Reporting', external: true },
   { href: 'https://sustainabilityreportingstandards.co.uk', label: 'Sustainability Reporting Standards', external: true },
   { href: 'https://miam.quest', label: 'MIAM Certificate', external: true },
