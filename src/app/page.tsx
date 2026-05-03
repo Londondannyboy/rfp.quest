@@ -214,7 +214,7 @@ Join hundreds of UK organizations already using RFP Platform Quest to win more c
         title="Ready to Try Our RFP Software?"
         subtitle="Join UK businesses preparing to use RFP Platform Quest — the RFP software built for winning. Register early for exclusive access when we launch in Q2 2026."
         primaryCta={{ text: 'Register Early', href: 'https://calendly.com/my-first-quest' }}
-        secondaryCta={{ text: 'Browse UK Tenders', href: '/browse-tenders' }}
+        secondaryCta={{ text: 'Register Now', href: '/browse-tenders' }}
         variant="gradient"
       />
 

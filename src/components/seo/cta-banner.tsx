@@ -55,7 +55,7 @@ export function CTABanner({
   const buttonClasses = {
     gradient: {
       primary: 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30',
-      secondary: 'border-2 border-slate-500 bg-slate-900/50 text-slate-100 hover:border-blue-400 hover:text-blue-300 hover:bg-blue-950/30 backdrop-blur-sm',
+      secondary: 'bg-black hover:bg-gray-900 text-white text-xl font-bold px-12 py-6',
     },
     dark: {
       primary: 'bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white shadow-lg shadow-blue-600/25',
