@@ -221,6 +221,19 @@ export default function ISO14001Page() {
             <li>Evidence of continuous improvement</li>
             <li>Third-party verification of environmental claims</li>
           </ul>
+          
+          <p className="mt-4 text-slate-600">
+            Organizations implementing ISO 14001 for government tenders are well-positioned for compliance with{' '}
+            <a 
+              href="https://uksrsreport.co.uk/uk-srs-s1-s2-standards" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline font-medium"
+            >
+              UK SRS S2 climate reporting standards
+            </a>
+            , as both frameworks require systematic carbon measurement and reduction planning.
+          </p>
 
           <h2 id="certification-cost" className="text-2xl font-bold mt-10 mb-4">
             ISO 14001 certification cost UK 2026
@@ -467,7 +480,16 @@ export default function ISO14001Page() {
                 ISO 14001 provides the framework for measuring and reducing environmental impact, 
                 directly supporting PPN 06/21 carbon reduction requirements. It helps track emissions, 
                 demonstrates continuous improvement, and provides third-party verification of 
-                environmental performance.
+                environmental performance. For organizations preparing for broader{' '}
+                <a 
+                  href="https://uksrsreport.co.uk/uk-srs-compliance" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-100 hover:text-white underline font-medium"
+                >
+                  UK SRS compliance
+                </a>
+                , ISO 14001 provides a solid foundation for sustainability reporting.
               </p>
             </div>
           </div>
